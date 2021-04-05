@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="insertMember">
+		INSERT  /* com.sabang.findMyRoom.member.model.dao.MemberDAO#insertMember() */
+		  INTO TBL_USER A
+		(
+		  A.USER_NO
+		, A.USER_ID
+		, A.USER_PWD
+		, A.NICKNAME
+		, A.EMAIL
+		, A.PHONE
+		, A.ENROLL_DATE
+		, A.USER_STATUS
+		)
+		VALUES
+		(
+		  SEQ_MEMBER_NO.NEXTVAL
+		, ?
+		, ?
+		, ?
+		, ?
+		, ?
+		, SYSDATE
+		, 'Y'
+		)
+	</entry>
+	<entry key="">
+	
+	</entry>
+</properties>

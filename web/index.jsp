@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Welcome!
+	<jsp:forward page="/WEB-INF/views/member/registForm.jsp"/>
 </body>
 </html>

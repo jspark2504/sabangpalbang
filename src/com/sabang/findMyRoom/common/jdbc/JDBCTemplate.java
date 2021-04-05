@@ -1,4 +1,4 @@
-package com.sabang.common;
+package com.sabang.findMyRoom.common.jdbc;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
+import com.sabang.findMyRoom.common.config.ConfigLocation;
+
 public class JDBCTemplate {
 	
 	public static Connection getConnection() {
@@ -16,13 +18,17 @@ public class JDBCTemplate {
 		
 		Properties prop = new Properties();
 		try {
-			prop.load(new FileReader("config/driver.properties"));
+			prop.load(new FileReader(ConfigLocation.CONNECTION_CONFIG_LOCATION));
 			
 			String driver = prop.getProperty("driver");
 			String url = prop.getProperty("url");
 			
 			Class.forName(driver);
+			
 			con = DriverManager.getConnection(url, prop);
+			
+			System.out.println(con);
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
