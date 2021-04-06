@@ -16,7 +16,7 @@
 		)
 		VALUES
 		(
-		  SEQ_MEMBER_NO.NEXTVAL
+		  SEQ_USER_NO.NEXTVAL
 		, ?
 		, ?
 		, ?
