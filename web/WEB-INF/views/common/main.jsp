@@ -21,19 +21,21 @@
 <title>구해줘! 내 방</title>
 </head>
 <body>
-	<div class="container-fluid">
+	<jsp:include page="../common/header.jsp" />
+	<div class="container-fluid jumbo-container">
 		<div class="main">
-			<img class="banner" src="/findMyRoom/resources/image/메인배너.png" alt="...">
+			<img class="banner" src="/findMyRoom/resources/image/메인배너.png"
+				alt="...">
 			<h1 class="search">
 				<b>전세 어디까지 알고 계신가요?</b>
 			</h1>
 		</div>
 	</div>
 
-	<div class="container-fluid" style="width: 80%; margin: auto;">
+	<section class="container-fluid" style="width: 80%; margin: auto;">
 		<!-- Example row of columns -->
-		<div class="row">
-			<div class="col-md-4">
+		<section class="row">
+			<article class="col-md-4 main-contents">
 				<div class="introduce">
 					<h4>
 						<b>소개할게요</b>
@@ -43,9 +45,10 @@
 				<hr>
 				<ul>
 					<li class="item"><a href="#">
-							<div class="img">
-								<img src="/findMyRoom/resources/image/나문휘.png" alt="..." class="img-circle">
-							</div>
+							<span class="img">
+								<img src="/findMyRoom/resources/image/나문휘.png" alt="..."
+									class="img-circle">
+							</span>
 							<div class="info">
 								<span class="name">나문휘<br></span>
 								<div class="star">
@@ -61,7 +64,8 @@
 					</a></li>
 					<li class="item"><a href="#">
 							<div class="img">
-								<img src="/findMyRoom/resources/image/이숭재.png" alt="..." class="img-circle">
+								<img src="/findMyRoom/resources/image/이숭재.png" alt="..."
+									class="img-circle">
 							</div>
 							<div class="info">
 								<span class="name">이숭재<br></span>
@@ -77,9 +81,8 @@
 							</div>
 					</a></li>
 				</ul>
-				<br>
-			</div>
-			<div class="col-md-4">
+			</article>
+			<div class="col-md-4 main-contents">
 				<div class="free_board">
 					<h4>
 						<b>자유게시판</b>
@@ -96,9 +99,8 @@
 						<li class="title"><a href="#">신림역 근처 맛집 추천 좀</a></li>
 					</ul>
 				</div>
-				<br>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-4 main-contents">
 				<div class="notice">
 					<h4>
 						<b>공지사항</b>
@@ -121,14 +123,21 @@
 					</ul>
 				</div>
 			</div>
+		</section>
+	</section>
+	<img class="img-responsive center-block"
+		src="/findMyRoom/resources/image/AD1.png" alt="" />
 
-			<!-- Bootstrap core JavaScript
+
+
+
+	<!-- Bootstrap core JavaScript
     ================================================== -->
-			<!-- Placed at the end of the document so the pages load faster -->
-			<script
-				src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-			<script src="../../dist/js/bootstrap.min.js"></script>
-			<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-			<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="../../dist/js/bootstrap.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>
