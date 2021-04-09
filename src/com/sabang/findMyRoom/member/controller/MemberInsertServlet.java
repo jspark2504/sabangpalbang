@@ -15,12 +15,6 @@ import com.sabang.findMyRoom.member.model.service.MemberService;
 public class MemberInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = "/WEB-INF/views/member/registForm.jsp";
-		
-		request.getRequestDispatcher(path).forward(request, response);
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String userId = request.getParameter("userId");

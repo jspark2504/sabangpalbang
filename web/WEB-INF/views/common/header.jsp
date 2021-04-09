@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/findMyRoom/resources/css/header.css">
 <title>header</title>
-<script src="https://kit.fontawesome.com/11694e3acf.js"
-	crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/11694e3acf.js"></script>
 <script src="/findMyRoom/resources/js/header.js" defer></script>
 </head>
 <body>
@@ -26,12 +26,13 @@
 				<li><a href="#">쓰리룸</a></li>
 			</ul>
 			<div class="btn-gr">
-				<button type="button" class="drop-menu-btn">사방팔방님 ▼</button>
-				<a href="#" class="navbar_toggleBtn"> <i class="fas fa-bars"></i>
-				</a>
+				<button type="button" class="drop-menu-btn"
+					onclick="location.href='${ pageContext.servletContext.contextPath }/member/regist'">로그인/회원가입
+				</button>
+				<a href="#" class="navbar_toggleBtn"><i class="fas fa-bars"></i></a>
+
 			</div>
 		</div>
-
 		<hr>
 	</nav>
 </body>
