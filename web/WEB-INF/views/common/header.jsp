@@ -7,10 +7,14 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/findMyRoom/resources/css/header.css">
+<!-- favicon & title -->
 <link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
 <title>구해줘! 내 방</title>
+<!-- icon src -->
 <script src="https://kit.fontawesome.com/11694e3acf.js"></script>
+<!-- header css -->
+<link rel="stylesheet" href="/findMyRoom/resources/css/header.css">
+<!-- header js -->
 <script src="/findMyRoom/resources/js/header.js" defer></script>
 </head>
 <body>

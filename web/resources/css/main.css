@@ -1,0 +1,170 @@
+@charset "UTF-8";
+
+.img-circle {
+    width: 60px;
+}
+
+.glyphicon.glyphicon-star {
+    color: rgb(255, 217, 0);
+}
+
+.introduce {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.free_board {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.notice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn.btn-default.btn-xs {
+    width: 50px;
+    height: 25px;
+}
+
+.item {
+    display: flex;
+    margin: 18px 0;
+}
+
+.item .info {
+    display: flex;
+    flex-direction: column;
+}
+
+.item .img {
+    float: left;
+    margin-right: 15px;
+}
+
+.item .info .review_content {
+    display: -webkit-inline-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    margin: 0;
+}
+
+.item .info .review_no {
+    display: -webkit-inline-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    margin-left: 5px;
+}
+
+.glyphicon.glyphicon-star {
+    margin-bottom: 2px;
+}
+
+.glyphicon.glyphicon-star.empty {
+    color: #c4c4c4;
+}
+
+.item .info .star {
+    display: flex;
+    align-items: center;
+}
+
+.title a {
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.board {
+    line-height: 30px;
+}
+
+.board li:hover {
+    background-color: #f3f3f3;
+    border-radius: 5px;
+}
+
+.board li {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.item a {
+    text-decoration: none;
+    color: black;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-fluid {
+    margin-bottom: 50px;
+    padding: 0 0;
+}
+
+.container-fluid .search {
+    position: absolute;
+    font-size: 4vw;
+    font
+}
+
+.container-fluid .banner {
+    width: 100%;
+    min-height: 300px;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.contents {
+    margin: 20px;
+}
+
+.introduce .btn-sm {
+    background-color: #e1e1e1;
+    color: #606060;
+    text-decoration: none;
+}
+
+.free_board .btn-sm {
+    background-color: #e1e1e1;
+    color: #606060;
+    text-decoration: none;
+}
+
+.notice .btn-sm {
+    background-color: #e1e1e1;
+    color: #606060;
+    text-decoration: none;
+}
+
+.btn-sm:hover {
+    background-color: #dadada;
+}
+
+.item:hover {
+    background-color: #f3f3f3;
+    border-radius: 5px;
+}
+
+h4 {
+    margin: 0;
+}
+
+hr {
+    margin: 15px 0;
+}
