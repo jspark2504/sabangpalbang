@@ -13,7 +13,7 @@
 <script src="/findMyRoom/resources/js/header.js" defer></script>
 </head>
 <body>
-	<nav class="navbar">
+	<header>
 		<div class="navbar-contents">
 			<div class="navbar_logo">
 				<a href="#"><img
@@ -34,6 +34,6 @@
 			</div>
 		</div>
 		<hr>
-	</nav>
+	</header>
 </body>
 </html>

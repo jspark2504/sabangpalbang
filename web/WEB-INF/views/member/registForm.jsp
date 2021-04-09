@@ -28,15 +28,10 @@
     </script>
 
     <style>
-           body {
-               padding-top: 40px;
-               padding-bottom: 40px;
-           }
-
-           .form-signup {
+		  .form-signup {
                max-width: 380px;
                padding: 15px;
-               margin: 0 auto;
+               margin: 40px auto;
                border: 1px solid #e1e1e1;
                border-radius: 5px;
 
@@ -96,7 +91,7 @@
 </head>
 
 <body>
-
+	<jsp:include page="../common/header.jsp"/>
     <section class="container">
         <!-- 회원가입 양식 outer 영역 -->
         <form class="form-signup" action="${ pageContext.servletContext.contextPath }/member/regist" method="post">

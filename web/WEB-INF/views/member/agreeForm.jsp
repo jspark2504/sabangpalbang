@@ -23,15 +23,11 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
     <style>
-        body {
-            padding-top: 40px;
-            padding-bottom: 40px;
-        }
 
         .form-signin {
             max-width: 380px;
             padding: 15px;
-            margin: 0 auto;
+            margin: 40px auto;
             border: 1px solid #e1e1e1;
             border-radius: 5px;
         }
@@ -81,6 +77,7 @@
 </head>
 
 <body>
+	<jsp:include page="../common/header.jsp"/>
     <section class="container">
         <form class="form-signin" action="${ pageContext.servletContext.contextPath }/member/insert" method="post">
 
