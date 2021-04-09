@@ -63,10 +63,10 @@
 							</div>
 					</a></li>
 					<li class="item"><a href="#">
-							<div class="img">
+							<span class="img">
 								<img src="/findMyRoom/resources/image/이숭재.png" alt="..."
 									class="img-circle">
-							</div>
+							</span>
 							<div class="info">
 								<span class="name">이숭재<br></span>
 								<div class="star">
