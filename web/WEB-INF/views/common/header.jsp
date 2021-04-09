@@ -16,7 +16,8 @@
 	<nav class="navbar">
 		<div class="navbar-contents">
 			<div class="navbar_logo">
-				<a href="#"><img src="/findMyRoom/resources/image/findmyroom.png" alt=""></a>
+				<a href="#"><img
+					src="/findMyRoom/resources/image/findmyroom.png" alt=""></a>
 			</div>
 			<ul class="navbar_menu">
 				<li><a href="#">원룸</a></li>
