@@ -21,7 +21,7 @@
 	<header>
 		<div class="navbar-contents">
 			<div class="navbar_logo">
-				<a href="#"><img
+				<a href="${ pageContext.servletContext.contextPath }"><img
 					src="/findMyRoom/resources/image/findmyroom.png" alt=""></a>
 			</div>
 			<ul class="navbar_menu">
@@ -38,7 +38,7 @@
 
 			</div>
 		</div>
-		<hr>
+		<hr class="hr-shadow">
 	</header>
 </body>
 </html>

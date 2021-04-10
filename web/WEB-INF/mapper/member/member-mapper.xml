@@ -26,7 +26,29 @@
 		, 'Y'
 		)
 	</entry>
+	<entry key="selectEncryptedPwd">
+		SELECT /* com.sabang.findMyRoom.member.model.dao.MemberDAO#selectEncryptedPwd() */
+			   A.USER_PWD
+		  FROM TBL_USER A
+		 WHERE A.USER_STATUS = 'Y'
+		   AND A.USER_ID = ?
+	</entry>
+	<entry key="selectLoginMember">
+		SELECT /* com.sabang.findMyRoom.member.model.dao.MemberDAO#selectLoginMember() */
+			   A.USER_NO
+			 , A.USER_ID
+			 , A.NICKNAME
+			 , PHONE
+			 , EMAIL
+			 , A.ENROLL_DATE
+			 , A.USER_ROLE
+			 , A.USER_STATUS
+		  FROM TBL_USER A
+		 WHERE A.USER_STATUS = 'Y'
+		   AND A.USER_ID = ?
+	</entry>
 	<entry key="">
 	
 	</entry>
+	
 </properties>

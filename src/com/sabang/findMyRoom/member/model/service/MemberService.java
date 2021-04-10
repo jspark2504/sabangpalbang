@@ -7,6 +7,8 @@ import static com.sabang.findMyRoom.common.jdbc.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import com.sabang.findMyRoom.member.model.dao.MemberDAO;
 import com.sabang.findMyRoom.member.model.dto.MemberDTO;
 
@@ -34,6 +36,28 @@ public class MemberService {
 		close(con);
 		
 		return result;
+	}
+	
+	/* 로그인 처리용 메소드 */
+	public MemberDTO loginCheck(MemberDTO requestMember) {
+		
+		Connection con = getConnection();
+		
+		MemberDTO loginMember = null;
+		
+		String encPwd = memberDAO.selectEncryptedPwd(con, requestMember);
+		
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		
+		/* 로그인 요청한 원문 비밀번호와 저장되어 있는 암호호된 비밀번호가 일치하는지 확인 */
+		if(passwordEncoder.matches(requestMember.getPwd(), encPwd)) {
+//			System.out.println("기존 회원과 비번 일치!");
+			/* 비밀번호가 일치하는 경우에만 회원 정보를 조회해 온다. */
+			loginMember = memberDAO.selectLoginMember(con, requestMember);
+		}
+		
+		close(con);
+		return loginMember;
 	}
 
 }

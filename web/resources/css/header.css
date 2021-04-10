@@ -48,6 +48,7 @@ header {
 }
 
 .navbar_menu :hover {
+	text-decoration: none;
     color: #ffd233;
 }
 
@@ -67,7 +68,7 @@ header {
     font-size: 12px;
 }
 
-hr {
+.hr-shadow {
     margin: 0;
     border: 0;
     height: 10px;
