@@ -36,7 +36,7 @@
       margin: 0 auto;
       border: 1px solid rgba(0, 0, 0, 0.1);
     }
-    button{
+    .textinput{
       max-width: 100px;
       background: rgb(255,210,51);
     }
@@ -45,6 +45,7 @@
 <body>
    <jsp:include page="../common/header.jsp"/>
   <section>
+   	<br><br><br><br>
     <div class="container">
         <h1 align="center">정보게시판</h1>
       <table class="table table-bordered">
@@ -96,7 +97,7 @@
         </tbody>
       </table>
 
-      <button class="btn btn-block pull-right" type="submit">글쓰기</button>
+      <button class="btn btn-block pull-right textinput" type="submit">글쓰기</button>
 
       <div class="text-center">
         <ul class="pagination">
