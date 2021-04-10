@@ -124,9 +124,6 @@
 					</ul>
 				</div>
 			</div>
-<<<<<<< HEAD
-			<!-- Bootstrap core JavaScript
-=======
 		</section>
 	</section>
 	<a href="https://ohou.se/">
@@ -137,7 +134,6 @@
 
 
 	<!-- Bootstrap core JavaScript
->>>>>>> refs/remotes/origin/master
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script
