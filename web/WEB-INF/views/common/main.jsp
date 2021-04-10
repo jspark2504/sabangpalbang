@@ -128,7 +128,7 @@
 	</section>
 	<a href="https://ohou.se/">
 	<img class="img-responsive center-block"
-		src="/findMyRoom/resources/image/ad.png" alt="..." /></a>
+		src="/findMyRoom/resources/image/ad.png" alt=".." /></a>
 
 
 
