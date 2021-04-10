@@ -73,13 +73,13 @@
 <body>
 
 <jsp:include page="../common/header.jsp"/>
+
 <div class="container">
     <form class="form-write" action="${ pageContext.servletContext.contextPath }/notice/update" method="post">
-    	<div>
-    		<input type="text" value="${ sessionScope.loginMember.nickname }" name="writer" readonly>
-    	</div>
+
     	
         <div id="box1">
+    		<input type="text" value="${ sessionScope.loginMember.nickname }" name="writer" readonly>
             <label for="input-title" ></label>
             <input type="text" name="title" value="${requestScope.notice.title }">
         </div>
@@ -94,12 +94,6 @@
     </form>
     
 </div>   
-
-
-    
-
-
-
 
 
 </body>

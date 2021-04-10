@@ -78,11 +78,9 @@
 <div class="container">
     <form class="form-write" action="${ pageContext.servletContext.contextPath }/notice/insert" method="post">
        
-<%--        <div>
-       		<input type="text" value="${ sessionScope.loginMember.nickname }" name="writer" readonly>
-       </div> --%>
        
         <div id="box1">
+       		<input type="text" value="${ sessionScope.loginMember.nickname }" name="writer" readonly>
             <label for="input-title" ></label>
             <input type="text" placeholder="회원님들에게 알리고싶은 좋은 소식!">
         </div>
@@ -99,10 +97,6 @@
 
 
     
-
-
-
-
 
 </body>
 </html>

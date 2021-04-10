@@ -60,6 +60,14 @@
     </style>
 
 
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+  <!-- 부가적인 테마 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+  <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 <jsp:include page="../common/header.jsp"/>
@@ -67,8 +75,9 @@
 <div class="container">
     <form class="form-write">
         <div id="box1">
+        	<input readonly value="${ requestScope.notice.writer.nickname }">
             <label for="input-title" ></label>
-            <input type="text" value="${ requestScope.notice.title }">
+            <input readonly value="${ requestScope.notice.title }">
         </div>
         <div id="rectangle">
             
@@ -80,22 +89,14 @@
         onclick="location.href='${ pageContext.servletContext.contextPath}/notice/list'"
         >취소</button>
         
-        <button class="btn" type="submit" id="btn2"
   		<c:if test="${ sessionScope.loginMember.role eq 'ADMIN' }">
+        <button class="btn" type="submit" id="btn2"
         onclick="location.href='${ pageContext.servletContext.contextPath}/notice/update?no=${ requestScope.notice.no }'"
-        </c:if>>수정</button>
-        
+        >수정</button>
+        </c:if>
     </form>
     
 </div>   
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-  <!-- 부가적인 테마 -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-  <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 
 </html>
