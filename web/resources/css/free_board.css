@@ -1,0 +1,159 @@
+body {
+	padding-bottom: 40px;
+	background-color: white;
+	/* display: table-cell; */
+	/* vertical-align: middle;  */
+}
+
+.container {
+	margin: 100px auto;
+	background-color: white;
+}
+
+h1.text {
+	text-align: left;
+	font-size: 30px;
+	font-weight: bold;
+	color: rgba(0, 0, 0, 0.5);
+	position: relative;
+}
+
+.btn {
+	position: relative;
+	bottom: 40px;
+	background: rgb(255, 210, 51);
+	color: black;
+}
+
+.btn:hover {
+	background: rgb(81, 75, 55);
+	color: white;
+	transition-duration: 0.3s;
+}
+
+.mycontent {
+	border: white;
+	background: white;
+	color: rgba(0, 0, 0, 0.5);
+	position: relative;
+	bottom: 28px;
+	right: 5px;
+}
+
+th {
+	color: rgb(81, 75, 55);
+}
+
+td {
+	max-width: 820px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.pagination {
+	position: relative;
+	bottom: 120px;
+}
+
+li button {
+	width: 34px;
+	height: 34px;
+	text-align: center;
+	color: rgba(0, 0, 0, 0.5);
+	background: rgba(0, 0, 0, 0.1);
+	border: hidden;
+	border-radius: 5px;
+}
+
+
+li button:hover {
+	background: rgba(0, 0, 0, 0.2);
+	border: hidden;
+	transition-duration: 0.3s;
+}
+
+li button#searchPrevPage,#searchNextPage,#prevPage,#nextPage {
+	background: rgb(255, 210, 51);
+	color: black;
+	border: hidden;
+}
+
+li button#searchStartPage,#searchMaxPage,#startPage,#maxPage {
+	background: rgb(81, 75, 55);
+	color: white;
+	border: hidden;
+}
+
+.container-1 {
+	width: 500px;
+	white-space: nowrap;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	right: 20px;
+	bottom: 100px;
+}
+
+#searchCondition {
+	display: inline-block;
+	position: relative;
+	right: 10px;
+	border: 2px solid rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	width: 90px;
+}
+
+#searchCondition:focus {
+	outline: none;
+	box-shadow: 0px 0px 7px rgb(255, 210, 51);
+	border: 2px solid rgba(255, 210, 51, 0.1);
+}
+
+.container-1 input#searchValue {
+	width: 340px;
+	height: 40px;
+	background: rgba(0, 0, 0, 0.1);
+	border: none;
+	font-size: 10pt;
+	color: #63717f;
+	padding-left: 45px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	transition-duration: 0.3s;
+	display: inline-block;
+}
+
+.container-1 .icon {
+	position: absolute;
+	left: 95px; margin-left : 17px;
+	margin-top: 10px;
+	z-index: 1;
+	color: #4f5b66;
+	margin-left: 17px;
+}
+
+.container-1 input#searchValue:hover, .container-1 input#searchValue:focus {
+	background: white;
+	color: black;
+	outline: none;
+	box-shadow: 0px 0px 7px rgb(81, 75, 55);
+}
+
+#submitBtn {
+	width: 50px;
+	height: 38px;
+	position: relative;
+	left: 10px;
+	background: rgb(255, 210, 51);
+	border: hidden;
+	border-radius: 5px;
+	transition-duration: 0.3s;
+	display: inline-block;
+}
+
+#submitBtn:hover {
+	background: rgb(81, 75, 55);
+	color: white;
+}
