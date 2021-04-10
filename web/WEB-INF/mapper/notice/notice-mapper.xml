@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectAllNoticeList">
+		SELECT /* com.sabang.findMyRoom.notice.model.dao.NoticeDAO#selectNoticeList()*/
+			  A.NOTICE_NO
+			, A.VIEW_NO
+			, A.USER_NO
+			, A.TITLE
+			, A.CONTENT
+			, B.NICKNAME
+			, A.CREATION_DATE
+			, A.MODIFICATION_DATE
+		FROM NOTICE A
+		JOIN TBL_USER B ON (A.USER_NO = B.USER_NO)
+	   WHERE A.NOTICE_STATUS = 'Y'
+	   ORDER BY A.NOTICE_NO DESC
+			
+	</entry>
+	
+	<entry key = "insertNotice">
+	INSERT
+	  INTO NOTICE A
+	(
+	   A.NOTICE_NO
+	 , A.TITLE
+	 , A.CONTENT
+	 , A.USER_NO
+	)
+	VALUES
+	(
+	  SEQ_NOTICE_NO.NEXTVAL
+	, ?
+	, ?
+	, ?
+	)
+	</entry>
+	<entry key="incrementNoticeCount">
+		UPDATE /* com.sabang.findMyRoom.notice.model.dao.NoticeDAO#incrementNoticeCount(); */
+			NOTICE A
+		SET A.VIEW_NO = (SELECT B.VIEW_NO
+						   FROM NOTICE B
+						   WHERE NOTICE_NO = ?
+						) + 1
+		WHERE A.NOTICE_NO = ?
+	</entry>
+	<entry key="selectNoticeDetail">
+		SELECT /* com.greedy.sabang.notice.model.dao.NoticeDAO#selectNoticeDetail() */
+			  A.NOTICE_NO
+			, A.VIEW_NO
+			, A.USER_NO
+			, A.TITLE
+			, A.CONTENT
+			, B.NICKNAME
+			, A.CREATION_DATE
+			, A.MODIFICATION_DATE
+		FROM NOTICE A
+		JOIN TBL_USER B ON(A.USER_NO = B.USER_NO)
+	   WHERE A.NOTICE_NO = ?
+	</entry>
+	
+</properties>
