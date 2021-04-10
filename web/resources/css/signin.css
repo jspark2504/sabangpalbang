@@ -1,5 +1,4 @@
 body {
-    padding-top: 40px;
     padding-bottom: 40px;
     background-color: white;
     /* display: table-cell; */
@@ -7,7 +6,7 @@ body {
   }
 
   .container {
-    margin: 250px auto;
+    margin: 200px auto;
     background-color: white;
   }
 

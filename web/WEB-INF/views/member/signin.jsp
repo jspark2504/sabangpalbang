@@ -30,7 +30,7 @@
 </head>
 
 <body>
-
+	<jsp:include page="../common/header.jsp"/>
 	<div class="container">
 	<c:if test="${empty sessionScope.loginMember }">
 		<form class="form-signin" id="loginForm" action="${pageContext.servletContext.contextPath}/member/login" method="post">
@@ -47,7 +47,7 @@
 			</div>
 			<button type="button" class="findId">아이디찾기</button>
 			<button type="button" class="findPwd">비밀번호찾기</button>
-			<button type="button" class="signUp">회원가입</button>
+			<button type="button" class="signUp" onclick="location.href='${ pageContext.servletContext.contextPath }/member/regist'">회원가입</button>
 			<button class="btn btn-lg btn-block" type="submit" id="login">시작하기</button>
 		</form>
 		</c:if>
