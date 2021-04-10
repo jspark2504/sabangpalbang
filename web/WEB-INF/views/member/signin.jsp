@@ -25,7 +25,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" href="/jsp/resources/css/signin.css">
+<link rel="stylesheet" href="/findMyRoom/resources/css/signin.css">
 
 </head>
 
@@ -34,7 +34,7 @@
 	<div class="container">
 	<c:if test="${empty sessionScope.loginMember }">
 		<form class="form-signin" id="loginForm" action="${pageContext.servletContext.contextPath}/member/login" method="post">
-			<img src="/jsp/resources/image/logIn.PNG" class="logo">
+			<img src="/findMyRoom/resources/image/logIn.PNG" class="logo">
 			<!-- <h2 class="form-signin-heading">Please sign in</h2> -->
 			<!-- <label for="inputId" class="sr-only">ID</label> -->
 			<!-- <label for="inputPassword" class="sr-only">Password</label> -->
