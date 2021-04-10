@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<entry key="selectTotalCount">
+    	SELECT
+               COUNT(*)
+          FROM INFO_BOARD
+	</entry>
+
+	<entry key="selectInfoBoardList">
+        SELECT 
+               A.RNUM
+             , A.POST_NO
+             , A.CATEGORY_NO
+             , A.CATEGORY_NAME
+             , A.POST_TITLE
+             , A.POST_CONTENT
+             , A.USER_NO
+             , A.USER_NAME
+             , A.VIEW_NO
+             , A.CREATION_DATE
+          FROM (SELECT ROWNUM RNUM
+                     , B.POST_NO
+                     , B.CATEGORY_NO
+                     , B.CATEGORY_NAME
+                     , B.POST_TITLE
+                     , B.POST_CONTENT
+                     , B.USER_NO
+                     , B.USER_NAME
+                     , B.VIEW_NO
+                     , B.CREATION_DATE
+                  FROM (SELECT C.POST_NO
+                             , C.CATEGORY_NO
+                             , D.CATEGORY_NAME
+                             , C.POST_TITLE
+                             , C.POST_CONTENT
+                             , C.USER_NO
+                             , E.USER_NAME
+                             , C.VIEW_NO
+                             , C.CREATION_DATE
+                          FROM INFO_BOARD C
+                          JOIN INFO_CATEGORY D ON (C.CATEGORY_NO = D.CATEGORY_NO)
+                          JOIN MEMBER E ON(C.USER_NO = E.USER_NO)
+                         ORDER BY C.POST_NO DESC
+                        ) B
+               ) A
+         WHERE A.RNUM BETWEEN ? AND ?	
+	</entry>
+
+	<entry key="insertInfoBoard">
+        INSERT
+          INTO INFO_BOARD A
+         (
+            A.POST_NO
+          , A.POST_TITLE
+          , A.POST_CONTENT
+          , A.VIEW_NO
+          , A.CREATION_DATE
+          , A.CATEGORY_NO
+          , A.USER_NO
+         )
+         VALUES
+         (
+            SEQ_INFO_BOARD.NEXTVAL
+          , ?
+          , ?
+          , 0
+          , SYSDATE
+          , ?
+          , 1
+         )
+	</entry>
+	
+	<entry key="selectInfoBoardDetail">
+        SELECT
+               A.POST_NO
+             , A.CATEGORY_NO
+             , C.CATEGORY_NAME
+             , A.POST_TITLE
+             , A.POST_CONTENT
+             , A.USER_NO
+             , B.USER_NAME
+             , A.VIEW_NO
+             , A.CREATION_DATE
+          FROM INFO_BOARD A
+          JOIN MEMBER B ON (A.USER_NO = B.USER_NO)
+          JOIN INFO_CATEGORY C ON (A.CATEGORY_NO = C.CATEGORY_NO)
+         WHERE A.POST_NO = ?	
+	</entry>
+
+	<entry key="incrementInfoBoardCount">
+	      UPDATE
+             INFO_BOARD A
+         SET A.VIEW_NO = (SELECT B.VIEW_NO
+                                   FROM INFO_BOARD B
+                                  WHERE POST_NO = ?
+                                ) + 1
+         WHERE A.POST_NO = ?
+	</entry>
+	
+	<entry key="">
+	
+	</entry>
+
+</properties>
+
+
+
+
+
+
+
+
+
+
+
