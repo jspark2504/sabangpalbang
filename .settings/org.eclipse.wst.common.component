@@ -11,7 +11,7 @@
 
 
 
-        <property name="java-output-path" value="/sabangpalbang/web/WEB-INF/classes"/>
+        <property name="java-output-path" value="/sabangpalbang/bin"/>
 
 
 
