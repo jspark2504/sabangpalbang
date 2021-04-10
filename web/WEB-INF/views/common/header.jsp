@@ -32,7 +32,7 @@
 			</ul>
 			<div class="btn-gr">
 				<button type="button" class="drop-menu-btn"
-					onclick="location.href='${ pageContext.servletContext.contextPath }/member/regist'">로그인/회원가입
+					onclick="location.href='${ pageContext.servletContext.contextPath }/member/login'">로그인/회원가입
 				</button>
 				<a href="#" class="navbar_toggleBtn"><i class="fas fa-bars"></i></a>
 

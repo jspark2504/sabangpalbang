@@ -4,8 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- favicon -->
-<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -17,14 +15,17 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <!-- main 추가 css -->
 <link rel="stylesheet" href="/findMyRoom/resources/css/main.css">
-
+<!-- favicon & title -->
+<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
 <title>구해줘! 내 방</title>
 </head>
 <body>
+	<!-- header include -->
 	<jsp:include page="../common/header.jsp" />
+
 	<div class="container-fluid jumbo-container">
 		<div class="main">
-			<img class="banner" src="/findMyRoom/resources/image/메인배너.png"
+			<img class="banner" src="/findMyRoom/resources/image/banner.png"
 				alt="...">
 			<h1 class="search">
 				<b>전세 어디까지 알고 계신가요?</b>
@@ -46,39 +47,39 @@
 				<ul>
 					<li class="item"><a href="#">
 							<span class="img">
-								<img src="/findMyRoom/resources/image/나문휘.png" alt="..."
+								<img src="/findMyRoom/resources/image/mhn.png" alt="..."
 									class="img-circle">
 							</span>
-							<div class="info">
+							<span class="info">
 								<span class="name">나문휘<br></span>
-								<div class="star">
+								<span class="star">
 									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 									<span class="review_no">후기 21개</span>
-								</div>
+								</span>
 								<span class="review_content">진짜 딱 맘에드는 곳들만 보여주셔서 너무 좋았어요.</span>
-							</div>
+							</span>
 					</a></li>
 					<li class="item"><a href="#">
 							<span class="img">
-								<img src="/findMyRoom/resources/image/이숭재.png" alt="..."
+								<img src="/findMyRoom/resources/image/sjl.png" alt="..."
 									class="img-circle">
 							</span>
-							<div class="info">
+							<span class="info">
 								<span class="name">이숭재<br></span>
-								<div class="star">
+								<span class="star">
 									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-star empty" aria-hidden="true"></span>
 									<span class="review_no">후기 15개</span>
-								</div>
+								</span>
 								<span class="review_content">허위매물일까봐 걱정했는데 사진설명이랑 똑같았어요.</span>
-							</div>
+							</span>
 					</a></li>
 				</ul>
 			</article>
@@ -125,8 +126,9 @@
 			</div>
 		</section>
 	</section>
+	<a href="https://ohou.se/">
 	<img class="img-responsive center-block"
-		src="/findMyRoom/resources/image/AD1.png" alt="" />
+		src="/findMyRoom/resources/image/ad.png" alt="..." /></a>
 
 
 
