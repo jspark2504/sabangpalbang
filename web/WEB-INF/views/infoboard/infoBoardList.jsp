@@ -22,10 +22,10 @@
    <title>구해줘! 내 방</title>
 
     <style>
-    header{
+    .h1{
       background: rgb(255,210,51);
     }
-    body {
+    .table {
       padding-top: 280px;
       padding-bottom: 80px;
     }
@@ -36,7 +36,7 @@
       margin: 0 auto;
       border: 1px solid rgba(0, 0, 0, 0.1);
     }
-    button{
+    .textinput{
       max-width: 100px;
       background: rgb(255,210,51);
     }
@@ -45,10 +45,9 @@
 <body>
    <jsp:include page="../common/header.jsp"/>
   <section>
+   	<br><br><br><br>
     <div class="container">
-      <header>
         <h1 align="center">정보게시판</h1>
-      </header>
       <table class="table table-bordered">
         <tr>
           <th>부동산 정책</th>
@@ -98,7 +97,7 @@
         </tbody>
       </table>
 
-      <button class="btn btn-block pull-right" type="submit">글쓰기</button>
+      <button class="btn btn-block pull-right textinput" type="submit">글쓰기</button>
 
       <div class="text-center">
         <ul class="pagination">
@@ -110,7 +109,6 @@
         </ul>
       </div>
     </div>   <!-- container end -->
-    </form>
   </section>
 </body>
 </html>
