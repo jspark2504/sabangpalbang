@@ -84,8 +84,8 @@ private final Properties prop;
 				
 				board.setNo(rset.getInt("POST_NO"));
 				board.setTitle(rset.getString("POST_TITLE"));
-				board.setBody(rset.getString("POST_BODY"));
-				board.setWriterMemberNo(rset.getInt("POST_WRITER_MEMBER_NO"));
+				board.setBody(rset.getString("POST_CONTENT"));
+				board.setWriterMemberNo(rset.getInt("USER_NO"));
 				board.getWriter().setNickname(rset.getString("NICKNAME"));
 				board.setCount(rset.getInt("VIEW_NO"));
 				board.setCreateDate(rset.getDate("CREATION_DATE"));
@@ -176,8 +176,8 @@ private final Properties prop;
 				
 				boardDetail.setNo(rset.getInt("POST_NO"));
 				boardDetail.setTitle(rset.getString("POST_TITLE"));
-				boardDetail.setBody(rset.getString("POST_BODY"));
-				boardDetail.setWriterMemberNo(rset.getInt("POST_WRITER_MEMBER_NO"));
+				boardDetail.setBody(rset.getString("POST_CONTENT"));
+				boardDetail.setWriterMemberNo(rset.getInt("USER_NO"));
 				boardDetail.getWriter().setNickname(rset.getString("NICKNAME"));
 				
 				boardDetail.setCount(rset.getInt("VIEW_NO"));
@@ -317,8 +317,8 @@ private final Properties prop;
 				
 				board.setNo(rset.getInt("POST_NO"));
 				board.setTitle(rset.getString("POST_TITLE"));
-				board.setBody(rset.getString("POST_BODY"));
-				board.setWriterMemberNo(rset.getInt("POST_WRITER_MEMBER_NO"));
+				board.setBody(rset.getString("POST_CONTENT"));
+				board.setWriterMemberNo(rset.getInt("USER_NO"));
 				board.getWriter().setNickname(rset.getString("NICKNAME"));
 				board.setCount(rset.getInt("VIEW_NO"));
 				board.setCreateDate(rset.getDate("CREATION_DATE"));

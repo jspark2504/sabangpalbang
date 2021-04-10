@@ -13,7 +13,7 @@
              , A.POST_NO
              , A.POST_TITLE
              , A.POST_CONTENT
-             , A.POST_WRITER_MEMBER_NO
+             , A.USER_NO
              , A.NICKNAME
              , A.VIEW_NO
              , A.CREATION_DATE
@@ -22,7 +22,7 @@
                      , B.POST_NO
 		             , B.POST_TITLE
 		             , B.POST_COTENT
-		             , B.POST_WRITER_MEMBER_NO
+		             , B.USER_NO
 		             , B.NICKNAME
 		             , B.VIEW_NO
 		             , B.CREATION_DATE
@@ -30,13 +30,13 @@
                   FROM (SELECT , C.POST_NO
 					           , C.POST_TITLE
 					           , C.POST_CONTENT
-					           , C.POST_WRITER_MEMBER_NO
+					           , C.USER_NO
 					           , C.NICKNAME
 					           , C.VIEW_NO
 					           , C.CREATION_DATE
 					           , C.VIEW_YN
                           FROM TBL_FREE_BOARD C
-                          JOIN TBL_USER E ON(C.POST_WRITER_MEMBER_NO = E.USER_NO)
+                          JOIN TBL_USER E ON(C.USER_NO = E.USER_NO)
                          WHERE C.VIEW_YN = 'Y'
                          ORDER BY C.POST_NO DESC
                         ) B
@@ -50,7 +50,7 @@
 		  A.POST_NO
 		, A.POST_TITLE
 		, A.POST_CONTENT
-		, A.POST_WRITER_MEMBER_NO
+		, A.USER_NO
 		)
 		VALUES
 		(
@@ -74,12 +74,12 @@
 		       A.POST_NO
 		     , A.POST_TITLE
 		     , A.POST_CONTENT
-		     , A.POST_WRITER_MEMBER_NO
+		     , A.USER_NO
 		     , B.NICKNAME
 		     , A.VIEW_NO
 		     , A.CREATION_DATE
 		  FROM TBL_FREE_BOARD A
-		  JOIN TBL_USER B ON (A.POST_WRITER_MEMBER_NO = B.USER_NO)
+		  JOIN TBL_USER B ON (A.USER_NO = B.USER_NO)
 		 WHERE A.POST_NO = ?
 	</entry>
 	<entry key="updateBoard">
@@ -99,7 +99,7 @@
 	    SELECT
 	           COUNT(*)
 	      FROM TBL_FREE_BOARD A
-	      JOIN TBL_USER B ON (A.POST_WRITER_MEMBER_NO = B.USER_NO)
+	      JOIN TBL_USER B ON (A.USER_NO = B.USER_NO)
 	     WHERE A.VIEW_YN = 'Y'
 	       AND B.NICKNAME LIKE '%' || ? || '%'
 	</entry>
@@ -123,7 +123,7 @@
 	             , A.POST_NO
 	             , A.POST_TITLE
 	             , A.POST_CONTENT
-	             , A.POST_WRITER_MEMBER_NO
+	             , A.USER_NO
 	             , A.NICKNAME
 	             , A.VIEW_NO
 	             , A.CREATION_DATE
@@ -132,7 +132,7 @@
 	                     , B.POST_NO
 			             , B.POST_TITLE
 			             , B.POST_COTENT
-			             , B.POST_WRITER_MEMBER_NO
+			             , B.USER_NO
 			             , B.NICKNAME
 			             , B.VIEW_NO
 			             , B.CREATION_DATE
@@ -140,13 +140,13 @@
 	                  FROM (SELECT , C.POST_NO
 						           , C.POST_TITLE
 						           , C.POST_CONTENT
-						           , C.POST_WRITER_MEMBER_NO
+						           , C.USER_NO
 						           , C.NICKNAME
 						           , C.VIEW_NO
 						           , C.CREATION_DATE
 						           , C.VIEW_YN
 	                          FROM TBL_FREE_BOARD C
-	                          JOIN TBL_USER E ON(C.POST_WRITER_MEMBER_NO = E.USER_NO)
+	                          JOIN TBL_USER E ON(C.USER_NO = E.USER_NO)
 	                         WHERE C.VIEW_YN = 'Y'
 	                         ORDER BY C.POST_NO DESC
                         ) B
@@ -160,7 +160,7 @@
 	             , A.POST_NO
 	             , A.POST_TITLE
 	             , A.POST_CONTENT
-	             , A.POST_WRITER_MEMBER_NO
+	             , A.USER_NO
 	             , A.NICKNAME
 	             , A.VIEW_NO
 	             , A.CREATION_DATE
@@ -169,7 +169,7 @@
 	                     , B.POST_NO
 			             , B.POST_TITLE
 			             , B.POST_COTENT
-			             , B.POST_WRITER_MEMBER_NO
+			             , B.USER_NO
 			             , B.NICKNAME
 			             , B.VIEW_NO
 			             , B.CREATION_DATE
@@ -177,13 +177,13 @@
 	                  FROM (SELECT , C.POST_NO
 						           , C.POST_TITLE
 						           , C.POST_CONTENT
-						           , C.POST_WRITER_MEMBER_NO
+						           , C.USER_NO
 						           , C.NICKNAME
 						           , C.VIEW_NO
 						           , C.CREATION_DATE
 						           , C.VIEW_YN
 	                          FROM TBL_FREE_BOARD C
-	                          JOIN TBL_USER E ON(C.POST_WRITER_MEMBER_NO = E.USER_NO)
+	                          JOIN TBL_USER E ON(C.USER_NO = E.USER_NO)
 	                         WHERE C.VIEW_YN = 'Y'
 	                         ORDER BY C.POST_NO DESC
                         ) B
@@ -197,7 +197,7 @@
 	             , A.POST_NO
 	             , A.POST_TITLE
 	             , A.POST_CONTENT
-	             , A.POST_WRITER_MEMBER_NO
+	             , A.USER_NO
 	             , A.NICKNAME
 	             , A.VIEW_NO
 	             , A.CREATION_DATE
@@ -206,7 +206,7 @@
 	                     , B.POST_NO
 			             , B.POST_TITLE
 			             , B.POST_COTENT
-			             , B.POST_WRITER_MEMBER_NO
+			             , B.USER_NO
 			             , B.NICKNAME
 			             , B.VIEW_NO
 			             , B.CREATION_DATE
@@ -214,13 +214,13 @@
 	                  FROM (SELECT , C.POST_NO
 						           , C.POST_TITLE
 						           , C.POST_CONTENT
-						           , C.POST_WRITER_MEMBER_NO
+						           , C.USER_NO
 						           , C.NICKNAME
 						           , C.VIEW_NO
 						           , C.CREATION_DATE
 						           , C.VIEW_YN
 	                          FROM TBL_FREE_BOARD C
-	                          JOIN TBL_USER E ON(C.POST_WRITER_MEMBER_NO = E.USER_NO)
+	                          JOIN TBL_USER E ON(C.USER_NO = E.USER_NO)
 	                         WHERE C.VIEW_YN = 'Y'
 	                         ORDER BY C.POST_NO DESC
                         ) B
