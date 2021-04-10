@@ -70,6 +70,7 @@ local.properties
 ### Java ###
 # Compiled class file
 *.class
+web/WEB-INF/classes/
 
 # Log file
 *.log
