@@ -26,12 +26,12 @@ DROP TABLE INFO_CATEGORY CASCADE CONSTRAINTS;
 -- 기존 시퀀스 삭제
 DROP SEQUENCE SEQ_USER_NO;
 DROP SEQUENCE SEQ_ROOM_NO;
-DROP SEQUENCE SEQ_POST_NO;
+DROP SEQUENCE SEQ_FREE_POST_NO;
 
 -- 시퀀스 생성
 CREATE SEQUENCE SEQ_USER_NO;
 CREATE SEQUENCE SEQ_ROOM_NO;
-CREATE SEQUENCE SEQ_POST_NO;
+CREATE SEQUENCE SEQ_FREE_POST_NO;
 
 -- 테이블 생성
 ----------------------------------------------------------------- 회원관련
@@ -384,29 +384,29 @@ COMMENT ON COLUMN TBL_FREE_BOARD.USER_NO IS '작성자';
 
 -- 자유게시판 샘플 추가 --
 INSERT INTO TBL_FREE_BOARD (POST_NO, POST_TITLE, POST_CONTENT, CREATION_DATE, USER_NO)
-VALUES (SEQ_POST_NO.NEXTVAL, '점메추해~~~~', '점심메뉴 추천해줘!!!', TO_DATE('21/03/08', 'RR/MM/DD'), 5);
+VALUES (SEQ_FREE_POST_NO.NEXTVAL, '점메추해~~~~', '점심메뉴 추천해줘!!!', TO_DATE('21/03/08', 'RR/MM/DD'), 5);
 INSERT INTO TBL_FREE_BOARD (POST_NO, POST_TITLE, POST_CONTENT, CREATION_DATE, USER_NO)
-VALUES (SEQ_POST_NO.NEXTVAL, '아 배고프다.... 점심시간 언제오냐', '메뉴도 쌀국수로 이미 정해놨는데 시간이 너무 안감;;', TO_DATE('21/03/08', 'RR/MM/DD'), 4);
+VALUES (SEQ_FREE_POST_NO.NEXTVAL, '아 배고프다.... 점심시간 언제오냐', '메뉴도 쌀국수로 이미 정해놨는데 시간이 너무 안감;;', TO_DATE('21/03/08', 'RR/MM/DD'), 4);
 INSERT INTO TBL_FREE_BOARD (POST_NO, POST_TITLE, POST_CONTENT, CREATION_DATE, USER_NO)
-VALUES (SEQ_POST_NO.NEXTVAL, '우리집 강아지 보고가라.', '너넨 강아지 없지?ㅋㅋ', TO_DATE('21/03/10', 'RR/MM/DD'), 5);
+VALUES (SEQ_FREE_POST_NO.NEXTVAL, '우리집 강아지 보고가라.', '너넨 강아지 없지?ㅋㅋ', TO_DATE('21/03/10', 'RR/MM/DD'), 5);
 INSERT INTO TBL_FREE_BOARD (POST_NO, POST_TITLE, POST_CONTENT, CREATION_DATE, USER_NO)
-VALUES (SEQ_POST_NO.NEXTVAL, '방구들아 평균 한달 생활비 얼마나 듦?', '나 혼자 사는데 한 달에 100만원 넘게 나옴', TO_DATE('21/03/12', 'RR/MM/DD'), 5);
+VALUES (SEQ_FREE_POST_NO.NEXTVAL, '방구들아 평균 한달 생활비 얼마나 듦?', '나 혼자 사는데 한 달에 100만원 넘게 나옴', TO_DATE('21/03/12', 'RR/MM/DD'), 5);
 INSERT INTO TBL_FREE_BOARD (POST_NO, POST_TITLE, POST_CONTENT, CREATION_DATE, USER_NO)
-VALUES (SEQ_POST_NO.NEXTVAL, '중소청전세대출 받은 사람 나 물어볼 거 있음', '서류 준비할 때 시간 얼마나 촉박했어?', TO_DATE('21/03/12', 'RR/MM/DD'), 5);
+VALUES (SEQ_FREE_POST_NO.NEXTVAL, '중소청전세대출 받은 사람 나 물어볼 거 있음', '서류 준비할 때 시간 얼마나 촉박했어?', TO_DATE('21/03/12', 'RR/MM/DD'), 5);
 INSERT INTO TBL_FREE_BOARD (POST_NO, POST_TITLE, POST_CONTENT, CREATION_DATE, USER_NO)
-VALUES (SEQ_POST_NO.NEXTVAL, '전세집 권태기 극복하는 방법', '6개월 정도에 한 번씩은 집 인테리어 구조 싹 바꾸면 ㄹㅇ 새로 이사 온 기분들고 좋음 ㅋㅋ', TO_DATE('21/03/14', 'RR/MM/DD'), 5);
+VALUES (SEQ_FREE_POST_NO.NEXTVAL, '전세집 권태기 극복하는 방법', '6개월 정도에 한 번씩은 집 인테리어 구조 싹 바꾸면 ㄹㅇ 새로 이사 온 기분들고 좋음 ㅋㅋ', TO_DATE('21/03/14', 'RR/MM/DD'), 5);
 INSERT INTO TBL_FREE_BOARD (POST_NO, POST_TITLE, POST_CONTENT, CREATION_DATE, USER_NO)
-VALUES (SEQ_POST_NO.NEXTVAL, '야근하고 이제 퇴근한다.', '개발자되면 좋을줄만 알았지.... 수료하면 내 세상이 될 줄 알았지...ㅎ', TO_DATE('21/03/15', 'RR/MM/DD'), 5);
+VALUES (SEQ_FREE_POST_NO.NEXTVAL, '야근하고 이제 퇴근한다.', '개발자되면 좋을줄만 알았지.... 수료하면 내 세상이 될 줄 알았지...ㅎ', TO_DATE('21/03/15', 'RR/MM/DD'), 5);
 INSERT INTO TBL_FREE_BOARD (POST_NO, POST_TITLE, POST_CONTENT, CREATION_DATE, USER_NO)
-VALUES (SEQ_POST_NO.NEXTVAL, '신림역 근처 맛집 추천 좀', '점심메뉴 추천해줘!!!', TO_DATE('21/04/03', 'RR/MM/DD'), 5);
+VALUES (SEQ_FREE_POST_NO.NEXTVAL, '신림역 근처 맛집 추천 좀', '점심메뉴 추천해줘!!!', TO_DATE('21/04/03', 'RR/MM/DD'), 5);
 INSERT INTO TBL_FREE_BOARD (POST_NO, POST_TITLE, POST_CONTENT, CREATION_DATE, USER_NO)
-VALUES (SEQ_POST_NO.NEXTVAL, '나 큰일났음 낼 이사인데 아직도 못 자는 중;;', '진짜 너무 설레서 잠 못자겠어.... 첫 자취인데 꿀팁 좀 알려줄 수 있을까 방구들아??', TO_DATE('21/04/03', 'RR/MM/DD'), 5);
+VALUES (SEQ_FREE_POST_NO.NEXTVAL, '나 큰일났음 낼 이사인데 아직도 못 자는 중;;', '진짜 너무 설레서 잠 못자겠어.... 첫 자취인데 꿀팁 좀 알려줄 수 있을까 방구들아??', TO_DATE('21/04/03', 'RR/MM/DD'), 5);
 INSERT INTO TBL_FREE_BOARD (POST_NO, POST_TITLE, POST_CONTENT, CREATION_DATE, USER_NO)
-VALUES (SEQ_POST_NO.NEXTVAL, '니네 야식 뭐 먹었냐?', '난 불닭에 주먹밥!', TO_DATE('21/04/03', 'RR/MM/DD'), 5);
+VALUES (SEQ_FREE_POST_NO.NEXTVAL, '니네 야식 뭐 먹었냐?', '난 불닭에 주먹밥!', TO_DATE('21/04/03', 'RR/MM/DD'), 5);
 INSERT INTO TBL_FREE_BOARD (POST_NO, POST_TITLE, POST_CONTENT, CREATION_DATE, USER_NO)
-VALUES (SEQ_POST_NO.NEXTVAL, '우리집 인테리어 봐줄 사람 ㅋㅋㅋ', '카페아님 ^^', TO_DATE('21/04/03', 'RR/MM/DD'), 5);
+VALUES (SEQ_FREE_POST_NO.NEXTVAL, '우리집 인테리어 봐줄 사람 ㅋㅋㅋ', '카페아님 ^^', TO_DATE('21/04/03', 'RR/MM/DD'), 5);
 INSERT INTO TBL_FREE_BOARD (POST_NO, POST_TITLE, POST_CONTENT, CREATION_DATE, USER_NO)
-VALUES (SEQ_POST_NO.NEXTVAL, '방구들아 이거 집주인이 잘못한 거 맞지?', '어쨌든 집주인이 잘못한거임', TO_DATE('21/04/08', 'RR/MM/DD'), 1);
+VALUES (SEQ_FREE_POST_NO.NEXTVAL, '방구들아 이거 집주인이 잘못한 거 맞지?', '어쨌든 집주인이 잘못한거임', TO_DATE('21/04/08', 'RR/MM/DD'), 1);
 
 -- 자유게시판 첨부파일
 CREATE TABLE TBL_FREE_BOARD_FILE(
