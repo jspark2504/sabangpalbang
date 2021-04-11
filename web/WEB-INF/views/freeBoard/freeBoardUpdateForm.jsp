@@ -32,7 +32,7 @@
 				<input type="text" class="title" name="title" value="${ requestScope.board.title }">
 				<textarea style="resize:none" class="content" name="body"><c:out value="${ requestScope.board.body }" /></textarea>
 				
-				<button type="button" class="btn cancel pull-left" onclick="location.href='${ pageContext.servletContext.contextPath}/freeBoard/list'">목록</button>
+				<button type="button" class="btn cancel pull-left" onclick="location.href='${ pageContext.servletContext.contextPath}/freeboard/list'">목록</button>
 				<button type="submit" class="btn post pull-right">수정</button>
 				<button type="button" class="btn delete pull-right" onclick="postRequest('deleteFreeBoard')" >삭제</button>
 			</form>

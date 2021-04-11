@@ -15,13 +15,13 @@ import com.sabang.findMyRoom.member.model.dto.MemberDTO;
 /**
  * Servlet implementation class FreeBoardInsertServlet
  */
-@WebServlet("/freeboard/insert")
+@WebServlet("/freeBoard/insert")
 public class FreeBoardInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String path = "/WEB-INF/views/freeboard/freeBoardinsertForm.jsp";
+		String path = "/WEB-INF/views/freeBoard/freeBoardinsertForm.jsp";
 		
 		request.getRequestDispatcher(path).forward(request, response);
 	}

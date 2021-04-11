@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sabang.findMyRoom.freeboard.model.service.FreeBoardService;
 
 
-@WebServlet("/freeboard/delete")
+@WebServlet("/freeBoard/delete")
 public class FreeBoardDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

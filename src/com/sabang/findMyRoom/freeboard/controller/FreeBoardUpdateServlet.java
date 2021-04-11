@@ -14,7 +14,7 @@ import com.sabang.findMyRoom.freeboard.model.service.FreeBoardService;
 /**
  * Servlet implementation class FreeBoardUpdateServlet
  */
-@WebServlet("/freeboard/update")
+@WebServlet("/freeBoard/update")
 public class FreeBoardUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
