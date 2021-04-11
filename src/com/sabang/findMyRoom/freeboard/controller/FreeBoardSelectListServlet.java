@@ -47,6 +47,8 @@ public class FreeBoardSelectListServlet extends HttpServlet {
 
 		List<FreeBoardDTO> boardList = boardService.selectBoardList(pageInfo);
 		
+		System.out.println(boardList);
+		
 		String path = "";
 		if(!boardList.isEmpty()) {
 			path = "/WEB-INF/views/freeBoard/freeBoardList.jsp";
