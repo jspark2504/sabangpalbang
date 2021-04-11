@@ -88,7 +88,7 @@
 					<h4>
 						<b>자유게시판</b>
 					</h4>
-					<a class="btn-sm" href="/freeboard/insert" role="button">더보기</a>
+					<a class="btn-sm" href="${ pageContext.servletContext.contextPath }/freeboard/list" role="button">더보기</a>
 				</div>
 				<hr>
 				<div class="board">
