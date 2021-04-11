@@ -21,17 +21,17 @@
           FROM (SELECT ROWNUM RNUM
                      , B.POST_NO
 		             , B.POST_TITLE
-		             , B.POST_COTENT
+		             , B.POST_CONTENT
 		             , B.USER_NO
 		             , B.NICKNAME
 		             , B.VIEW_NO
 		             , B.CREATION_DATE
 		             , B.VIEW_YN
-                  FROM (SELECT , C.POST_NO
+                  FROM (SELECT   C.POST_NO
 					           , C.POST_TITLE
 					           , C.POST_CONTENT
 					           , C.USER_NO
-					           , C.NICKNAME
+					           , E.NICKNAME
 					           , C.VIEW_NO
 					           , C.CREATION_DATE
 					           , C.VIEW_YN
@@ -131,24 +131,24 @@
 	          FROM (SELECT ROWNUM RNUM
 	                     , B.POST_NO
 			             , B.POST_TITLE
-			             , B.POST_COTENT
+			             , B.POST_CONTENT
 			             , B.USER_NO
 			             , B.NICKNAME
 			             , B.VIEW_NO
 			             , B.CREATION_DATE
 			             , B.VIEW_YN
-	                  FROM (SELECT , C.POST_NO
-						           , C.POST_TITLE
-						           , C.POST_CONTENT
-						           , C.USER_NO
-						           , C.NICKNAME
-						           , C.VIEW_NO
-						           , C.CREATION_DATE
-						           , C.VIEW_YN
-	                          FROM TBL_FREE_BOARD C
-	                          JOIN TBL_USER E ON(C.USER_NO = E.USER_NO)
-	                         WHERE C.VIEW_YN = 'Y'
-	                         ORDER BY C.POST_NO DESC
+	                  FROM (SELECT  C.POST_NO
+						          , C.POST_TITLE
+						          , C.POST_CONTENT
+						          , C.USER_NO
+						          , E.NICKNAME
+						          , C.VIEW_NO
+						          , C.CREATION_DATE
+						          , C.VIEW_YN
+	                         FROM TBL_FREE_BOARD C
+	                         JOIN TBL_USER E ON(C.USER_NO = E.USER_NO)
+	                        WHERE C.VIEW_YN = 'Y'
+	                        ORDER BY C.POST_NO DESC
                         ) B
                   WHERE B.NICKNAME LIKE '%' || ? || '%'
                ) A
@@ -168,17 +168,17 @@
 	          FROM (SELECT ROWNUM RNUM
 	                     , B.POST_NO
 			             , B.POST_TITLE
-			             , B.POST_COTENT
+			             , B.POST_CONTENT
 			             , B.USER_NO
 			             , B.NICKNAME
 			             , B.VIEW_NO
 			             , B.CREATION_DATE
 			             , B.VIEW_YN
-	                  FROM (SELECT , C.POST_NO
+	                  FROM (SELECT   C.POST_NO
 						           , C.POST_TITLE
 						           , C.POST_CONTENT
 						           , C.USER_NO
-						           , C.NICKNAME
+						           , E.NICKNAME
 						           , C.VIEW_NO
 						           , C.CREATION_DATE
 						           , C.VIEW_YN
@@ -205,17 +205,17 @@
 	          FROM (SELECT ROWNUM RNUM
 	                     , B.POST_NO
 			             , B.POST_TITLE
-			             , B.POST_COTENT
+			             , B.POST_CONTENT
 			             , B.USER_NO
 			             , B.NICKNAME
 			             , B.VIEW_NO
 			             , B.CREATION_DATE
 			             , B.VIEW_YN
-	                  FROM (SELECT , C.POST_NO
+	                  FROM (SELECT   C.POST_NO
 						           , C.POST_TITLE
 						           , C.POST_CONTENT
 						           , C.USER_NO
-						           , C.NICKNAME
+						           , E.NICKNAME
 						           , C.VIEW_NO
 						           , C.CREATION_DATE
 						           , C.VIEW_YN

@@ -28,7 +28,7 @@
 			</table>
 				<input type="text" class="title" value="${ requestScope.board.title }" readonly>
 			<textarea style="resize:none" class="content" readonly><c:out value="${ requestScope.board.body }" /></textarea>
-				<button type="button" class="btn cancel pull-left" onclick="location.href='${ pageContext.servletContext.contextPath}/freeBoard/list'">목록</button>
+				<button type="button" class="btn cancel pull-left" onclick="location.href='${ pageContext.servletContext.contextPath}/freeboard/list'">목록</button>
 				<c:if test="${ sessionScope.loginMember.no eq requestScope.board.writerMemberNo }">
 					<button class="btn post pull-right" onclick="location.href='${ pageContext.servletContext.contextPath}/freeBoard/update?no=${ requestScope.board.no }'">수정</button>
 				</c:if>

@@ -28,7 +28,7 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <link rel="stylesheet" href="/findMyRoom/resources/css/free_board.css?">
-
+<script src="/findMyRoom/resources/js/event.js"></script>
 </head>
 <body>
 <jsp:include page="../common/header.jsp"/>
@@ -163,7 +163,7 @@
 
 
 	<script>
-		const link = "${ pageContext.servletContext.contextPath }/freeBoard/list";
+		const link = "${ pageContext.servletContext.contextPath }/freeboard/list";
 		const searchLink = "${ pageContext.servletContext.contextPath }/freeBoard/search";
 		
 		/* 원하는 페이지 클릭시 실행되는 콜백 함수 */
