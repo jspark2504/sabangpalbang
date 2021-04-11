@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectAllRoomList">
+		SELECT
+		       A.ROOM_NO
+		     , A.ROOM_PRICE
+		     , A.EXCLUSIVE_AREA
+		     , A.ADDRESS
+		     , A.ROOM_FLOOR
+		     , A.ROOM_EXPLANATION
+		  FROM ROOM A
+		 WHERE A.ROOM_STATUS = 'Y'
+		 ORDER BY A.ROOM_NO DESC
+	</entry>
+	<entry key="">
+
+	</entry>
+	<entry key="">
+
+	</entry>
+	<entry key="">
+
+	</entry>
+	<entry key="">
+
+	</entry>
+
+</properties>
+
+
+
+
+
+
+
+
+
+
