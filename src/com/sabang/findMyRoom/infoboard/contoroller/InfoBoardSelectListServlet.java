@@ -58,15 +58,15 @@ public class InfoBoardSelectListServlet extends HttpServlet {
 		      
 		      /* 조회해 온다. */
 		      List<InfoBoardDTO> boardList = boardService.selectInfoBoardList(pageInfo);
-//		      for(BoardDTO bDto : boardList) {
-//		         System.out.println("한페이지에 보여질 게시글들 : " + bDto);
-//		         
-//		      }
+		      for(InfoBoardDTO bDto : boardList) {
+		         System.out.println("한페이지에 보여질 게시글들 : " + bDto);
+		         
+		      }
 		      
 		      String path = "";
 		      if(!boardList.isEmpty()) {
 		         path = "/WEB-INF/views/infoboard/infoBoardList.jsp";
-		         request.setAttribute("boardList", boardList);
+		         request.setAttribute("infoboardList", boardList);
 		         request.setAttribute("pageInfo", pageInfo);
 		      } else {
 		         path = "/WEB-INF/views/common/failed.jsp";
