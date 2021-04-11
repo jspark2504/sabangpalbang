@@ -54,7 +54,7 @@
 		)
 		VALUES
 		(
-		  SEQ_FREE_BOARD_NO.NEXTVAL
+		  SEQ_FREE_POST_NO.NEXTVAL
 		, ?
 		, ?
 		, ?

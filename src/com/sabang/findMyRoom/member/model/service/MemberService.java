@@ -49,9 +49,12 @@ public class MemberService {
 		
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		
+		System.out.println("encPwd : " + encPwd);
+		System.out.println("requeestMember.getPwd : " + requestMember.getPwd());
+		
 		/* 로그인 요청한 원문 비밀번호와 저장되어 있는 암호호된 비밀번호가 일치하는지 확인 */
 		if(passwordEncoder.matches(requestMember.getPwd(), encPwd)) {
-//			System.out.println("기존 회원과 비번 일치!");
+			System.out.println("기존 회원과 비번 일치!");
 			/* 비밀번호가 일치하는 경우에만 회원 정보를 조회해 온다. */
 			loginMember = memberDAO.selectLoginMember(con, requestMember);
 		}

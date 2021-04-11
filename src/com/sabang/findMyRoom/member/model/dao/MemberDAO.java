@@ -72,6 +72,7 @@ public class MemberDAO {
 			
 			if(rset.next()) {
 				encPwd = rset.getString("USER_PWD");
+//				System.out.println("encPwd : " + encPwd);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
