@@ -29,8 +29,9 @@ header {
     z-index: 10;
 }
 
-.navbar_logo img {
+.navbar_logo {
     padding: 0 30px;
+    height: 50px;
     width: 20vw;
     max-width: 140px;
 }
@@ -84,7 +85,10 @@ header {
     }
 
     .navbar_logo img {
-        padding: 0;
+        padding: 0 30px;
+    height: 50px;
+    width: 20vw;
+    max-width: 140px;
     }
 
     .navbar_menu {

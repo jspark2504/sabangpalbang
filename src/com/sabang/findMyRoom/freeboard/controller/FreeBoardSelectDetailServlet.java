@@ -19,12 +19,12 @@ public class FreeBoardSelectDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		int no = Integer.valueOf(request.getParameter("no"));
 		FreeBoardService boardService = new FreeBoardService();
-		
+
 		FreeBoardDTO boardDetail = boardService.selectBoardDetail(no);
-		
+
 		String path = "";
 		if(boardDetail != null) {
 			path = "/WEB-INF/views/freeboard/freeBoardDetail.jsp";

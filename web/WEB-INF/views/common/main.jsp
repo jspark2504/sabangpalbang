@@ -27,9 +27,16 @@
 		<div class="main">
 			<img class="banner" src="/findMyRoom/resources/image/banner.png"
 				alt="...">
-			<h1 class="search">
-				<b>전세 어디까지 알고 계신가요?</b>
-			</h1>
+			<article class="search">
+				<h1>
+					<b>전세 어디까지 알고 계신가요?</b>
+				</h1>
+				<input type="text" id="searchValue" name="searchValue"
+					placeholder="검색어를 입력해주세요." />
+				<button type="submit" id="submitBtn">
+					<i class="fa fa-search"></i>
+				</button>
+			</article>
 		</div>
 	</div>
 
@@ -45,41 +52,33 @@
 				</div>
 				<hr>
 				<ul>
-					<li class="item"><a href="#">
-							<span class="img">
-								<img src="/findMyRoom/resources/image/mhn.png" alt="..."
-									class="img-circle">
-							</span>
-							<span class="info">
-								<span class="name">나문휘<br></span>
-								<span class="star">
-									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-									<span class="review_no">후기 21개</span>
-								</span>
-								<span class="review_content">진짜 딱 맘에드는 곳들만 보여주셔서 너무 좋았어요.</span>
-							</span>
+					<li class="item"><a href="#"> <span class="img"> <img
+								src="/findMyRoom/resources/image/mhn.png" alt="..."
+								class="img-circle">
+						</span> <span class="info"> <span class="name">나문휘<br></span>
+								<span class="star"> <span
+									class="glyphicon glyphicon-star" aria-hidden="true"></span> <span
+									class="glyphicon glyphicon-star" aria-hidden="true"></span> <span
+									class="glyphicon glyphicon-star" aria-hidden="true"></span> <span
+									class="glyphicon glyphicon-star" aria-hidden="true"></span> <span
+									class="glyphicon glyphicon-star" aria-hidden="true"></span> <span
+									class="review_no">후기 21개</span>
+							</span> <span class="review_content">진짜 딱 맘에드는 곳들만 보여주셔서 너무 좋았어요.</span>
+						</span>
 					</a></li>
-					<li class="item"><a href="#">
-							<span class="img">
-								<img src="/findMyRoom/resources/image/sjl.png" alt="..."
-									class="img-circle">
-							</span>
-							<span class="info">
-								<span class="name">이숭재<br></span>
-								<span class="star">
-									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-									<span class="glyphicon glyphicon-star empty" aria-hidden="true"></span>
+					<li class="item"><a href="#"> <span class="img"> <img
+								src="/findMyRoom/resources/image/sjl.png" alt="..."
+								class="img-circle">
+						</span> <span class="info"> <span class="name">이숭재<br></span>
+								<span class="star"> <span
+									class="glyphicon glyphicon-star" aria-hidden="true"></span> <span
+									class="glyphicon glyphicon-star" aria-hidden="true"></span> <span
+									class="glyphicon glyphicon-star" aria-hidden="true"></span> <span
+									class="glyphicon glyphicon-star" aria-hidden="true"></span> <span
+									class="glyphicon glyphicon-star empty" aria-hidden="true"></span>
 									<span class="review_no">후기 15개</span>
-								</span>
-								<span class="review_content">허위매물일까봐 걱정했는데 사진설명이랑 똑같았어요.</span>
-							</span>
+							</span> <span class="review_content">허위매물일까봐 걱정했는데 사진설명이랑 똑같았어요.</span>
+						</span>
 					</a></li>
 				</ul>
 			</article>
@@ -88,12 +87,16 @@
 					<h4>
 						<b>자유게시판</b>
 					</h4>
-					<a class="btn-sm" href="${ pageContext.servletContext.contextPath }/freeboard/list" role="button">더보기</a>
+					<a class="btn-sm"
+						href="${ pageContext.servletContext.contextPath }/freeboard/list"
+						role="button">더보기</a>
 				</div>
 				<hr>
 				<div class="board">
 					<ul>
-						<li class="title"><a href="#">방구들아 이거 집주인이 잘못한 거 맞지?</a></li>
+						<li class="title"><a
+							href="${ pageContext.servletContext.contextPath }/freeboard/detail">방구들아
+								이거 집주인이 잘못한 거 맞지?</a></li>
 						<li class="title"><a href="#">우리집 인테리어 봐줄 사람 ㅋㅋㅋ</a></li>
 						<li class="title"><a href="#">니네 야식 뭐 먹었냐?</a></li>
 						<li class="title"><a href="#">나 큰일났음 낼 이사인데 아직도 못 자는 중;;</a></li>
@@ -126,9 +129,11 @@
 			</div>
 		</section>
 	</section>
-	<a href="https://ohou.se/">
-	<img class="img-responsive center-block"
+	<a href="https://ohou.se/"> <img
+		class="img-responsive center-block"
 		src="/findMyRoom/resources/image/ad.png" alt=".." /></a>
+
+	<jsp:include page="../common/footer.jsp" />
 
 
 
