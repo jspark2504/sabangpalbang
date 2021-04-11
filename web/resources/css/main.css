@@ -18,6 +18,23 @@
 	margin-top: -10px;
 }
 
+.searchValue{
+	width: 20vw;
+	height: 65px;
+	font-size: 20px;
+}
+
+.search{
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.input-group{
+	width:400px;
+}
+
 .free_board {
 	display: flex;
 	align-items: center;
@@ -35,6 +52,15 @@
 	width: 50px;
 	height: 25px;
 }
+
+.btn.btn-default {
+	background: #ffd233;
+}
+
+.btn.btn-default:hover {
+	color: white;
+}
+
 
 .main-contents {
 	margin-bottom: 50px;
@@ -167,6 +193,11 @@ ul {
 .item:hover {
 	background-color: #f3f3f3;
 	border-radius: 5px;
+}
+
+h1 {
+	font-size: 30px;
+	margin-bottom: 50px;
 }
 
 h4 {

@@ -17,6 +17,8 @@ footer div {
 }
 
 .footer_icons {
+	text-decoration: none;
+	color: #6a6a6a;
     list-style: none;
     display: flex;
     padding-left: 0;
@@ -31,4 +33,12 @@ footer div {
 .hr-fshadow {
     margin-top: 50px;
     height: 5px;
+}
+
+.fab.fa-github{
+	color: #6a6a6a;
+}
+
+.fab.fa-github:hover{
+	color: rgb(0, 0, 0);
 }

@@ -27,7 +27,7 @@
 			<li><i class="fab fa-twitter"></i></li>
 			<li><i class="fab fa-facebook-f"></i></li>
 			<li><i class="fab fa-youtube"></i></li>
-			<li><i class="fab fa-github"></i></li>
+			<li><a href="https://github.com/jspark2504/sabangpalbang/network"><i class="fab fa-github"></i></a></li>
 		</ul>
 
 		<p>

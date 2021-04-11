@@ -31,11 +31,17 @@
 				<h1>
 					<b>전세 어디까지 알고 계신가요?</b>
 				</h1>
-				<input type="text" id="searchValue" name="searchValue"
-					placeholder="검색어를 입력해주세요." />
-				<button type="submit" id="submitBtn">
-					<i class="fa fa-search"></i>
-				</button>
+				<div class="col-lg-6">
+					<div class="input-group">
+						<input type="text" class="form-control"
+							placeholder="정보게시판에 원하는 정보를 검색해보세요"> <span
+							class="input-group-btn">
+							<button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+						</span>
+					</div>
+					<!-- /input-group -->
+				</div>
+				<!-- /.col-lg-6 -->
 			</article>
 		</div>
 	</div>
