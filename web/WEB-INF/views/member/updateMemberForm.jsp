@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,20 +86,20 @@
        </style>
 <body>
 	<jsp:include page="../common/header.jsp"/>
-	
+
 	<section class="container">
 		<h2 align="center">회원 정보 수정</h2>
 
 		<!-- 회원 정보 수정 폼 -->
-			<form class="form-signup" action="${pageContext.servletContext.contextPath}" method="post">	
+			<form class="form-signup" action="${pageContext.servletContext.contextPath}" method="post">
 				<div class="input-group">
 				<article>
 					<label for="inputId">아이디</label>
-					<input class="form-control" maxlength="13" type="text" name="userId" id="inputId" readonly value="${ sessionScope.loginMember.id }">	
+					<input class="form-control" maxlength="13" type="text" name="userId" id="inputId" readonly value="${ sessionScope.loginMember.id }">
 				</article>
 				<article>
 					<label for="inputPassword">비밀번호</label>
-					<input class="form-control" type="password" maxlength="13" name="userPwd" value="${ sessionScope.loginMember.pwd }" required>	
+					<input class="form-control" type="password" maxlength="13" name="userPwd" value="${ sessionScope.loginMember.pwd }" required>
            		</article>
            		<div>
            			<label for="inputNickname">닉네임</label>
@@ -112,36 +112,36 @@
           		<div>
           		    <label for="inputPhone">전화번호</label>
 					<input class="form-control" type="tel" name="phone" value="${ sessionScope.loginMember.phone }">
-				</div>	
-						
+				</div>
+
 				</div>
 				<div class="btns" align="center">
 					<input class="btn btn-lg btn-block okbtn" type="button" value="수정하기" class="btn btn-or" onclick="postRequest('updateMember')">
 					<input class="btn btn-lg btn-block okbtn" type="button" value="탈퇴하기" class="pull-right" onclick="postRequest('deleteMember')">
 				</div>
 			</form>
-	
+
 	</section> <!-- container end -->
-	
+
 	<script>
 		function postRequest(intent){
 			var $form = document.getElementById("form");
 			var passwordValue = document.getElementsByName("userPwd")[0].value;
-			
-			
-			// "", null, indefined, 0, NaN에 해당되면 false || 값이 일치하는지 여부 
+
+
+			// "", null, indefined, 0, NaN에 해당되면 false || 값이 일치하는지 여부
 			if(!passwordValue || passwordValue === "") {	// 사용자가 비번 입력하지 않았을 때
 				alert("비밀번호는 반드시 입력해야 합니다.");
 				document.getElementsByName("userPwd")[0].focus();
-			}			
-			
+			}
+
 			requestPath = "<%=request.getContextPath()%>";
-			
+
 			switch(intent){
 			case "updateMember" : requestPath += "/member/update"; break;
 			case "deleteMember" : requestPath += "/member/delete"; break;
 			}
-			
+
 			/* 폼태그 액션과 서브밋 시키는 작업 */
 			$form.action = requestPath;
 			$form.submit();
