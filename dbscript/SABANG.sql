@@ -550,10 +550,13 @@ CREATE TABLE TBL_NOTICE(
   VIEW_NO NUMBER,
   CREATION_DATE DATE CONSTRAINT NN_NT_CREATION_DATE NOT NULL,
   MODIFICATION_DATE DATE,
+  NOTICE_STATUS_YN CHAR(1) DEFAULT 'Y',
   USER_NO NUMBER CONSTRAINT NN_NT_USER_NO NOT NULL,
   TITLE VARCHAR2(50) CONSTRAINT NN_NT_TITLE NOT NULL,
   CONTENT VARCHAR2(500) CONSTRAINT NN_NT_CONTENT NOT NULL,
-  CONSTRAINT FK_NT_USER_NO FOREIGN KEY (USER_NO) REFERENCES TBL_USER (USER_NO)
+  CONSTRAINT FK_NT_USER_NO FOREIGN KEY (USER_NO) REFERENCES TBL_USER (USER_NO),
+  CONSTRAINT CK_NOTICE_STATUS_YN CHECK(NOTICE_STATUS_YN IN ('Y', 'N'))
+   
 );
 
 COMMENT ON COLUMN TBL_NOTICE.NOTICE_NO IS '공지사항번호';
@@ -563,6 +566,7 @@ COMMENT ON COLUMN TBL_NOTICE.MODIFICATION_DATE IS '수정일자';
 COMMENT ON COLUMN TBL_NOTICE.USER_NO IS '작성자';
 COMMENT ON COLUMN TBL_NOTICE.TITLE IS '글제목';
 COMMENT ON COLUMN TBL_NOTICE.CONTENT IS '글내용';
+COMMENT ON COLUMN TBL_NOTICE.NOTICE_STATUS_YN IS '공지상태';
 
 
 
@@ -637,41 +641,3 @@ COMMENT ON COLUMN TBL_INFO_BOARD_FILE.EXTENSION IS '파일확장자';
 COMMENT ON COLUMN TBL_INFO_BOARD_FILE.CONTENT IS '파일내용';
 COMMENT ON COLUMN TBL_INFO_BOARD_FILE.SAVE_PATH IS '저장경로';
 COMMENT ON COLUMN TBL_INFO_BOARD_FILE.FILE_NO IS '파일번호';
-
-INSERT INTO TBL_INFO_BOARD A (A.POST_NO, A.POST_TITLE, A.POST_CONTENT, A.CREATION_DATE, A.CATEGORY_NO, A.USER_NO)
-VALUES (SEQ_INFO_POST_NO.NEXTVAL, '이사 전 잊지 말자! 준비 체크리스트', '이사를 앞두고 있다면 짐을 꾸리는 것부터 시작해 이삿짐센터 선택까지 신경 써야 할 일이 한두 가지가 아니다. 차질 없는 이사의 진행을 위해서는 이사 준비 체크리스트를 작성해서 빠짐없이 꼼꼼히 챙겨야 한다.
-
-그렇게 챙기고도 꼭 무언가 하나는 빠뜨리게 되는 큰 일인 만큼 시행착오 없는 이사 준비를 위해 필요한 사항들을 정리해보았다. 이사 전 잊지 말아야 할 체크리스트!
-
-잔금과 이체 한도를 확인하자
-
- 
-
-
-
-현금과 이체 중 어떻게 잔금을 치를지를 결정하고, 잔금을 이삿날 모두 이체 혹은 출금할 수 있도록 한도를 확인해야 한다. 만일 인터넷뱅킹을 사용할 경우 이체 한도가 문제가 된다면 잔금을 치르지 못해 난처한 상황이 생길 수 있으므로 필수적으로 준비해 놓아야 한다.
-
-관리사무소에 이삿날을 통보하자
-
- 
-
-
-
-이삿날 이삿짐 차량과 사다리차를 주차해야 하므로 날짜와 시간을 미리 통보해야 한다. 이는 이사를 나가는 집뿐 아니라 들어가는 집도 마찬가지이다. 사다리차를 사용하지 못하는 세대가 있을 수도 있으니 짐을 옮길 수 있는 주차장 자리도 확보해 놓아야 하므로 사전 통보는 필수.
-
-냉장고 속 비우기
-
- 
-
-
-
-아무리 이삿짐센터에서 아이스박스를 가지고 온다고 해도, 국물이 많거나 금방 상하는 음식이 있으면 이사 중 손상이 가기 쉽다. 게다가 날씨가 무더운 요즘 같은 경우는 더욱 그렇다. 사전에 냉장고를 최대한 비워 짐을 줄이고 전기밥솥의 밥도 비워두는 것이 좋다.
-
-반려동물 맡아줄 사람 찾기
-
- 
-
-
-
-반려동물들이 있는 경우 이삿날 함께 한다면 먼지가 많이 발생하기도 하고 사이즈가 큰 가전이나 가구를 옮기며 부상의 위험이 있을 수도 있다. 또한 밖에서 보내야 하는 시간이 많고 주인이 이사에 바빠 신경을 써주기 힘들기 때문에 반려동물을 맡아줄 기관이나 친지 등 사람을 미리 찾아 부탁하는 것이 좋다.'
-, SYSDATE, 1, 1);
