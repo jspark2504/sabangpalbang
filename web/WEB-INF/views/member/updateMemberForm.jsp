@@ -97,15 +97,15 @@
 		<h2 align="center">회원 정보 수정</h2>
 
 		<!-- 회원 정보 수정 폼 -->
-			<form class="form-signup" action="${pageContext.servletContext.contextPath}" method="post">	
+			<form id="form"class="form-signup" action="${pageContext.servletContext.contextPath}" method="post">	
 				<div class="input-group">
 				<article>
 					<label for="inputId">아이디</label>
-					<input class="form-control" maxlength="13" type="text" name="userId" id="inputId" readonly value="${ sessionScope.loginMember.id }">	
+					<input class="form-control" maxlength="13" type="text" name="userId" readonly value="${ sessionScope.loginMember.id }">	
 				</article>
 				<article>
 					<label for="inputPassword">비밀번호</label>
-					<input class="form-control" type="password" maxlength="13" name="userPwd" value="${ sessionScope.loginMember.pwd }" required>	
+					<input class="form-control" type="password" maxlength="13" name="userPwd" required>	
            		</article>
            		<div>
            			<label for="inputNickname">닉네임</label>
@@ -122,8 +122,8 @@
 						
 				</div>
 				<div class="btns" align="center">
-					<input class="btn btn-lg btn-block okbtn" type="button" value="수정하기" class="btn btn-or" onclick="postRequest('updateMember')">
-					<input class="btn btn-lg btn-block okbtn" type="button" value="탈퇴하기" class="pull-right" onclick="postRequest('deleteMember')">
+					<button class="btn btn-lg btn-block okbtn" type="submit" onclick="postRequest('updateMember')">수정하기</button>
+					<button class="btn btn-lg btn-block okbtn" type="submit" onclick="postRequest('deleteMember')">탈퇴하기</button>
 				</div>
 			</form>
 	
