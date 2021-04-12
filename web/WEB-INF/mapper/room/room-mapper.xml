@@ -9,7 +9,7 @@
 		     , A.ADDRESS
 		     , A.ROOM_FLOOR
 		     , A.ROOM_EXPLANATION
-		  FROM ROOM A
+		  FROM TBL_ROOM A
 		 WHERE A.ROOM_STATUS = 'Y'
 		 ORDER BY A.ROOM_NO DESC
 	</entry>

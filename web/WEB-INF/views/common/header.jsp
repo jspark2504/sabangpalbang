@@ -25,7 +25,7 @@
 					src="/findMyRoom/resources/image/findmyroom.png" alt=""></a>
 			</div>
 			<ul class="navbar_menu">
-				<li><a href="#">원룸</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/room/list">원룸</a></li>
 				<li><a href="#">1.5룸</a></li>
 				<li><a href="#">투룸</a></li>
 				<li><a href="#">쓰리룸</a></li>
