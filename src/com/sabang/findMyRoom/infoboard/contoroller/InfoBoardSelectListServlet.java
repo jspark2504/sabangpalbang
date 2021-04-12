@@ -42,7 +42,7 @@ public class InfoBoardSelectListServlet extends HttpServlet {
 		      /* DB를 조회하여 게시 가능한 게시물의 총 갯수를 조회한다. */
 		      InfoBoardService boardService = new InfoBoardService();
 		      int totalCount = boardService.selectTotalCount();
-//		      System.out.println("게시 가능한 게시물의 총 갯수 : " + totalCount);
+		      System.out.println("게시 가능한 게시물의 총 갯수 : " + totalCount);
 		      
 		      /* 3. 한 페이지에 보여 줄 게시물 수 */
 		      int limit = 10;
@@ -54,19 +54,19 @@ public class InfoBoardSelectListServlet extends HttpServlet {
 		       */
 		      PageInfoDTO pageInfo = Pagenation.getPageInfo(pageNo, totalCount, limit, buttonAmount);
 		      
-//		      System.out.println("페이징 처리와 관련된 정보들 : " + pageInfo);
+		      System.out.println("페이징 처리와 관련된 정보들 : " + pageInfo);
 		      
 		      /* 조회해 온다. */
 		      List<InfoBoardDTO> boardList = boardService.selectInfoBoardList(pageInfo);
-//		      for(BoardDTO bDto : boardList) {
-//		         System.out.println("한페이지에 보여질 게시글들 : " + bDto);
-//		         
-//		      }
+		      for(InfoBoardDTO bDto : boardList) {
+		         System.out.println("한페이지에 보여질 게시글들 : " + bDto);
+		         
+		      }
 		      
 		      String path = "";
 		      if(!boardList.isEmpty()) {
 		         path = "/WEB-INF/views/infoboard/infoBoardList.jsp";
-		         request.setAttribute("boardList", boardList);
+		         request.setAttribute("infoboardList", boardList);
 		         request.setAttribute("pageInfo", pageInfo);
 		      } else {
 		         path = "/WEB-INF/views/common/failed.jsp";

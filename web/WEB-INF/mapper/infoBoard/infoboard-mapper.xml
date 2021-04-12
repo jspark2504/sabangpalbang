@@ -98,9 +98,147 @@
                                 ) + 1
          WHERE A.POST_NO = ?
 	</entry>
+
+	<entry key="searchCategoryInfoBoardCount">
+		SELECT 
+               COUNT(*)
+          FROM INFO_BOARD A
+          JOIN INFO_CATEGORY B ON (A.CATEGORY_NO = B.CATEGORY_NO)
+         WHERE B.CATEGORY_NAME LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchTitleInfoBoardCount">
+		SELECT 
+               COUNT(*)
+          FROM INFO_BOARD A
+         WHERE A.POST_TITLE LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchContentInfoBoardCount">
+		SELECT 
+               COUNT(*)
+          FROM INFO_BOARD A
+         WHERE A.POST_CONTENT LIKE '%' || ? || '%'
+	</entry>
 	
-	<entry key="">
 	
+	<entry key="searchCategoryInfoBoard">
+        SELECT 
+               A.RNUM
+             , A.POST_NO
+             , A.CATEGORY_NO
+             , A.CATEGORY_NAME
+             , A.POST_TITLE
+             , A.POST_CONTENT
+             , A.USER_NO
+             , A.USER_NAME
+             , A.VIEW_NO
+             , A.CREATION_DATE
+          FROM (SELECT ROWNUM RNUM
+                     , B.POST_NO
+                     , B.CATEGORY_NO
+                     , B.CATEGORY_NAME
+                     , B.POST_TITLE
+                     , B.POST_CONTENT
+                     , B.USER_NO
+                     , B.USER_NAME
+                     , B.VIEW_NO
+                     , B.CREATION_DATE
+                  FROM (SELECT C.POST_NO
+                             , C.CATEGORY_NO
+                             , D.CATEGORY_NAME
+                             , C.POST_TITLE
+                             , C.POST_CONTENT
+                             , C.USER_NO
+                             , E.USER_NAME
+                             , C.VIEW_NO
+                             , C.CREATION_DATE
+                          FROM INFO_BOARD C
+                          JOIN INFO_CATEGORY D ON (C.CATEGORY_NO = D.CATEGORY_NO)
+                          JOIN MEMBER E ON(C.USER_NO = E.USER_NO)
+                         ORDER BY C.POST_NO DESC
+                        ) B
+                 WHERE B.CATEGORY_NAME LIKE '%' || ? || '%'
+               ) A
+         WHERE A.RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="searchTitleInfoBoard">
+        SELECT 
+               A.RNUM
+             , A.POST_NO
+             , A.CATEGORY_NO
+             , A.CATEGORY_NAME
+             , A.POST_TITLE
+             , A.POST_CONTENT
+             , A.USER_NO
+             , A.USER_NAME
+             , A.VIEW_NO
+             , A.CREATION_DATE
+          FROM (SELECT ROWNUM RNUM
+                     , B.POST_NO
+                     , B.CATEGORY_NO
+                     , B.CATEGORY_NAME
+                     , B.POST_TITLE
+                     , B.POST_CONTENT
+                     , B.USER_NO
+                     , B.USER_NAME
+                     , B.VIEW_NO
+                     , B.CREATION_DATE
+                  FROM (SELECT C.POST_NO
+                             , C.CATEGORY_NO
+                             , D.CATEGORY_NAME
+                             , C.POST_TITLE
+                             , C.POST_CONTENT
+                             , C.USER_NO
+                             , E.USER_NAME
+                             , C.VIEW_NO
+                             , C.CREATION_DATE
+                          FROM INFO_BOARD C
+                          JOIN INFO_CATEGORY D ON (C.CATEGORY_NO = D.CATEGORY_NO)
+                          JOIN MEMBER E ON(C.USER_NO = E.USER_NO)
+                         ORDER BY C.POST_NO DESC
+                        ) B
+                 WHERE B.POST_TITLE LIKE '%' || ? || '%'
+               ) A
+         WHERE A.RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="searchContentInfoBoard">
+        SELECT 
+               A.RNUM
+             , A.POST_NO
+             , A.CATEGORY_NO
+             , A.CATEGORY_NAME
+             , A.POST_TITLE
+             , A.POST_CONTENT
+             , A.USER_NO
+             , A.USER_NAME
+             , A.VIEW_NO
+             , A.CREATION_DATE
+          FROM (SELECT ROWNUM RNUM
+                     , B.POST_NO
+                     , B.CATEGORY_NO
+                     , B.CATEGORY_NAME
+                     , B.POST_TITLE
+                     , B.POST_CONTENT
+                     , B.USER_NO
+                     , B.USER_NAME
+                     , B.VIEW_NO
+                     , B.CREATION_DATE
+                  FROM (SELECT C.POST_NO
+                             , C.CATEGORY_NO
+                             , D.CATEGORY_NAME
+                             , C.POST_TITLE
+                             , C.POST_CONTENT
+                             , C.USER_NO
+                             , E.USER_NAME
+                             , C.VIEW_NO
+                             , C.CREATION_DATE
+                          FROM INFO_BOARD C
+                          JOIN INFO_CATEGORY D ON (C.CATEGORY_NO = D.CATEGORY_NO)
+                          JOIN MEMBER E ON(C.USER_NO = E.USER_NO)
+                         ORDER BY C.POST_NO DESC
+                        ) B
+                 WHERE B.POST_CONTENT LIKE '%' || ? || '%'
+               ) A
+         WHERE A.RNUM BETWEEN ? AND ?	
 	</entry>
 
 </properties>

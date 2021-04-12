@@ -88,28 +88,28 @@ public class InfoBoardService {
 	      return infoBoardDetail;
 	   }
 
-//	   /* 게시판 검색 결과 갯수 조회용 메소드 */
-//	   public int searchBoardCount(String condition, String value) {
-//
-//	      Connection con = getConnection();
-//	      
-//	      int totalCount = infoBoardDAO.searchBoardCount(con, condition, value);
-//	      
-//	      close(con);
-//	      
-//	      return totalCount;
-//	   }
-//
-//	   /* 게시판 검색 결과 조회용 메소드 */
-//	   public List<InfoBoardDTO> searchBoardList(PageInfoDTO pageInfo, String condition, String value) {
-//	      Connection con = getConnection();
-//	      
-//	      List<InfoBoardDTO> boardList = infoBoardDAO.searchBoardList(con, pageInfo, condition, value);
-//	      
-//	      close(con);
-//	      
-//	      return boardList;
-//	   }
+	   /* 게시판 검색 결과 갯수 조회용 메소드 */
+	   public int searchInfoBoardCount(String condition, String value) {
+
+	      Connection con = getConnection();
+	      
+	      int totalCount = infoBoardDAO.searchInfoBoardCount(con, condition, value);
+	      
+	      close(con);
+	      
+	      return totalCount;
+	   }
+
+	   /* 게시판 검색 결과 조회용 메소드 */
+	   public List<InfoBoardDTO> searchInfoBoardList(PageInfoDTO pageInfo, String condition, String value) {
+	      Connection con = getConnection();
+	      
+	      List<InfoBoardDTO> boardList = infoBoardDAO.searchInfoBoardList(con, pageInfo, condition, value);
+	      
+	      close(con);
+	      
+	      return boardList;
+	   }
 	   
 	
 }
