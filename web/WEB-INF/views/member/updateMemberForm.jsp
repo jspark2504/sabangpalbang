@@ -30,7 +30,7 @@
     <style>
 		  .form-signup {
                max-width: 380px;
-               padding: 15px;
+               padding: 20px;
                margin: 40px auto;
                border: 1px solid #e1e1e1;
                border-radius: 5px;
@@ -46,7 +46,13 @@
            .form-signup .checkbox {
                font-weight: normal;
            }
-
+           
+		   .input-group {
+           	display: flex;
+           	flex-direction: column;
+           	justify-content: center;
+           }
+           
            .form-signup .form-control {
                position: relative;
                height: auto;
