@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
+	<entry key="checkIdDuplicate">
+		SELECT /* com.sabang.findMyRoom.member.model.dao.MemberDAO#checkIdDuplicate() */
+		       A.USER_ID
+		  FROM TBL_USER A
+		 WHERE A.USER_ID = ?
+	</entry>
 	<entry key="insertMember">
 		INSERT  /* com.sabang.findMyRoom.member.model.dao.MemberDAO#insertMember() */
 		  INTO TBL_USER A
@@ -48,7 +54,10 @@
 		   AND A.USER_ID = ?
 	</entry>
 	<entry key="">
-	
+
 	</entry>
-	
+	<entry key="">
+
+	</entry>
+
 </properties>

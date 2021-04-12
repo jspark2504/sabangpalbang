@@ -12,12 +12,17 @@
 	<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
     <title>구해줘! 내 방</title>
 
-    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <!-- 부트스트랩 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <!-- 부가적인 테마 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <!-- 아이콘 -->
+    <script src="https://kit.fontawesome.com/11694e3acf.js"></script>
+
+    <!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 
     <!-- 뒤로가기로 회원가입 페이지 보는 것을 방지하기 위한 스크립트 -->
     <script type="text/javascript">
@@ -65,23 +70,15 @@
                margin: 10px auto;
            }
 
+           .form-signup input:not(#inputNickname) {
+               text-transform: lowercase;
+           }
+
            .okbtn {
                margin-top: 50px;
                background-color: #ffd233;
                color: white;
            }
-
-        /* .initial {
-				all: initial;
-		   } */
-
-           .idcheck {
-               color: white;
-               background-color: #ffd233 !important;
-               padding: 12px;
-               border: 0px
-           }
-
 
            .container {
                margin-top: 20px;
@@ -95,18 +92,15 @@
         <!-- 회원가입 양식 outer 영역 -->
         <form class="form-signup" action="${ pageContext.servletContext.contextPath }/member/regist" method="post">
             <h4 align="center" class="form-signup-heading">간편하게 가입하고<br>다양한 서비스를 이용하세요.</h4>
-            <div class="input-group">
-                <input type="text" name="userId" id="inputId" class="form-control" placeholder="아이디" required
-                    autofocus>
-                <span class="input-group-btn">
-                    <button class="btn initial idcheck" type="button"
-                        style="background-color: #ffd233;">중복확인</button>
+            <div class="input-group input-id">
+                <input type="text" name="userId" id="inputId" class="form-control" placeholder="아이디" required autofocus>
+                <span class="input-group-addon input-id-addon">
+                	<i class="fas fa-check"></i>
                 </span>
             </div>
 
             <label for="inputPassword" class="sr-only">비밀번호</label>
-            <input type="password" name="userPwd" id="inputPassword" class="form-control"
-                placeholder="영문, 숫자 포함 8자 이상" required>
+            <input type="password" name="userPwd" id="inputPassword" class="form-control" placeholder="영문, 숫자 포함 8자 이상" required>
             <label for="inputPasswordCheck" class="sr-only">비밀번호 재입력</label>
             <input type="password" id="inputPasswordCheck" class="form-control" placeholder="비밀번호 재입력" required>
             <label for="inputNickname" class="sr-only">닉네임</label>
@@ -120,6 +114,9 @@
         </form> <!-- /form-signup -->
 
     </section> <!-- /container -->
+
+	<!-- 자바스크립트 -->
+	<script src="/findMyRoom/resources/js/signup.js"></script>
 
 </body>
 
