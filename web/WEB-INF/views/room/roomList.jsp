@@ -28,17 +28,18 @@
             <article class="map col-sm-8">
                 <figure id="map" style="width: 100%; height: 100%;">
                     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=24e099130b03e272c1eb2889137042a1&libraries=services,clusterer,drawing"></script>
-                    <script>
-                        var container = document.getElementById('map');
-                        var options = {
-                            center: new kakao.maps.LatLng(37.478409, 126.951704),
-                            level: 6
-                        };
-
-                        var map = new kakao.maps.Map(container, options);
-                    </script>
+                    <script src="/findMyRoom/resources/js/map.js"></script>
                 </figure>
             </article> <!-- 지도 영역 end -->
+
+            <!-- 검색 필터 영역 -->
+            <form action="">
+            	<button type="button">검색 조건을 설정해주세요.</button>
+            	<input type="text" />
+            	<button type="submit"></button>
+            	<button type="reset">모두 초기화</button>
+            </form><!-- 검색 필터 영역 end -->
+
             <!-- 매물 목록 영역 -->
             <article class="room-list col-sm-4">
                 <h4 class="room-list-heading">지역 목록 163개</h4>
