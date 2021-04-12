@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sabang.findMyRoom.member.model.service.MemberService;
 
-@WebServlet("/member/regist/checkId")
-public class MemberCheckIdServlet extends HttpServlet {
+@WebServlet("/member/regist/checkEmail")
+public class MemberCheckEmailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String inputId = request.getParameter("inputId");
+		String inputEmail = request.getParameter("inputEmail");
 
-		boolean isAvailable = new MemberService().checkIdDuplicate(inputId);
+		boolean isAvailable = new MemberService().checkEmailDuplicate(inputEmail);
 		System.out.println(isAvailable);
 
 		PrintWriter out = response.getWriter();

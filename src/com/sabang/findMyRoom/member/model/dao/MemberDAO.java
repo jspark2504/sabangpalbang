@@ -54,6 +54,33 @@ public class MemberDAO {
 		return isAvailable;
 	}
 
+	/* 이메일 중복 체크 */
+	public boolean checkEmailDuplicate(Connection con, String inputEmail) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		boolean isAvailable = false;
+
+		String query = prop.getProperty("checkEmailDuplicate");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, inputEmail);
+
+			rset = pstmt.executeQuery();
+
+			if(!rset.next()) {
+				isAvailable = true;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return isAvailable;
+	}
+
 	/* 회원가입 */
 	public int insertMember(Connection con, MemberDTO requestMember) {
 
@@ -147,5 +174,6 @@ public class MemberDAO {
 		}
 		return loginMember;
 	}
+
 
 }

@@ -32,6 +32,18 @@ public class MemberService {
 		return isAvailable;
 	}
 
+	/* 이메일 중복 체크 */
+	public boolean checkEmailDuplicate(String inputEmail) {
+
+		Connection con = getConnection();
+
+		boolean isAvailable = memberDAO.checkEmailDuplicate(con, inputEmail);
+
+		close(con);
+
+		return isAvailable;
+	}
+
 	/* 회원가입 */
 	public int registMember(MemberDTO requestMember) {
 

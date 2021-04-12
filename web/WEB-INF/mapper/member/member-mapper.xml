@@ -7,6 +7,12 @@
 		  FROM TBL_USER A
 		 WHERE A.USER_ID = ?
 	</entry>
+	<entry key="checkEmailDuplicate">
+		SELECT /* com.sabang.findMyRoom.member.model.dao.MemberDAO#checkEmailDuplicate() */
+		       A.EMAIL
+		  FROM TBL_USER A
+		 WHERE A.EMAIL = ?
+	</entry>
 	<entry key="insertMember">
 		INSERT  /* com.sabang.findMyRoom.member.model.dao.MemberDAO#insertMember() */
 		  INTO TBL_USER A

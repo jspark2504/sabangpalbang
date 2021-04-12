@@ -66,13 +66,17 @@
                z-index: 2;
            }
 
-           .form-signup input:not(#inputId) {
+           .form-signup .input-group {
                margin: 10px auto;
            }
 
            .form-signup input:not(#inputNickname) {
                text-transform: lowercase;
            }
+
+		   .form-signup .input-group-addon {
+		       background: white;
+		   }
 
            .okbtn {
                margin-top: 50px;
@@ -92,21 +96,29 @@
         <!-- 회원가입 양식 outer 영역 -->
         <form class="form-signup" action="${ pageContext.servletContext.contextPath }/member/regist" method="post">
             <h4 align="center" class="form-signup-heading">간편하게 가입하고<br>다양한 서비스를 이용하세요.</h4>
+            <!-- id -->
             <div class="input-group input-id">
                 <input type="text" name="userId" id="inputId" class="form-control" placeholder="아이디" required autofocus>
                 <span class="input-group-addon input-id-addon">
                 	<i class="fas fa-check"></i>
                 </span>
             </div>
-
+			<!-- password -->
             <label for="inputPassword" class="sr-only">비밀번호</label>
             <input type="password" name="userPwd" id="inputPassword" class="form-control" placeholder="영문, 숫자 포함 8자 이상" required>
             <label for="inputPasswordCheck" class="sr-only">비밀번호 재입력</label>
             <input type="password" id="inputPasswordCheck" class="form-control" placeholder="비밀번호 재입력" required>
+            <!-- nickname -->
             <label for="inputNickname" class="sr-only">닉네임</label>
             <input type="text" name="nickname" id="inputNickname" class="form-control" placeholder="닉네임" required>
-            <label for="inputEmail" class="sr-only">이메일</label>
-            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="이메일" required>
+            <!-- email -->
+            <div class="input-group input-email">
+	            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="이메일" required>
+            	<span class="input-group-addon input-email-addon">
+            		<i class="fas fa-check"></i>
+            	</span>
+            </div>
+            <!-- phone -->
             <label for="inputPhone" class="sr-only">전화번호</label>
             <input type="tel" name="phone" id="inputPhone" class="form-control" placeholder="전화번호" required>
 
