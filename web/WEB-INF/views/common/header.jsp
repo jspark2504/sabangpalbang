@@ -31,11 +31,28 @@
 				<li><a href="#">쓰리룸</a></li>
 			</ul>
 			<div class="btn-gr">
+			<!-- 로그인이 필요한 경우 -->
+			<c:if test="${ empty sessionScope.loginMember }">
 				<button type="button" class="drop-menu-btn"
 					onclick="location.href='${ pageContext.servletContext.contextPath }/member/login'">로그인/회원가입
 				</button>
+			</c:if>
+			<!-- 로그인이 되어 있는 경우 -->
+			<c:if test="${ !empty sessionScope.loginMember }">
+				<button type="button" class="drop-menu-btn" onclick="function()">
+					<c:out value="${ sessionScope.loginMember.nickname }"/>님 ▼
+				</button>
+				<ul class="drop-menu">
+					<li><a href="${ pageContext.servletContext.contextPath }/member/logout">로그아웃</a></li>
+					<hr />
+					<li><a href="">찜한 매물</a></li>
+					<hr />
+					<li><a href="">내 서류</a></li>
+					<hr />
+					<li><a href="">내 정보</a></li>
+				</ul>
+			</c:if>
 				<a href="#" class="navbar_toggleBtn"><i class="fas fa-bars"></i></a>
-
 			</div>
 		</div>
 		<hr class="hr-shadow">
