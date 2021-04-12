@@ -66,7 +66,7 @@ public class InfoBoardDAO {
 		      PreparedStatement pstmt = null;
 		      ResultSet rset = null;
 
-		      List<InfoBoardDTO> infoBoardList = null;
+		      List<InfoBoardDTO> BoardList = null;
 		      
 		      String query = prop.getProperty("selectInfoBoardList");
 		      
@@ -77,24 +77,24 @@ public class InfoBoardDAO {
 		         
 		         rset = pstmt.executeQuery();
 		         
-		         infoBoardList = new ArrayList<>();
+		         BoardList = new ArrayList<>();
 		         
 		         while(rset.next()) {
-		        	InfoBoardDTO infoboard = new InfoBoardDTO();
-		            infoboard.setCategory(new CategoryDTO());
-		            infoboard.setWriteUser(new MemberDTO());
+		        	InfoBoardDTO board = new InfoBoardDTO();
+		            board.setCategory(new CategoryDTO());
+		            board.setWriteUser(new MemberDTO());
 		            
-		            infoboard.setNo(rset.getInt("POST_NO"));
-		            infoboard.setCategoryNo(rset.getInt("CATEGORY_NO"));
-		            infoboard.getCategory().setName(rset.getString("CATEGORY_NAME"));
-		            infoboard.setTitle(rset.getString("POST_TITLE"));
-		            infoboard.setContent(rset.getString("POST_CONTENT"));
-		            infoboard.setWriterMemberNo(rset.getInt("USER_NO"));
-		            infoboard.getWriteUser().setNickname(rset.getString("USER_NAME"));
-		            infoboard.setViewNo(rset.getInt("VIEW_NO"));
-		            infoboard.setCreateDate(rset.getDate("CREATION_DATE"));
+		            board.setNo(rset.getInt("POST_NO"));
+		            board.setCategoryNo(rset.getInt("CATEGORY_NO"));
+		            board.getCategory().setName(rset.getString("CATEGORY_NAME"));
+		            board.setTitle(rset.getString("POST_TITLE"));
+		            board.setContent(rset.getString("POST_CONTENT"));
+		            board.setWriterMemberNo(rset.getInt("USER_NO"));
+		            board.getWriteUser().setNickname(rset.getString("NICKNAME"));
+		            board.setViewNo(rset.getInt("VIEW_NO"));
+		            board.setCreateDate(rset.getDate("CREATION_DATE"));
 		            
-		            infoBoardList.add(infoboard);
+		            BoardList.add(board);
 		         }
 		         
 		      } catch (SQLException e) {
@@ -104,7 +104,7 @@ public class InfoBoardDAO {
 		         close(pstmt);
 		      }
 		      
-		      return infoBoardList;
+		      return BoardList;
 		   }
 		   
 		   
@@ -140,7 +140,7 @@ public class InfoBoardDAO {
 		      PreparedStatement pstmt = null;
 		      ResultSet rset = null;
 		      
-		      InfoBoardDTO infoBoardDetail = null;
+		      InfoBoardDTO BoardDetail = null;
 		      
 		      String query = prop.getProperty("selectInfoBoardDetail");
 		      
@@ -151,22 +151,22 @@ public class InfoBoardDAO {
 		         rset = pstmt.executeQuery();
 
 		         if(rset.next()) {
-		            infoBoardDetail = new InfoBoardDTO();
-		            infoBoardDetail.setWriteUser(new MemberDTO());
-		            infoBoardDetail.setCategory(new CategoryDTO());
+		            BoardDetail = new InfoBoardDTO();
+		            BoardDetail.setWriteUser(new MemberDTO());
+		            BoardDetail.setCategory(new CategoryDTO());
 
-		            infoBoardDetail.setNo(rset.getInt("POST_NO"));
-		            infoBoardDetail.setCategoryNo(rset.getInt("CATEGORY_NO"));
-		            infoBoardDetail.getCategory().setName(rset.getString("CATEGORY_NAME"));
+		            BoardDetail.setNo(rset.getInt("POST_NO"));
+		            BoardDetail.setCategoryNo(rset.getInt("CATEGORY_NO"));
+		            BoardDetail.getCategory().setName(rset.getString("CATEGORY_NAME"));
 		            
-		            infoBoardDetail.setTitle(rset.getString("POST_TITLE"));
-		            infoBoardDetail.setContent(rset.getString("POST_CONTENT"));
-		            infoBoardDetail.setWriterMemberNo(rset.getInt("USER_NO"));
+		            BoardDetail.setTitle(rset.getString("POST_TITLE"));
+		            BoardDetail.setContent(rset.getString("POST_CONTENT"));
+		            BoardDetail.setWriterMemberNo(rset.getInt("USER_NO"));
 		            
-		            infoBoardDetail.getWriteUser().setNickname(rset.getString("USER_NAME"));
+		            BoardDetail.getWriteUser().setNickname(rset.getString("NICKNAME"));
 		            
-		            infoBoardDetail.setViewNo(rset.getInt("VIEW_NO"));
-		            infoBoardDetail.setCreateDate(rset.getDate("CREATION_DATE"));
+		            BoardDetail.setViewNo(rset.getInt("VIEW_NO"));
+		            BoardDetail.setCreateDate(rset.getDate("CREATION_DATE"));
 		         }
 		         
 		      } catch (SQLException e) {
@@ -176,7 +176,7 @@ public class InfoBoardDAO {
 		         close(pstmt);
 		      }
 		      
-		      return infoBoardDetail;
+		      return BoardDetail;
 		   }
 		   
 		   
@@ -274,19 +274,19 @@ public class InfoBoardDAO {
 		         boardList = new ArrayList<>();
 		         
 		         while(rset.next()) {
-		        	InfoBoardDTO infoboard = new InfoBoardDTO();
-		        	infoboard.setCategory(new CategoryDTO());
-		        	infoboard.setWriteUser(new MemberDTO());
+		        	InfoBoardDTO board = new InfoBoardDTO();
+		        	board.setCategory(new CategoryDTO());
+		        	board.setWriteUser(new MemberDTO());
 		            
-		        	infoboard.setNo(rset.getInt("POST_NO"));
-		        	infoboard.setCategoryNo(rset.getInt("CATEGORY_NO"));
-		        	infoboard.getCategory().setName(rset.getString("CATEGORY_NAME"));
-		        	infoboard.setTitle(rset.getString("POST_TITLE"));
-		        	infoboard.setContent(rset.getString("POST_CONTENT"));
-		        	infoboard.setViewNo(rset.getInt("VIEW_NO"));
-		        	infoboard.setCreateDate(rset.getDate("CREATION_DATE"));
+		        	board.setNo(rset.getInt("POST_NO"));
+		        	board.setCategoryNo(rset.getInt("CATEGORY_NO"));
+		        	board.getCategory().setName(rset.getString("CATEGORY_NAME"));
+		        	board.setTitle(rset.getString("POST_TITLE"));
+		        	board.setContent(rset.getString("POST_CONTENT"));
+		        	board.setViewNo(rset.getInt("VIEW_NO"));
+		        	board.setCreateDate(rset.getDate("CREATION_DATE"));
 		            
-		            boardList.add(infoboard);
+		            boardList.add(board);
 		         }
 		         
 		      } catch (SQLException e) {

@@ -5,7 +5,7 @@
 	<entry key="selectTotalCount">
     	SELECT
                COUNT(*)
-          FROM INFO_BOARD
+          FROM TBL_INFO_BOARD
 	</entry>
 
 	<entry key="selectInfoBoardList">
@@ -17,7 +17,7 @@
              , A.POST_TITLE
              , A.POST_CONTENT
              , A.USER_NO
-             , A.USER_NAME
+             , A.NICKNAME
              , A.VIEW_NO
              , A.CREATION_DATE
           FROM (SELECT ROWNUM RNUM
@@ -27,7 +27,7 @@
                      , B.POST_TITLE
                      , B.POST_CONTENT
                      , B.USER_NO
-                     , B.USER_NAME
+                     , B.NICKNAME
                      , B.VIEW_NO
                      , B.CREATION_DATE
                   FROM (SELECT C.POST_NO
@@ -36,12 +36,12 @@
                              , C.POST_TITLE
                              , C.POST_CONTENT
                              , C.USER_NO
-                             , E.USER_NAME
+                             , E.NICKNAME
                              , C.VIEW_NO
                              , C.CREATION_DATE
-                          FROM INFO_BOARD C
-                          JOIN INFO_CATEGORY D ON (C.CATEGORY_NO = D.CATEGORY_NO)
-                          JOIN MEMBER E ON(C.USER_NO = E.USER_NO)
+                          FROM TBL_INFO_BOARD C
+                          JOIN TBL_INFO_CATEGORY D ON (C.CATEGORY_NO = D.CATEGORY_NO)
+                          JOIN TBL_USER E ON(C.USER_NO = E.USER_NO)
                          ORDER BY C.POST_NO DESC
                         ) B
                ) A
@@ -50,12 +50,11 @@
 
 	<entry key="insertInfoBoard">
         INSERT
-          INTO INFO_BOARD A
+          INTO TBL_INFO_BOARD A
          (
             A.POST_NO
           , A.POST_TITLE
           , A.POST_CONTENT
-          , A.VIEW_NO
           , A.CREATION_DATE
           , A.CATEGORY_NO
           , A.USER_NO
@@ -65,7 +64,6 @@
             SEQ_INFO_BOARD.NEXTVAL
           , ?
           , ?
-          , 0
           , SYSDATE
           , ?
           , 1
@@ -80,20 +78,20 @@
              , A.POST_TITLE
              , A.POST_CONTENT
              , A.USER_NO
-             , B.USER_NAME
+             , B.NICKNAME
              , A.VIEW_NO
              , A.CREATION_DATE
-          FROM INFO_BOARD A
-          JOIN MEMBER B ON (A.USER_NO = B.USER_NO)
-          JOIN INFO_CATEGORY C ON (A.CATEGORY_NO = C.CATEGORY_NO)
+          FROM TBL_INFO_BOARD A
+          JOIN TBL_USER B ON (A.USER_NO = B.USER_NO)
+          JOIN TBL_INFO_CATEGORY C ON (A.CATEGORY_NO = C.CATEGORY_NO)
          WHERE A.POST_NO = ?	
 	</entry>
 
 	<entry key="incrementInfoBoardCount">
 	      UPDATE
-             INFO_BOARD A
+             TBL_INFO_BOARD A
          SET A.VIEW_NO = (SELECT B.VIEW_NO
-                                   FROM INFO_BOARD B
+                                   FROM TBL_INFO_BOARD B
                                   WHERE POST_NO = ?
                                 ) + 1
          WHERE A.POST_NO = ?
@@ -102,20 +100,20 @@
 	<entry key="searchCategoryInfoBoardCount">
 		SELECT 
                COUNT(*)
-          FROM INFO_BOARD A
-          JOIN INFO_CATEGORY B ON (A.CATEGORY_NO = B.CATEGORY_NO)
+          FROM TBL_INFO_BOARD A
+          JOIN TBL_INFO_CATEGORY B ON (A.CATEGORY_NO = B.CATEGORY_NO)
          WHERE B.CATEGORY_NAME LIKE '%' || ? || '%'
 	</entry>
 	<entry key="searchTitleInfoBoardCount">
 		SELECT 
                COUNT(*)
-          FROM INFO_BOARD A
+          FROM TBL_INFO_BOARD A
          WHERE A.POST_TITLE LIKE '%' || ? || '%'
 	</entry>
 	<entry key="searchContentInfoBoardCount">
 		SELECT 
                COUNT(*)
-          FROM INFO_BOARD A
+          FROM TBL_INFO_BOARD A
          WHERE A.POST_CONTENT LIKE '%' || ? || '%'
 	</entry>
 	
@@ -129,7 +127,7 @@
              , A.POST_TITLE
              , A.POST_CONTENT
              , A.USER_NO
-             , A.USER_NAME
+             , A.NICKNAME
              , A.VIEW_NO
              , A.CREATION_DATE
           FROM (SELECT ROWNUM RNUM
@@ -139,7 +137,7 @@
                      , B.POST_TITLE
                      , B.POST_CONTENT
                      , B.USER_NO
-                     , B.USER_NAME
+                     , B.NICKNAME
                      , B.VIEW_NO
                      , B.CREATION_DATE
                   FROM (SELECT C.POST_NO
@@ -148,12 +146,12 @@
                              , C.POST_TITLE
                              , C.POST_CONTENT
                              , C.USER_NO
-                             , E.USER_NAME
+                             , E.NICKNAME
                              , C.VIEW_NO
                              , C.CREATION_DATE
-                          FROM INFO_BOARD C
-                          JOIN INFO_CATEGORY D ON (C.CATEGORY_NO = D.CATEGORY_NO)
-                          JOIN MEMBER E ON(C.USER_NO = E.USER_NO)
+                          FROM TBL_INFO_BOARD C
+                          JOIN TBL_INFO_CATEGORY D ON (C.CATEGORY_NO = D.CATEGORY_NO)
+                          JOIN TBL_USER E ON(C.USER_NO = E.USER_NO)
                          ORDER BY C.POST_NO DESC
                         ) B
                  WHERE B.CATEGORY_NAME LIKE '%' || ? || '%'
@@ -169,7 +167,7 @@
              , A.POST_TITLE
              , A.POST_CONTENT
              , A.USER_NO
-             , A.USER_NAME
+             , A.NICKNAME
              , A.VIEW_NO
              , A.CREATION_DATE
           FROM (SELECT ROWNUM RNUM
@@ -179,7 +177,7 @@
                      , B.POST_TITLE
                      , B.POST_CONTENT
                      , B.USER_NO
-                     , B.USER_NAME
+                     , B.NICKNAME
                      , B.VIEW_NO
                      , B.CREATION_DATE
                   FROM (SELECT C.POST_NO
@@ -188,12 +186,12 @@
                              , C.POST_TITLE
                              , C.POST_CONTENT
                              , C.USER_NO
-                             , E.USER_NAME
+                             , E.NICKNAME
                              , C.VIEW_NO
                              , C.CREATION_DATE
-                          FROM INFO_BOARD C
-                          JOIN INFO_CATEGORY D ON (C.CATEGORY_NO = D.CATEGORY_NO)
-                          JOIN MEMBER E ON(C.USER_NO = E.USER_NO)
+                          FROM TBL_INFO_BOARD C
+                          JOIN TBL_INFO_CATEGORY D ON (C.CATEGORY_NO = D.CATEGORY_NO)
+                          JOIN TBL_USER E ON(C.USER_NO = E.USER_NO)
                          ORDER BY C.POST_NO DESC
                         ) B
                  WHERE B.POST_TITLE LIKE '%' || ? || '%'
@@ -209,7 +207,7 @@
              , A.POST_TITLE
              , A.POST_CONTENT
              , A.USER_NO
-             , A.USER_NAME
+             , A.NICKNAME
              , A.VIEW_NO
              , A.CREATION_DATE
           FROM (SELECT ROWNUM RNUM
@@ -219,7 +217,7 @@
                      , B.POST_TITLE
                      , B.POST_CONTENT
                      , B.USER_NO
-                     , B.USER_NAME
+                     , B.NICKNAME
                      , B.VIEW_NO
                      , B.CREATION_DATE
                   FROM (SELECT C.POST_NO
@@ -228,12 +226,12 @@
                              , C.POST_TITLE
                              , C.POST_CONTENT
                              , C.USER_NO
-                             , E.USER_NAME
+                             , E.NICKNAME
                              , C.VIEW_NO
                              , C.CREATION_DATE
-                          FROM INFO_BOARD C
-                          JOIN INFO_CATEGORY D ON (C.CATEGORY_NO = D.CATEGORY_NO)
-                          JOIN MEMBER E ON(C.USER_NO = E.USER_NO)
+                          FROM TBL_INFO_BOARD C
+                          JOIN TBL_INFO_CATEGORY D ON (C.CATEGORY_NO = D.CATEGORY_NO)
+                          JOIN TBL_USER E ON(C.USER_NO = E.USER_NO)
                          ORDER BY C.POST_NO DESC
                         ) B
                  WHERE B.POST_CONTENT LIKE '%' || ? || '%'

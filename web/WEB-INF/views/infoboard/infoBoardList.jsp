@@ -69,14 +69,14 @@
 		              <th width="100px">조회수</th>
 		              <th width="130px">작성일</th>
 		           </tr>
-            <c:forEach var="infoboard" items="${ requestScope.infoboardList }">
+            <c:forEach var="board" items="${ requestScope.boardList }">
 	               <tr>
-	                  <td><c:out value="${ infoboard.no }"/></td>
-	                  <td><c:out value="${ infoboard.category.name }"/></td>
-	                  <td><c:out value="${ infoboard.title }"/></td>
-	                  <td><c:out value="${ infoboard.writeUser.nickname }"/></td>
-	                  <td><c:out value="${ infoboard.viewNo }"/></td>
-	                  <td><c:out value="${ infoboard.createDate }"/></td>
+	                  <td><c:out value="${ board.no }"/></td>
+	                  <td><c:out value="${ board.category.name }"/></td>
+	                  <td><c:out value="${ board.title }"/></td>
+	                  <td><c:out value="${ board.writeUser.nickname }"/></td>
+	                  <td><c:out value="${ board.viewNo }"/></td>
+	                  <td><c:out value="${ board.createDate }"/></td>
 	               </tr>
             </c:forEach>
        </table>
