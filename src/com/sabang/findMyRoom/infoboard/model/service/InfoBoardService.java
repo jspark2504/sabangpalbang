@@ -66,15 +66,15 @@ public class InfoBoardService {
 	   public InfoBoardDTO selectBoardDetail(int no) {
 	      
 	      Connection con = getConnection();
-	      InfoBoardDTO infoBoardDetail = null;
+	      InfoBoardDTO BoardDetail = null;
 	      
 	      int result = infoBoardDAO.incrementBoardCount(con, no);
 	      
 	      /* 공지사항 정보 가져오기 값을 가져오면 커밋 못가져오거나 비어있으면 롤백 */
 	      if(result > 0) {
-	    	  infoBoardDetail = infoBoardDAO.selectBoardDetail(con, no);
+	    	  BoardDetail = infoBoardDAO.selectBoardDetail(con, no);
 	         
-	         if(infoBoardDetail != null) {
+	         if(BoardDetail != null) {
 	            commit(con);
 	         } else {
 	            rollback(con);
@@ -85,9 +85,10 @@ public class InfoBoardService {
 	      
 	      close(con);
 	      
-	      return infoBoardDetail;
+	      return BoardDetail;
 	   }
 
+	   
 	   /* 게시판 검색 결과 갯수 조회용 메소드 */
 	   public int searchInfoBoardCount(String condition, String value) {
 

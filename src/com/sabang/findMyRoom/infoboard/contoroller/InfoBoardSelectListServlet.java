@@ -66,7 +66,7 @@ public class InfoBoardSelectListServlet extends HttpServlet {
 		      String path = "";
 		      if(!boardList.isEmpty()) {
 		         path = "/WEB-INF/views/infoboard/infoBoardList.jsp";
-		         request.setAttribute("infoboardList", boardList);
+		         request.setAttribute("boardList", boardList);
 		         request.setAttribute("pageInfo", pageInfo);
 		      } else {
 		         path = "/WEB-INF/views/common/failed.jsp";

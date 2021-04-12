@@ -26,7 +26,7 @@ public class InfoBoardSelectDetailServlet extends HttpServlet {
 		String path = "";
 		if(boardDetail != null) {
 			path = "/WEB-INF/views/infoboard/infoBoardDetail.jsp";
-			request.setAttribute("infoboardList", boardDetail);
+			request.setAttribute("boardList", boardDetail);
 		} else {
 			path = "/WEB-INF/views/common/failed.jsp";
 			request.setAttribute("message", boardDetail);
