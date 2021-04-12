@@ -18,10 +18,11 @@ public class InfoBoardDTO implements Serializable{
 	private java.sql.Date modificationDate;
 	private CategoryDTO category;
 	private int writerMemberNo;
-	private MemberDTO WriteUser;
+	private MemberDTO writeUser;
 	
 	public InfoBoardDTO() {
 	}
+	
 	
 	public InfoBoardDTO(int no, int categoryNo, String title, String content, int viewNo, Date createDate,
 			Date modificationDate, CategoryDTO category, int writerMemberNo, MemberDTO writeUser) {
@@ -34,7 +35,7 @@ public class InfoBoardDTO implements Serializable{
 		this.modificationDate = modificationDate;
 		this.category = category;
 		this.writerMemberNo = writerMemberNo;
-		WriteUser = writeUser;
+		this.writeUser = writeUser;
 	}
 
 	public int getNo() {
@@ -92,10 +93,10 @@ public class InfoBoardDTO implements Serializable{
 		this.writerMemberNo = writerMemberNo;
 	}
 	public MemberDTO getWriteUser() {
-		return WriteUser;
+		return writeUser;
 	}
 	public void setWriteUser(MemberDTO writeUser) {
-		WriteUser = writeUser;
+		this.writeUser = writeUser;
 	}
 
 
@@ -103,7 +104,7 @@ public class InfoBoardDTO implements Serializable{
 	public String toString() {
 		return "InfoBoardDTO [no=" + no + ", categoryNo=" + categoryNo + ", title=" + title + ", content=" + content
 				+ ", viewNo=" + viewNo + ", createDate=" + createDate + ", modificationDate=" + modificationDate
-				+ ", category=" + category + ", writerMemberNo=" + writerMemberNo + ", WriteUser=" + WriteUser + "]";
+				+ ", category=" + category + ", writerMemberNo=" + writerMemberNo + ", WriteUser=" + writeUser + "]";
 	}
 
 	

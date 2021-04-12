@@ -80,21 +80,21 @@ public class InfoBoardDAO {
 		         infoBoardList = new ArrayList<>();
 		         
 		         while(rset.next()) {
-		        	InfoBoardDTO board = new InfoBoardDTO();
-		            board.setCategory(new CategoryDTO());
-		            board.setWriteUser(new MemberDTO());
+		        	InfoBoardDTO infoboard = new InfoBoardDTO();
+		            infoboard.setCategory(new CategoryDTO());
+		            infoboard.setWriteUser(new MemberDTO());
 		            
-		            board.setNo(rset.getInt("POST_NO"));
-		            board.setCategoryNo(rset.getInt("CATEGORY_NO"));
-		            board.getCategory().setName(rset.getString("CATEGORY_NAME"));
-		            board.setTitle(rset.getString("POST_TITLE"));
-		            board.setContent(rset.getString("POST_CONTENT"));
-		            board.setWriterMemberNo(rset.getInt("USER_NO"));
-		            board.getWriteUser().setNickname(rset.getString("USER_NAME"));
-		            board.setViewNo(rset.getInt("VIEW_NO"));
-		            board.setCreateDate(rset.getDate("CREATION_DATE"));
+		            infoboard.setNo(rset.getInt("POST_NO"));
+		            infoboard.setCategoryNo(rset.getInt("CATEGORY_NO"));
+		            infoboard.getCategory().setName(rset.getString("CATEGORY_NAME"));
+		            infoboard.setTitle(rset.getString("POST_TITLE"));
+		            infoboard.setContent(rset.getString("POST_CONTENT"));
+		            infoboard.setWriterMemberNo(rset.getInt("USER_NO"));
+		            infoboard.getWriteUser().setNickname(rset.getString("USER_NAME"));
+		            infoboard.setViewNo(rset.getInt("VIEW_NO"));
+		            infoboard.setCreateDate(rset.getDate("CREATION_DATE"));
 		            
-		            infoBoardList.add(board);
+		            infoBoardList.add(infoboard);
 		         }
 		         
 		      } catch (SQLException e) {
@@ -155,7 +155,7 @@ public class InfoBoardDAO {
 		            infoBoardDetail.setWriteUser(new MemberDTO());
 		            infoBoardDetail.setCategory(new CategoryDTO());
 
-		            infoBoardDetail.setNo(rset.getInt("BOARD_NO"));
+		            infoBoardDetail.setNo(rset.getInt("POST_NO"));
 		            infoBoardDetail.setCategoryNo(rset.getInt("CATEGORY_NO"));
 		            infoBoardDetail.getCategory().setName(rset.getString("CATEGORY_NAME"));
 		            
@@ -203,112 +203,102 @@ public class InfoBoardDAO {
 		      return result;
 		   }
 
-//		   /* 검색한 게시판 조회 카운트 */
-//		   public int searchBoardCount(Connection con, String condition, String value) {
-//
-//		      PreparedStatement pstmt = null;
-//		      ResultSet rset = null;
-//		      
-//		      String query = null;
-//		      int boardCount = 0;
-//		      
-//		      if(condition.equals("category")) {
-//		         
-//		         query = prop.getProperty("searchCategoryBoardCount");
-//		      } else if(condition.equals("writer")) {
-//		         
-//		         query = prop.getProperty("searchWriterBoardCount");
-//		      } else if(condition.equals("title")) {
-//		         
-//		         query = prop.getProperty("searchTitleBoardCount");
-//		      } else if(condition.equals("content")) {
-//		      
-//		         query = prop.getProperty("searchBodyBoardCount");
-//		      }
-//
-//		      try {
-//		         pstmt = con.prepareStatement(query);
-//		         pstmt.setString(1, value);
-//		         
-//		         rset = pstmt.executeQuery();
-//		         
-//		         if(rset.next()) {
-//		            boardCount = rset.getInt("COUNT(*)");
-//		         }
-//		            
-//		      } catch (SQLException e) {
-//		         e.printStackTrace();
-//		      } finally {
-//		         close(rset);
-//		         close(pstmt);
-//		      }
-//		      
-//		      return boardCount;
-//		   }
-//
-//		   /* 검색한 게시판 조회 리스트 */
-//		   public List<InfoBoardDTO> searchBoardList(Connection con, PageInfoDTO pageInfo, String condition, String value) {
-//
-//		      PreparedStatement pstmt = null;
-//		      ResultSet rset = null;
-//		      
-//		      String query = null;
-//		      List<InfoBoardDTO> boardList = null;
-//		      
-//		      if(condition.equals("category")) {
-//		         
-//		         query = prop.getProperty("searchCategoryBoard");
-//		      } else if(condition.equals("writer")) {
-//		         
-//		         query = prop.getProperty("searchWriterBoard");
-//		      } else if(condition.equals("title")) {
-//		         
-//		         query = prop.getProperty("searchTitleBoard");
-//		      } else if(condition.equals("content")) {
-//		      
-//		         query = prop.getProperty("searchBodyBoard");
-//		      }      
-//		      
-//		      try {
-//		         pstmt = con.prepareStatement(query);
-//		         pstmt.setString(1, value);
-//		         pstmt.setInt(2, pageInfo.getStartRow());
-//		         pstmt.setInt(3, pageInfo.getEndRow());
-//
-//		         rset = pstmt.executeQuery();
-//		         
-//		         boardList = new ArrayList<>();
-//		         
-//		         while(rset.next()) {
-//		        	InfoBoardDTO board = new InfoBoardDTO();
-//		            board.setCategory(new CategoryDTO());
-////		            board.setWriter(new MemberDTO());
-////
-////
-////		            board.setNo(rset.getInt("BOARD_NO"));
-////		            board.setCategoryCode(rset.getInt("CATEGORY_CODE"));
-////		            board.getCategory().setName(rset.getString("CATEGORY_NAME"));
-////		            board.setTitle(rset.getString("BOARD_TITLE"));
-////		            board.setBody(rset.getString("BOARD_BODY"));
-////		            board.setWriterMemberNo(rset.getInt("BOARD_WRITER_MEMBER_NO"));
-////		            board.getWriter().setNickname(rset.getString("NICKNAME"));
-////		            board.setCount(rset.getInt("BOARD_COUNT"));
-////		            board.setCreateDate(rset.getDate("CREATED_DATE"));
-////		            board.setStatus(rset.getString("BOARD_STATUS"));
-//		            
-//		            boardList.add(board);
-//		         }
-//		         
-//		      } catch (SQLException e) {
-//		         e.printStackTrace();
-//		      } finally {
-//		         close(rset);
-//		         close(pstmt);
-//		      }
-//		      
-//		      
-//		      return boardList;
-//		   }
+		   /* 검색한 게시판 조회 카운트 */
+		   public int searchInfoBoardCount(Connection con, String condition, String value) {
+
+		      PreparedStatement pstmt = null;
+		      ResultSet rset = null;
+		      
+		      String query = null;
+		      int boardCount = 0;
+		      
+		      if(condition.equals("category")) {
+		         
+		         query = prop.getProperty("searchCategoryInfoBoardCount");
+		      } else if(condition.equals("title")) {
+		         
+		         query = prop.getProperty("searchTitleInfoBoardCount");
+		      } else if(condition.equals("content")) {
+		      
+		         query = prop.getProperty("searchContentInfoBoardCount");
+		      }
+
+		      try {
+		         pstmt = con.prepareStatement(query);
+		         pstmt.setString(1, value);
+		         
+		         rset = pstmt.executeQuery();
+		         
+		         if(rset.next()) {
+		            boardCount = rset.getInt("COUNT(*)");
+		         }
+		            
+		      } catch (SQLException e) {
+		         e.printStackTrace();
+		      } finally {
+		         close(rset);
+		         close(pstmt);
+		      }
+		      
+		      return boardCount;
+		   }
+
+		   /* 검색한 게시판 조회 리스트 */
+		   public List<InfoBoardDTO> searchInfoBoardList(Connection con, PageInfoDTO pageInfo, String condition, String value) {
+
+		      PreparedStatement pstmt = null;
+		      ResultSet rset = null;
+		      
+		      String query = null;
+		      List<InfoBoardDTO> boardList = null;
+		      
+		      if(condition.equals("category")) {
+		         
+		         query = prop.getProperty("searchCategoryInfoBoard");
+		      } else if(condition.equals("title")) {
+         
+		         query = prop.getProperty("searchTitleInfoBoard");
+		      } else if(condition.equals("content")) {
+		      
+		         query = prop.getProperty("searchContentInfoBoard");
+		      }      
+		      
+		      try {
+		         pstmt = con.prepareStatement(query);
+		         pstmt.setString(1, value);
+		         pstmt.setInt(2, pageInfo.getStartRow());
+		         pstmt.setInt(3, pageInfo.getEndRow());
+
+		         rset = pstmt.executeQuery();
+		         
+		         boardList = new ArrayList<>();
+		         
+		         while(rset.next()) {
+		        	InfoBoardDTO infoboard = new InfoBoardDTO();
+		        	infoboard.setCategory(new CategoryDTO());
+		        	infoboard.setWriteUser(new MemberDTO());
+		            
+		        	infoboard.setNo(rset.getInt("POST_NO"));
+		        	infoboard.setCategoryNo(rset.getInt("CATEGORY_NO"));
+		        	infoboard.getCategory().setName(rset.getString("CATEGORY_NAME"));
+		        	infoboard.setTitle(rset.getString("POST_TITLE"));
+		        	infoboard.setContent(rset.getString("POST_CONTENT"));
+		        	infoboard.setViewNo(rset.getInt("VIEW_NO"));
+		        	infoboard.setCreateDate(rset.getDate("CREATION_DATE"));
+		            
+		            boardList.add(infoboard);
+		         }
+		         
+		      } catch (SQLException e) {
+		         e.printStackTrace();
+		      } finally {
+		         close(rset);
+		         close(pstmt);
+		      }
+		      
+		      
+		      return boardList;
+		   }
 
 }
 
