@@ -82,8 +82,8 @@ COMMENT ON COLUMN TBL_USER.ENROLL_DATE IS '회원등록일';
 COMMENT ON COLUMN TBL_USER.USER_STATUS IS '회원상태';
 
 -- 관리자 계정 추가 (!! 비밀번호 암호화 필요 !!)
-INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE)
-VALUES (SEQ_USER_NO.NEXTVAL, 'admin', '$2a$10$7NqnZ0pUQh2RDLDkcEmubOSWB2DSewpDNs7q7xwxgZHHvMgZGJ.rW', '관리자', 'admin@sabangpalbang.com', '01048884888', 'ADMIN');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE, USER_STATUS)
+VALUES (SEQ_USER_NO.NEXTVAL, 'admin', '$2a$10$7NqnZ0pUQh2RDLDkcEmubOSWB2DSewpDNs7q7xwxgZHHvMgZGJ.rW', '관리자', 'admin@sabangpalbang.com', '01048884888', 'ADMIN', 'Y');
 
 
 -- 회원 샘플 추가 (!! 비밀번호 암호화 필요 !!)
