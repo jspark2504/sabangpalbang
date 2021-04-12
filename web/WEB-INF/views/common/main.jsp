@@ -41,7 +41,7 @@
 						</span>
 					</div>
 				</div>
-				<a class="all-info" href="${ pageContext.servletContext.contextPath }/infoboard/search">
+				<a class="all-info" href="${ pageContext.servletContext.contextPath }/infoboard/list">
 					→ 모든 정보 보러가기
 				</a>
 			</article>

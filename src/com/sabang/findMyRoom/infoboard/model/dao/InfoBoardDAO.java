@@ -27,7 +27,7 @@ public class InfoBoardDAO {
 		prop = new Properties();
 		
 		try {
-			prop.loadFromXML(new FileInputStream(ConfigLocation.MAPPER_LOCATION + "infoboard/infoboard-mapper.xml"));
+			prop.loadFromXML(new FileInputStream(ConfigLocation.MAPPER_LOCATION + "infoBoard/infoboard-mapper.xml"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
