@@ -18,12 +18,12 @@
 </head>
 <body>
 	<!-- header include -->
-	<jsp:include page="../common/header.jsp" />
+		<jsp:include page="../common/header.jsp" />
 
-	<div class="container-fluid jumbo-container">
-		<div class="main">
-			<img class="banner" src="/findMyRoom/resources/image/banner.png"
-				alt="...">
+	<!-- infoBoard -->
+	<section class="container-fluid jumbo-container">
+		<section class="main">
+			<img class="banner" src="/findMyRoom/resources/image/banner.png" alt="...">
 			<article class="search">
 				<h1>
 					<b>
@@ -33,65 +33,104 @@
 				<div class="col-lg-6">
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="정보게시판에서 원하는 정보를 검색해보세요">
-						<span class="input-group-btn">
-							<button class="btn btn-default" type="button">
-								<i class="fa fa-search">
-								</i>
-							</button>
-						</span>
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button">
+									<i class="fa fa-search">
+									</i>
+								</button>
+							</span>
 					</div>
 				</div>
 				<a class="all-info" href="${ pageContext.servletContext.contextPath }/infoboard/list">
 					→ 모든 정보 보러가기
 				</a>
 			</article>
-		</div>
-	</div>
+		</section>
+	</section>
 
+	<!-- introduce -->
 	<section class="container-fluid" style="width: 80%; margin: auto;">
-		<!-- Example row of columns -->
 		<section class="row">
+		</section>
 			<article class="col-md-4 main-contents">
 				<div class="introduce">
 					<h4>
 						<b>소개할게요</b>
 					</h4>
-					<a class="btn-sm" href="#" role="button">더보기</a>
+					<a class="btn-sm" href="#" role="button">
+						더보기
+					</a>
 				</div>
 				<hr>
 				<ul>
-					<li class="item"><a href="#"> <span class="img"> <img
-								src="/findMyRoom/resources/image/mhn.png" alt="..."
-								class="img-circle">
-						</span> <span class="info"> <span class="name">나문휘<br></span>
-								<span class="star"> <span
-									class="glyphicon glyphicon-star" aria-hidden="true"></span> <span
-									class="glyphicon glyphicon-star" aria-hidden="true"></span> <span
-									class="glyphicon glyphicon-star" aria-hidden="true"></span> <span
-									class="glyphicon glyphicon-star" aria-hidden="true"></span> <span
-									class="glyphicon glyphicon-star" aria-hidden="true"></span> <span
-									class="review_no">후기 21개</span>
-							</span> <span class="review_content">진짜 딱 맘에드는 곳들만 보여주셔서 너무 좋았어요.</span>
-						</span>
-					</a></li>
-					<li class="item"><a href="#"> <span class="img"> <img
-								src="/findMyRoom/resources/image/sjl.png" alt="..."
-								class="img-circle">
-						</span> <span class="info"> <span class="name">이숭재<br></span>
-								<span class="star"> <span
-									class="glyphicon glyphicon-star" aria-hidden="true"></span> <span
-									class="glyphicon glyphicon-star" aria-hidden="true"></span> <span
-									class="glyphicon glyphicon-star" aria-hidden="true"></span> <span
-									class="glyphicon glyphicon-star" aria-hidden="true"></span> <span
-									class="glyphicon glyphicon-star empty" aria-hidden="true"></span>
-									<span class="review_no">후기 15개</span>
-							</span> <span class="review_content">허위매물일까봐 걱정했는데 사진설명이랑 똑같았어요.</span>
-						</span>
-					</a></li>
+					<li class="item">
+						<a href="#">
+							<span class="img">
+								<img src="/findMyRoom/resources/image/mhn.png" alt="..." class="img-circle">
+							</span>
+							<span class="info">
+								<span class="name">
+									나문휘
+									<br>
+								</span>
+								<span class="star">
+									<span class="glyphicon glyphicon-star" aria-hidden="true">
+									</span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true">
+									</span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true">
+									</span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true">
+									</span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true">
+									</span>
+									<span class="review_no">
+										후기 21개
+									</span>
+							</span>
+							<span class="review_content">
+								진짜 딱 맘에드는 곳들만 보여주셔서 너무 좋았어요.
+							</span>
+						    </span>
+						</a>
+					</li>
+					<li class="item">
+						<a href="#">
+							<span class="img">
+								<img src="/findMyRoom/resources/image/sjl.png" alt="..." class="img-circle">
+							</span>
+							<span class="info">
+								<span class="name">
+									이숭재
+									<br>
+								</span>
+								<span class="star">
+									<span class="glyphicon glyphicon-star" aria-hidden="true">
+									</span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true">
+									</span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true">
+									</span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true">
+									</span>
+									<span class="glyphicon glyphicon-star empty" aria-hidden="true">
+									</span>
+									<span class="review_no">
+										후기 15개
+									</span>
+							</span>
+							<span class="review_content">
+								허위매물일까봐 걱정했는데 사진설명이랑 똑같았어요.
+							</span>
+							</span>
+						</a>
+					</li>
 				</ul>
 			</article>
-			<div class="col-md-4 main-contents">
-				<div class="free_board">
+
+			<!-- freeBoard -->
+			<section class="col-md-4 main-contents">
+				<article class="free_board">
 					<h4>
 						<b>
 							자유게시판
@@ -100,9 +139,9 @@
 					<a class="btn-sm" href="${ pageContext.servletContext.contextPath }/freeboard/list" role="button">
 						더보기
 					</a>
-				</div>
+				</article>
 				<hr>
-				<div class="board">
+				<article class="board">
 					<ul>
 						<li class="title">
 							<a href="#">
@@ -130,10 +169,12 @@
 							</a>
 						</li>
 					</ul>
-				</div>
-			</div>
-			<div class="col-md-4 main-contents">
-				<div class="notice">
+				</article>
+			</section>
+
+			<!-- notice -->
+			<section class="col-md-4 main-contents">
+				<article class="notice">
 					<h4>
 						<b>
 							공지사항
@@ -142,9 +183,9 @@
 					<a class="btn-sm" href="${ pageContext.servletContext.contextPath }/notice/list" role="button">
 						더보기
 					</a>
-				</div>
+				</article>
 				<hr>
-				<div class="board">
+				<article class="board">
 					<ul>
 						<li class="title">
 							<a href="#">
@@ -172,12 +213,11 @@
 							</a>
 						</li>
 					</ul>
-				</div>
-			</div>
+			</article>
 		</section>
 	</section>
 
-	<!-- 광고 -->
+	<!-- ad -->
 	<a href="https://ohou.se/">
 		<img class="img-responsive center-block" src="/findMyRoom/resources/image/ad.png" alt=".." />
 	</a>
@@ -185,7 +225,8 @@
 	<!-- footer include -->
 	<jsp:include page="../common/footer.jsp" />
 
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js">
+	</script>
 </body>
 </html>

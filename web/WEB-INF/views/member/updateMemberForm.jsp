@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,13 +46,13 @@
            .form-signup .checkbox {
                font-weight: normal;
            }
-           
+
 		   .input-group {
            	display: flex;
            	flex-direction: column;
            	justify-content: center;
            }
-           
+
            .form-signup .form-control {
                position: relative;
                height: auto;
@@ -92,20 +92,20 @@
        </style>
 <body>
 	<jsp:include page="../common/header.jsp"/>
-	
+
 	<section class="container">
 		<h2 align="center">회원 정보 수정</h2>
 
 		<!-- 회원 정보 수정 폼 -->
-			<form id="form"class="form-signup" action="${pageContext.servletContext.contextPath}" method="post">	
+			<form id="form"class="form-signup" action="${pageContext.servletContext.contextPath}" method="post">
 				<div class="input-group">
 				<article>
 					<label for="inputId">아이디</label>
-					<input class="form-control" maxlength="13" type="text" name="userId" readonly value="${ sessionScope.loginMember.id }">	
+					<input class="form-control" maxlength="13" type="text" name="userId" readonly value="${ sessionScope.loginMember.id }">
 				</article>
 				<article>
 					<label for="inputPassword">비밀번호</label>
-					<input class="form-control" type="password" maxlength="13" name="userPwd" required>	
+					<input class="form-control" type="password" maxlength="13" name="userPwd" required>
            		</article>
            		<div>
            			<label for="inputNickname">닉네임</label>
@@ -118,36 +118,36 @@
           		<div>
           		    <label for="inputPhone">전화번호</label>
 					<input class="form-control" type="tel" name="phone" value="${ sessionScope.loginMember.phone }">
-				</div>	
-						
+				</div>
+
 				</div>
 				<div class="btns" align="center">
 					<button class="btn btn-lg btn-block okbtn" type="submit" onclick="postRequest('updateMember')">수정하기</button>
 					<button class="btn btn-lg btn-block okbtn" type="submit" onclick="postRequest('deleteMember')">탈퇴하기</button>
 				</div>
 			</form>
-	
+
 	</section> <!-- container end -->
-	
+
 	<script>
 		function postRequest(intent){
 			var $form = document.getElementById("form");
 			var passwordValue = document.getElementsByName("userPwd")[0].value;
-			
-			
-			// "", null, indefined, 0, NaN에 해당되면 false || 값이 일치하는지 여부 
+
+
+			// "", null, indefined, 0, NaN에 해당되면 false || 값이 일치하는지 여부
 			if(!passwordValue || passwordValue === "") {	// 사용자가 비번 입력하지 않았을 때
 				alert("비밀번호는 반드시 입력해야 합니다.");
 				document.getElementsByName("userPwd")[0].focus();
-			}			
-			
+			}
+
 			requestPath = "<%=request.getContextPath()%>";
-			
+
 			switch(intent){
 			case "updateMember" : requestPath += "/member/update"; break;
 			case "deleteMember" : requestPath += "/member/delete"; break;
 			}
-			
+
 			/* 폼태그 액션과 서브밋 시키는 작업 */
 			$form.action = requestPath;
 			$form.submit();

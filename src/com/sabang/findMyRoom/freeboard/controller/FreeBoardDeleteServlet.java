@@ -25,7 +25,7 @@ public class FreeBoardDeleteServlet extends HttpServlet {
 		String page = "";
 		if(result > 0) {
 			page = "/WEB-INF/views/common/success.jsp";
-			request.setAttribute("successCode", "deleteBoard");
+			request.setAttribute("successCode", "deleteFreeBoard");
 		}else {
 			page ="/WEB-INF/views/common/failed.jsp";
 			request.setAttribute("message", "게시물 삭제 실패!");

@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     
     <link rel="stylesheet" href="/findMyRoom/resources/css/freeBoardDetail.css">
-
+	<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
 </head>
 <body>
 <jsp:include page="../common/header.jsp"/>

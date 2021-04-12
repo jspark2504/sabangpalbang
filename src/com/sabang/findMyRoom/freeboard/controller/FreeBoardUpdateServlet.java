@@ -53,7 +53,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		String page="";
 		if(result > 0) {
 			page = "/WEB-INF/views/common/success.jsp";
-			request.setAttribute("successCode", "updateBoard");
+			request.setAttribute("successCode", "updateFreeBoard");
 		}else {
 			page = "/WEB-INF/views/common/failed.jsp";
 			request.setAttribute("message", "게시물 수정 실패");
