@@ -11,5 +11,11 @@ window.onload = function(){
 		$deleteFreeBoard.onclick = function(){
 			location.href = "/findMyRoom/freeBoard/delete";
 		}
+	if(document.getElementById("writeInfoBoard")) {
+		const $writeInfoBoard = document.getElementById("writeInfoBoard");
+		$writeInfoBoard.onclick = function(){
+			location.href = "/findMyRoom/infoboard/insert";
+		}
+	}
 	}
 }

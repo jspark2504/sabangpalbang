@@ -47,6 +47,17 @@
 		 WHERE A.USER_STATUS = 'Y'
 		   AND A.USER_ID = ?
 	</entry>
+		 <entry key="updateMember">
+	 	 UPDATE /* com.greedy.jsp.member.model.dao.MemberDAO#updateLoginMember() */
+	 	        TBL_USER A
+	 	    SET A.USER_PWD = ?
+	 	      , A.NICKNAME = ?
+	 	      , A.EMAIL = ?
+	 	      , A.PHONE = ?
+	 	  WHERE USER_STATUS = 'Y'
+	 	    AND USER_ID = ?
+	 </entry>
+	
 	<entry key="">
 	
 	</entry>

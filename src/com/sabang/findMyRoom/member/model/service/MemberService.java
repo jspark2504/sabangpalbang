@@ -62,5 +62,27 @@ public class MemberService {
 		close(con);
 		return loginMember;
 	}
+	
+	/* 회원정보 수정용 메소드 */
+	public int updateMember(MemberDTO requestMember) {
+		Connection con = getConnection();
+		
+		MemberDTO loginMember = null;
+		
+		int result = memberDAO.updateLoginMember(con, requestMember);
 
+		
+		
+		
+		if(result > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return result;
+	}
+	
 }

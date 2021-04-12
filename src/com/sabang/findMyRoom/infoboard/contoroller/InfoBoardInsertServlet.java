@@ -18,13 +18,13 @@ public class InfoBoardInsertServlet extends HttpServlet {
 
 	   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		      String path = "/WEB-INF/views/infoboard/insertinfoBoardForm.jsp";
+		      String path = "/WEB-INF/views/infoboard/insertInfoBoardForm.jsp";
 		      
 		      request.getRequestDispatcher(path).forward(request, response);
 		   }
 
 		   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		      int category = Integer.valueOf(request.getParameter("category"));
+		      int category = Integer.valueOf(request.getParameter("categoryNo"));
 		      String title = request.getParameter("title");
 		      String content = request.getParameter("content");
 		      
@@ -34,10 +34,9 @@ public class InfoBoardInsertServlet extends HttpServlet {
 		      
 		      /* 재점검 */
 		      InfoBoardDTO newBoard = new InfoBoardDTO();
-//		      newBoard.setCategory(category);
-//		      newBoard.setTitle(title);
-//		      newBoard.setContent(content);
-//		      newBoard.setWriteUser(WriteUser);
+		      newBoard.setCategoryNo(category);
+		      newBoard.setTitle(title);
+		      newBoard.setContent(content);
 		      
 		      InfoBoardService boardService = new InfoBoardService();
 		      int result = boardService.insertInfoBoard(newBoard);
@@ -45,7 +44,7 @@ public class InfoBoardInsertServlet extends HttpServlet {
 		      String path = "";
 		      if(result > 0) {
 		         path = "/WEB-INF/views/common/success.jsp";
-		         request.setAttribute("successCode", "insertBoard");
+		         request.setAttribute("successCode", "insertInfoBoard");
 		      } else {
 		         path = "/WEB-INF/views/common/failed.jsp";
 		         request.setAttribute("message", "게시판 작성에 실패하셨습니다.");
