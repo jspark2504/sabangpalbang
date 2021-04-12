@@ -51,7 +51,6 @@ public class MemberUpdateServlet extends HttpServlet {
 		int result = new MemberService().updateMember(updateMember);
 		MemberDTO udmember = (MemberDTO)(request.getSession().getAttribute("loginMember"));
 		udmember.setId(userId);
-		udmember.setPwd(userPwd);
 		udmember.setNickname(nickname);
 		udmember.setEmail(email);
 		udmember.setPhone(phone);

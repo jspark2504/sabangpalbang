@@ -26,12 +26,17 @@
 			</h3>
 			<hr>
 			<article class="list01">
-				<div class="img1">
+				<div class="nmh">
 					<img alt="nmh" src="/findMyRoom/resources/image/mhn.png">
+					<span>
+						<ul>
+							<li>
+								402 공인중개소
+							</li>
+						</ul>
+					</span>
 				</div>
-				<span>
-					402 공인중개소
-				</span>
+
 			</article>
 		</section>
 	</main>

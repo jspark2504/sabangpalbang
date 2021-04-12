@@ -21,7 +21,7 @@ public class FreeBoardInsertServlet extends HttpServlet {
 
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String path = "/WEB-INF/views/freeBoard/freeBoardinsertForm.jsp";
+		String path = "/WEB-INF/views/freeBoard/freeBoardInsertForm.jsp";
 		
 		request.getRequestDispatcher(path).forward(request, response);
 	}
@@ -45,7 +45,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		String path="";
 		if(result > 0) {
 			path = "/WEB-INF/views/common/success.jsp";
-			request.setAttribute("successCode", "insertBoard");
+			request.setAttribute("successCode", "insertFreeBoard");
 		}else {
 			path = "/WEB-INF/views/common/failed.jsp";
 			request.setAttribute("message", "게시물 작성에 실패하였습니다.");

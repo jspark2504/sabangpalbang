@@ -76,7 +76,7 @@
 					</li>
 					<hr />
 					<li>
-						<a href="">
+						<a href="${ pageContext.servletContext.contextPath }/member/update">
 							내 정보
 						</a>
 					</li>
