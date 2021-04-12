@@ -638,21 +638,8 @@ COMMENT ON COLUMN TBL_INFO_BOARD_FILE.CONTENT IS '파일내용';
 COMMENT ON COLUMN TBL_INFO_BOARD_FILE.SAVE_PATH IS '저장경로';
 COMMENT ON COLUMN TBL_INFO_BOARD_FILE.FILE_NO IS '파일번호';
 
-CREATE SEQUENCE SEQ_INFO_BOARD; INSERT
-          INTO TBL_INFO_BOARD A
-         (
-            A.POST_NO
-          , A.POST_TITLE
-          , A.POST_CONTENT
-          , A.CREATION_DATE
-          , A.CATEGORY_NO
-          , A.USER_NO
-         )
-         VALUES
-         (
-            SEQ_INFO_POST_NO.NEXTVAL
-          , '이사 전 잊지 말자! 준비 체크리스트'
-          , '이사를 앞두고 있다면 짐을 꾸리는 것부터 시작해 이삿짐센터 선택까지 신경 써야 할 일이 한두 가지가 아니다. 차질 없는 이사의 진행을 위해서는 이사 준비 체크리스트를 작성해서 빠짐없이 꼼꼼히 챙겨야 한다.
+INSERT INTO TBL_INFO_BOARD A (A.POST_NO, A.POST_TITLE, A.POST_CONTENT, A.CREATION_DATE, A.CATEGORY_NO, A.USER_NO)
+VALUES (SEQ_INFO_POST_NO.NEXTVAL, '이사 전 잊지 말자! 준비 체크리스트', '이사를 앞두고 있다면 짐을 꾸리는 것부터 시작해 이삿짐센터 선택까지 신경 써야 할 일이 한두 가지가 아니다. 차질 없는 이사의 진행을 위해서는 이사 준비 체크리스트를 작성해서 빠짐없이 꼼꼼히 챙겨야 한다.
 
 그렇게 챙기고도 꼭 무언가 하나는 빠뜨리게 되는 큰 일인 만큼 시행착오 없는 이사 준비를 위해 필요한 사항들을 정리해보았다. 이사 전 잊지 말아야 할 체크리스트!
 
@@ -687,7 +674,4 @@ CREATE SEQUENCE SEQ_INFO_BOARD; INSERT
 
 
 반려동물들이 있는 경우 이삿날 함께 한다면 먼지가 많이 발생하기도 하고 사이즈가 큰 가전이나 가구를 옮기며 부상의 위험이 있을 수도 있다. 또한 밖에서 보내야 하는 시간이 많고 주인이 이사에 바빠 신경을 써주기 힘들기 때문에 반려동물을 맡아줄 기관이나 친지 등 사람을 미리 찾아 부탁하는 것이 좋다.'
-          , SYSDATE
-          , 1
-          , 1
-         );
+, SYSDATE, 1, 1);
