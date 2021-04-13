@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.io.PrintWriter"%>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>공지사항 작성</title>
     
@@ -38,12 +42,11 @@
         margin-left: 710px;
         margin-bottom: 204px;
         font-weight: bold;
+        border-color: rgb(255,210,51);
 
 
     }
-    input{
-        width: 820px;
-    }
+    
     #rectangle {
       margin-top: 17px ;
       width: 826px;
@@ -58,8 +61,11 @@
         padding-top: 19px;
         padding-left: 13px;
     }
-    #box1{ margin-top: 218px; }
-    #box2{ margin-top: 30px;}
+    #box1{ margin-top: 218px;  }
+    #box2{ margin-top: 30px; }
+    
+    #input1{width: 820px;}
+    #input2{width: 820px;}
     </style>
     
       <!-- Bootstrap core CSS -->
@@ -81,17 +87,20 @@
        
        
         <div id="box1">
-       		<input type="text" value="${ sessionScope.loginMember.nickname }" name="writer" readonly>
+       		<input type="text" value="${ sessionScope.loginMember.nickname }" name="writer" readonly id="input1">
             <label for="input-title" ></label>
-            <input type="text" placeholder="회원님들에게 알리고싶은 좋은 소식!" required>
+            <input type="text" placeholder="회원님들에게 알리고싶은 좋은 소식!" required id="input2">
         </div>
         <div id="rectangle">
             
         </div>
 
         <div id="box2"><p><textarea placeholder="내용을 입력하세요." ></textarea></p></div>
-        <button class="btn" type="reset" id="btn1">취소</button>
-        <button class="btn" type="submit" id="btn2">등록</button>
+
+        <button onclick="location.href='${ pageContext.servletContext.contextPath }/notice/list'" class="btn" type="reset" id="btn1">취소</button>
+        <input type="submit" class="btn btn-primary" id="btn2" value="등록">
+        
+     
     </form>
     
 </div>   
