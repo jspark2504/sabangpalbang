@@ -32,7 +32,6 @@ $("#inputId").keyup(function(e) {
 		}
 
 	} else {							// 정규표현식 일치
-
 		/* 정규표현식 만족하는 경우에만 ajax를 통해 아이디 중복확인 */
 		$.ajax({
 			url: "/findMyRoom/member/regist/checkId",
@@ -113,7 +112,6 @@ $("#inputPasswordCheck").keyup(function (e) {
 		$(".input-pwd-check + p").remove();
 		$(".input-pwd-check-addon i").attr("class", "fas fa-minus").css("color", "black");
 	}
-
 })
 
 
@@ -155,7 +153,7 @@ $("#inputNickname").keyup(function (e) {
 /* 정규표현식 검사 및 중복확인 */
 $("#inputEmail").keyup(function (e) {
 	const inputEmail = $(this).val();
-	const regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+	const regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;	// _@_.__
 
 	/* 정규표현식 검사 */
 	if(!regExp.test(inputEmail)) {		// 정규표현식 불일치
@@ -170,7 +168,6 @@ $("#inputEmail").keyup(function (e) {
 		}
 
 	} else {							// 정규표현식 일치
-
 		/* 정규표현식 만족하는 경우에만 ajax를 통해 이메일 중복확인 */
 		$.ajax({
 			url: "/findMyRoom/member/regist/checkEmail",
@@ -186,46 +183,65 @@ $("#inputEmail").keyup(function (e) {
 					$(".input-email").after("<p style='color: #ff5959;'>이미 가입되어 있는 이메일입니다.</p>");
 					$(".input-email-addon i").attr("class", "fas fa-times").css("color", "#ff5959");
 				}
-
 			},
 			error: function(error){
 				console.log(error);
 			}
 		});
 	}
-
 })
 
 
 /* 휴대폰 */
 /* 입력 안내 문구 */
+$("#inputPhone").focus(function() {
+	/* 안내 문구가 표시되어 있지 않고 입력한 값이 없을 때만 안내 문구 추가 */
+	if(!$(".input-phone + p").length && $(this).val() == ""){
+		$(".input-phone").after("<p style='color: black;'>* '-'를 제외한 숫자만 입력</p>");
+	}
+}).blur(function() {
+	/* 포커스 사라진 경우 사용자가 입력한 값이 없을 때만 안내 문구 삭제 */
+	if($(this).val() == ""){
+		$(".input-phone + p").remove();
+	}
+})
+
 /* 정규표현식 검사 및 중복확인 */
 $("#inputPhone").keyup(function (e) {
 	const inputPhone = document.getElementById("inputPhone").value;
+	const regExp = /^01([0|1|6|7|8|9])([0-9]{7,8})$/;		// 숫자만 입력, 01 + 0,1,6,7,8,9 중 하나 + 숫자 7-8개
 
-	/* ajax를 이용한 휴대폰 중복확인 */
-	$.ajax({
-		url: "/findMyRoom/member/regist/checkPhone",
-		type: "get",
-		data: { inputPhone : inputPhone },
-		success: function(data){
-			if(data == "true") {		// 사용 가능한 전화번호인 경우
-				$(".input-phone + p").remove();
-				$(".input-phone-addon i").attr("class", "fas fa-check").css("color", "#ffd233");
+	if(!regExp.test(inputPhone)) {		// 정규표현식 불일치
+		$(".input-phone + p").remove();
+		$(".input-phone").after("<p style='color: #ff5959;'>* '-'를 제외한 숫자만 입력</p>");
+		$(".input-phone-addon i").attr("class", "fas fa-times").css("color", "#ff5959");
 
-			} else {					// 사용 불가능한 전화번호인 경우
-				$(".input-phone + p").remove();
-				$(".input-phone").after("<p style='color: #ff5959;'>이미 가입되어 있는 번호입니다.</p>");
-				$(".input-phone-addon i").attr("class", "fas fa-times").css("color", "#ff5959");
-			}
-
-			if(inputPhone == ""){
-				$(".input-phone + p").remove();
-				$(".input-phone-addon i").attr("class", "fas fa-minus").css("color", "black");
-			}
-		},
-		error: function(error){
-			console.log(error);
+		/* 사용자가 입력한 내용을 모두 지운 경우 */
+		if(inputPhone == ""){
+			$(".input-phone + p").css("color", "black");
+			$(".input-phone-addon i").attr("class", "fas fa-minus").css("color", "black");
 		}
-	});
+
+	} else {							// 정규표현식 일치
+		/* 정규표현식 만족하는 경우에만 ajax를 통해 휴대폰 중복확인 */
+		$.ajax({
+			url: "/findMyRoom/member/regist/checkPhone",
+			type: "get",
+			data: { inputPhone : inputPhone },
+			success: function(data){
+				if(data == "true") {		// 사용 가능한 전화번호인 경우
+					$(".input-phone + p").remove();
+					$(".input-phone-addon i").attr("class", "fas fa-check").css("color", "#ffd233");
+
+				} else {					// 사용 불가능한 전화번호인 경우
+					$(".input-phone + p").remove();
+					$(".input-phone").after("<p style='color: #ff5959;'>이미 가입되어 있는 번호입니다.</p>");
+					$(".input-phone-addon i").attr("class", "fas fa-times").css("color", "#ff5959");
+				}
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+	}
 })
