@@ -33,12 +33,18 @@
 
     <style>
 		  .form-signup {
-               max-width: 380px;
+               max-width: 350px;
                padding: 15px;
                margin: 40px auto;
                border: 1px solid #e1e1e1;
                border-radius: 5px;
 
+           }
+
+           .form-signup p {
+               margin: 0;
+               padding: 4px 0 0 2px;
+               font-size: 12px;
            }
 
            .form-signup .form-signup-heading,
@@ -58,7 +64,7 @@
                -webkit-box-sizing: border-box;
                -moz-box-sizing: border-box;
                box-sizing: border-box;
-               padding: 10px;
+               padding: 8px;
                font-size: 16px;
            }
 
@@ -67,15 +73,13 @@
            }
 
            .form-signup .input-group {
-               margin: 10px auto;
-           }
-
-           .form-signup input:not(#inputNickname) {
-               text-transform: lowercase;
+               margin-top: 10px;
            }
 
 		   .form-signup .input-group-addon {
 		       background: white;
+               border-left: 0px;
+
 		   }
 
            .okbtn {
@@ -98,9 +102,9 @@
             <h4 align="center" class="form-signup-heading">간편하게 가입하고<br>다양한 서비스를 이용하세요.</h4>
             <!-- id -->
             <div class="input-group input-id">
-                <input type="text" name="userId" id="inputId" class="form-control" placeholder="아이디" required autofocus>
+                <input type="text" name="userId" id="inputId" class="form-control" placeholder="아이디" required>
                 <span class="input-group-addon input-id-addon">
-                	<i class="fas fa-check"></i>
+                	<i class="fas fa-minus"></i>
                 </span>
             </div>
 			<!-- password -->
@@ -132,7 +136,7 @@
             </div>
             <!-- phone -->
             <div class="input-group input-phone">
-	            <input type="tel" name="phone" id="inputPhone" class="form-control" placeholder="전화번호" required>
+	            <input type="tel" name="phone" id="inputPhone" class="form-control" placeholder="휴대폰" required>
             	<span class="input-group-addon input-phone-addon">
             		<i class="fas fa-check"></i>
             	</span>
@@ -146,6 +150,7 @@
 	<!-- 자바스크립트 -->
 	<script src="/findMyRoom/resources/js/signup.js"></script>
 
+    <jsp:include page="../common/footer.jsp"/>
 </body>
 
 </html>
