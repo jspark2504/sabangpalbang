@@ -40,7 +40,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 
 		String title = request.getParameter("title");
 		String body = request.getParameter("body");
-		int no = Integer.valueOf(request.getParameter("boardNo"));
+		int no = Integer.valueOf(request.getParameter("freeBoardNo"));
 		
 		FreeBoardDTO newBoard = new FreeBoardDTO();
 		newBoard.setTitle(title);
