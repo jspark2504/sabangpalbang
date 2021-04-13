@@ -1,7 +1,7 @@
 /* 각 입력 항목의 이벤트 발생에 따른 중복확인, 비밀번호 재입력 확인, 정규표현식 검사 */
 
 /* 아이디 */
-/* focus 이벤트 */
+/* 입력 안내 문구 */
 $("#inputId").focus(function() {
 	/* 안내 문구가 표시되어 있지 않고 입력한 값이 없을 때만 안내 문구 추가 */
 	if(!$(".input-id + p").length && $(this).val() == ""){
@@ -14,7 +14,7 @@ $("#inputId").focus(function() {
 	}
 })
 
-/* keyup 이벤트 */
+/* 정규표현식 검사 및 중복확인 */
 $("#inputId").keyup(function(e) {
 	const inputId = $(this).val();		// 사용자가 입력한 아이디
 	const regExp = /^(?!(?:[0-9]+)$)([a-zA-Z]|[0-9a-zA-Z]){6,}$/;	// 6자 이상의 영문 혹은 영문과 숫자를 조합
@@ -32,8 +32,6 @@ $("#inputId").keyup(function(e) {
 		}
 
 	} else {							// 정규표현식 일치
-		$(".input-id + p").remove();
-		$(".input-id-addon i").attr("class", "fas fa-check").css("color", "#ffd233");
 
 		/* 정규표현식 만족하는 경우에만 ajax를 통해 아이디 중복확인 */
 		$.ajax({
@@ -60,7 +58,7 @@ $("#inputId").keyup(function(e) {
 
 
 /* 비밀번호 */
-/* focus 이벤트 */
+/* 입력 안내 문구 */
 $("#inputPassword").focus(function() {
 	/* 안내 문구가 표시되어 있지 않고 입력한 값이 없을 때만 안내 문구 추가 */
 	if(!$(".input-pwd + p").length && $(this).val() == ""){
@@ -120,6 +118,7 @@ $("#inputPasswordCheck").keyup(function (e) {
 
 
 /* 닉네임 */
+/* 중복확인 */
 $("#inputNickname").keyup(function (e) {
 	const inputNickname = $(this).val();
 
@@ -153,39 +152,54 @@ $("#inputNickname").keyup(function (e) {
 
 
 /* 이메일 */
+/* 정규표현식 검사 및 중복확인 */
 $("#inputEmail").keyup(function (e) {
 	const inputEmail = $(this).val();
+	const regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
 
-	/* ajax를 이용한 이메일 중복확인 */
-	$.ajax({
-		url: "/findMyRoom/member/regist/checkEmail",
-		type: "get",
-		data: { inputEmail : inputEmail },
-		success: function(data){
-			if(data == "true") {		// 사용 가능한 이메일인 경우
-				$(".input-email + p").remove();
-				$(".input-email-addon i").attr("class", "fas fa-check").css("color", "#ffd233");
+	/* 정규표현식 검사 */
+	if(!regExp.test(inputEmail)) {		// 정규표현식 불일치
+		$(".input-email + p").remove();
+		$(".input-email").after("<p style='color: #ff5959;'>이메일 형식이 올바르지 않습니다.</p>");
+		$(".input-email-addon i").attr("class", "fas fa-times").css("color", "#ff5959");
 
-			} else {					// 사용 불가능한 이메일인 경우
-				$(".input-email + p").remove();
-				$(".input-email").after("<p style='color: #ff5959;'>이미 가입되어 있는 이메일입니다.</p>");
-				$(".input-email-addon i").attr("class", "fas fa-times").css("color", "#ff5959");
-			}
-
-			/* 사용자가 입력한 내용을 모두 지운 경우 */
-			if(inputEmail == ""){
-				$(".input-email + p").remove();
-				$(".input-email-addon i").attr("class", "fas fa-minus").css("color", "black");
-			}
-		},
-		error: function(error){
-			console.log(error);
+		/* 사용자가 입력한 내용을 모두 지운 경우 */
+		if(inputEmail == ""){
+			$(".input-email + p").remove();
+			$(".input-email-addon i").attr("class", "fas fa-minus").css("color", "black");
 		}
-	});
+
+	} else {							// 정규표현식 일치
+
+		/* 정규표현식 만족하는 경우에만 ajax를 통해 이메일 중복확인 */
+		$.ajax({
+			url: "/findMyRoom/member/regist/checkEmail",
+			type: "get",
+			data: { inputEmail : inputEmail },
+			success: function(data){
+				if(data == "true") {		// 사용 가능한 이메일인 경우
+					$(".input-email + p").remove();
+					$(".input-email-addon i").attr("class", "fas fa-check").css("color", "#ffd233");
+
+				} else {					// 사용 불가능한 이메일인 경우
+					$(".input-email + p").remove();
+					$(".input-email").after("<p style='color: #ff5959;'>이미 가입되어 있는 이메일입니다.</p>");
+					$(".input-email-addon i").attr("class", "fas fa-times").css("color", "#ff5959");
+				}
+
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+	}
+
 })
 
 
 /* 휴대폰 */
+/* 입력 안내 문구 */
+/* 정규표현식 검사 및 중복확인 */
 $("#inputPhone").keyup(function (e) {
 	const inputPhone = document.getElementById("inputPhone").value;
 
