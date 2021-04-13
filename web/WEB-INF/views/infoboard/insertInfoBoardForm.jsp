@@ -18,7 +18,7 @@
 </head>
 <body>
 <jsp:include page="../common/header.jsp"/>
-	<div class="outer outer-board-insert">
+	<div align="center" class="outer outer-board-insert">
 		<br>
 		<h2 align="center">게시판 작성</h2>
 		<div class="table-area">
