@@ -46,7 +46,7 @@
 				</table>
 				<br>
 				<div align="center">
-					<button type="reset">취소하기</button>
+            		<button type="reset" onclick="location.href='${ pageContext.servletContext.contextPath}/infoboard/list'">목록</button>
 					<button type="submit">등록하기</button>
 				</div>
 			</form>
