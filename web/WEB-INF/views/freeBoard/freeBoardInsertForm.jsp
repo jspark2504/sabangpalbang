@@ -27,5 +27,6 @@
             	<button type="button" class="btn cancel pull-left">취소</button>
 			</form>
 		</div>
+	<jsp:include page="../common/footer.jsp" />
 </body>
 </html>

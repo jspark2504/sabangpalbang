@@ -112,6 +112,8 @@
       return unescape(cookieValue);
     }
   </script> -->
+  
+  <jsp:include page="../common/footer.jsp" />
 </body>
 
 </html>
