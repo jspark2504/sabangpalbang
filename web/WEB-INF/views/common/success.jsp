@@ -27,8 +27,16 @@
 					successMessage = "회원 탈퇴에 성공하셨습니다!";
 					movePath = "${ pageContext.servletContext.contextPath }/member/delete"; 
 					break;
+				case "deleteInfoBoard" :
+					successMessage = "정보게시판 삭제에 성공하셨습니다!";
+					movePath = "${ pageContext.servletContext.contextPath }/infoboard/list";
+					break;
 				case "insertInfoBoard" :
 					successMessage = "정보게시판 등록에 성공하셨습니다!";
+					movePath = "${ pageContext.servletContext.contextPath }/infoboard/list";
+					break;
+				case "updateInfoBoard" :
+					successMessage = "정보게시판 수정 성공하셨습니다!";
 					movePath = "${ pageContext.servletContext.contextPath }/infoboard/list";
 					break;
 				case "deleteFreeBoard" :

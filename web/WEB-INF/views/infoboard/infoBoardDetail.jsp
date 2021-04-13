@@ -46,7 +46,7 @@
          <div align="center">
             <button onclick="location.href='${ pageContext.servletContext.contextPath}/infoboard/list'">목록</button>
             <c:if test="${ sessionScope.loginMember.role eq 'ADMIN' }">
-               <button class="btn post pull-right" onclick="location.href='${ pageContext.servletContext.contextPath}/infoboard/update?no=${ requestScope.boardList.no }'">
+               <button onclick="location.href='${ pageContext.servletContext.contextPath}/infoboard/update?no=${ requestScope.boardList.no }'">
                수정하기
                </button>
             </c:if>

@@ -25,7 +25,7 @@
 		<br>
 		<h2 align="center">정보게시판 수정</h2>
 		<div class="table-area">
-			<form action="${ pageContext.servletContext.contextPath }/infoboard/update" method="post">
+			<form id="form" action="${ pageContext.servletContext.contextPath }/infoboard/update" method="post">
 				<input type="hidden" name="no" value="${requestScope.boardList.no }">
 				<table>
 					<tr>
@@ -51,9 +51,23 @@
 				<div align="center">
            			<button onclick="location.href='${ pageContext.servletContext.contextPath}/infoboard/list'">목록</button>
 					<button type="submit">수정하기</button>
+					<button type="button" onclick="postRequest('deleteInfoBoard')" >삭제</button>
 				</div>
 			</form>
 		</div>
 	</div>
+	<script>
+		function postRequest(intent){
+			var $form = document.getElementById("form");
+			
+			requestPath = "<%=request.getContextPath()%>";
+			
+			switch(intent){
+			case "deleteInfoBoard" : requestPath += "/infoboard/delete"; break;
+			}
+			$form.action = requestPath;
+			$form.submit();
+		}
+	</script>
 </body>
 </html>

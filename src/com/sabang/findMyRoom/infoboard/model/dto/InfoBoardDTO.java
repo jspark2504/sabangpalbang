@@ -19,13 +19,15 @@ public class InfoBoardDTO implements Serializable{
 	private CategoryDTO category;
 	private int writerMemberNo;
 	private MemberDTO writeUser;
+	private String status;
+
 	
 	public InfoBoardDTO() {
 	}
 	
-	
 	public InfoBoardDTO(int no, int categoryNo, String title, String content, int viewNo, Date createDate,
-			Date modificationDate, CategoryDTO category, int writerMemberNo, MemberDTO writeUser) {
+			Date modificationDate, CategoryDTO category, int writerMemberNo, MemberDTO writeUser, String status) {
+		super();
 		this.no = no;
 		this.categoryNo = categoryNo;
 		this.title = title;
@@ -36,7 +38,9 @@ public class InfoBoardDTO implements Serializable{
 		this.category = category;
 		this.writerMemberNo = writerMemberNo;
 		this.writeUser = writeUser;
+		this.status = status;
 	}
+
 
 	public int getNo() {
 		return no;
@@ -98,15 +102,20 @@ public class InfoBoardDTO implements Serializable{
 	public void setWriteUser(MemberDTO writeUser) {
 		this.writeUser = writeUser;
 	}
-
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	@Override
 	public String toString() {
 		return "InfoBoardDTO [no=" + no + ", categoryNo=" + categoryNo + ", title=" + title + ", content=" + content
 				+ ", viewNo=" + viewNo + ", createDate=" + createDate + ", modificationDate=" + modificationDate
-				+ ", category=" + category + ", writerMemberNo=" + writerMemberNo + ", WriteUser=" + writeUser + "]";
+				+ ", category=" + category + ", writerMemberNo=" + writerMemberNo + ", writeUser=" + writeUser
+				+ ", status=" + status + "]";
 	}
-
 	
 	
 }
