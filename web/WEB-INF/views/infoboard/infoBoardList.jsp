@@ -22,7 +22,8 @@
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
    <!-- 기기(디바이스)별 크기를 인식 하고 1.0으로 확대 및 축소 없이해서 보여줌 -->
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
    <link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
 
 
@@ -52,7 +53,9 @@
    	<br><br><br><br>
     <div class="container">
         <h1 align="center">정보게시판</h1>
-      
+			<c:if test="${ sessionScope.loginMember.role eq 'ADMIN'}">
+				<button onclick="location.href='${ pageContext.servletContext.contextPath}/infoboard/insert'" class="btn pull-right">글쓰기</button>
+			</c:if>
       <table class="table table-bordered">
 		 		   <tr>
 		              <th width="100px">글번호</th>
@@ -160,9 +163,6 @@
 					</c:otherwise>
 				</c:choose>
 				<button type="submit">검색하기</button>
-				<c:if test="${ !empty sessionScope.loginMember }">
-					<button type="button" id="writeInfoBoard" class="textinput">작성하기</button>
-				</c:if>
 			</div>
 		</form>
 	</div> <!-- container end -->

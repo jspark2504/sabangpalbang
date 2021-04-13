@@ -61,13 +61,29 @@
          )
          VALUES
          (
-            SEQ_INFO_BOARD.NEXTVAL
+            SEQ_INFO_POST_NO.NEXTVAL
           , ?
           , ?
           , SYSDATE
           , ?
           , 1
          )
+	</entry>
+	
+	<entry key="update">
+        UPDATE 
+               TBL_INFO_BOARD A
+           SET A.POST_TITLE = ?
+     		 , A.POST_CONTENT = ?
+         WHERE A.VIEW_YN = 'Y'
+           AND A.POST_NO = ?
+	</entry>
+	<entry key="delete">
+        UPDATE 
+	           TBL_INFO_BOARD A
+	       SET A.VIEW_YN = 'N'
+	     WHERE A.VIEW_YN = 'Y'
+	       AND A.POST_NO = ?
 	</entry>
 	
 	<entry key="selectInfoBoardDetail">

@@ -24,11 +24,11 @@ public class InfoBoardInsertServlet extends HttpServlet {
 		   }
 
 		   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		      int category = Integer.valueOf(request.getParameter("categoryNo"));
+		      int category = Integer.valueOf(request.getParameter("category"));
 		      String title = request.getParameter("title");
 		      String content = request.getParameter("content");
 		      
-//		      System.out.println(categoryCode + ", " + title + ", " + body);
+		      System.out.println(category + ", " + title + ", " + content);
 		      int writerMemberNo = ((MemberDTO)request.getSession().getAttribute("loginMember")).getNo();
 		      
 		      
