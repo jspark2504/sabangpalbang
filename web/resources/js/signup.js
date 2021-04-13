@@ -31,6 +31,8 @@ $("#inputId").keyup(function(e) {
 			$(".input-id-addon i").attr("class", "fas fa-minus").css("color", "black");
 		}
 
+		check();
+
 	} else {							// 정규표현식 일치
 		/* 정규표현식 만족하는 경우에만 ajax를 통해 아이디 중복확인 */
 		$.ajax({
@@ -47,14 +49,16 @@ $("#inputId").keyup(function(e) {
 					$(".input-id").after("<p style='color: #ff5959;'>중복된 아이디입니다.</p>");
 					$(".input-id-addon i").attr("class", "fas fa-times").css("color", "#ff5959");
 				}
+
+				check();
 			},
 			error: function(error){
 				console.log(error);
 			}
 		});
 	}
-})
 
+});
 
 /* 비밀번호 */
 /* 입력 안내 문구 */
@@ -71,7 +75,7 @@ $("#inputPassword").focus(function() {
 })
 
 /* 비밀번호 정규 표현식 검사 */
-$("#inputPassword").keyup(function (e) {
+$("#inputPassword").keyup(function(e) {
 	const inputPwd = $(this).val();
 	const regExp = /^(?=.*[a-zA-Z])(?=.*\d).{8,20}$/;	// 영문, 숫자 포함 8자 이상 20자 이하
 
@@ -90,10 +94,12 @@ $("#inputPassword").keyup(function (e) {
 		$(".input-pwd + p").remove();
 		$(".input-pwd-addon i").attr("class", "fas fa-minus").css("color", "black");
 	}
+
+	check();
 })
 
 /* 비밀번호 재입력 검사 */
-$("#inputPasswordCheck").keyup(function (e) {
+$("#inputPasswordCheck").keyup(function(e) {
 	const inputPwd1 = $("#inputPassword").val();	// 비밀번호
 	const inputPwd2 = $(this).val();				// 비밀번호 재입력
 
@@ -112,12 +118,14 @@ $("#inputPasswordCheck").keyup(function (e) {
 		$(".input-pwd-check + p").remove();
 		$(".input-pwd-check-addon i").attr("class", "fas fa-minus").css("color", "black");
 	}
+
+	check();
 })
 
 
 /* 닉네임 */
 /* 중복확인 */
-$("#inputNickname").keyup(function (e) {
+$("#inputNickname").keyup(function(e) {
 	const inputNickname = $(this).val();
 
 	/* ajax를 이용한 닉네임 중복확인 */
@@ -141,6 +149,8 @@ $("#inputNickname").keyup(function (e) {
 				$(".input-nickname + p").remove();
 				$(".input-nickname-addon i").attr("class", "fas fa-minus").css("color", "black");
 			}
+
+			check();
 		},
 		error: function(error){
 			console.log(error);
@@ -151,7 +161,7 @@ $("#inputNickname").keyup(function (e) {
 
 /* 이메일 */
 /* 정규표현식 검사 및 중복확인 */
-$("#inputEmail").keyup(function (e) {
+$("#inputEmail").keyup(function(e) {
 	const inputEmail = $(this).val();
 	const regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;	// _@_.__
 
@@ -166,6 +176,8 @@ $("#inputEmail").keyup(function (e) {
 			$(".input-email + p").remove();
 			$(".input-email-addon i").attr("class", "fas fa-minus").css("color", "black");
 		}
+
+		check();
 
 	} else {							// 정규표현식 일치
 		/* 정규표현식 만족하는 경우에만 ajax를 통해 이메일 중복확인 */
@@ -183,6 +195,8 @@ $("#inputEmail").keyup(function (e) {
 					$(".input-email").after("<p style='color: #ff5959;'>이미 가입되어 있는 이메일입니다.</p>");
 					$(".input-email-addon i").attr("class", "fas fa-times").css("color", "#ff5959");
 				}
+
+				check();
 			},
 			error: function(error){
 				console.log(error);
@@ -207,8 +221,8 @@ $("#inputPhone").focus(function() {
 })
 
 /* 정규표현식 검사 및 중복확인 */
-$("#inputPhone").keyup(function (e) {
-	const inputPhone = document.getElementById("inputPhone").value;
+$("#inputPhone").keyup(function(e) {
+	const inputPhone = $(this).val();
 	const regExp = /^01([0|1|6|7|8|9])([0-9]{7,8})$/;		// 숫자만 입력, 01 + 0,1,6,7,8,9 중 하나 + 숫자 7-8개
 
 	if(!regExp.test(inputPhone)) {		// 정규표현식 불일치
@@ -221,6 +235,8 @@ $("#inputPhone").keyup(function (e) {
 			$(".input-phone + p").css("color", "black");
 			$(".input-phone-addon i").attr("class", "fas fa-minus").css("color", "black");
 		}
+
+		check();
 
 	} else {							// 정규표현식 일치
 		/* 정규표현식 만족하는 경우에만 ajax를 통해 휴대폰 중복확인 */
@@ -238,6 +254,8 @@ $("#inputPhone").keyup(function (e) {
 					$(".input-phone").after("<p style='color: #ff5959;'>이미 가입되어 있는 번호입니다.</p>");
 					$(".input-phone-addon i").attr("class", "fas fa-times").css("color", "#ff5959");
 				}
+
+				check();
 			},
 			error: function(error){
 				console.log(error);
@@ -245,3 +263,12 @@ $("#inputPhone").keyup(function (e) {
 		});
 	}
 })
+
+/* 버튼 활성화 여부 체크 */
+function check() {
+	if($(".input-group-addon i").hasClass("fa-minus") || $(".input-group-addon i").hasClass("fa-times")){
+		$(".okbtn").css('background','#bcbcbc').css('color','black').prop('disabled', true);
+	} else {
+		$(".okbtn").css('background','#ffd233').css('color','white').prop('disabled', false);
+	}
+}

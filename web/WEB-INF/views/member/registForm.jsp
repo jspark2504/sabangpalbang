@@ -76,6 +76,10 @@
                margin-top: 10px;
            }
 
+           .form-signup .input-group input::placeholder {
+              font-size: 12px;
+           }
+
 		   .form-signup .input-group-addon {
 		       background: white;
                border-left: 0px;
@@ -84,8 +88,8 @@
 
            .okbtn {
                margin-top: 50px;
-               background-color: #ffd233;
-               color: white;
+               background-color: #bcbcbc;
+               color: black;
            }
 
            .container {
@@ -142,7 +146,7 @@
             	</span>
             </div>
 
-            <button class="btn btn-lg btn-block okbtn" type="submit">확인</button>
+            <button class="btn btn-lg btn-block okbtn" type="submit" disabled>확인</button>
         </form> <!-- /form-signup -->
 
     </section> <!-- /container -->
