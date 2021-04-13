@@ -109,7 +109,7 @@
             </div>
 			<!-- password -->
 			<div class="input-group input-pwd">
-	            <input type="password" name="userPwd" id="inputPassword" class="form-control" placeholder="비밀번호 (영문, 숫자 포함 8자 이상)" required>
+	            <input type="password" name="userPwd" id="inputPassword" class="form-control" placeholder="비밀번호" required>
 				<span class="input-group-addon input-pwd-addon">
                 	<i class="fas fa-minus"></i>
 				</span>
