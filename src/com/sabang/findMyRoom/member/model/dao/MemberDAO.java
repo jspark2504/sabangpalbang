@@ -54,6 +54,33 @@ public class MemberDAO {
 		return isAvailable;
 	}
 
+	/* 닉네임 중복 체크 */
+	public boolean checkNicknameDuplicate(Connection con, String inputNickname) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		boolean isAvailable = false;
+
+		String query = prop.getProperty("checkNicknameDuplicate");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, inputNickname);
+
+			rset = pstmt.executeQuery();
+
+			if(!rset.next()) {
+				isAvailable = true;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return isAvailable;
+	}
+
 	/* 이메일 중복 체크 */
 	public boolean checkEmailDuplicate(Connection con, String inputEmail) {
 
@@ -67,6 +94,33 @@ public class MemberDAO {
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, inputEmail);
+
+			rset = pstmt.executeQuery();
+
+			if(!rset.next()) {
+				isAvailable = true;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return isAvailable;
+	}
+
+	/* 전화번호 중복 체크 */
+	public boolean checkPhoneDuplicate(Connection con, String inputPhone) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		boolean isAvailable = false;
+
+		String query = prop.getProperty("checkPhoneDuplicate");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, inputPhone);
 
 			rset = pstmt.executeQuery();
 

@@ -117,8 +117,12 @@
 				</span>
 			</div>
             <!-- nickname -->
-            <label for="inputNickname" class="sr-only">닉네임</label>
-            <input type="text" name="nickname" id="inputNickname" class="form-control" placeholder="닉네임" required>
+            <div class="input-group input-nickname">
+                <input type="text" name="nickname" id="inputNickname" class="form-control" placeholder="닉네임" required>
+            	<span class="input-group-addon input-nickname-addon">
+            		<i class="fas fa-check"></i>
+            	</span>
+            </div>
             <!-- email -->
             <div class="input-group input-email">
 	            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="이메일" required>

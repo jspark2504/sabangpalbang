@@ -7,11 +7,23 @@
 		  FROM TBL_USER A
 		 WHERE A.USER_ID = ?
 	</entry>
+	<entry key="checkNicknameDuplicate">
+		SELECT /* com.sabang.findMyRoom.member.model.dao.MemberDAO#checkNicknameDuplicate() */
+		       A.NICKNAME
+		  FROM TBL_USER A
+		 WHERE A.NICKNAME = ?
+	</entry>
 	<entry key="checkEmailDuplicate">
 		SELECT /* com.sabang.findMyRoom.member.model.dao.MemberDAO#checkEmailDuplicate() */
 		       A.EMAIL
 		  FROM TBL_USER A
 		 WHERE A.EMAIL = ?
+	</entry>
+	<entry key="checkPhoneDuplicate">
+		SELECT /* com.sabang.findMyRoom.member.model.dao.MemberDAO#checkPhoneDuplicate() */
+		       A.PHONE
+		  FROM TBL_USER A
+		 WHERE A.PHONE = ?
 	</entry>
 	<entry key="insertMember">
 		INSERT  /* com.sabang.findMyRoom.member.model.dao.MemberDAO#insertMember() */

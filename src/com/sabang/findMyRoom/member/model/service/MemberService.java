@@ -32,12 +32,36 @@ public class MemberService {
 		return isAvailable;
 	}
 
+	/* 닉네임 중복 체크 */
+	public boolean checkNicknameDuplicate(String inputNickname) {
+
+		Connection con = getConnection();
+
+		boolean isAvailable = memberDAO.checkNicknameDuplicate(con, inputNickname);
+
+		close(con);
+
+		return isAvailable;
+	}
+
 	/* 이메일 중복 체크 */
 	public boolean checkEmailDuplicate(String inputEmail) {
 
 		Connection con = getConnection();
 
 		boolean isAvailable = memberDAO.checkEmailDuplicate(con, inputEmail);
+
+		close(con);
+
+		return isAvailable;
+	}
+
+	/* 전화번호 중복 체크 */
+	public boolean checkPhoneDuplicate(String inputPhone) {
+
+		Connection con = getConnection();
+
+		boolean isAvailable = memberDAO.checkPhoneDuplicate(con, inputPhone);
 
 		close(con);
 
