@@ -57,7 +57,7 @@
 					<h4>
 						<b>소개할게요</b>
 					</h4>
-					<a class="btn-sm" href="#" role="button">
+					<a class="btn-sm" href="${ pageContext.servletContext.contextPath }/introduce/list">
 						더보기
 					</a>
 				</div>
