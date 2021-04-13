@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -82,13 +83,13 @@
         <div id="box1">
        		<input type="text" value="${ sessionScope.loginMember.nickname }" name="writer" readonly>
             <label for="input-title" ></label>
-            <input type="text" placeholder="회원님들에게 알리고싶은 좋은 소식!">
+            <input type="text" placeholder="회원님들에게 알리고싶은 좋은 소식!" required>
         </div>
         <div id="rectangle">
             
         </div>
 
-        <div id="box2"><p><textarea placeholder="내용을 입력하세요."></textarea></p></div>
+        <div id="box2"><p><textarea placeholder="내용을 입력하세요." ></textarea></p></div>
         <button class="btn" type="reset" id="btn1">취소</button>
         <button class="btn" type="submit" id="btn2">등록</button>
     </form>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,7 +64,7 @@
 				<td><c:out value="${ notice.title }"/></td>
 			<%-- 	<td><c:out value="${ notice.writer.nickname }"/></td> --%>
 	<%-- 			<td><c:out value="${ notice.count }"/></td> --%>
-				<td><c:out value="${ notice.createDate }"/></td>
+				<td><c:out value="${ notice.creationDate }"/></td>
           	</tr>
             </c:forEach>            
         </tbody>
@@ -72,7 +73,7 @@
       
 	<!-- 관리자인 경우에만 작성하기 버튼이 보여짐 -->
 	<c:if test="${ sessionScope.loginMember.role eq 'ADMIN'}">
-    	<a class="btn" >글쓰기</a>
+    	<a class="btn">글쓰기</a>
     </c:if>
    
 <!--     <div class="text-center">

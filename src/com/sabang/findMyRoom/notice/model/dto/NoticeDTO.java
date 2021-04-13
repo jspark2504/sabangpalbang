@@ -13,24 +13,24 @@ public class NoticeDTO implements java.io.Serializable{
 	private MemberDTO writer;
 	private int userNo;
 	private java.sql.Date creationDate;
-	private java.sql.Date modificationDate;
 	private String title;
 	private String content;
+	private String status;
 	
 	public NoticeDTO() {
 	}
-	
-	public NoticeDTO(int noticeNo, int viewNo, MemberDTO writer, int userNo, Date creationDate, Date modificationDate,
-			String title, String content) {
+
+	public NoticeDTO(int noticeNo, int viewNo, MemberDTO writer, int userNo, Date creationDate, String title,
+			String content, String status) {
 		super();
 		this.noticeNo = noticeNo;
 		this.viewNo = viewNo;
 		this.writer = writer;
 		this.userNo = userNo;
 		this.creationDate = creationDate;
-		this.modificationDate = modificationDate;
 		this.title = title;
 		this.content = content;
+		this.status = status;
 	}
 	
 	public int getNoticeNo() {
@@ -73,14 +73,6 @@ public class NoticeDTO implements java.io.Serializable{
 		this.creationDate = creationDate;
 	}
 
-	public java.sql.Date getModificationDate() {
-		return modificationDate;
-	}
-
-	public void setModificationDate(java.sql.Date modificationDate) {
-		this.modificationDate = modificationDate;
-	}
-
 	public String getTitle() {
 		return title;
 	}
@@ -97,6 +89,14 @@ public class NoticeDTO implements java.io.Serializable{
 		this.content = content;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -104,19 +104,10 @@ public class NoticeDTO implements java.io.Serializable{
 	@Override
 	public String toString() {
 		return "NoticeDTO [noticeNo=" + noticeNo + ", viewNo=" + viewNo + ", writer=" + writer + ", userNo=" + userNo
-				+ ", creationDate=" + creationDate + ", modificationDate=" + modificationDate + ", title=" + title
-				+ ", content=" + content + "]";
+				+ ", creationDate=" + creationDate + ", title=" + title + ", content=" + content + ", status=" + status
+				+ "]";
 	}
-
 	
-
-	
-	
-	
-
-
-
-
 	
 	
 }
