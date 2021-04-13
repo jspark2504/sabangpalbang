@@ -24,10 +24,10 @@ public class MemberDeleteServlet extends HttpServlet {
 
 		int memberNo = ((MemberDTO)request.getSession().getAttribute("loginMember")).getNo();
 
-		String memberId = request.getParameter("memberId");
+		String userId = request.getParameter("userId");
 		
 		MemberDTO requestMember = new MemberDTO();
-		requestMember.setId(memberId);
+		requestMember.setId(userId);
 
 		request.getSession().invalidate();
 		response.sendRedirect(request.getContextPath());
