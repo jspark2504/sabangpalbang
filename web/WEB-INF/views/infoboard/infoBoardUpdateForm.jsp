@@ -21,39 +21,36 @@
 <body>
 <jsp:include page="../common/header.jsp"/>
 <body>
-	<div class="outer outer-notice-insert">
-		<br>
+	<div align="center" class="container">
 		<h2 align="center">정보게시판 수정</h2>
+		<br><br><br>
 		<div class="table-area">
 			<form id="form" action="${ pageContext.servletContext.contextPath }/infoboard/update" method="post">
 				<input type="hidden" name="no" value="${requestScope.boardList.no }">
 				<table>
 					<tr>
 						<td>제목</td>
-						<td><input type="text" size="50" name="title" value="${requestScope.boardList.title }"></td>
+						<td><input type="text" size="25" name="title" value="${requestScope.boardList.title }"></td>
 					</tr>
 					<tr>
 						<td>작성자</td>
 						<td>
-							<input type="text" value="${ sessionScope.loginMember.nickname }" name="writeUser" readonly>
+							<input type="text" size="25"value="${ sessionScope.loginMember.nickname }" name="writeUser" readonly>
 						</td>
 					</tr>
 					<tr>
-						<td>내용</td>
-					</tr>		
-					<tr>
-						<td colspan="2">
-							<textarea name="content" cols="60" rows="15" style="resize:none;" required><c:out value="${requestScope.boardList.content }"/></textarea>
+						<td colspan="5">
+							<textarea class="content" name="content"><c:out value="${requestScope.boardList.content }"/></textarea>				
 						</td>
 					</tr>
 				</table>
 				<br>
 				<div align="center">
-           			<button onclick="location.href='${ pageContext.servletContext.contextPath}/infoboard/list'">목록</button>
-					<button type="submit">수정하기</button>
-					<button type="button" onclick="postRequest('deleteInfoBoard')" >삭제</button>
+					<button class="btn post pull-right" type="submit">수정</button>
 				</div>
 			</form>
+           			<button class="btn cancel pull-left" onclick="location.href='${ pageContext.servletContext.contextPath}/infoboard/list'">목록</button>
+					<button class="btn post pull-right" type="button" onclick="postRequest('deleteInfoBoard')" >삭제</button>
 		</div>
 	</div>
 	<script>

@@ -14,43 +14,42 @@
   
     <link rel="stylesheet" href="/findMyRoom/resources/css/freeBoardInsert.css">
     
+    <link rel="stylesheet" href="/findMyRoom/resources/css/freeBoardInsert.css">
+    
     <link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
+	<style>
+
+	.select {
+	position: relative;
+    left: 10px;
+    width: 150px; /* 원하는 너비설정 */
+    padding: 7px; /* 여백으로 높이 설정 */
+    border: 1px solid #999;
+    border-radius: 5px; 
+	}
+	</style>
+
 </head>
 <body>
 <jsp:include page="../common/header.jsp"/>
 	<div align="center" class="outer outer-board-insert">
 		<br>
 		<h2 align="center">게시판 작성</h2>
-		<div class="table-area">
+			<div class="container">
+				
 			<form action="${ pageContext.servletContext.contextPath }/infoboard/insert" method="post">
-				<table>
-					<tr>
-						<td>분야</td>
-						<td>
-							<select name="category">
-								<option value="1">계약시주의사항</option>
-								<option value="2">청년정책</option>
-								<option value="3">기타</option>
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td>제목</td>
-						<td colspan="3"><input type="text" name="title" style="width:400px;"></td>
-					</tr>
-					<tr>
-						<td>내용</td>
-						<td colspan="3">
-							<textarea name="content" cols="60" rows="15" style="resize:none;"></textarea>
-					</tr>
-				</table>
-				<br>
-				<div align="center">
-            		<button type="reset" onclick="location.href='${ pageContext.servletContext.contextPath}/infoboard/list'">목록</button>
-					<button type="submit">등록하기</button>
-				</div>
+					<select  class="select pull-left" name="category">
+						<option value="1">계약시주의사항</option>
+						<option value="2">청년정책</option>
+						<option value="3">기타</option>
+					</select>
+					<input type="text" class="title" name="title" placeholder="회원님들에게 알리고 싶은 좋은 소식!">
+					<textarea class="content" name="content" placeholder="내용을 입력해주세요."></textarea>		
+						
+            		<button type="reset" class="btn cancel pull-left" onclick="location.href='${ pageContext.servletContext.contextPath}/infoboard/list'">목록</button>
+					<button type="submit" class="btn post pull-right">등록</button>
 			</form>
+			</div>
 		</div>
-	</div>
 </body>
 </html>
