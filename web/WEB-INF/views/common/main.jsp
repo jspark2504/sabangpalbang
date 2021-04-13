@@ -144,27 +144,27 @@
 				<article class="board">
 					<ul>
 						<li class="title">
-							<a href="#">
+							<a href="${ pageContext.servletContext.contextPath }/freeBoard/detail?no=12">
 								방구들아 이거 집주인이 잘못한 거 맞지?
 							</a>
 						</li>
 						<li class="title">
-							<a href="#">
-								우리집 인테리어 봐줄 사람 ㅋㅋㅋ
+							<a href="${ pageContext.servletContext.contextPath }/freeBoard/detail?no=11">
+								우리집 인테리어 진짜 멋있음ㅋ
 							</a>
 						</li>
 						<li class="title">
-							<a href="#">
+							<a href="${ pageContext.servletContext.contextPath }/freeBoard/detail?no=10">
 								니네 야식 뭐 먹었냐?
 							</a>
 						</li>
 						<li class="title">
-							<a href="#">
+							<a href="${ pageContext.servletContext.contextPath }/freeBoard/detail?no=9">
 								나 큰일났음 낼 이사인데 아직도 못 자는 중;;
 							</a>
 						</li>
 						<li class="title">
-							<a href="#">
+							<a href="${ pageContext.servletContext.contextPath }/freeBoard/detail?no=8">
 								신림역 근처 맛집 추천 좀
 							</a>
 						</li>
