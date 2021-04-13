@@ -1136,3 +1136,5 @@ VALUES (SEQ_INFO_POST_NO.NEXTVAL, ' 전세자금대출 진행절차와 유의사
 아는만큼 손해를 보지않는 세상입니다
 내 제산은 내가 꼭 지켜야 겠죠?'
 , SYSDATE, 1, 1);
+
+COMMIT;
