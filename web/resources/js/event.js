@@ -17,5 +17,6 @@ window.onload = function(){
 			location.href = "/findMyRoom/infoboard/insert";
 		}
 	}
+	
 	}
 }

@@ -52,13 +52,6 @@
    	<br><br><br><br>
     <div class="container">
         <h1 align="center">정보게시판</h1>
-      <table class="table table-bordered">
-        <tr>
-          <th>부동산 정책</th>
-          <th>정부 지원 정책</th>
-          <th>기타</th>
-        </tr>
-      </table>
       
       <table class="table table-bordered">
 		 		   <tr>

@@ -85,4 +85,22 @@ public class MemberService {
 		return result;
 	}
 	
+	/* 회원 탈퇴용 메소드(비공개 전환) */
+	public int deleteMember(MemberDTO requestMember) {
+		Connection con = getConnection();
+		
+		int result = memberDAO.deleteLoginMember(con, requestMember);
+		
+		if(result > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return result;
+	}
+	
+	
 }

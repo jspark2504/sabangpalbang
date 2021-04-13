@@ -23,6 +23,10 @@
 					successMessage = "회원 정보 변경에 성공하셨습니다!";
 					movePath = "${ pageContext.servletContext.contextPath }/member/update"; 
 					break;
+				case "deleteMember" :
+					successMessage = "회원 탈퇴에 성공하셨습니다!";
+					movePath = "${ pageContext.servletContext.contextPath }/member/delete"; 
+					break;
 				case "insertInfoBoard" :
 					successMessage = "정보게시판 등록에 성공하셨습니다!";
 					movePath = "${ pageContext.servletContext.contextPath }/index.jsp";

@@ -5,8 +5,18 @@
 <html lang="ko">
 
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+   <title>구해줘! 내 방</title>
+   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+   <link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
+
 </head>
 <body>
    <jsp:include page="../common/header.jsp"/>
@@ -34,9 +44,9 @@
          </table>
          <br>
          <div align="center">
-            <button onclick="location.href='${ pageContext.servletContext.contextPath}/infoboard/list'">메뉴로 돌아가기</button>
+            <button onclick="location.href='${ pageContext.servletContext.contextPath}/infoboard/list'">목록</button>
             <c:if test="${ sessionScope.loginMember.role eq 'ADMIN' }">
-               <button onclick="location.href='${ pageContext.servletContext.contextPath}/infoboard/update?no=${ requestScope.boardList.no }'">
+               <button class="btn post pull-right" onclick="location.href='${ pageContext.servletContext.contextPath}/infoboard/update?no=${ requestScope.boardList.no }'">
                수정하기
                </button>
             </c:if>
