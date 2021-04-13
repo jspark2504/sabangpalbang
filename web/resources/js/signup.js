@@ -69,22 +69,20 @@ $("#inputNickname").keyup(function (e) {
 		type: "get",
 		data: { inputNickname : inputNickname },
 		success: function(data){
-			if(data == "true") {
+			if(data == "true") {		// 닉네임이 사용 가능한 경우
 				$(".input-nickname + p").remove();
-				$(".input-nickname-addon").css("background-color", "#ffd233");
-				$(".input-nickname-addon i").css("color", "white");
+				$(".input-nickname-addon i").attr("class", "fas fa-check").css("color", "#ffd233");
 
-			} else {
+			} else {					// 닉네임이 사용 불가능한 경우
 				$(".input-nickname + p").remove();
-				$(".input-nickname").after("<p style='color: #ff7c7c; padding-left: 2px;'>중복된 닉네임입니다.</p>");
-				$(".input-nickname-addon").css("background-color", "white");
-				$(".input-nickname-addon i").css("color", "#ff7c7c");
+				$(".input-nickname").after("<p style='color: #ff7c7c;'>중복된 닉네임입니다.</p>");
+				$(".input-nickname-addon i").attr("class", "fas fa-times").css("color", "#ff7c7c");
 			}
 
+			/* 사용자가 입력한 내용을 모두 지운 경우 */
 			if(inputNickname == ""){
 				$(".input-nickname + p").remove();
-				$(".input-nickname-addon").css("background-color", "white");
-				$(".input-nickname-addon i").css("color", "black");
+				$(".input-nickname-addon i").attr("class", "fas fa-minus").css("color", "black");
 			}
 		},
 		error: function(error){
@@ -104,22 +102,20 @@ $("#inputEmail").keyup(function (e) {
 		type: "get",
 		data: { inputEmail : inputEmail },
 		success: function(data){
-			if(data == "true") {
+			if(data == "true") {		// 사용 가능한 이메일인 경우
 				$(".input-email + p").remove();
-				$(".input-email-addon").css("background-color", "#ffd233");
-				$(".input-email-addon i").css("color", "white");
+				$(".input-email-addon i").attr("class", "fas fa-check").css("color", "#ffd233");
 
-			} else {
+			} else {					// 사용 불가능한 이메일인 경우
 				$(".input-email + p").remove();
-				$(".input-email").after("<p style='color: #ff7c7c; padding-left: 2px;'>이미 가입되어 있는 이메일입니다.</p>");
-				$(".input-email-addon").css("background-color", "white");
-				$(".input-email-addon i").css("color", "#ff7c7c");
+				$(".input-email").after("<p style='color: #ff7c7c;'>이미 가입되어 있는 이메일입니다.</p>");
+				$(".input-email-addon i").attr("class", "fas fa-times").css("color", "#ff7c7c");
 			}
 
+			/* 사용자가 입력한 내용을 모두 지운 경우 */
 			if(inputEmail == ""){
 				$(".input-email + p").remove();
-				$(".input-email-addon").css("background-color", "white");
-				$(".input-email-addon i").css("color", "black");
+				$(".input-email-addon i").attr("class", "fas fa-minus").css("color", "black");
 			}
 		},
 		error: function(error){
@@ -139,22 +135,19 @@ $("#inputPhone").keyup(function (e) {
 		type: "get",
 		data: { inputPhone : inputPhone },
 		success: function(data){
-			if(data == "true") {
+			if(data == "true") {		// 사용 가능한 전화번호인 경우
 				$(".input-phone + p").remove();
-				$(".input-phone-addon").css("background-color", "#ffd233");
-				$(".input-phone-addon i").css("color", "white");
+				$(".input-phone-addon i").attr("class", "fas fa-check").css("color", "#ffd233");
 
-			} else {
+			} else {					// 사용 불가능한 전화번호인 경우
 				$(".input-phone + p").remove();
 				$(".input-phone").after("<p style='color: #ff7c7c; padding-left: 2px;'>이미 가입되어 있는 번호입니다.</p>");
-				$(".input-phone-addon").css("background-color", "white");
-				$(".input-phone-addon i").css("color", "#ff7c7c");
+				$(".input-phone-addon i").attr("class", "fas fa-times").css("color", "#ff7c7c");
 			}
 
 			if(inputPhone == ""){
 				$(".input-phone + p").remove();
-				$(".input-phone-addon").css("background-color", "white");
-				$(".input-phone-addon i").css("color", "black");
+				$(".input-phone-addon i").attr("class", "fas fa-minus").css("color", "black");
 			}
 		},
 		error: function(error){

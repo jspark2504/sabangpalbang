@@ -111,34 +111,34 @@
 			<div class="input-group input-pwd">
 	            <input type="password" name="userPwd" id="inputPassword" class="form-control" placeholder="비밀번호 (영문, 숫자 포함 8자 이상)" required>
 				<span class="input-group-addon input-pwd-addon">
-                	<i class="fas fa-check"></i>
+                	<i class="fas fa-minus"></i>
 				</span>
 			</div>
 			<div class="input-group input-pwd-check">
 	            <input type="password" id="inputPasswordCheck" class="form-control" placeholder="비밀번호 재입력" required>
 				<span class="input-group-addon input-pwd-check-addon">
-                	<i class="fas fa-check"></i>
+                	<i class="fas fa-minus"></i>
 				</span>
 			</div>
             <!-- nickname -->
             <div class="input-group input-nickname">
                 <input type="text" name="nickname" id="inputNickname" class="form-control" placeholder="닉네임" required>
             	<span class="input-group-addon input-nickname-addon">
-            		<i class="fas fa-check"></i>
+            		<i class="fas fa-minus"></i>
             	</span>
             </div>
             <!-- email -->
             <div class="input-group input-email">
 	            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="이메일" required>
             	<span class="input-group-addon input-email-addon">
-            		<i class="fas fa-check"></i>
+            		<i class="fas fa-minus"></i>
             	</span>
             </div>
             <!-- phone -->
             <div class="input-group input-phone">
 	            <input type="tel" name="phone" id="inputPhone" class="form-control" placeholder="휴대폰" required>
             	<span class="input-group-addon input-phone-addon">
-            		<i class="fas fa-check"></i>
+            		<i class="fas fa-minus"></i>
             	</span>
             </div>
 
