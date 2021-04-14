@@ -84,8 +84,11 @@
     </div> -->
        <!-- Bootstrap core CSS -->
        
+    
+</div>
       <script>
   	/* 자바스크립트를 이용하는 경우 */
+  	
 		 if(document.getElementsByTagName("td")) {
 			const $tds = document.getElementsByTagName("td");
 			for(var i = 0 ; i < $tds.length ; i++) {
@@ -96,14 +99,13 @@
 				
 				$tds[i].onclick = function() {
 					const no = this.parentNode.children[0].innerText;
+					/* console.log(no); */
 					location.href = "${ pageContext.servletContext.contextPath }/notice/detail?no=" + no;   
 				}
 			}
 		}
       
       </script>
-    
-</div>
 
 	<jsp:include page="../common/footer.jsp" />
 </body>

@@ -20,12 +20,12 @@ public class NoticeUpdateServlet extends HttpServlet {
 		int no = Integer.valueOf(request.getParameter("no"));
 		
 		NoticeService noticeService = new NoticeService();
-		NoticeDTO notice = noticeService.selectNoticeDetail(no);
+		NoticeDTO noticeList = noticeService.selectNoticeDetail(no);
 		
 		String path = "";
-		if(notice != null) {
+		if(noticeList != null) {
 			path = "/WEB-INF/views/notice/updateForm.jsp";
-			request.setAttribute("notice", notice);
+			request.setAttribute("notice", noticeList);
 		} else {
 			path = "/WEB-INF/views/common/failed.jsp";
 			request.setAttribute("message", "공지사항 수정용 조회하기 실패!");

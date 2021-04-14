@@ -16,12 +16,10 @@ public class NoticeSelectDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-//		String noticeNo = request.getParameter("no");
-		
-//		System.out.println("공지사항 " + noticeNo + "번 볼려고?");
+
 		
 		int no = Integer.valueOf(request.getParameter("no"));
+		
 		NoticeService noticeService = new NoticeService();
 		
 		NoticeDTO noticeDetail = noticeService.selectNoticeDetail(no);
@@ -29,7 +27,7 @@ public class NoticeSelectDetailServlet extends HttpServlet {
 		String path = "";
 		if(noticeDetail != null) {
 			path = "/WEB-INF/views/notice/noticeDetail.jsp";
-			request.setAttribute("notice", noticeDetail);
+			request.setAttribute("noticeList", noticeDetail);
 		} else {
 			path = "/WEB-INF/views/common/failed.jsp";
 			request.setAttribute("message", "공지사항 상세 보기 조회에 실패하셨습니다.");

@@ -12,39 +12,38 @@
     *{
         font-size: 18px;
         color: gray;
-        
     }
     
-
     .form-write{
         position : absolute;
         /* background: chartreuse; */
         left: 50%;
         margin-left: -413px;
+        
     }
     #btn1{
 
         border-radius: 0px;
         background:#BCBCBC;
         color: white;
-
+		margin-bottom: 204px;
         font-weight: bold;
     }
     #btn2{
         border-radius: 0px;
         background: rgb(255,210,51);
-
+	    margin-bottom: 204px;
         color: white;
 
         font-weight: bold;
     }
     #btn3{
        border-radius: 0px;
-        background: rgb(255,210,51);
+       background: rgb(255,210,51);
+	   margin-bottom: 204px;
+       color: white;
 
-        color: white;
-
-        font-weight: bold;
+       font-weight: bold;
     }    
     input{
         width: 820px;
@@ -82,21 +81,20 @@
 <jsp:include page="../common/header.jsp"/>
 
 <div class="container">
-    <form class="form-write" action="${ pageContext.servletContext.contextPath }/notice/update" method="post" id="">
-    	<input type="hidden" name="noticeNo" value="${requestScope.noticeNo }">
+    <form class="form-write" action="${ pageContext.servletContext.contextPath }/notice/update" method="post">
+			<input type="hidden" name="noticeNo" value="${requestScope.noticeList.noticeNo }">
 
     	
         <div id="box1">
     		<input type="text" value="${ sessionScope.loginMember.nickname }" name="writer" readonly>
-            <label for="input-title" ></label>
-            <input type="text" name="title" value="${requestScope.notice.title }">
+            <input type="text" name="title" value="${ requestScope.noticeList.title }">
         </div>
         <div id="rectangle">
             
         </div>
 
-       <textarea name="body" style="resize:none;" required><c:out value="${ requestScope.notice.content }"/></textarea>
-        
+       <textarea name="body" style="resize:none;" required><c:out value="${ requestScope.noticeList.content }"/></textarea>
+        <br>
         <button class="btn" type="submit" id="btn1" onclick="postRequest('deleteNotice')">삭제</button>
         <button class="btn" type="submit" id="btn2">수정</button>
         <button onclick="location.href='${ pageContext.servletContext.contextPath}/notice/list'" class="btn" type="button" id="btn3">목록</button>
@@ -106,7 +104,7 @@
 </div>   
 	<script>
 		function postRequest(intent){
-			var $form = document.getElementById("form");
+			var $form = document.getElementById("form-write");
 			
 			requestPath = "<%=request.getContextPath()%>";
 			
@@ -117,6 +115,6 @@
 			$form.submit();
 		}
 	</script>
-<jsp:include page="../common/footer.jsp" />
+
 </body>
 </html>

@@ -76,14 +76,12 @@
 <div class="container">
     <form class="form-write">
         <div id="box1">
-        	<input readonly value="${ requestScope.notice.writer.nickname }">
+        	<input readonly value="${ requestScope.noticeList.writer.nickname }">
             <label for="input-title" ></label>
-            <input readonly value="${ requestScope.notice.title }">
+            <input readonly value="${ requestScope.noticeList.title }">
         </div>
-        <div id="rectangle">
-            
-        </div>
-        <div id="box2"><p><textarea readonly ><c:out value="${ requestScope.notice.content }"/></textarea></p>
+        <div id="rectangle"></div>
+        <div id="box2"><p><textarea readonly ><c:out value="${ requestScope.noticeList.content }"/></textarea></p>
         </div>
         
         <button class="btn" type="reset" id="btn1"
@@ -92,7 +90,7 @@
         
   		<c:if test="${ sessionScope.loginMember.role eq 'ADMIN' }">
         <button class="btn" type="submit" id="btn2"
-        onclick="location.href='${ pageContext.servletContext.contextPath}/notice/update?no=${ requestScope.notice.noticeNo }'"
+        onclick="location.href='${ pageContext.servletContext.contextPath}/notice/update?no=${ requestScope.noticeList.noticeNo }'"
         >수정</button>
         </c:if>
     </form>
