@@ -241,7 +241,8 @@
 			  FROM TBL_REPLY A
 			  JOIN TBL_USER B ON (A.USER_NO = B.USER_NO)
 	          JOIN TBL_FREE_BOARD C ON (A.POST_NO = C.POST_NO)
-	         WHERE A.POST_NO = ?			
+	         WHERE A.VIEW_YN = 'Y'
+	           AND A.POST_NO = ?			
          </entry>
          <entry key="insertReply">
          INSERT 
@@ -260,5 +261,12 @@
 		 , SYSDATE
 		 , ?
 		 )
+         </entry>
+         <entry key="deleteReply">
+         	UPDATE
+			       TBL_REPLY A
+			   SET A.VIEW_YN = 'N'
+			 WHERE A.REPLY_NO = ?
+			   AND A.POST_NO = ?
          </entry>
 </properties>

@@ -101,4 +101,28 @@ private final Properties prop;
 		return listReply;
 	}
 
+	public int deleteReply(Connection con, int replyNo, int boardNo) {
+		
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("deleteReply");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, replyNo);
+			pstmt.setInt(2, boardNo);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
 }

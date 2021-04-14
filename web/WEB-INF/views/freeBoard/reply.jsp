@@ -16,17 +16,38 @@
 			right:5px;
 			bottom:20px;
 		}
+		#deleteReply{
+			background:rgb(81, 75, 55);
+			width:21px;
+			color:white;
+			position:relative;
+			bottom:50px;
+			border:none;
+			border-radius:5px;
+		}
+		#deleteReply:hover{
+			background:red;
+			transition-duration: 0.3s;
+		}
+		
 	</style>
 </head>
 <body>
 	<div class="listReply">
 		<c:forEach items="${listReply }" var="reply">
 		<hr>
+ 		<form action="${ pageContext.servletContext.contextPath}/reply/delete" method="post">
 		<i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;&nbsp; ${reply.writer.nickname }
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  		<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp; ${reply.createDate }
 		<br><br>
 		<i class="fa fa-comments" aria-hidden="true"></i>&nbsp;&nbsp; ${reply.content }
+		<input type="hidden" id="replyNo" name="replyNo" value="${reply.no }">
+		<input type="hidden" id="postNo" name="postNo" value="${reply.postNo }">
+		<c:if test="${ sessionScope.loginMember.no eq reply.userNo }">
+		&nbsp;&nbsp;&nbsp;&nbsp;<button class="pull-right" id="deleteReply" onclick="location.href='${ pageContext.servletContext.contextPath}/reply/delete'" onClick="window.location.reload()">X</button>
+		</c:if>
+		</form>
 		<hr>
 		</c:forEach>
 	</div>

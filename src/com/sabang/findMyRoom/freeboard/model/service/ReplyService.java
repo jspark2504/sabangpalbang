@@ -47,5 +47,22 @@ public class ReplyService {
 		return result;
 	}
 
+	public int deleteReply(int replyNo, int boardNo) {
+		
+		Connection con = getConnection();
+		
+		int result = replyDAO.deleteReply(con, replyNo, boardNo);
+		
+		if(result > 0) {
+			commit(con);
+		}else {
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return result;
+	}
+
 
 }

@@ -69,7 +69,7 @@
 		
 		<textarea id="replytext" placeholder="인터넷은 우리가 함께 만들어가는 소중한 공간입니다. 댓글 작성 시 타인에 대한 배려와 책임을 담아주세요."></textarea>
 		<br>
-		<button class="btn pull-right" type="submit" id="btnReply">확인</button>
+		<button onClick="window.location.reload()" class="btn pull-right" type="submit" id="btnReply">확인</button>
 	<div id="counter">(0 / 100)</div>
 	</c:if>
 </div>
