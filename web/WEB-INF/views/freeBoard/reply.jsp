@@ -44,7 +44,7 @@
 		<i class="fa fa-comments" aria-hidden="true"></i>&nbsp;&nbsp; ${reply.content }
 		<input type="hidden" id="replyNo" name="replyNo" value="${reply.no }">
 		<input type="hidden" id="postNo" name="postNo" value="${reply.postNo }">
-		<c:if test="${ sessionScope.loginMember.no eq reply.userNo }">
+		<c:if test="${ sessionScope.loginMember.no eq reply.userNo || sessionScope.loginMember.role eq 'ADMIN'}">
 		&nbsp;&nbsp;&nbsp;&nbsp;<button class="pull-right" id="deleteReply" onclick="location.href='${ pageContext.servletContext.contextPath}/reply/delete'" onClick="window.location.reload()">X</button>
 		</c:if>
 		</form>
