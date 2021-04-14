@@ -22,8 +22,8 @@ public class NoticeSelectDetailServlet extends HttpServlet {
 //		System.out.println("공지사항 " + noticeNo + "번 볼려고?");
 		
 		int no = Integer.valueOf(request.getParameter("no"));
-		
 		NoticeService noticeService = new NoticeService();
+		
 		NoticeDTO noticeDetail = noticeService.selectNoticeDetail(no);
 		
 		String path = "";

@@ -53,14 +53,14 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th colspan="2">공지사항</th>
+                <th colspan="3">공지사항</th>
             </tr>
             
         </thead>
         <tbody>
         	<c:forEach items="${ noticeList }" var="notice">
           	<tr> 
-  			<%-- 	<td><c:out value="${ notice.no }"/></td> --%>
+  				<td><c:out value="${ notice.noticeNo }"/></td>
 				<td><c:out value="${ notice.title }"/></td>
 			<%-- 	<td><c:out value="${ notice.writer.nickname }"/></td> --%>
 	<%-- 			<td><c:out value="${ notice.count }"/></td> --%>
@@ -104,6 +104,8 @@
       </script>
     
 </div>
+
+	<jsp:include page="../common/footer.jsp" />
 </body>
 </html>
     

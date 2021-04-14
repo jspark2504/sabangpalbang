@@ -154,6 +154,7 @@ public class NoticeDAO {
 				noticeDetail.setCreationDate(rset.getDate("CREATION_DATE"));
 			}
 			
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

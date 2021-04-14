@@ -92,7 +92,7 @@
         
   		<c:if test="${ sessionScope.loginMember.role eq 'ADMIN' }">
         <button class="btn" type="submit" id="btn2"
-        onclick="location.href='${ pageContext.servletContext.contextPath}/notice/update?no=${ requestScope.notice.no }'"
+        onclick="location.href='${ pageContext.servletContext.contextPath}/notice/update?no=${ requestScope.notice.noticeNo }'"
         >수정</button>
         </c:if>
     </form>

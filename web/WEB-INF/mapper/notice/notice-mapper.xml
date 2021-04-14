@@ -25,6 +25,7 @@
 	 , A.TITLE
 	 , A.CONTENT
 	 , A.USER_NO
+	 , A.CREATION_DATE
 	)
 	VALUES
 	(
@@ -32,6 +33,7 @@
 	, ?
 	, ?
 	, ?
+	, SYSDATE
 	)
 	</entry>
 	<entry key="incrementNoticeCount">

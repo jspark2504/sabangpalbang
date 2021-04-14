@@ -23,24 +23,29 @@
         margin-left: -413px;
     }
     #btn1{
-        margin-top: 23px;
+
         border-radius: 0px;
         background:#BCBCBC;
         color: white;
-        margin-bottom: 204px;
+
         font-weight: bold;
     }
     #btn2{
         border-radius: 0px;
         background: rgb(255,210,51);
-        margin-top: 23px;
+
         color: white;
-        margin-left: 710px;
-        margin-bottom: 204px;
+
         font-weight: bold;
-
-
     }
+    #btn3{
+       border-radius: 0px;
+        background: rgb(255,210,51);
+
+        color: white;
+
+        font-weight: bold;
+    }    
     input{
         width: 820px;
     }
@@ -77,8 +82,8 @@
 <jsp:include page="../common/header.jsp"/>
 
 <div class="container">
-    <form class="form-write" action="${ pageContext.servletContext.contextPath }/notice/update" method="post">
-    	<input type="hidden" name="noticeNo" value="${requestScope.notice.no }">
+    <form class="form-write" action="${ pageContext.servletContext.contextPath }/notice/update" method="post" id="">
+    	<input type="hidden" name="noticeNo" value="${requestScope.noticeNo }">
 
     	
         <div id="box1">
@@ -92,12 +97,26 @@
 
        <textarea name="body" style="resize:none;" required><c:out value="${ requestScope.notice.content }"/></textarea>
         
-        <button class="btn" type="reset" id="btn1">취소</button>
-        <button class="btn" type="submit" id="btn2">등록</button>
+        <button class="btn" type="submit" id="btn1" onclick="postRequest('deleteNotice')">삭제</button>
+        <button class="btn" type="submit" id="btn2">수정</button>
+        <button onclick="location.href='${ pageContext.servletContext.contextPath}/notice/list'" class="btn" type="button" id="btn3">목록</button>
+        
     </form>
     
 </div>   
-
-
+	<script>
+		function postRequest(intent){
+			var $form = document.getElementById("form");
+			
+			requestPath = "<%=request.getContextPath()%>";
+			
+			switch(intent){
+			case "deleteNotice" : requestPath += "/notice/delete"; break;
+			}
+			$form.action = requestPath;
+			$form.submit();
+		}
+	</script>
+<jsp:include page="../common/footer.jsp" />
 </body>
 </html>

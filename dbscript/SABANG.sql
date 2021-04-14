@@ -573,36 +573,35 @@ INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.US
       '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다. 
       개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다. 
       ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.', 
-      TO_DATE('21/04/19', 'RR/MM/DD'), 1, 'Y');
-      
-INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
-      VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 개인정보처리방침 개정 안내',
-      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다. 
-      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다. 
-      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.', 
-      TO_DATE('21/04/01', 'RR/MM/DD'), 2, 'Y');  
-
-INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
-      VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 개인정보처리방침 개정 안내',
-      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다. 
-      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다. 
-      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.', 
-      TO_DATE('21/03/28', 'RR/MM/DD'), 3, 'Y'); 
+      SYSDATE, 1, 'Y'); 
       
 INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
       VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 서비스 이용약관 개정 안내',
       '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다. 
       개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다. 
       ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.', 
-      TO_DATE('21/03/22', 'RR/MM/DD'), 4, 'Y');
+      SYSDATE, 2, 'Y');
+
+INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
+      VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 개인정보처리방침 개정 안내',
+      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다. 
+      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다. 
+      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.', 
+      SYSDATE, 3, 'Y');      
       
 INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
       VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 개인정보처리방침 개정 안내',
       '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다. 
       개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다. 
       ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.', 
-      TO_DATE('21/03/10', 'RR/MM/DD'), 5, 'Y'); 
-
+      SYSDATE, 4, 'Y');  
+      
+INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
+      VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 개인정보처리방침 개정 안내',
+      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다. 
+      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다. 
+      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.', 
+      SYSDATE, 5, 'Y');
 
 
 CREATE TABLE TBL_CONNECT_STATISTIC(

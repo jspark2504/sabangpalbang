@@ -44,6 +44,7 @@ public class NoticeUpdateServlet extends HttpServlet {
 		System.out.println("수정 할 공지사항 번호 : " + no);
 		System.out.println("수정 할 공지사항 제목 : " + title);
 		
+		
 	}
 	
 
