@@ -61,6 +61,23 @@ public class InfoBoardService {
 	      return result;
 	   }
 	   
+		/* 게시판 수정용 메소드 */
+		public int updateBoard(InfoBoardDTO requestBoard) {
+			
+			Connection con = getConnection();
+			
+			int result = infoBoardDAO.updateboardDetail(con, requestBoard);
+			
+			if(result > 0) {
+				commit(con);
+			} else {
+				rollback(con);
+			}
+			
+			close(con);
+			
+			return result;
+		}
 	   
 	   /* 게시판 정보 및 조회수 카운트 적용 메소드 */
 	   public InfoBoardDTO selectBoardDetail(int no) {
@@ -111,6 +128,21 @@ public class InfoBoardService {
 	      
 	      return boardList;
 	   }
+
+		public int deleteBoard(int no) {
+			Connection con = getConnection();
+			
+			int result = infoBoardDAO.deleteInfoBoard(con, no);
+			
+			if(result > 0) {
+				commit(con);
+			}else {
+				rollback(con);
+			}
+			close(con);
+			
+			return result;
+		}
 	   
 	
 }

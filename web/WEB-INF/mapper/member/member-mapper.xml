@@ -71,6 +71,24 @@
 		 WHERE A.USER_STATUS = 'Y'
 		   AND A.USER_ID = ?
 	</entry>
+		 <entry key="updateMember">
+	 	 UPDATE /* com.sabang.findMyRoom.member.model.dao.MemberDAO#updateLoginMember() */
+	 	        TBL_USER A
+	 	    SET A.USER_PWD = ?
+	 	      , A.NICKNAME = ?
+	 	      , A.EMAIL = ?
+	 	      , A.PHONE = ?
+	 	  WHERE USER_STATUS = 'Y'
+	 	    AND USER_ID = ?
+	 </entry>
+	<entry key="deleteMember">
+	     UPDATE /* com.sabang.findMyRoom.member.model.dao.MemberDAO#deleteLoginMember() */
+	            TBL_USER A
+	        SET USER_STATUS = 'N'
+	      WHERE USER_STATUS = 'Y'
+	        AND USER_ID = ?
+	</entry>
+
 	<entry key="">
 
 	</entry>

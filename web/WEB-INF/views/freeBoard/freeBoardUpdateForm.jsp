@@ -16,17 +16,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     <link rel="stylesheet" href="/findMyRoom/resources/css/freeBoardDetail.css">
-
+	<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
 </head>
 <body>
 <jsp:include page="../common/header.jsp"/>
 	<div class="container">
 	<form action="${pageContext.servletContext.contextPath }/freeBoard/update" method="post" id="form">
-	<input type="hidden" name="boardNo" value="${requestScope.board.no }">
+	<input type="hidden" name="freeBoardNo" value="${requestScope.board.no }">
 			<table class="nickname pull-right">
 			 	<tr>
                     <th>nickname</th>
-                    <td><p><c:out value="${ requestScope.board.writer.nickname }" /></p></td>
+                    <td><c:out value="${ requestScope.board.writer.nickname }" /></td>
                 </tr>
 			</table>
 				<input type="text" class="title" name="title" value="${ requestScope.board.title }">
@@ -50,5 +50,6 @@
 			$form.submit();
 		}
 	</script>
+	<jsp:include page="../common/footer.jsp" />
 </body>
 </html>

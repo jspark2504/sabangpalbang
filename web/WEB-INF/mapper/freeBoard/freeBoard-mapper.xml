@@ -50,6 +50,7 @@
 		  A.POST_NO
 		, A.POST_TITLE
 		, A.POST_CONTENT
+		, A.CREATION_DATE
 		, A.USER_NO
 		)
 		VALUES
@@ -57,6 +58,7 @@
 		  SEQ_FREE_POST_NO.NEXTVAL
 		, ?
 		, ?
+		, SYSDATE
 		, ?
 		)
 	</entry>
@@ -227,5 +229,36 @@
                   WHERE B.POST_CONTENT LIKE '%' || ? || '%'
                ) A
          WHERE A.RNUM BETWEEN ? AND ?
+         </entry>
+         <entry key="selectReply">
+			SELECT	/* com.sabang.findMyRoom.freeBoard.model.dao.ReplyDAO#selectReply() */
+			       A.REPLY_NO
+	             , C.POST_NO
+			     , A.REPLY_CONTENT
+			     , A.USER_NO
+			     , B.NICKNAME
+			     , A.CREATION_DATE
+			  FROM TBL_REPLY A
+			  JOIN TBL_USER B ON (A.USER_NO = B.USER_NO)
+	          JOIN TBL_FREE_BOARD C ON (A.POST_NO = C.POST_NO)
+			 WHERE A.POST_NO = ?			
+         </entry>
+         <entry key="insertReply">
+         INSERT 
+           INTO TBL_REPLY A
+         (
+           A.REPLY_NO
+         , A.POST_NO
+         , A.REPLY_CONTENT
+         , A.CREATION_DATE
+         , A.USER_NO)
+		 VALUES 
+		 (
+		   SEQ_REPLY_NO.NEXTVAL
+		 , ?
+		 , ?
+		 , SYSDATE
+		 , ?
+		 )
          </entry>
 </properties>

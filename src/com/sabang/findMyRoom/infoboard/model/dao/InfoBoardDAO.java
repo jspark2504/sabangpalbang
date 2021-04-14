@@ -27,7 +27,7 @@ public class InfoBoardDAO {
 		prop = new Properties();
 		
 		try {
-			prop.loadFromXML(new FileInputStream(ConfigLocation.MAPPER_LOCATION + "infoboard/infoboard-mapper.xml"));
+			prop.loadFromXML(new FileInputStream(ConfigLocation.MAPPER_LOCATION + "infoBoard/infoboard-mapper.xml"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -93,7 +93,8 @@ public class InfoBoardDAO {
 		            board.getWriteUser().setNickname(rset.getString("NICKNAME"));
 		            board.setViewNo(rset.getInt("VIEW_NO"));
 		            board.setCreateDate(rset.getDate("CREATION_DATE"));
-		            
+					board.setStatus(rset.getString("VIEW_YN"));
+
 		            BoardList.add(board);
 		         }
 		         
@@ -134,13 +135,40 @@ public class InfoBoardDAO {
 		      return result;
 		   }
 		   
+			/* 공지 수정용 메소드 */
+			public int updateboardDetail(Connection con, InfoBoardDTO requestBoard) {
+				
+				PreparedStatement pstmt = null;
+				int result = 0;
+				
+				String query = prop.getProperty("updateInfoBoard");
+				
+				try {
+					pstmt = con.prepareStatement(query);
+					pstmt.setString(1, requestBoard.getTitle());
+					pstmt.setString(2, requestBoard.getContent());
+					pstmt.setInt(3, requestBoard.getNo());
+					
+					result = pstmt.executeUpdate();
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					close(pstmt);
+				}
+				
+				return result;
+				
+			}
+		   
+		   
 		   /* 게시판 내용 가져오는 메소드 */
 		   public InfoBoardDTO selectBoardDetail(Connection con, int no) {
 
 		      PreparedStatement pstmt = null;
 		      ResultSet rset = null;
 		      
-		      InfoBoardDTO BoardDetail = null;
+		      InfoBoardDTO boardDetail = null;
 		      
 		      String query = prop.getProperty("selectInfoBoardDetail");
 		      
@@ -151,22 +179,22 @@ public class InfoBoardDAO {
 		         rset = pstmt.executeQuery();
 
 		         if(rset.next()) {
-		            BoardDetail = new InfoBoardDTO();
-		            BoardDetail.setWriteUser(new MemberDTO());
-		            BoardDetail.setCategory(new CategoryDTO());
+		            boardDetail = new InfoBoardDTO();
+		            boardDetail.setWriteUser(new MemberDTO());
+		            boardDetail.setCategory(new CategoryDTO());
 
-		            BoardDetail.setNo(rset.getInt("POST_NO"));
-		            BoardDetail.setCategoryNo(rset.getInt("CATEGORY_NO"));
-		            BoardDetail.getCategory().setName(rset.getString("CATEGORY_NAME"));
+		            boardDetail.setNo(rset.getInt("POST_NO"));
+		            boardDetail.setCategoryNo(rset.getInt("CATEGORY_NO"));
+		            boardDetail.getCategory().setName(rset.getString("CATEGORY_NAME"));
 		            
-		            BoardDetail.setTitle(rset.getString("POST_TITLE"));
-		            BoardDetail.setContent(rset.getString("POST_CONTENT"));
-		            BoardDetail.setWriterMemberNo(rset.getInt("USER_NO"));
+		            boardDetail.setTitle(rset.getString("POST_TITLE"));
+		            boardDetail.setContent(rset.getString("POST_CONTENT"));
+		            boardDetail.setWriterMemberNo(rset.getInt("USER_NO"));
 		            
-		            BoardDetail.getWriteUser().setNickname(rset.getString("NICKNAME"));
+		            boardDetail.getWriteUser().setNickname(rset.getString("NICKNAME"));
 		            
-		            BoardDetail.setViewNo(rset.getInt("VIEW_NO"));
-		            BoardDetail.setCreateDate(rset.getDate("CREATION_DATE"));
+		            boardDetail.setViewNo(rset.getInt("VIEW_NO"));
+		            boardDetail.setCreateDate(rset.getDate("CREATION_DATE"));
 		         }
 		         
 		      } catch (SQLException e) {
@@ -176,7 +204,7 @@ public class InfoBoardDAO {
 		         close(pstmt);
 		      }
 		      
-		      return BoardDetail;
+		      return boardDetail;
 		   }
 		   
 		   
@@ -203,6 +231,10 @@ public class InfoBoardDAO {
 		      return result;
 		   }
 
+		   
+		   
+		   
+		   
 		   /* 검색한 게시판 조회 카운트 */
 		   public int searchInfoBoardCount(Connection con, String condition, String value) {
 
@@ -281,11 +313,14 @@ public class InfoBoardDAO {
 		        	board.setNo(rset.getInt("POST_NO"));
 		        	board.setCategoryNo(rset.getInt("CATEGORY_NO"));
 		        	board.getCategory().setName(rset.getString("CATEGORY_NAME"));
+		            board.getWriteUser().setNickname(rset.getString("NICKNAME"));
+
 		        	board.setTitle(rset.getString("POST_TITLE"));
 		        	board.setContent(rset.getString("POST_CONTENT"));
 		        	board.setViewNo(rset.getInt("VIEW_NO"));
 		        	board.setCreateDate(rset.getDate("CREATION_DATE"));
-		            
+					board.setStatus(rset.getString("VIEW_YN"));
+
 		            boardList.add(board);
 		         }
 		         
@@ -299,6 +334,28 @@ public class InfoBoardDAO {
 		      
 		      return boardList;
 		   }
+
+			public int deleteInfoBoard(Connection con, int no) {
+				
+				PreparedStatement pstmt = null;
+				
+				int result = 0;
+				
+				String query = prop.getProperty("deleteInfoBoard");
+				
+				try {
+					pstmt = con.prepareStatement(query);
+					pstmt.setInt(1, no);
+					
+					result = pstmt.executeUpdate();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					close(pstmt);
+				}
+				
+				return result;
+			}
 
 }
 

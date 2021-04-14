@@ -10,6 +10,7 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
+<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
 
 <title>구해줘! 내 방 로그인</title>
 
@@ -111,6 +112,8 @@
       return unescape(cookieValue);
     }
   </script> -->
+  
+  <jsp:include page="../common/footer.jsp" />
 </body>
 
 </html>

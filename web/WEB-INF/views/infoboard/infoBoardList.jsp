@@ -22,8 +22,10 @@
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
    <!-- 기기(디바이스)별 크기를 인식 하고 1.0으로 확대 및 축소 없이해서 보여줌 -->
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
    <link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
+   <link rel="stylesheet" href="/findMyRoom/resources/css/free_board.css?">
 
 
 
@@ -36,7 +38,7 @@
       padding-bottom: 80px;
     }
     .container {
-      max-width: 1100px;
+      max-width: 950px;
       padding: 15px;
       margin: 0 auto;
       border: 1px solid rgba(0, 0, 0, 0.1);
@@ -45,56 +47,61 @@
       max-width: 100px;
       background: rgb(255,210,51);
     }
+    .pagination{
+          padding-top: 110px;
+    
+    }
     </style>
 </head>
 <body>
    <jsp:include page="../common/header.jsp"/>
-   	<br><br><br><br>
     <div class="container">
-        <h1 align="center">정보게시판</h1>
-      <table class="table table-bordered">
-        <tr>
-          <th>부동산 정책</th>
-          <th>정부 지원 정책</th>
-          <th>기타</th>
-        </tr>
-      </table>
-      
-      <table class="table table-bordered">
+        <h1 class="text">정보게시판</h1>
+			<c:if test="${ sessionScope.loginMember.role eq 'ADMIN'}">
+				<button onclick="location.href='${ pageContext.servletContext.contextPath}/infoboard/insert'" class="btn pull-right">글쓰기</button>
+			</c:if>
+      <table class="table table-striped table-hover">
+			<thead>
 		 		   <tr>
-		              <th width="100px">글번호</th>
-		              <th width="130px">카테고리</th>
-		              <th width="300px">글제목</th>
-		              <th width="100px">작성자</th>
-		              <th width="100px">조회수</th>
-		              <th width="130px">작성일</th>
+		 		   	  <th style="width: 45px;">번호</th>
+		              <th style="width: 120px; text-align: center;">카테고리</th>
+					  <th style="width: 500px;">제목</th>
+					  <th style="width: 60px;">작성자</th>
+				      <th style="text-align: center;">조회수</th>
+					  <th style="text-align: center;">작성일자</th>
 		           </tr>
-            <c:forEach var="board" items="${ requestScope.boardList }">
+		    </thead>
+			<tbody>
+           		 <c:forEach var="board" items="${ requestScope.boardList }">
 	               <tr>
-	                  <td><c:out value="${ board.no }"/></td>
-	                  <td><c:out value="${ board.category.name }"/></td>
+	                  <td align="center"><c:out value="${ board.no }"/></td>
+	                  <td align="center"><c:out value="${ board.category.name }"/></td>
 	                  <td><c:out value="${ board.title }"/></td>
 	                  <td><c:out value="${ board.writeUser.nickname }"/></td>
-	                  <td><c:out value="${ board.viewNo }"/></td>
-	                  <td><c:out value="${ board.createDate }"/></td>
+	                  <td align="center"><c:out value="${ board.viewNo }"/></td>
+	                  <td align="center"><c:out value="${ board.createDate }"/></td>
 	               </tr>
             </c:forEach>
+            </tbody>
        </table>
-
+	</div>
+	<!-- table-area end -->
+	
 		<%-- 페이지 처리 --%>
-		<div class="pagingArea" align="center">
-			<c:choose>
+		<div class="text-center">
+			<ul class="pagination">
+				<c:choose>
 				<c:when test="${ !empty requestScope.searchValue }">
-					<button id="searchStartPage"><<</button>
+				<li><button id="searchStartPage"><<</button></li>
 			
-					<c:if test="${ requestScope.pageInfo.pageNo == 1 }">
+				<li><c:if test="${ requestScope.pageInfo.pageNo == 1 }">
 						<button disabled><</button>
 					</c:if>
 					<c:if test="${ requestScope.pageInfo.pageNo > 1 }">
 						<button id="searchPrevPage"><</button>
 					</c:if>
-			
-					<c:forEach var="p" begin="${ requestScope.pageInfo.startPage }" end="${ requestScope.pageInfo.endPage }" step="1">
+				</li>
+				<li><c:forEach var="p" begin="${ requestScope.pageInfo.startPage }" end="${ requestScope.pageInfo.endPage }" step="1">
 					<c:if test="${ requestScope.pageInfo.pageNo eq p }">
 						<button disabled><c:out value="${ p }"/></button>
 					</c:if>
@@ -102,27 +109,29 @@
 						<button onclick="searchPageButtonAction(this.innerText);"><c:out value="${ p }"/></button>
 					</c:if>
 					</c:forEach>
-			
+				</li>
+				<li>
 					<c:if test="${ requestScope.pageInfo.pageNo == requestScope.pageInfo.maxPage }">
 						<button disabled>></button>	
 					</c:if>
 					<c:if test="${ requestScope.pageInfo.pageNo < requestScope.pageInfo.maxPage }">
 						<button id="searchNextPage">></button>
 					</c:if>
-			
-					<button id="searchMaxPage">>></button>
+				</li>
+				<li><button id="searchMaxPage">>></button></li>
 				</c:when>
+				
 				<c:otherwise>
-					<button id="startPage"><<</button>
+				<li><button id="startPage"><<</button></li>
 			
-					<c:if test="${ requestScope.pageInfo.pageNo == 1 }">
+				<li><c:if test="${ requestScope.pageInfo.pageNo == 1 }">
 						<button disabled><</button>
 					</c:if>
 					<c:if test="${ requestScope.pageInfo.pageNo > 1 }">
 						<button id="prevPage"><</button>
 					</c:if>
-			
-					<c:forEach var="p" begin="${ requestScope.pageInfo.startPage }" end="${ requestScope.pageInfo.endPage }" step="1">
+				</li>
+				<li><c:forEach var="p" begin="${ requestScope.pageInfo.startPage }" end="${ requestScope.pageInfo.endPage }" step="1">
 					<c:if test="${ requestScope.pageInfo.pageNo eq p }">
 						<button disabled><c:out value="${ p }"/></button>
 					</c:if>
@@ -130,49 +139,47 @@
 						<button onclick="pageButtonAction(this.innerText);"><c:out value="${ p }"/></button>
 					</c:if>
 					</c:forEach>
-			
-					<c:if test="${ requestScope.pageInfo.pageNo == requestScope.pageInfo.maxPage }">
+				</li>	
+				<li><c:if test="${ requestScope.pageInfo.pageNo == requestScope.pageInfo.maxPage }">
 						<button disabled>></button>	
 					</c:if>
 					<c:if test="${ requestScope.pageInfo.pageNo < requestScope.pageInfo.maxPage }">
 						<button id="nextPage">></button>
 					</c:if>
-			
-					<button id="maxPage">>></button>
+				</li>
+				<li><button id="maxPage">>></button></li>
 				</c:otherwise>
-			</c:choose>
+				</c:choose>
+			</ul>
 		</div><!-- pagingArea end -->
 
 
     
 		<!-- 검색 폼 -->
 		<form id="searchForm" action="${ pageContext.servletContext.contextPath }/infoboard/search" method="get">
-			<div class="search-area" align="center">
+			<div class="container-1" align="center">
 				<c:choose>
-					<c:when test="${ !empty requestScope.searchValue }">
-						<select id="searchCondition" name="searchCondition">
-							<option value="category" <c:if test="${requestScope.searchCondition eq 'category' }">selected</c:if>>카테고리</option>
-							<option value="title" <c:if test="${requestScope.searchCondition eq 'title' }">selected</c:if>>제목</option>
-							<option value="content" <c:if test="${requestScope.searchCondition eq 'content' }">selected</c:if>>내용</option>
-						</select>
-						<input type="search" id="searchValue" name="searchValue" value="${requestScope.searchValue}">
-					</c:when>
-					<c:otherwise>
-						<select id="searchCondition" name="searchCondition">
-							<option value="category">카테고리</option>
-							<option value="title">제목</option>
-							<option value="content">내용</option>
-						</select>
-						<input type="search" id="searchValue" name="searchValue">
-					</c:otherwise>
+				<c:when test="${ !empty requestScope.searchValue }">
+				<select id="searchCondition" name="searchCondition">
+					<option value="category" <c:if test="${requestScope.searchCondition eq 'category' }">selected</c:if>>카테고리</option>
+					<option value="title" <c:if test="${requestScope.searchCondition eq 'title' }">selected</c:if>>제목</option>
+					<option value="content" <c:if test="${requestScope.searchCondition eq 'content' }">selected</c:if>>내용</option>
+				</select>
+				<input type="search" id="searchValue" name="searchValue" value="${requestScope.searchValue}">
+				</c:when>
+				<c:otherwise>
+				<select id="searchCondition" name="searchCondition">
+					<option value="category">카테고리</option>
+					<option value="title">제목</option>
+					<option value="content">내용</option>
+				</select>
+				<input type="search" id="searchValue" name="searchValue">
+				</c:otherwise>
 				</c:choose>
-				<button type="submit">검색하기</button>
-				<c:if test="${ !empty sessionScope.loginMember }">
-					<button type="button" id="writeBoard" class="textinput">작성하기</button>
-				</c:if>
+				<span class="icon"><i class="fa fa-search"></i></span> 
+				<button type="submit" id="submitBtn"><i class="fa fa-search"></i></button>
 			</div>
 		</form>
-	</div> <!-- container end -->
 	
 	<script>
 		const link = "${ pageContext.servletContext.contextPath }/infoboard/list";
@@ -265,6 +272,7 @@
 		} 
 		
 	</script>
+	<jsp:include page="../common/footer.jsp" />
 
 </body>
 </html>

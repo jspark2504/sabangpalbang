@@ -5,8 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="https://kit.fontawesome.com/11694e3acf.js"
-	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/findMyRoom/resources/css/footer.css">
 </head>
 <body>
@@ -24,15 +22,39 @@
 		</small>
 
 		<ul class="footer_icons">
-			<li><i class="fab fa-twitter"></i></li>
-			<li><i class="fab fa-facebook-f"></i></li>
-			<li><i class="fab fa-youtube"></i></li>
-			<li><a href="https://github.com/jspark2504/sabangpalbang/network"><i class="fab fa-github"></i></a></li>
+			<li>
+				<a href="https://github.com/jspark2504/sabangpalbang/network">
+					<i class="fab fa-github">
+					</i>
+				</a>
+			</li>
+			<li>
+                <a href="https://www.notion.so/1-cd9ec53b90a64c05951e38cb34701f6f">
+  				  <i class="fas fa-cube">
+                  </i>
+                </a>
+			</li>
+			<li>
+                <a href="https://www.figma.com/file/fEEWxyfuZBraeVI8ih0sGN/공동작업?node-id=0%3A1">
+  				  <i class="fab fa-figma">
+                  </i>
+                </a>
+			</li>
+			<li>
+              <a href="https://www.erdcloud.com/d/F8KupBXZwoKzEooi9">
+                <i class="fas fa-cloud">
+                </i>
+              </a>
+			</li>
 		</ul>
 
 		<p>
-			<small>Copyrightⓒ4BANG.ALL Rights Reserved.</small>
+			<small>
+				Copyrightⓒ4BANG.ALL Rights Reserved.
+			</small>
 		</p>
 	</footer>
+	<script src="https://kit.fontawesome.com/11694e3acf.js" crossorigin="anonymous">
+	</script>
 </body>
 </html>

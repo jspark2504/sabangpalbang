@@ -10,6 +10,7 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
+<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
 
 <title>자유게시판</title>
 
@@ -28,15 +29,14 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <link rel="stylesheet" href="/findMyRoom/resources/css/free_board.css?">
-<script src="/findMyRoom/resources/js/event.js"></script>
+
 </head>
 <body>
 <jsp:include page="../common/header.jsp"/>
 	<div class="container">
 		<h1 class="text">자유게시판</h1>
 			<c:if test="${!empty sessionScope.loginMember }">
-				<button id="writeFreeBoard" class="btn pull-right">글쓰기</button>
-				<button type="button" class="mycontent pull-right">내가 쓴 글 >></button>
+				<button onclick="location.href='${ pageContext.servletContext.contextPath}/freeBoard/insert'" class="btn pull-right">글쓰기</button>
 			</c:if>
 		<table class="table table-striped table-hover">
 			<thead>
@@ -250,6 +250,6 @@
 		
 		
 	</script>
-
+<jsp:include page="../common/footer.jsp" />
 </body>
 </html>

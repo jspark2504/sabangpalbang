@@ -229,5 +229,54 @@ public class MemberDAO {
 		return loginMember;
 	}
 
+	/* 회원 정보를 update(수정)하는 메소드  */
+	public int updateLoginMember(Connection con, MemberDTO requestMember) {
+
+		PreparedStatement pstmt = null;
+		int result = 0;
+
+		String query = prop.getProperty("updateMember");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, requestMember.getPwd());
+			pstmt.setString(2, requestMember.getNickname());
+			pstmt.setString(3, requestMember.getEmail());
+			pstmt.setString(4, requestMember.getPhone());
+			pstmt.setString(5, requestMember.getId());
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+
+	/* 회원 탈퇴하는 메소드(STATUS 전환 :비공개)  */
+	public int deleteLoginMember(Connection con, MemberDTO requestMember) {
+
+		PreparedStatement pstmt = null;
+		int result = 0;
+
+		String query = prop.getProperty("deleteMember");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, requestMember.getId());
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
 
 }

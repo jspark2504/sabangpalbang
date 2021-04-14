@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,9 +57,10 @@
         height: 797px;
         padding-top: 19px;
         padding-left: 13px;
+        margin-top: 30px;
     }
     #box1{ margin-top: 218px; }
-    #box2{ margin-top: 30px;}
+
     </style>
       <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -76,6 +78,7 @@
 
 <div class="container">
     <form class="form-write" action="${ pageContext.servletContext.contextPath }/notice/update" method="post">
+    	<input type="hidden" name="noticeNo" value="${requestScope.notice.no }">
 
     	
         <div id="box1">
@@ -87,7 +90,7 @@
             
         </div>
 
-        <div id="box2"><p><textarea name="body" style="resize:none;" required><c:out value="${ requestScope.notice.content }"/></textarea></p></div>
+       <textarea name="body" style="resize:none;" required><c:out value="${ requestScope.notice.content }"/></textarea>
         
         <button class="btn" type="reset" id="btn1">취소</button>
         <button class="btn" type="submit" id="btn2">등록</button>
