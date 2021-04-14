@@ -21,9 +21,8 @@
 <body>
 <jsp:include page="../common/header.jsp"/>
 <body>
-	<div align="center" class="container">
 		<h2 align="center">정보게시판 수정</h2>
-		<br><br><br>
+	<div align="center" class="container">
 		<div class="table-area">
 			<form id="form" action="${ pageContext.servletContext.contextPath }/infoboard/update" method="post">
 				<input type="hidden" name="no" value="${requestScope.boardList.no }">
@@ -66,5 +65,7 @@
 			$form.submit();
 		}
 	</script>
+	<jsp:include page="../common/footer.jsp" />
+	
 </body>
 </html>
