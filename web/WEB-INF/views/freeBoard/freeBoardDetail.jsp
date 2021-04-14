@@ -10,21 +10,53 @@
     <title>게시글</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> 
   
     <link rel="stylesheet" href="/findMyRoom/resources/css/freeBoardDetail.css">
 	<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
     
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+ <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<style>
+		#replytext{
+			border:1px solid rgba(0, 0, 0, 0.1);
+			border-radius:5px; 
+			padding:10px; 
+			width:750px; 
+			height:100px; 
+			position:relative; 
+			top:55px; 
+			resize:none;
+		}
+		#replytext:focus{
+			outline: none;
+			box-shadow: 0px 0px 7px rgb(255, 210, 51);
+		}
+		#btnReply{
+			position:relative;  
+			right:35px; 
+			background-color:rgba(0, 0, 0, 0.1);
+		}
+		#btnReply:hover{
+			background-color: rgb(81, 75, 55);
+      		color: white;
+      		transition-duration: 0.3s;
+		}
+		#counter{
+		 	position:relative;
+		 	color : rgba(0, 0, 0, 0.3);
+		 	text-align:right;
+		 	right:50px;
+		 	top:15px;
+		}
+	</style>
 </head>
 <body>
 <jsp:include page="../common/header.jsp"/>
 <div class="container">
 			<table class="nickname pull-right">
 			 	<tr>
-                    <th>nickname</th>
-                    <td><c:out value="${ requestScope.board.writer.nickname }" /></td>
+                    <td><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;<c:out value="${ requestScope.board.writer.nickname }" /></td>
                 </tr>
 			</table>
 				<input type="text" class="title" value="${ requestScope.board.title }" readonly>
@@ -34,15 +66,14 @@
 					<button class="btn post pull-right" onclick="location.href='${ pageContext.servletContext.contextPath}/freeBoard/update?no=${ requestScope.board.no }'">수정</button>
 				</c:if>
 	<c:if test="${!empty sessionScope.loginMember}">
-		<textarea style="border:1px solid rgba(0, 0, 0, 0.1); border-radius:5px; padding:10px; width:750px; height:60px; position:relative; top:50px; resize:none;"
-		id="replytext" placeholder="인터넷은 우리가 함께 만들어가는 소중한 공간입니다. 댓글 작성 시 타인에 대한 배려와 책임을 담아주세요."></textarea>
+		
+		<textarea id="replytext" placeholder="인터넷은 우리가 함께 만들어가는 소중한 공간입니다. 댓글 작성 시 타인에 대한 배려와 책임을 담아주세요."></textarea>
 		<br>
-		<button class="btn pull-right" style="position:relative; top:60px; right:20px; background-color:rgb(255, 210, 51);"
-		type="submit" id="btnReply">댓글쓰기</button>
+		<button class="btn pull-right" type="submit" id="btnReply">확인</button>
+	<div id="counter">(0 / 100)</div>
 	</c:if>
 </div>
 <%@ include file="reply.jsp" %>
-<jsp:include page="../common/footer.jsp" />
 	<script>
 	listReply();
 	$("#btnReply").click(function() {
@@ -63,6 +94,18 @@
 						}
 				});
 		});
+	$(document).ready(function() {
+	    $('#replytext').on('keyup', function() {
+	        $('#counter').html("("+$(this).val().length+" / 100)");
+	 
+	        if($(this).val().length > 100) {
+	            $(this).val($(this).val().substring(0, 100));
+	            $('#counter').html("(100 / 100)");
+	        }
+	    });
+	});
+
 	</script>
+<jsp:include page="../common/footer.jsp" />
 </body>
 </html>

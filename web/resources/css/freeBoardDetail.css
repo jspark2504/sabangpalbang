@@ -7,13 +7,13 @@ body {
   .container{
       margin: 100px auto;
       max-width: 800px;
-      height: 650px;
+      height: 750px;
       background-color: white;
   }
   input.title{
       width: 750px;
       border: 0px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+      border-bottom:1px solid rgba(0,0,0,0.1);
       padding: 10px;
   }
   ::placeholder{
@@ -70,17 +70,13 @@ body {
       color: white;
       transition-duration: 0.3s;
   }
-   .nickname th,td{
-      border: 1px solid rgba(0, 0, 0, 0.1);  
-      width: 110px;
+   .nickname{
+      border:none;
+      width: 150px;
       height: 30px;
       text-align: center;
       vertical-align: middle;
       position: relative;
       right: 21px;
-      bottom: 25px;
-  }
-  .nickname{
-  	 text-align: center;
-  	 vertical-align: middle;
+      bottom: 10px;
   } 

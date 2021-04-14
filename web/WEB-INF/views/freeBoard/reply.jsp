@@ -6,27 +6,38 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		.listReply{
+			border:1px;
+			max-width: 750px;
+			position:relative;
+			margin:0px auto;
+			right:5px;
+			bottom:20px;
+		}
+	</style>
 </head>
 <body>
-	<div class="listReply"
-		style="border: 1px; max-width: 400px; mex-height: 50px; position:relative; left:285px; top:15px" >
+	<div class="listReply">
 		<c:forEach items="${listReply }" var="reply">
 		<hr>
-		댓글번호 : ${reply.no }<br>
-		작성자 : ${reply.writer.nickname }<br>
-		내용 : ${reply.content }<br>
-		작성일 : ${reply.createDate }<br>
+		<i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;&nbsp; ${reply.writer.nickname }
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 		<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp; ${reply.createDate }
+		<br><br>
+		<i class="fa fa-comments" aria-hidden="true"></i>&nbsp;&nbsp; ${reply.content }
 		<hr>
 		</c:forEach>
 	</div>
 	<script>
 	function listReply() {
-		var boardNo = "${requestScope.board.no}"; //게시물 번호
+		var boardNo = "${requestScope.board.no}"; 
 		$.ajax({
-			url:"${ pageContext.servletContext.contextPath}/reply/list", //컨트롤러에 있는 list.do로 맵핑하고 게시판 번호도 같이 보낸다.
-			type:"get", //get방식으로 자료를 전달한다
+			url:"${ pageContext.servletContext.contextPath}/reply/list", 
+			type:"get", 
 			data:{'boardNo' : boardNo},
-			success : function(data) { //자료를 보내는것이 성  공했을때 출력되는
+			success : function(data) { 
 				$(".listReply").html(data);
 			}
 		});

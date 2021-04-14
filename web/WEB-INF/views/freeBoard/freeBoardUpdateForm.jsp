@@ -25,8 +25,7 @@
 	<input type="hidden" name="freeBoardNo" value="${requestScope.board.no }">
 			<table class="nickname pull-right">
 			 	<tr>
-                    <th>nickname</th>
-                    <td><c:out value="${ requestScope.board.writer.nickname }" /></td>
+                     <td><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;<c:out value="${ requestScope.board.writer.nickname }" /></td>
                 </tr>
 			</table>
 				<input type="text" class="title" name="title" value="${ requestScope.board.title }">
