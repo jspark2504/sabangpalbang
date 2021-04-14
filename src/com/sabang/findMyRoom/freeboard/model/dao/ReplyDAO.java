@@ -80,10 +80,11 @@ private final Properties prop;
 				reply.setPostNo(rset.getInt("POST_NO"));
 				reply.setContent(rset.getString("REPLY_CONTENT"));
 				reply.setUserNo(rset.getInt("USER_NO"));
-				reply.getWriter().setNickname("NICKNAME");
+				reply.getWriter().setNickname(rset.getString("NICKNAME"));
 				reply.setCreateDate(rset.getDate("CREATION_DATE"));
 				
 				listReply.add(reply);
+				System.out.println("dao" + listReply);
 				
 			}
 		} catch (SQLException e) {
