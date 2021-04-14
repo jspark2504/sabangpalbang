@@ -87,7 +87,7 @@ public class InfoBoardService {
 	      
 	      int result = infoBoardDAO.incrementBoardCount(con, no);
 	      
-	      /* 공지사항 정보 가져오기 값을 가져오면 커밋 못가져오거나 비어있으면 롤백 */
+	      /* 게시판 정보 가져오기 값을 가져오면 커밋 못가져오거나 비어있으면 롤백 */
 	      if(result > 0) {
 	    	  BoardDetail = infoBoardDAO.selectBoardDetail(con, no);
 	         
