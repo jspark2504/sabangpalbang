@@ -40,7 +40,7 @@ public class MemberLoginServelt extends HttpServlet {
 		MemberService memberService = new MemberService();
 		
 		MemberDTO loginMember = memberService.loginCheck(requestMember);
-//		System.out.println("로그인 회원 : " + loginMember);
+		System.out.println("로그인 회원 : " + loginMember);
 		
 		if(loginMember != null) {
 			HttpSession session = request.getSession();

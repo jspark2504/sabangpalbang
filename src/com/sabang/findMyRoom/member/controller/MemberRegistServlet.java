@@ -25,7 +25,7 @@ public class MemberRegistServlet extends HttpServlet {
 		String userPwd = request.getParameter("userPwd");
 		String nickname = request.getParameter("nickname");
 		String email = request.getParameter("email");
-		String phone = request.getParameter("phone");
+		String phone = request.getParameter("phone").replace("-", "");
 
 		MemberDTO member = new MemberDTO();
 		member.setId(userId);

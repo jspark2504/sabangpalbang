@@ -14,20 +14,20 @@ import com.sabang.findMyRoom.freeboard.model.service.FreeBoardService;
 /**
  * Servlet implementation class FreeBoardSelectDetailServlet
  */
-@WebServlet("/freeboard/detail")
+@WebServlet("/freeBoard/detail")
 public class FreeBoardSelectDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		int no = Integer.valueOf(request.getParameter("no"));
 		FreeBoardService boardService = new FreeBoardService();
-		
+
 		FreeBoardDTO boardDetail = boardService.selectBoardDetail(no);
-		
+
 		String path = "";
 		if(boardDetail != null) {
-			path = "/WEB-INF/views/freeboard/freeBoardDetail.jsp";
+			path = "/WEB-INF/views/freeBoard/freeBoardDetail.jsp";
 			request.setAttribute("board", boardDetail);
 		}else {
 			path = "/WEB-INF/views/common/failed.jsp";

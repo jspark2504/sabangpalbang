@@ -26,7 +26,7 @@ public class NoticeDAO {
 		prop = new Properties();
 		
 		try {
-			prop.loadFromXML(new FileInputStream(ConfigLocation.CONNECTION_CONFIG_LOCATION));
+			prop.loadFromXML(new FileInputStream(ConfigLocation.MAPPER_LOCATION + "notice/notice-mapper.xml"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -54,17 +54,15 @@ public class NoticeDAO {
 				notice.setWriter(new MemberDTO());
 			
 				notice.setNoticeNo(rset.getInt("NOTICE_NO")); 
-				notice.setViewNo(rset.getInt("VIEW_NO"));
 				notice.setTitle(rset.getString("TITLE"));
 				notice.setContent(rset.getString("CONTENT"));
 				notice.setUserNo(rset.getInt("USER_NO"));
 				
 				notice.getWriter().setNickname(rset.getString("NICKNAME"));
 				
+				notice.setViewNo(rset.getInt("VIEW_NO"));
 				notice.setCreationDate(rset.getDate("CREATION_DATE"));
-				notice.setModificationDate(rset.getDate("MODIFICATION_DATE"));
 				
-					
 				noticeList.add(notice);
 			
 			}
@@ -125,6 +123,7 @@ public class NoticeDAO {
 		
 		return result;
 	}
+	
 	public NoticeDTO selectNoticeDetail(Connection con, int no) {
 		
 		PreparedStatement pstmt = null;
@@ -145,22 +144,24 @@ public class NoticeDAO {
 				noticeDetail.setWriter(new MemberDTO());
 				
 				noticeDetail.setNoticeNo(rset.getInt("NOTICE_NO")); 
-				noticeDetail.setViewNo(rset.getInt("VIEW_NO"));
 				noticeDetail.setTitle(rset.getString("TITLE"));
 				noticeDetail.setContent(rset.getString("CONTENT"));
 				noticeDetail.setUserNo(rset.getInt("USER_NO"));
 				
 				noticeDetail.getWriter().setNickname(rset.getString("NICKNAME"));
 				
+				noticeDetail.setViewNo(rset.getInt("VIEW_NO"));
 				noticeDetail.setCreationDate(rset.getDate("CREATION_DATE"));
-				noticeDetail.setModificationDate(rset.getDate("MODIFICATION_DATE"));
 			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
 		}
 		
-		return null;
+		return noticeDetail;
 		
 	}
 

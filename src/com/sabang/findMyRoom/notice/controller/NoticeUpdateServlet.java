@@ -40,10 +40,12 @@ public class NoticeUpdateServlet extends HttpServlet {
 		 * */
 		int no = Integer.valueOf(request.getParameter("noticeNo"));
 		String title = request.getParameter("title");
+		
 		System.out.println("수정 할 공지사항 번호 : " + no);
 		System.out.println("수정 할 공지사항 제목 : " + title);
 		
 	}
+	
 
 }
 

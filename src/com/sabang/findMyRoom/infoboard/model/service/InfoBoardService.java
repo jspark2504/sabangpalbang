@@ -61,20 +61,37 @@ public class InfoBoardService {
 	      return result;
 	   }
 	   
+		/* 게시판 수정용 메소드 */
+		public int updateBoard(InfoBoardDTO requestBoard) {
+			
+			Connection con = getConnection();
+			
+			int result = infoBoardDAO.updateboardDetail(con, requestBoard);
+			
+			if(result > 0) {
+				commit(con);
+			} else {
+				rollback(con);
+			}
+			
+			close(con);
+			
+			return result;
+		}
 	   
 	   /* 게시판 정보 및 조회수 카운트 적용 메소드 */
 	   public InfoBoardDTO selectBoardDetail(int no) {
 	      
 	      Connection con = getConnection();
-	      InfoBoardDTO infoBoardDetail = null;
+	      InfoBoardDTO BoardDetail = null;
 	      
 	      int result = infoBoardDAO.incrementBoardCount(con, no);
 	      
 	      /* 공지사항 정보 가져오기 값을 가져오면 커밋 못가져오거나 비어있으면 롤백 */
 	      if(result > 0) {
-	    	  infoBoardDetail = infoBoardDAO.selectBoardDetail(con, no);
+	    	  BoardDetail = infoBoardDAO.selectBoardDetail(con, no);
 	         
-	         if(infoBoardDetail != null) {
+	         if(BoardDetail != null) {
 	            commit(con);
 	         } else {
 	            rollback(con);
@@ -85,31 +102,47 @@ public class InfoBoardService {
 	      
 	      close(con);
 	      
-	      return infoBoardDetail;
+	      return BoardDetail;
 	   }
 
-//	   /* 게시판 검색 결과 갯수 조회용 메소드 */
-//	   public int searchBoardCount(String condition, String value) {
-//
-//	      Connection con = getConnection();
-//	      
-//	      int totalCount = infoBoardDAO.searchBoardCount(con, condition, value);
-//	      
-//	      close(con);
-//	      
-//	      return totalCount;
-//	   }
-//
-//	   /* 게시판 검색 결과 조회용 메소드 */
-//	   public List<InfoBoardDTO> searchBoardList(PageInfoDTO pageInfo, String condition, String value) {
-//	      Connection con = getConnection();
-//	      
-//	      List<InfoBoardDTO> boardList = infoBoardDAO.searchBoardList(con, pageInfo, condition, value);
-//	      
-//	      close(con);
-//	      
-//	      return boardList;
-//	   }
+	   
+	   /* 게시판 검색 결과 갯수 조회용 메소드 */
+	   public int searchInfoBoardCount(String condition, String value) {
+
+	      Connection con = getConnection();
+	      
+	      int totalCount = infoBoardDAO.searchInfoBoardCount(con, condition, value);
+	      
+	      close(con);
+	      
+	      return totalCount;
+	   }
+
+	   /* 게시판 검색 결과 조회용 메소드 */
+	   public List<InfoBoardDTO> searchInfoBoardList(PageInfoDTO pageInfo, String condition, String value) {
+	      Connection con = getConnection();
+	      
+	      List<InfoBoardDTO> boardList = infoBoardDAO.searchInfoBoardList(con, pageInfo, condition, value);
+	      
+	      close(con);
+	      
+	      return boardList;
+	   }
+
+		public int deleteBoard(int no) {
+			Connection con = getConnection();
+			
+			int result = infoBoardDAO.deleteInfoBoard(con, no);
+			
+			if(result > 0) {
+				commit(con);
+			}else {
+				rollback(con);
+			}
+			close(con);
+			
+			return result;
+		}
 	   
 	
 }

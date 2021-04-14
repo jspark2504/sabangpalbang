@@ -14,7 +14,7 @@ import com.sabang.findMyRoom.freeboard.model.service.FreeBoardService;
 /**
  * Servlet implementation class FreeBoardUpdateServlet
  */
-@WebServlet("/freeboard/update")
+@WebServlet("/freeBoard/update")
 public class FreeBoardUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -40,7 +40,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 
 		String title = request.getParameter("title");
 		String body = request.getParameter("body");
-		int no = Integer.valueOf(request.getParameter("boardNo"));
+		int no = Integer.valueOf(request.getParameter("freeBoardNo"));
 		
 		FreeBoardDTO newBoard = new FreeBoardDTO();
 		newBoard.setTitle(title);
@@ -53,7 +53,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		String page="";
 		if(result > 0) {
 			page = "/WEB-INF/views/common/success.jsp";
-			request.setAttribute("successCode", "updateBoard");
+			request.setAttribute("successCode", "updateFreeBoard");
 		}else {
 			page = "/WEB-INF/views/common/failed.jsp";
 			request.setAttribute("message", "게시물 수정 실패");

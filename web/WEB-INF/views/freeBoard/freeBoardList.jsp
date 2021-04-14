@@ -10,6 +10,7 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
+<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
 
 <title>자유게시판</title>
 
@@ -35,8 +36,7 @@
 	<div class="container">
 		<h1 class="text">자유게시판</h1>
 			<c:if test="${!empty sessionScope.loginMember }">
-				<button id="writeFreeBoard" class="btn pull-right">글쓰기</button>
-				<button type="button" class="mycontent pull-right">내가 쓴 글 >></button>
+				<button onclick="location.href='${ pageContext.servletContext.contextPath}/freeBoard/insert'" class="btn pull-right">글쓰기</button>
 			</c:if>
 		<table class="table table-striped table-hover">
 			<thead>
@@ -163,7 +163,7 @@
 
 
 	<script>
-		const link = "${ pageContext.servletContext.contextPath }/freeBoard/list";
+		const link = "${ pageContext.servletContext.contextPath }/freeboard/list";
 		const searchLink = "${ pageContext.servletContext.contextPath }/freeBoard/search";
 		
 		/* 원하는 페이지 클릭시 실행되는 콜백 함수 */
@@ -250,6 +250,6 @@
 		
 		
 	</script>
-
+<jsp:include page="../common/footer.jsp" />
 </body>
 </html>

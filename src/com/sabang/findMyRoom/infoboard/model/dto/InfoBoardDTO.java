@@ -18,13 +18,16 @@ public class InfoBoardDTO implements Serializable{
 	private java.sql.Date modificationDate;
 	private CategoryDTO category;
 	private int writerMemberNo;
-	private MemberDTO WriteUser;
+	private MemberDTO writeUser;
+	private String status;
+
 	
 	public InfoBoardDTO() {
 	}
 	
 	public InfoBoardDTO(int no, int categoryNo, String title, String content, int viewNo, Date createDate,
-			Date modificationDate, CategoryDTO category, int writerMemberNo, MemberDTO writeUser) {
+			Date modificationDate, CategoryDTO category, int writerMemberNo, MemberDTO writeUser, String status) {
+		super();
 		this.no = no;
 		this.categoryNo = categoryNo;
 		this.title = title;
@@ -34,8 +37,10 @@ public class InfoBoardDTO implements Serializable{
 		this.modificationDate = modificationDate;
 		this.category = category;
 		this.writerMemberNo = writerMemberNo;
-		WriteUser = writeUser;
+		this.writeUser = writeUser;
+		this.status = status;
 	}
+
 
 	public int getNo() {
 		return no;
@@ -92,20 +97,25 @@ public class InfoBoardDTO implements Serializable{
 		this.writerMemberNo = writerMemberNo;
 	}
 	public MemberDTO getWriteUser() {
-		return WriteUser;
+		return writeUser;
 	}
 	public void setWriteUser(MemberDTO writeUser) {
-		WriteUser = writeUser;
+		this.writeUser = writeUser;
 	}
-
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	@Override
 	public String toString() {
 		return "InfoBoardDTO [no=" + no + ", categoryNo=" + categoryNo + ", title=" + title + ", content=" + content
 				+ ", viewNo=" + viewNo + ", createDate=" + createDate + ", modificationDate=" + modificationDate
-				+ ", category=" + category + ", writerMemberNo=" + writerMemberNo + ", WriteUser=" + WriteUser + "]";
+				+ ", category=" + category + ", writerMemberNo=" + writerMemberNo + ", writeUser=" + writeUser
+				+ ", status=" + status + "]";
 	}
-
 	
 	
 }

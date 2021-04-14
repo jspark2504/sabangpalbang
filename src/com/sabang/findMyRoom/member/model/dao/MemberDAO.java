@@ -14,12 +14,12 @@ import com.sabang.findMyRoom.common.config.ConfigLocation;
 import com.sabang.findMyRoom.member.model.dto.MemberDTO;
 
 public class MemberDAO {
-	
+
 	private final Properties prop;
-	
+
 	public MemberDAO() {
 		prop = new Properties();
-		
+
 		try {
 			prop.loadFromXML(new FileInputStream(ConfigLocation.MAPPER_LOCATION + "member/member-mapper.xml"));
 		} catch (IOException e) {
@@ -27,14 +27,123 @@ public class MemberDAO {
 		}
 	}
 
-	public int insertMember(Connection con, MemberDTO requestMember) {
-		
+	/* 아이디 중복 체크 */
+	public boolean checkIdDuplicate(Connection con, String inputId) {
+
 		PreparedStatement pstmt = null;
-		
+		ResultSet rset = null;
+
+		boolean isAvailable = false;
+
+		String query = prop.getProperty("checkIdDuplicate");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, inputId);
+
+			rset = pstmt.executeQuery();
+
+			if(!rset.next()) {
+				isAvailable = true;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return isAvailable;
+	}
+
+	/* 닉네임 중복 체크 */
+	public boolean checkNicknameDuplicate(Connection con, String inputNickname) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		boolean isAvailable = false;
+
+		String query = prop.getProperty("checkNicknameDuplicate");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, inputNickname);
+
+			rset = pstmt.executeQuery();
+
+			if(!rset.next()) {
+				isAvailable = true;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return isAvailable;
+	}
+
+	/* 이메일 중복 체크 */
+	public boolean checkEmailDuplicate(Connection con, String inputEmail) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		boolean isAvailable = false;
+
+		String query = prop.getProperty("checkEmailDuplicate");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, inputEmail);
+
+			rset = pstmt.executeQuery();
+
+			if(!rset.next()) {
+				isAvailable = true;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return isAvailable;
+	}
+
+	/* 전화번호 중복 체크 */
+	public boolean checkPhoneDuplicate(Connection con, String inputPhone) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		boolean isAvailable = false;
+
+		String query = prop.getProperty("checkPhoneDuplicate");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, inputPhone);
+
+			rset = pstmt.executeQuery();
+
+			if(!rset.next()) {
+				isAvailable = true;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return isAvailable;
+	}
+
+	/* 회원가입 */
+	public int insertMember(Connection con, MemberDTO requestMember) {
+
+		PreparedStatement pstmt = null;
+
 		int result = 0;
-		
+
 		String query = prop.getProperty("insertMember");
-		
+
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, requestMember.getId());
@@ -42,36 +151,37 @@ public class MemberDAO {
 			pstmt.setString(3, requestMember.getNickname());
 			pstmt.setString(4, requestMember.getEmail());
 			pstmt.setString(5, requestMember.getPhone());
-			
+
 			result = pstmt.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
 		}
-		
+
 		return result;
 	}
-	
+
 	/* 암호화 처리 된 비밀번호 조회용 메소드 (로그인 확인용) */
 	public String selectEncryptedPwd(Connection con, MemberDTO requestMember) {
 
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		
+
 		String encPwd = null;
-		
+
 		String query = prop.getProperty("selectEncryptedPwd");
-		
+
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, requestMember.getId());
-			
+
 			rset = pstmt.executeQuery();
-			
+
 			if(rset.next()) {
 				encPwd = rset.getString("USER_PWD");
+//				System.out.println("encPwd : " + encPwd);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -84,20 +194,20 @@ public class MemberDAO {
 	}
 
 	public MemberDTO selectLoginMember(Connection con, MemberDTO requestMember) {
-		
+
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		
+
 		MemberDTO loginMember = null;
-		
+
 		String query = prop.getProperty("selectLoginMember");
-		
+
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, requestMember.getId());
-			
+
 			rset = pstmt.executeQuery();
-			
+
 			if(rset.next()) {
 				loginMember = new MemberDTO();
 				loginMember.setNo(rset.getInt("USER_NO"));
@@ -117,6 +227,56 @@ public class MemberDAO {
 			close(pstmt);
 		}
 		return loginMember;
+	}
+
+	/* 회원 정보를 update(수정)하는 메소드  */
+	public int updateLoginMember(Connection con, MemberDTO requestMember) {
+
+		PreparedStatement pstmt = null;
+		int result = 0;
+
+		String query = prop.getProperty("updateMember");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, requestMember.getPwd());
+			pstmt.setString(2, requestMember.getNickname());
+			pstmt.setString(3, requestMember.getEmail());
+			pstmt.setString(4, requestMember.getPhone());
+			pstmt.setString(5, requestMember.getId());
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+
+	/* 회원 탈퇴하는 메소드(STATUS 전환 :비공개)  */
+	public int deleteLoginMember(Connection con, MemberDTO requestMember) {
+
+		PreparedStatement pstmt = null;
+		int result = 0;
+
+		String query = prop.getProperty("deleteMember");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, requestMember.getId());
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
 	}
 
 }

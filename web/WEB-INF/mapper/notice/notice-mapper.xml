@@ -10,17 +10,16 @@
 			, A.CONTENT
 			, B.NICKNAME
 			, A.CREATION_DATE
-			, A.MODIFICATION_DATE
-		FROM NOTICE A
+		FROM TBL_NOTICE A
 		JOIN TBL_USER B ON (A.USER_NO = B.USER_NO)
-	   WHERE A.NOTICE_STATUS = 'Y'
+		WHERE A.NOTICE_STATUS_YN ='Y'
 	   ORDER BY A.NOTICE_NO DESC
 			
 	</entry>
 	
 	<entry key = "insertNotice">
 	INSERT
-	  INTO NOTICE A
+	  INTO TBL_NOTICE A
 	(
 	   A.NOTICE_NO
 	 , A.TITLE
@@ -37,9 +36,9 @@
 	</entry>
 	<entry key="incrementNoticeCount">
 		UPDATE /* com.sabang.findMyRoom.notice.model.dao.NoticeDAO#incrementNoticeCount(); */
-			NOTICE A
+			TBL_NOTICE A
 		SET A.VIEW_NO = (SELECT B.VIEW_NO
-						   FROM NOTICE B
+						   FROM TBL_NOTICE B
 						   WHERE NOTICE_NO = ?
 						) + 1
 		WHERE A.NOTICE_NO = ?
@@ -53,8 +52,7 @@
 			, A.CONTENT
 			, B.NICKNAME
 			, A.CREATION_DATE
-			, A.MODIFICATION_DATE
-		FROM NOTICE A
+		FROM TBL_NOTICE A
 		JOIN TBL_USER B ON(A.USER_NO = B.USER_NO)
 	   WHERE A.NOTICE_NO = ?
 	</entry>

@@ -16,23 +16,23 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     <link rel="stylesheet" href="/findMyRoom/resources/css/freeBoardDetail.css">
-
+	<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
 </head>
 <body>
 <jsp:include page="../common/header.jsp"/>
 	<div class="container">
 	<form action="${pageContext.servletContext.contextPath }/freeBoard/update" method="post" id="form">
-	<input type="hidden" name="boardNo" value="${requestScope.board.no }">
+	<input type="hidden" name="freeBoardNo" value="${requestScope.board.no }">
 			<table class="nickname pull-right">
 			 	<tr>
                     <th>nickname</th>
-                    <td><p><c:out value="${ requestScope.board.writer.nickname }" /></p></td>
+                    <td><c:out value="${ requestScope.board.writer.nickname }" /></td>
                 </tr>
 			</table>
 				<input type="text" class="title" name="title" value="${ requestScope.board.title }">
 				<textarea style="resize:none" class="content" name="body"><c:out value="${ requestScope.board.body }" /></textarea>
 				
-				<button type="button" class="btn cancel pull-left" onclick="location.href='${ pageContext.servletContext.contextPath}/freeBoard/list'">목록</button>
+				<button type="button" class="btn cancel pull-left" onclick="location.href='${ pageContext.servletContext.contextPath}/freeboard/list'">목록</button>
 				<button type="submit" class="btn post pull-right">수정</button>
 				<button type="button" class="btn delete pull-right" onclick="postRequest('deleteFreeBoard')" >삭제</button>
 			</form>
@@ -50,5 +50,6 @@
 			$form.submit();
 		}
 	</script>
+	<jsp:include page="../common/footer.jsp" />
 </body>
 </html>
