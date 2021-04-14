@@ -241,7 +241,7 @@
 			  FROM TBL_REPLY A
 			  JOIN TBL_USER B ON (A.USER_NO = B.USER_NO)
 	          JOIN TBL_FREE_BOARD C ON (A.POST_NO = C.POST_NO)
-			 WHERE A.POST_NO = ?			
+	         WHERE A.POST_NO = ?			
          </entry>
          <entry key="insertReply">
          INSERT 

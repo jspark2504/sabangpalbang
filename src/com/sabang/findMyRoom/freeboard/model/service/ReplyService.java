@@ -27,7 +27,7 @@ public class ReplyService {
 		
 		close(con);
 		
-		return null;
+		return listReply;
 	}
 
 	public int insertReply(ReplyDTO newReply) {
