@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
+	<entry key="checkIdDuplicate">
+		SELECT /* com.sabang.findMyRoom.member.model.dao.MemberDAO#checkIdDuplicate() */
+		       A.USER_ID
+		  FROM TBL_USER A
+		 WHERE A.USER_ID = ?
+	</entry>
+	<entry key="checkNicknameDuplicate">
+		SELECT /* com.sabang.findMyRoom.member.model.dao.MemberDAO#checkNicknameDuplicate() */
+		       A.NICKNAME
+		  FROM TBL_USER A
+		 WHERE A.NICKNAME = ?
+	</entry>
+	<entry key="checkEmailDuplicate">
+		SELECT /* com.sabang.findMyRoom.member.model.dao.MemberDAO#checkEmailDuplicate() */
+		       A.EMAIL
+		  FROM TBL_USER A
+		 WHERE A.EMAIL = ?
+	</entry>
+	<entry key="checkPhoneDuplicate">
+		SELECT /* com.sabang.findMyRoom.member.model.dao.MemberDAO#checkPhoneDuplicate() */
+		       A.PHONE
+		  FROM TBL_USER A
+		 WHERE A.PHONE = ?
+	</entry>
 	<entry key="insertMember">
 		INSERT  /* com.sabang.findMyRoom.member.model.dao.MemberDAO#insertMember() */
 		  INTO TBL_USER A
@@ -62,10 +86,14 @@
 	            TBL_USER A
 	        SET USER_STATUS = 'N'
 	      WHERE USER_STATUS = 'Y'
-	        AND USER_ID = ?	
+	        AND USER_ID = ?
 	</entry>
-	
+
 	<entry key="">
-	
+
 	</entry>
+	<entry key="">
+
+	</entry>
+
 </properties>

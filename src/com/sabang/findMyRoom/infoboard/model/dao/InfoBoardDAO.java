@@ -135,7 +135,7 @@ public class InfoBoardDAO {
 		      return result;
 		   }
 		   
-			/* 공지 수정용 메소드 */
+			/* 정보게시판 수정용 메소드 */
 			public int updateboardDetail(Connection con, InfoBoardDTO requestBoard) {
 				
 				PreparedStatement pstmt = null;
@@ -162,7 +162,7 @@ public class InfoBoardDAO {
 			}
 		   
 		   
-		   /* 게시판 내용 가져오는 메소드 */
+		   /* 정보게시판 내용 가져오는 메소드 */
 		   public InfoBoardDTO selectBoardDetail(Connection con, int no) {
 
 		      PreparedStatement pstmt = null;
@@ -208,7 +208,7 @@ public class InfoBoardDAO {
 		   }
 		   
 		   
-		   /* 공지사항 클릭 시 조회수 증가하는 메소드 */
+		   /* 정보게시판 클릭 시 조회수 증가하는 메소드 */
 		   public int incrementBoardCount(Connection con, int no) {
 
 		      PreparedStatement pstmt = null;
@@ -235,7 +235,7 @@ public class InfoBoardDAO {
 		   
 		   
 		   
-		   /* 검색한 게시판 조회 카운트 */
+		   /* 검색한 정보게시판 조회 카운트 */
 		   public int searchInfoBoardCount(Connection con, String condition, String value) {
 
 		      PreparedStatement pstmt = null;
@@ -275,7 +275,7 @@ public class InfoBoardDAO {
 		      return boardCount;
 		   }
 
-		   /* 검색한 게시판 조회 리스트 */
+		   /* 검색한 정보게시판 조회 리스트 */
 		   public List<InfoBoardDTO> searchInfoBoardList(Connection con, PageInfoDTO pageInfo, String condition, String value) {
 
 		      PreparedStatement pstmt = null;
