@@ -14,18 +14,17 @@
 
     <!-- 합쳐지고 최소화된 최신 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
     <!-- 부가적인 테마 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
-   <title>구해줘! 내 방</title>
+    <title>구해줘! 내 방</title>
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-   <!-- 기기(디바이스)별 크기를 인식 하고 1.0으로 확대 및 축소 없이해서 보여줌 -->
+    <!-- 기기(디바이스)별 크기를 인식 하고 1.0으로 확대 및 축소 없이해서 보여줌 -->
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-   <link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
-   <link rel="stylesheet" href="/findMyRoom/resources/css/free_board.css?">
+    <link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
+    <link rel="stylesheet" href="/findMyRoom/resources/css/free_board.css?">
 
 
 

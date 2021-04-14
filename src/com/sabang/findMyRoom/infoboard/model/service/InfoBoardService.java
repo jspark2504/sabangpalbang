@@ -96,6 +96,7 @@ public class InfoBoardService {
 	         } else {
 	            rollback(con);
 	         }
+	         
 	      } else {
 	         rollback(con);
 	      }
@@ -129,12 +130,13 @@ public class InfoBoardService {
 	      return boardList;
 	   }
 
-		public int deleteBoard(int no) {
-			Connection con = getConnection();
+	   /* 게시물 삭제 (n으로 변경)*/
+	   public int deleteBoard(int no) {
+		  Connection con = getConnection();
 			
-			int result = infoBoardDAO.deleteInfoBoard(con, no);
+		  int result = infoBoardDAO.deleteInfoBoard(con, no);
 			
-			if(result > 0) {
+		  if(result > 0) {
 				commit(con);
 			}else {
 				rollback(con);
