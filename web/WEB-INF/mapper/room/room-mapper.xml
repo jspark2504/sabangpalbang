@@ -2,7 +2,7 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 	<entry key="selectAllRoomList">
-		SELECT
+		SELECT /* com.sabang.findMyRoom.room.model.dao.RoomDAO#selectAllRoomList();
 		       A.ROOM_NO
 		     , A.ROOM_PRICE
 		     , A.EXCLUSIVE_AREA
@@ -16,6 +16,60 @@
 	<entry key="">
 
 	</entry>
+    <entry key="incrementRoomCount">
+        UPDATE /* com.sabang.findMyRoom.room.model.dao.RoomDAO#incrementRoomCount(); */
+               TBL_ROOM A
+           SET A.VIEW_NO = (SELECT B.VIEW_NO
+                              FROM TBL_ROOM B
+                             WHERE ROOM_NO = ?
+                                ) + 1
+         WHERE A.ROOM_NO = ?
+    </entry>
+    <entry key="selectRoomDetail">
+        SELECT /* com.sabang.findMyRoom.room.model.dao.RoomDAO#selectRoomDetail() */
+               A.ROOM_NO
+             , A.ROOM_PRICE
+             , A.EXCLUSIVE_AREA
+             , A.ADDRESS
+             , A.CREATE_DATE
+             , A.CATEGORY_NO
+             , B.CATEGORY_NAME
+             , A.OFFICE_NO
+             , C.OFFICE_NAME
+             , C.OFFICE_ADDR
+             , C.OFFICE_PHONE
+             , C.OFFICE_RATING
+             , C.USER_NO
+             , D.NICKNAME
+             , A.ROOM_FLOOR
+             , A.DIRECTION
+             , A.MONTH_COST
+             , A.COST_INCLUDE
+             , A.CONSTRUCTION_DATE
+             , A.AVAILABLE_DATE
+             , A.ROOM_EXPLANATION
+             , A.TRANSPORTATION_INFO
+             , A.WASHING_MACHINE_YN
+             , A.REFRIGERATOR_YN
+             , A.AIR_CONDITIONER_YN
+             , A.GAS_STOVE_YN
+             , A.PET_YN
+             , A.ELEVATOR_YN
+             , A.PARKING_YN
+             , A.VIEW_NO
+             , E.FILE_NO
+             , E.ORIGIN_NAME
+             , E.SAVE_NAME
+             , E.SAVE_PATH
+             , E.THUMBNAIL_PATH
+          FROM TBL_ROOM A
+          JOIN TBL_ROOM_CATEGORY B ON (A.CATEGORY_NO = B.CATEGORY_NO)
+          JOIN TBL_OFFICE C ON (A.OFFICE_NO = C.OFFICE_NO)
+          JOIN TBL_USER D ON (C.USER_NO = D.USER_NO)
+          JOIN TBL_ROOM_FILE E ON (A.ROOM_NO = E.ROOM_NO)
+         WHERE A.ROOM_NO = ?
+           AND D.USER_STATUS = 'Y'
+    </entry>
 	<entry key="">
 
 	</entry>

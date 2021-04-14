@@ -33,7 +33,7 @@
             </article> <!-- 지도 영역 end -->
 
             <!-- 검색 필터 영역 -->
-            <form action="">
+            <form class="search" action="">
             	<button type="button">검색 조건을 설정해주세요.</button>
             	<input type="text" />
             	<button type="submit"></button>
