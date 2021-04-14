@@ -1560,10 +1560,5 @@ A20. 법인인 경우 신분을 확인하려면 신분증의 인적 정보가 �
 , SYSDATE, 3, 1);
 
 
-INSERT INTO TBL_INFO_BOARD A (A.POST_NO, A.POST_TITLE, A.POST_CONTENT, A.CREATION_DATE, A.CATEGORY_NO, A.USER_NO)
-VALUES (SEQ_INFO_POST_NO.NEXTVAL, ''
-, ''
-, SYSDATE, 3, 1);
-
 
 COMMIT;
