@@ -1,8 +1,8 @@
 /* introduce */
 .introduce {
-  margin-top: 100px;
-  padding-left: 40px;
-  align-content: center;
+  max-width: 1050px;
+  margin-top: 80px;
+  margin-bottom: 140px;
 }
 
 .introduce li {
@@ -13,7 +13,7 @@
   padding-left: 30px;
 }
 
-/* office */
+/* info */
 .office {
   display: flex;
   justify-content: space-between;
@@ -59,19 +59,31 @@
   justify-content: space-between;
 }
 
+
+/* office review */
+.office-review {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 30px;
+}
+
 .office-star {
   display: flex;
+  align-items: center;
 }
 
 .star-score {
   padding-right: 10px;
 }
 
-.office-review {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-right: 30px;
+.glyphicon-star {
+  color: rgb(255, 217, 0);
+  padding-right: 2px;
+}
+
+.glyphicon-star.empty {
+	color: #c4c4c4;
 }
 
 .show-review {
@@ -85,18 +97,3 @@
   color: #c8a100;
   cursor: pointer;
 }
-
-/* common */
-.container {
-  margin-bottom: 140px;
-}
-
-.glyphicon.glyphicon-star {
-  color: rgb(255, 217, 0);
-  padding-right: 2px;
-}
-
-.glyphicon.glyphicon-star.empty {
-	color: #c4c4c4;
-}
-
