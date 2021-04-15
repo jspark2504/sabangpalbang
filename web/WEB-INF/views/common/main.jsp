@@ -32,18 +32,15 @@
 				</h1>
 				<div class="col-lg-6">
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="정보게시판에서 원하는 정보를 검색해보세요">
+    						<input type="text" class="form-control" placeholder="정보게시판에서 원하는 정보를 검색해보세요" readonly>
 							<span class="input-group-btn">
-								<button class="btn btn-default" type="button">
-									<i class="fa fa-search">
-									</i>
-								</button>
+				              <a class="btn btn-default" href="${ pageContext.servletContext.contextPath }/infoboard/list" role="button">
+							  		<i class="fa fa-search">
+							  		</i>
+				              </a>
 							</span>
 					</div>
 				</div>
-				<a class="all-info" href="${ pageContext.servletContext.contextPath }/infoboard/list">
-					→ 모든 정보 보러가기
-				</a>
 			</article>
 		</section>
 	</section>

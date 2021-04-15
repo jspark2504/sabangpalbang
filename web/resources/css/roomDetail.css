@@ -1,0 +1,73 @@
+main {
+  background-color: burlywood;
+  height: 800px;
+  margin-top: -10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+/* 지도 */
+.map {
+  background-color: aquamarine;
+  height: 70vw;
+  max-height: 700px;
+  padding: 0px;
+}
+
+/* 매물 목록 */
+.room-detail {
+  background-color: white;
+  height: 70vw;
+  max-height: 700px;
+  padding: 0;
+  overflow: scroll;
+}
+
+.room-detail {
+  margin-bottom: 0;
+}
+
+.room-detail-heading {
+  display: flex;
+  margin: 15px 0 0 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.room-detail-title {
+  display: flex;
+  align-items: center;
+}
+
+.room-detail-title h4 {
+  margin: 0;
+}
+
+.room-detail hr{
+  margin-bottom: 0;
+}
+
+.glyphicon-menu-left {
+  padding-right: 13px;
+}
+
+.glyphicon-heart {
+  color: #ff5959;
+  font-size: 20px;
+  padding-right: 20px;
+}
+
+.glyphicon-heart.empty {
+  color: #c4c4c4;
+}
+
+
+
+

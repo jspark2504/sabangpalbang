@@ -23,7 +23,7 @@
       <h3>
         리뷰 내역
       </h3>
-    <hr>
+       <hr>
     </section>
     <!-- sjl introduce all -->
     <section class="introduce-list-all">

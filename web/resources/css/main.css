@@ -19,12 +19,32 @@
 .search{
 	display: flex;
 	text-align: center;
-	justify-content: center;
 	flex-direction: column;
 }
 
 .input-group{
-	width:400px;
+  align-self: center;
+  width: 400px;
+}
+
+.form-control:focus {
+  background: white;
+  border: 1px solid #ffd233;
+  cursor: e-resize;
+
+}
+
+.form-control:hover {
+  background: white;
+  border: 1px solid #ffd233;
+  cursor: e-resize;
+  box-shadow: 0px 0px 3px #919191;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    cursor: e-resize;
+    background-color: white;
+    opacity: 1;
 }
 
 .free_board {
@@ -40,19 +60,23 @@
 }
 
 
-.btn.btn-default.btn-xs {
-	width: 50px;
-	height: 25px;
+.btn-default {
+  background: #ffd233;
+  border: 0;
+  border-style: none;
 }
 
-.btn.btn-default {
+.btn-default:hover {
 	background: #ffd233;
-}
-
-.btn.btn-default:hover {
 	color: white;
+	border-style: none;
+    box-shadow: 0px 0px 3px #919191;
 }
 
+.btn-default:focus {
+  background: #ffd233;
+  box-shadow: 0px 0px 3px #919191;
+}
 
 .main-contents {
 	margin-bottom: 50px;
