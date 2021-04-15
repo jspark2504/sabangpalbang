@@ -1,6 +1,5 @@
+/* room common */
 main {
-  background-color: burlywood;
-  height: 800px;
   margin-top: -10px;
 }
 
@@ -21,7 +20,7 @@ a {
   padding: 0px;
 }
 
-/* 매물 목록 */
+/* room-detail */
 .room-detail {
   background-color: white;
   height: 70vw;
@@ -30,15 +29,13 @@ a {
   overflow: scroll;
 }
 
-.room-detail {
-  margin-bottom: 0;
-}
-
+/* room-detail-heading */
 .room-detail-heading {
   display: flex;
   margin: 15px 0 0 15px;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
 }
 
 .room-detail-title {
@@ -48,10 +45,6 @@ a {
 
 .room-detail-title h4 {
   margin: 0;
-}
-
-.room-detail hr{
-  margin-bottom: 0;
 }
 
 .glyphicon-menu-left {
@@ -68,6 +61,113 @@ a {
   color: #c4c4c4;
 }
 
+.title-end {
+  margin-bottom: 0;
+}
 
+/* room-basic-info */
+.room-basic-info-1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+}
 
+.room-status {
+  display: flex;
+  align-items: center;
+  background: #ffca0b;
+}
 
+.room-create-date {
+  color: #b2b2b2;
+}
+
+.room-basic-info-2 {
+  padding: 0 20px;
+  margin: 0;
+}
+
+.room-price {
+  margin: 0;
+}
+
+.room-no {
+  margin: 0;
+  color: #6e6e6e;
+}
+
+.room-basic-info-3 {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin: 0;
+}
+
+p.info {
+  font-size: 20px;
+  font-weight: 600;
+  color: #e3b30b;
+  margin: 0;
+}
+
+.room-title {
+  color: #6e6e6e;
+  font-size: 17px;
+  text-align: center;
+  padding: 0 20px 20px;
+  margin: 0;
+}
+
+/* room-building-info */
+.room-building-info-title {
+  margin: 0;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+/* option-icon */
+.building-option {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+}
+
+.home-appliances {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+}
+
+.fa-times {
+  font-size: 3vw;
+}
+
+.option-icon img {
+  width: 3vw;
+  min-width: 30px;
+}
+
+.option-icon figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.option-icon figcaption {
+  padding-top: 10px;
+}
+
+.option-icon li {
+  display: flex;
+  align-content: center;
+}
+
+.no-option {
+  color: #c4c4c4;
+}
+
+/* divider-line */
+.divider-line {
+  background: #fff0c8;
+  height: 10px;
+}
