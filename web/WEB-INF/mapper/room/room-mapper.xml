@@ -2,7 +2,7 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 	<entry key="selectAllRoomList">
-		SELECT /* com.sabang.findMyRoom.room.model.dao.RoomDAO#selectAllRoomList();
+		SELECT /* com.sabang.findMyRoom.room.model.dao.RoomDAO#selectAllRoomList(); */
 		       A.ROOM_NO
 		     , A.ROOM_PRICE
 		     , A.EXCLUSIVE_AREA
@@ -12,9 +12,6 @@
 		  FROM TBL_ROOM A
 		 WHERE A.ROOM_STATUS = 'Y'
 		 ORDER BY A.ROOM_NO DESC
-	</entry>
-	<entry key="">
-
 	</entry>
     <entry key="incrementRoomCount">
         UPDATE /* com.sabang.findMyRoom.room.model.dao.RoomDAO#incrementRoomCount(); */
@@ -57,16 +54,16 @@
              , A.ELEVATOR_YN
              , A.PARKING_YN
              , A.VIEW_NO
-             , E.FILE_NO
-             , E.ORIGIN_NAME
-             , E.SAVE_NAME
-             , E.SAVE_PATH
-             , E.THUMBNAIL_PATH
+          /*   , E.FILE_NO */
+          /*   , E.ORIGIN_NAME */
+          /*   , E.SAVE_NAME */
+          /*   , E.SAVE_PATH */
+          /*   , E.THUMBNAIL_PATH */
           FROM TBL_ROOM A
           JOIN TBL_ROOM_CATEGORY B ON (A.CATEGORY_NO = B.CATEGORY_NO)
           JOIN TBL_OFFICE C ON (A.OFFICE_NO = C.OFFICE_NO)
           JOIN TBL_USER D ON (C.USER_NO = D.USER_NO)
-          JOIN TBL_ROOM_FILE E ON (A.ROOM_NO = E.ROOM_NO)
+       /*   JOIN TBL_ROOM_FILE E ON (A.ROOM_NO = E.ROOM_NO) */
          WHERE A.ROOM_NO = ?
            AND D.USER_STATUS = 'Y'
     </entry>

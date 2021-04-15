@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<!-- css -->
     <link rel="stylesheet" href="/findMyRoom/resources/css/roomList.css">
 </head>
@@ -46,41 +48,44 @@
                 <hr>
                 <ul>
                 	<c:forEach var="room" items="${ requestScope.roomList }">
-                    <a href="'${ pageContext.servletContext.contextPath }/notice/detail?no='+no">
-                        <li class="room">
-                            <div class="img"><img src="image/city1.PNG" alt=""></div>
-                            <div class="info">
-                            	<input type="hidden" id="roomNo" name="roomNo" value="${ room.no }" />
+                        <a href="#" onclick="showDetail();"> <!--  return false; -->>
+                            <li class="room">
+                                <figure class="img"><img src="image/city1.PNG" alt=""></figure>
+                                <div class="info">
+                                	<input type="hidden" id="roomNo" name="roomNo" value="${ room.no }" />
 
-	                            <fmt:parseNumber var="price1" value="${ room.price / 100000000 }" integerOnly="true"/>
-                          	    <fmt:formatNumber var="price2" value="${ room.price % 100000000 / 10000 }" groupingUsed="true"/>
-                            	<c:if test="${ price1 > 0 && (room.price % 100000000) > 0 }">
-	                                <span class="price"><c:out value="전세 ${ price1 }억 ${ price2 }"/></span>
-                            	</c:if>
-                            	<c:if test="${ price1 > 0 && (room.price % 100000000) == 0 }">
-	                                <span class="price"><c:out value="전세 ${ price1 }억"/></span>
-                            	</c:if>
-								<c:if test="${ price1 == 0 }">
-	                                <span class="price"><c:out value="전세 ${ price2 }"/></span>
-								</c:if>
+    	                            <fmt:parseNumber var="price1" value="${ room.price / 100000000 }" integerOnly="true"/>
+                              	    <fmt:formatNumber var="price2" value="${ room.price % 100000000 / 10000 }" groupingUsed="true"/>
+                                	<c:if test="${ price1 > 0 && (room.price % 100000000) > 0 }">
+    	                                <span class="price"><c:out value="전세 ${ price1 }억 ${ price2 }"/></span>
+                                	</c:if>
+                                	<c:if test="${ price1 > 0 && (room.price % 100000000) == 0 }">
+    	                                <span class="price"><c:out value="전세 ${ price1 }억"/></span>
+                                	</c:if>
+    								<c:if test="${ price1 == 0 }">
+    	                                <span class="price"><c:out value="전세 ${ price2 }"/></span>
+    								</c:if>
 
-                                <fmt:formatNumber var="area" value="${ room.area }" pattern="#"/>
-                                <c:set var="floor" value="${ fn:substring(room.floor, 0, fn:indexOf(room.floor, '/')) }"/>
-                                <span class="area floor"><c:out value="${ area }m<sup>2</sup> ∙ ${ floor }" escapeXml="false"/></span>
+                                    <fmt:formatNumber var="area" value="${ room.area }" pattern="#"/>
+                                    <c:set var="floor" value="${ fn:substring(room.floor, 0, fn:indexOf(room.floor, '/')) }"/>
+                                    <span class="area floor"><c:out value="${ area }m<sup>2</sup> ∙ ${ floor }" escapeXml="false"/></span>
 
-                            	<c:set var="address" value="${ fn:substring(room.address, 0, fn:indexOf(room.address, '동$')+1) }"/>
-                                <span class="address"><c:out value="${ address }"/></span>
+                                	<c:set var="address" value="${ fn:substring(room.address, 0, fn:indexOf(room.address, '동 ')+1) }"/>
+                                    <span class="address"><c:out value="${ address }"/></span>
 
-                                <span class="explanation"><c:out value="${ room.explanation }"/></span>
-                            </div>
-                        </li>
-                    </a>
+                                    <span class="explanation"><c:out value="${ room.explanation }"/></span>
+                                </div>
+                            </li>
+                        </a>
                 	</c:forEach>
                 </ul>
 
             </article> <!-- 매물 목록 영역 end -->
         </section>
     </main>
+
+    <!-- 이벤트 처리 -->
+    <script src="/findMyRoom/resources/js/room.js"></script>
 </body>
 
 </html>

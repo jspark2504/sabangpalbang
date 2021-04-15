@@ -1,6 +1,7 @@
 package com.sabang.findMyRoom.room.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.sabang.findMyRoom.room.model.dto.RoomDTO;
 import com.sabang.findMyRoom.room.model.service.RoomService;
 
@@ -22,16 +25,18 @@ public class RoomSelectDetailServlet extends HttpServlet {
 		RoomService roomService = new RoomService();
 		RoomDTO roomDetail = roomService.selectRoomDetail(no);
 
-		String path = "";
-		if(roomDetail != null) {
-			path = "/WEB-INF/views/room/roomDetail.jsp";
-			request.setAttribute("room", roomDetail);
-		} else {
-			path = "/WEB-INF/views/common/failed.jsp";
-			request.setAttribute("message", "매물 상세 보기 조회에 실패하셨습니다.");
-		}
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-		request.getRequestDispatcher(path).forward(request, response);
+		String jsonString = gson.toJson(roomDetail);
+		System.out.println(jsonString);
+
+		response.setContentType("application/json; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+
+		out.print(jsonString);
+
+		out.flush();
+		out.close();
 	}
 
 }
