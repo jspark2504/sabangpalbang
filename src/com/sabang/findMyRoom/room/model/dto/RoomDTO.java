@@ -1,6 +1,7 @@
 package com.sabang.findMyRoom.room.model.dto;
 
 import java.sql.Date;
+import java.util.List;
 
 public class RoomDTO implements java.io.Serializable {
 
@@ -12,17 +13,16 @@ public class RoomDTO implements java.io.Serializable {
 	private double area;
 	private String address;
 	private java.sql.Date createDate;
-	private int categoryNo;
-	private int officeNo;
+	private RoomCategoryDTO category;
+	private OfficeDTO office;
 	private String floor;
 	private String direction;
 	private int monthCost;
 	private String costInclude;
 	private java.sql.Date constructionDate;
-	private java.sql.Date availableDate;
+	private String availableDate;
 	private String explanation;
-	private String subwayInfo;
-	private String busInfo;
+	private String transportationInfo;
 	private String washingMachine;
 	private String refrigerator;
 	private String airConditioner;
@@ -31,22 +31,23 @@ public class RoomDTO implements java.io.Serializable {
 	private String elevator;
 	private String parking;
 	private int viewNo;
+	private List<RoomFileDTO> fileList;
 
 	public RoomDTO() {
 	}
-	public RoomDTO(int no, int price, String status, double area, String address, Date createDate, int categoryNo,
-			int officeNo, String floor, String direction, int monthCost, String costInclude, Date constructionDate,
-			Date availableDate, String explanation, String subwayInfo, String busInfo, String washingMachine,
-			String refrigerator, String airConditioner, String gasStove, String pet, String elevator, String parking,
-			int viewNo) {
+	public RoomDTO(int no, int price, String status, double area, String address, Date createDate,
+			RoomCategoryDTO category, OfficeDTO office, String floor, String direction, int monthCost,
+			String costInclude, Date constructionDate, String availableDate, String explanation,
+			String transportationInfo, String washingMachine, String refrigerator, String airConditioner,
+			String gasStove, String pet, String elevator, String parking, int viewNo, List<RoomFileDTO> fileList) {
 		this.no = no;
 		this.price = price;
 		this.status = status;
 		this.area = area;
 		this.address = address;
 		this.createDate = createDate;
-		this.categoryNo = categoryNo;
-		this.officeNo = officeNo;
+		this.category = category;
+		this.office = office;
 		this.floor = floor;
 		this.direction = direction;
 		this.monthCost = monthCost;
@@ -54,8 +55,7 @@ public class RoomDTO implements java.io.Serializable {
 		this.constructionDate = constructionDate;
 		this.availableDate = availableDate;
 		this.explanation = explanation;
-		this.subwayInfo = subwayInfo;
-		this.busInfo = busInfo;
+		this.transportationInfo = transportationInfo;
 		this.washingMachine = washingMachine;
 		this.refrigerator = refrigerator;
 		this.airConditioner = airConditioner;
@@ -64,6 +64,7 @@ public class RoomDTO implements java.io.Serializable {
 		this.elevator = elevator;
 		this.parking = parking;
 		this.viewNo = viewNo;
+		this.fileList = fileList;
 	}
 
 	public int getNo() {
@@ -102,17 +103,17 @@ public class RoomDTO implements java.io.Serializable {
 	public void setCreateDate(java.sql.Date createDate) {
 		this.createDate = createDate;
 	}
-	public int getCategoryNo() {
-		return categoryNo;
+	public RoomCategoryDTO getCategory() {
+		return category;
 	}
-	public void setCategoryNo(int categoryNo) {
-		this.categoryNo = categoryNo;
+	public void setCategory(RoomCategoryDTO category) {
+		this.category = category;
 	}
-	public int getOfficeNo() {
-		return officeNo;
+	public OfficeDTO getOffice() {
+		return office;
 	}
-	public void setOfficeNo(int officeNo) {
-		this.officeNo = officeNo;
+	public void setOffice(OfficeDTO office) {
+		this.office = office;
 	}
 	public String getFloor() {
 		return floor;
@@ -144,10 +145,10 @@ public class RoomDTO implements java.io.Serializable {
 	public void setConstructionDate(java.sql.Date constructionDate) {
 		this.constructionDate = constructionDate;
 	}
-	public java.sql.Date getAvailableDate() {
+	public String getAvailableDate() {
 		return availableDate;
 	}
-	public void setAvailableDate(java.sql.Date availableDate) {
+	public void setAvailableDate(String availableDate) {
 		this.availableDate = availableDate;
 	}
 	public String getExplanation() {
@@ -156,17 +157,11 @@ public class RoomDTO implements java.io.Serializable {
 	public void setExplanation(String explanation) {
 		this.explanation = explanation;
 	}
-	public String getSubwayInfo() {
-		return subwayInfo;
+	public String getTransportationInfo() {
+		return transportationInfo;
 	}
-	public void setSubwayInfo(String subwayInfo) {
-		this.subwayInfo = subwayInfo;
-	}
-	public String getBusInfo() {
-		return busInfo;
-	}
-	public void setBusInfo(String busInfo) {
-		this.busInfo = busInfo;
+	public void setTransportationInfo(String transportationInfo) {
+		this.transportationInfo = transportationInfo;
 	}
 	public String getWashingMachine() {
 		return washingMachine;
@@ -216,17 +211,22 @@ public class RoomDTO implements java.io.Serializable {
 	public void setViewNo(int viewNo) {
 		this.viewNo = viewNo;
 	}
+	public List<RoomFileDTO> getFileList() {
+		return fileList;
+	}
+	public void setFileList(List<RoomFileDTO> fileList) {
+		this.fileList = fileList;
+	}
 
 	@Override
 	public String toString() {
 		return "RoomDTO [no=" + no + ", price=" + price + ", status=" + status + ", area=" + area + ", address="
-				+ address + ", createDate=" + createDate + ", categoryNo=" + categoryNo + ", officeNo=" + officeNo
-				+ ", floor=" + floor + ", direction=" + direction + ", monthCost=" + monthCost + ", costInclude="
-				+ costInclude + ", constructionDate=" + constructionDate + ", availableDate=" + availableDate
-				+ ", explanation=" + explanation + ", subwayInfo=" + subwayInfo + ", busInfo=" + busInfo
-				+ ", washingMachine=" + washingMachine + ", refrigerator=" + refrigerator + ", airConditioner="
-				+ airConditioner + ", gasStove=" + gasStove + ", pet=" + pet + ", elevator=" + elevator + ", parking="
-				+ parking + ", viewNo=" + viewNo + "]";
+				+ address + ", createDate=" + createDate + ", category=" + category + ", office=" + office + ", floor="
+				+ floor + ", direction=" + direction + ", monthCost=" + monthCost + ", costInclude=" + costInclude
+				+ ", constructionDate=" + constructionDate + ", availableDate=" + availableDate + ", explanation="
+				+ explanation + ", transportationInfo=" + transportationInfo + ", washingMachine=" + washingMachine
+				+ ", refrigerator=" + refrigerator + ", airConditioner=" + airConditioner + ", gasStove=" + gasStove
+				+ ", pet=" + pet + ", elevator=" + elevator + ", parking=" + parking + ", viewNo=" + viewNo
+				+ ", fileList=" + fileList + "]";
 	}
-
 }
