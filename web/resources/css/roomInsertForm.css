@@ -1,0 +1,173 @@
+@charset "UTF-8";
+
+/* 메인 컨테이너 */
+.container {
+    margin-top: 20px;
+}
+
+/* 입력 폼 */
+.insert-form {
+    padding: 15px;
+    margin: 40px auto;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+}
+
+/* 사진 등록 영역 */
+.file {
+    margin-top: 20px;
+}
+
+/* 사진 등록 문구 */
+.file label {
+    padding-left: 32px;
+}
+
+/* 사진 표시 영역 */
+.file figure {
+    display: flex;
+    overflow: scroll;
+    margin: 10px auto 50px auto;
+    width: 93%;
+    height: 150px;
+    border: 1px solid #cacaca;
+    border-radius: 5px;
+    align-items: center;
+}
+
+/* 사진이 표시될 박스들 */
+.file figure div {
+    display: inline;
+    width: 120px;
+    height: 100px;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+/* 사진 추가 버튼 영역 */
+.file figure .add-img-btn {
+    border: 1px solid rgb(77, 77, 77);
+    cursor: pointer;
+}
+
+/* 사진 추가 버튼 영역의 내용 */
+.file figure .add-img-btn span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 100px;
+    padding-bottom: 10px;
+    color: rgb(77, 77, 77);
+    font-size: 50px;
+    margin: 0;
+}
+
+/* 사진 추가 버튼 hover 효과 */
+.file figure .add-img-btn:hover {
+    border: 1px solid #ffd233;
+}
+
+.file figure .add-img-btn span:hover {
+    color: #ffd233;
+}
+
+/* 사진 */
+.file figure img {
+    width: 120px;
+    height: 100px;
+    border-radius: 5px;
+}
+
+/* 사진 삭제 버튼 */
+.file figure .remove-btn {
+    position: relative;
+    top: -145px;
+    left: 95px;
+    padding: 10px;
+    font-size: 18px;
+    color: #1c1c1c;
+    cursor: pointer;
+}
+
+/* 사진 삭제 버튼 이미지 */
+.file figure .remove-btn img {
+    width: 20px;
+}
+
+/* input file 태그 숨김 처리 */
+.file-area input {
+    display: none;
+}
+
+/* input box */
+.insert-form .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 8px;
+    font-size: 16px;
+}
+
+/* input 박스 focus 효과 */
+.insert-form .form-control:focus {
+    z-index: 2;
+}
+
+/* placeholder 글자 크기 조정 */
+.insert-form .form-control::placeholder {
+    font-size: 14px;
+}
+
+/* 항목 라벨 */
+.form-group > label {
+    padding: 0 0 5px 30px;
+}
+
+/* 단위 적은 곳들 */
+.form-group .unit {
+    font-size: 15px;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    padding: 0;
+}
+
+/* 층 정보의 '/' */
+.form-group .slash {
+    font-size: 30px;
+    font-weight: 300;
+    text-align: center;
+}
+
+/* 관리비 포함 항목 위치 조정 */
+.costInclude {
+    margin-top: -10px;
+}
+
+/* 체크박스 영역 공통 */
+.check .list {
+    display: flex;
+    flex-wrap: wrap;
+    height: 60px;
+    align-items: flex-start;
+    margin-top: 8px;
+}
+
+.check .list input {
+    margin: 0 5px 0 0;
+}
+
+.check .list label {
+    margin: 0 15px 0 0;
+}
+
+/* 등록 버튼 */
+.okbtn {
+    margin: 70px auto 10px auto;
+    max-width: 280px;
+    background-color: #bcbcbc;
+    color: black;
+}
