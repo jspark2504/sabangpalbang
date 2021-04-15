@@ -150,5 +150,16 @@ public class MemberService {
 		return result;
 	}
 	
-	
+	/*아이디 찾기*/
+	public String searchId(String findEmail) {
+		
+		Connection con = getConnection();
+		
+		String result = memberDAO.searchId(con, findEmail);
+		
+		close(con);
+		
+		return result;
+		
+	}
 }

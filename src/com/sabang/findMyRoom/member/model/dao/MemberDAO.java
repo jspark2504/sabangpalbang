@@ -278,5 +278,33 @@ public class MemberDAO {
 
 		return result;
 	}
+	
+	
+	/*아이디찾기를 위한 이메일입력*/
+	public String searchId(Connection con, String findEmail) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String findId = null;
+		
+		String query = prop.getProperty("selectSearchId");
+		
+			try {
+				pstmt = con.prepareStatement(query);
+				pstmt.setString(1, findEmail);
+				
+				rset = pstmt.executeQuery();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+		
+		return findId;
+	}
+	
 
 }
