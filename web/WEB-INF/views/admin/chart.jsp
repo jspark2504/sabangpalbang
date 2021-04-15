@@ -29,7 +29,22 @@
 		<div align="center">
 			<canvas id="myChart" style="width: 500px; height: 400px;"></canvas>
 		</div>
-		<button align="center">클릭</button>
+		
+		
+       		<h3>카테고리넘버 : <c:out value="${ requestScope.boardChart.CategoryNo }"/></h3> 
+      		<table class="">
+      			<tr>
+               		<th>작성자 : <c:out value="${ requestScope.boardChart.category.name }"/></th> 
+               	</tr>	
+          	</table>
+          	<table  class="">
+               	<tr>
+               		<th>조회수 : <c:out value="${ requestScope.boardChart.viewNo }"/></th>
+               	</tr>
+            </table>
+
+
+
 	<jsp:include page="../common/footer.jsp" />
 
 <script>

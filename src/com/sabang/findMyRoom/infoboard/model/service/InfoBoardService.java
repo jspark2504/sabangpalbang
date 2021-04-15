@@ -146,5 +146,20 @@ public class InfoBoardService {
 			return result;
 		}
 	   
+	   public int selectCategoryViewCount(int no) {
+		      
+		 Connection con = getConnection();
+		 
+	     int result = infoBoardDAO.incrementBoardCount(con, no);
+		      
+		 if(result > 0) {
+				commit(con);
+			}else {
+				rollback(con);
+			}
+			close(con);
+		      
+		    return result;
+		   }
 	
 }

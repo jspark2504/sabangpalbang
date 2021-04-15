@@ -29,15 +29,15 @@ public class ChartInfoBoardViewServlet extends HttpServlet {
 		
 		
 		InfoBoardService boardService = new InfoBoardService();
-
 		
-		int result = boardService.selectCategoryViewCount(no);
+		int boardChart = boardService.selectCategoryViewCount(no);
+		
 
 		
 	      String path = "";
-	      if(result > 0) {
-	         path = "/WEB-INF/views/infoboard/infoBoardList.jsp";
-	         request.setAttribute("boardList", "boardList");
+	      if(boardChart > 0) {
+	         path = "/WEB-INF/views/admin/chart.jsp";
+	         request.setAttribute("boardChart", "boardChart");
 	      } else {
 	         path = "/WEB-INF/views/common/failed.jsp";
 	         request.setAttribute("message", "통계 조회 실패!");

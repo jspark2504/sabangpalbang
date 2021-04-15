@@ -230,9 +230,6 @@ public class InfoBoardDAO {
 		      
 		      return result;
 		   }
-
-		   
-		   
 		   
 		   
 		   /* 검색한 정보게시판 조회 카운트 */
@@ -334,8 +331,9 @@ public class InfoBoardDAO {
 		      
 		      return boardList;
 		   }
-
-			public int deleteInfoBoard(Connection con, int no) {
+		   
+		   /* 정보게시판 삭제 */    	
+		   public int deleteInfoBoard(Connection con, int no) {
 				
 				PreparedStatement pstmt = null;
 				
@@ -356,7 +354,29 @@ public class InfoBoardDAO {
 				
 				return result;
 			}
+		
+		
+		   /* 게시판 카테고리별 카운트 조회 */
+		   public int selectCategoryViewCount(Connection con, int no) {
+			   
+			   PreparedStatement pstmt = null;
+			   
+			   int result = 0;
+			   String query = prop.getProperty("selectCategoryViewCount");
+			   
+			   try {
+					pstmt = con.prepareStatement(query);
+					pstmt.setInt(1, no);
+				
+			        
+			   } catch (SQLException e) {
+				   e.printStackTrace();
+			   } finally {
+				   close(pstmt);
+			   }
 
+			   return result;
+		   }		
 }
 
 

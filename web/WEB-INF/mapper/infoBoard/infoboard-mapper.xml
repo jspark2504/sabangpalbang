@@ -119,9 +119,12 @@
 	
 	<entry key="selectCategoryViewCount">
        	SELECT 
-       	       SUM(VIEW_NO)
-       	  FROM TBL_INFO_BOARD
-       	 WHERE CATEGORY_NO = ?
+       	       SUM(A.VIEW_NO)
+             , B.CATEGORY_NAME
+       	  FROM TBL_INFO_BOARD A
+          JOIN TBL_INFO_CATEGORY B ON (A.CATEGORY_NO = B.CATEGORY_NO)
+       	 WHERE B.CATEGORY_NO = ?
+      GROUP BY B.CATEGORY_NAME
 	</entry>
 
 	<entry key="searchCategoryInfoBoardCount">
