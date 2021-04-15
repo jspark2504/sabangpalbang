@@ -80,10 +80,11 @@ private final Properties prop;
 				reply.setPostNo(rset.getInt("POST_NO"));
 				reply.setContent(rset.getString("REPLY_CONTENT"));
 				reply.setUserNo(rset.getInt("USER_NO"));
-				reply.getWriter().setNickname("NICKNAME");
+				reply.getWriter().setNickname(rset.getString("NICKNAME"));
 				reply.setCreateDate(rset.getDate("CREATION_DATE"));
 				
 				listReply.add(reply);
+				System.out.println("dao" + listReply);
 				
 			}
 		} catch (SQLException e) {
@@ -98,6 +99,30 @@ private final Properties prop;
 		
 		
 		return listReply;
+	}
+
+	public int deleteReply(Connection con, int replyNo, int boardNo) {
+		
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("deleteReply");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, replyNo);
+			pstmt.setInt(2, boardNo);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
 
 }

@@ -89,11 +89,12 @@
 	margin-left: 5px;
 }
 
-.glyphicon.glyphicon-star {
+.glyphicon-star {
 	margin-bottom: 2px;
+	padding-right: 2px;
 }
 
-.glyphicon.glyphicon-star.empty {
+.glyphicon-star.empty {
 	color: #c4c4c4;
 }
 

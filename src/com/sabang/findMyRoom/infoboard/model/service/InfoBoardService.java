@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.util.List;
 
 import com.sabang.findMyRoom.infoboard.model.dao.InfoBoardDAO;
+import com.sabang.findMyRoom.infoboard.model.dto.CategoryDTO;
 import com.sabang.findMyRoom.infoboard.model.dto.InfoBoardDTO;
 import com.sabang.findMyRoom.infoboard.model.dto.PageInfoDTO;
 
@@ -87,7 +88,7 @@ public class InfoBoardService {
 	      
 	      int result = infoBoardDAO.incrementBoardCount(con, no);
 	      
-	      /* 공지사항 정보 가져오기 값을 가져오면 커밋 못가져오거나 비어있으면 롤백 */
+	      /* 게시판 정보 가져오기 값을 가져오면 커밋 못가져오거나 비어있으면 롤백 */
 	      if(result > 0) {
 	    	  BoardDetail = infoBoardDAO.selectBoardDetail(con, no);
 	         
@@ -96,6 +97,7 @@ public class InfoBoardService {
 	         } else {
 	            rollback(con);
 	         }
+	         
 	      } else {
 	         rollback(con);
 	      }
@@ -129,12 +131,13 @@ public class InfoBoardService {
 	      return boardList;
 	   }
 
-		public int deleteBoard(int no) {
-			Connection con = getConnection();
+	   /* 게시물 삭제 (n으로 변경)*/
+	   public int deleteBoard(int no) {
+		  Connection con = getConnection();
 			
-			int result = infoBoardDAO.deleteInfoBoard(con, no);
+		  int result = infoBoardDAO.deleteInfoBoard(con, no);
 			
-			if(result > 0) {
+		  if(result > 0) {
 				commit(con);
 			}else {
 				rollback(con);
@@ -144,5 +147,15 @@ public class InfoBoardService {
 			return result;
 		}
 	   
+	   public List<CategoryDTO> selectCategoryViewCount(int no) {
+		      
+		   Connection con = getConnection();
+		 
+		   List<CategoryDTO> CategoryList = infoBoardDAO.selectCategoryViewCount(con, no);
+
+		   close(con);
+		      
+		   return CategoryList;
+	   }
 	
 }

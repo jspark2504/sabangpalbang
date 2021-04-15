@@ -27,7 +27,7 @@ public class ReplyService {
 		
 		close(con);
 		
-		return null;
+		return listReply;
 	}
 
 	public int insertReply(ReplyDTO newReply) {
@@ -35,6 +35,23 @@ public class ReplyService {
 		Connection con = getConnection();
 		
 		int result = replyDAO.insertReply(con, newReply);
+		
+		if(result > 0) {
+			commit(con);
+		}else {
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return result;
+	}
+
+	public int deleteReply(int replyNo, int boardNo) {
+		
+		Connection con = getConnection();
+		
+		int result = replyDAO.deleteReply(con, replyNo, boardNo);
 		
 		if(result > 0) {
 			commit(con);

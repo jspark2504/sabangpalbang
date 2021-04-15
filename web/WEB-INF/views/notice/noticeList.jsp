@@ -53,14 +53,14 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th colspan="2">공지사항</th>
+                <th colspan="3">공지사항</th>
             </tr>
             
         </thead>
         <tbody>
         	<c:forEach items="${ noticeList }" var="notice">
           	<tr> 
-  			<%-- 	<td><c:out value="${ notice.no }"/></td> --%>
+  				<td><c:out value="${ notice.noticeNo }"/></td>
 				<td><c:out value="${ notice.title }"/></td>
 			<%-- 	<td><c:out value="${ notice.writer.nickname }"/></td> --%>
 	<%-- 			<td><c:out value="${ notice.count }"/></td> --%>
@@ -84,8 +84,11 @@
     </div> -->
        <!-- Bootstrap core CSS -->
        
+    
+</div>
       <script>
   	/* 자바스크립트를 이용하는 경우 */
+  	
 		 if(document.getElementsByTagName("td")) {
 			const $tds = document.getElementsByTagName("td");
 			for(var i = 0 ; i < $tds.length ; i++) {
@@ -96,14 +99,15 @@
 				
 				$tds[i].onclick = function() {
 					const no = this.parentNode.children[0].innerText;
+					/* console.log(no); */
 					location.href = "${ pageContext.servletContext.contextPath }/notice/detail?no=" + no;   
 				}
 			}
 		}
       
       </script>
-    
-</div>
+
+	<jsp:include page="../common/footer.jsp" />
 </body>
 </html>
     

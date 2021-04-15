@@ -40,8 +40,6 @@ public class InfoBoardUpdateServlet extends HttpServlet {
 		
 //		int No = ((InfoBoardDTO)request.getSession().getAttribute("loginMember")).getNo();
 		
-		
-		
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		int no = Integer.valueOf(request.getParameter("no"));

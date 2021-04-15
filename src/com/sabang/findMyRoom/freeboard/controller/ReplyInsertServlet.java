@@ -37,7 +37,7 @@ public class ReplyInsertServlet extends HttpServlet {
 		ReplyService replyService = new ReplyService();
 		int result = replyService.insertReply(newReply);
 		
-		System.out.println(result);
+		System.out.println("insertResult : " + result);
 	}
 
 }

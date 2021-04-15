@@ -89,8 +89,11 @@
 	        AND USER_ID = ?
 	</entry>
 
-	<entry key="">
-
+	<entry key="selectSearchId">
+		SELECT
+				A.MEMBER_ID
+		  FROM TBL_USER A	
+		 WHERE  A.EMAIL = ?	
 	</entry>
 	<entry key="">
 

@@ -10,21 +10,53 @@
     <title>게시글</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> 
   
     <link rel="stylesheet" href="/findMyRoom/resources/css/freeBoardDetail.css">
 	<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
     
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+ <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<style>
+		#replytext{
+			border:1px solid rgba(0, 0, 0, 0.1);
+			border-radius:5px; 
+			padding:10px; 
+			width:750px; 
+			height:100px; 
+			position:relative; 
+			top:55px; 
+			resize:none;
+		}
+		#replytext:focus{
+			outline: none;
+			box-shadow: 0px 0px 7px rgb(255, 210, 51);
+		}
+		#btnReply{
+			position:relative;  
+			right:35px; 
+			background-color:rgba(0, 0, 0, 0.1);
+		}
+		#btnReply:hover{
+			background-color: rgb(81, 75, 55);
+      		color: white;
+      		transition-duration: 0.3s;
+		}
+		#counter{
+		 	position:relative;
+		 	color : rgba(0, 0, 0, 0.3);
+		 	text-align:right;
+		 	right:50px;
+		 	top:15px;
+		}
+	</style>
 </head>
 <body>
 <jsp:include page="../common/header.jsp"/>
 <div class="container">
 			<table class="nickname pull-right">
 			 	<tr>
-                    <th>nickname</th>
-                    <td><c:out value="${ requestScope.board.writer.nickname }" /></td>
+                    <td><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;<c:out value="${ requestScope.board.writer.nickname }" /></td>
                 </tr>
 			</table>
 				<input type="text" class="title" value="${ requestScope.board.title }" readonly>
@@ -33,60 +65,47 @@
 				<c:if test="${ sessionScope.loginMember.no eq requestScope.board.writerMemberNo }">
 					<button class="btn post pull-right" onclick="location.href='${ pageContext.servletContext.contextPath}/freeBoard/update?no=${ requestScope.board.no }'">수정</button>
 				</c:if>
-			</div>
-
-
 	<c:if test="${!empty sessionScope.loginMember}">
-		<input type="hidden" value="${ requestScope.board.no }" id="boardNo" name="boardNo">
-		<textarea rows="5" cols="80" id="replytext" placeholder="댓글을 작성하세요"></textarea>
+		
+		<textarea id="replytext" placeholder="인터넷은 우리가 함께 만들어가는 소중한 공간입니다. 댓글 작성 시 타인에 대한 배려와 책임을 담아주세요."></textarea>
 		<br>
-		<button type="button" id="btnReply">댓글쓰기</button>
+		<button onClick="window.location.reload()" class="btn pull-right" type="submit" id="btnReply">확인</button>
+	<div id="counter">(0 / 100)</div>
 	</c:if>
-	<div id="listReply" style="border:1px; width:100px; height:70px;">
-		<%-- <c:forEach var="reply" items="${ requestScope.listReply }">
-			<tr>
-				<td align="center"><c:out value="${ reply.no }" /></td>
-				<td><c:out value="${ reply.writer.nickname }" /></td>
-				<td align="center"><c:out value="${ reply.createDate }" /></td>
-				<td><c:out value="${reply.content }"/></td>
-			</tr>
-		</c:forEach> --%>
-	</div>
-
+</div>
+<%@ include file="reply.jsp" %>
 	<script>
-		$("#btnReply").click(function() {
-			var replytext = $("#replytext").val(); //댓글 내용
-			var boardNo = "${requestScope.board.no}"; //게시물 번호
-			var param = {
-				"replytext" : replytext,
-				"boardNo" : boardNo
-			};
-			//var param="replytext="+replytext+"&bno="+bno;
-			$.ajax({
-				type : "post", //데이터를 보낼 방식
-				url : "${ pageContext.servletContext.contextPath}/reply/insert", //데이터를 보낼 url
-				data : param, //보낼 데이터
+	listReply();
+	$("#btnReply").click(function() {
+					var boardNo = "${requestScope.board.no}"; //게시물 번호
+					var replytext = $("#replytext").val(); //댓글 내용
+					var param = {
+						"replytext" : replytext,
+						"boardNo" : boardNo
+					};
+						$.ajax({
+							type : "post", //데이터를 보낼 방식
+							url : "${ pageContext.servletContext.contextPath}/reply/insert", //데이터를 보낼 url
+							data : param, //보낼 데이터
 
-				success : function() { //데이터를 보내는것이 성공했을시 출력되는 메시지
-					alert("댓글이 등록되었습니다.");
-					listReply(); //댓글 목록 출력
-				}
-			});
+							success : function() { //데이터를 보내는것이 성공했을시 출력되는 메시지
+										alert("댓글이 등록되었습니다.");
+										listReply(); //댓글 목록 출력
+						}
+				});
 		});
-		
-		
-		/* function listReply(){
-		    $.ajax({
-		        url: "${ pageContext.servletContext.contextPath}/reply/list", //컨트롤러에 있는 list.do로 맵핑하고 게시판 번호도 같이 보낸다.
-		        type: "get", //get방식으로 자료를 전달한다
-		        success: function(result){ //자료를 보내는것이 성  공했을때 출력되는 메시지
-		            //result : responseText 응답텍스트(html)
-		        	console.log(result);
-		            $("#listReply").html(result);
-		        }
-		    });
-		}  */
+	$(document).ready(function() {
+	    $('#replytext').on('keyup', function() {
+	        $('#counter').html("("+$(this).val().length+" / 100)");
+	 
+	        if($(this).val().length > 100) {
+	            $(this).val($(this).val().substring(0, 100));
+	            $('#counter').html("(100 / 100)");
+	        }
+	    });
+	});
+
 	</script>
-	<jsp:include page="../common/footer.jsp" />
+<jsp:include page="../common/footer.jsp" />
 </body>
 </html>

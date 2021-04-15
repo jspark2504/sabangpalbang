@@ -53,7 +53,7 @@ body {
   }
 
   .form-signin input[type="password"] {
-    margin-top: 10px;
+    margin-top: 20px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     font-size: 0.9em;
@@ -81,7 +81,6 @@ body {
     font-size: 0.9em;
     position: relative;
     left: 25px;
-
   }
 
   .signUp {
@@ -90,12 +89,11 @@ body {
     color: rgba(0, 0, 0, 0.5);
     font-size: 0.9em;
     position: relative;
-    left: 40px;
+    left: 45px;
   }
 
   .btn {
     position: relative;
-    top: 10px;
     background: rgb(255, 210, 51);
     font-weight: bold;
   }
@@ -105,10 +103,4 @@ body {
     font-weight: bold;
     color: white;
     transition-duration: 0.3s;
-  }
-
-  .checkbox {
-    color: rgba(0, 0, 0, 0.4);
-    position: relative;
-    left: 5px;
   }

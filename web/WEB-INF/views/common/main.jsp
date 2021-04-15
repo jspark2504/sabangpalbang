@@ -64,7 +64,7 @@
 				<hr>
 				<ul>
 					<li class="item">
-						<a href="#">
+						<a href="${ pageContext.servletContext.contextPath }/introduce/detail1">
 							<span class="img">
 								<img src="/findMyRoom/resources/image/mhn.png" alt="..." class="img-circle">
 							</span>
@@ -87,7 +87,7 @@
 									<span class="review_no">
 										후기 21개
 									</span>
-							</span>
+							    </span>
 							<span class="review_content">
 								진짜 딱 맘에드는 곳들만 보여주셔서 너무 좋았어요.
 							</span>
@@ -95,7 +95,7 @@
 						</a>
 					</li>
 					<li class="item">
-						<a href="#">
+						<a href="${ pageContext.servletContext.contextPath }/introduce/detail2">
 							<span class="img">
 								<img src="/findMyRoom/resources/image/sjl.png" alt="..." class="img-circle">
 							</span>

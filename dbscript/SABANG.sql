@@ -570,38 +570,38 @@ COMMENT ON COLUMN TBL_NOTICE.NOTICE_STATUS_YN IS '공지상태';
 
 INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
       VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 개인정보처리방침 개정 안내',
-      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다.
-      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다.
-      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.',
-      TO_DATE('21/04/19', 'RR/MM/DD'), 1, 'Y');
-
-INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
-      VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 개인정보처리방침 개정 안내',
-      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다.
-      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다.
-      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.',
-      TO_DATE('21/04/01', 'RR/MM/DD'), 2, 'Y');
-
-INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
-      VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 개인정보처리방침 개정 안내',
-      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다.
-      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다.
-      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.',
-      TO_DATE('21/03/28', 'RR/MM/DD'), 3, 'Y');
-
+      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다. 
+      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다. 
+      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.', 
+      SYSDATE, 1, 'Y'); 
+      
 INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
       VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 서비스 이용약관 개정 안내',
-      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다.
-      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다.
-      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.',
-      TO_DATE('21/03/22', 'RR/MM/DD'), 4, 'Y');
+      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다. 
+      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다. 
+      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.', 
+      SYSDATE, 2, 'Y');
 
 INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
       VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 개인정보처리방침 개정 안내',
-      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다.
-      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다.
-      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.',
-      TO_DATE('21/03/10', 'RR/MM/DD'), 5, 'Y');
+      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다. 
+      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다. 
+      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.', 
+      SYSDATE, 3, 'Y');      
+      
+INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
+      VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 개인정보처리방침 개정 안내',
+      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다. 
+      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다. 
+      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.', 
+      SYSDATE, 4, 'Y');  
+      
+INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
+      VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 개인정보처리방침 개정 안내',
+      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다. 
+      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다. 
+      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.', 
+      SYSDATE, 5, 'Y');
 
 
 
@@ -637,11 +637,11 @@ INSERT INTO TBL_INFO_CATEGORY(CATEGORY_NO, CATEGORY_NAME) VALUES (2, '청년전�
 INSERT INTO TBL_INFO_CATEGORY(CATEGORY_NO, CATEGORY_NAME) VALUES(3, '기타');
 
 CREATE TABLE TBL_INFO_BOARD(
-  POST_NO NUMBER CONSTRAINT PK_POST_NO PRIMARY KEY,
+  POST_NO NUMBER CONSTRAINT PK_IB_POST_NO PRIMARY KEY,
   POST_TITLE VARCHAR2(50) CONSTRAINT NN_IB_POST_TITLE NOT NULL,
   POST_CONTENT VARCHAR2(4000) CONSTRAINT NN_IB_POST_CONTENT NOT NULL,
   VIEW_NO NUMBER DEFAULT 0,
-  CREATION_DATE   DATE CONSTRAINT NN_IB_CREATION_DATE NOT NULL,
+  CREATION_DATE DATE CONSTRAINT NN_IB_CREATION_DATE NOT NULL,
   CATEGORY_NO NUMBER CONSTRAINT NN_IB_CATEGORY_NO NOT NULL,
   VIEW_YN CHAR(1) DEFAULT 'Y',
   USER_NO NUMBER CONSTRAINT NN_IB_USER_NO NOT NULL,
@@ -662,10 +662,10 @@ CREATE TABLE TBL_INFO_BOARD_FILE(
   FILE_NO NUMBER,
   POST_NO NUMBER,
   ORIGIN_NAME VARCHAR2(50) CONSTRAINT NN_IBF_ORIGIN_NAME NOT NULL,
-  SAVE_NAME   VARCHAR2(50) CONSTRAINT NN_IBF_SAVE_NAME NOT NULL,
-  EXTENSION   VARCHAR2(50) CONSTRAINT NN_IBF_EXTENSION NOT NULL,
+  SAVE_NAME VARCHAR2(50) CONSTRAINT NN_IBF_SAVE_NAME NOT NULL,
+  EXTENSION VARCHAR2(50) CONSTRAINT NN_IBF_EXTENSION NOT NULL,
   CONTENT VARCHAR2(50),
-  SAVE_PATH   VARCHAR2(100) CONSTRAINT NN_IBF_SAVE_PATH NOT NULL,
+  SAVE_PATH VARCHAR2(100) CONSTRAINT NN_IBF_SAVE_PATH NOT NULL,
   CONSTRAINT PK_IBF_FILE_NO_AND_POST_NO PRIMARY KEY(FILE_NO, POST_NO),
   CONSTRAINT FK_IBF_POST_NO FOREIGN KEY (POST_NO) REFERENCES TBL_INFO_BOARD (POST_NO)
 );
@@ -876,7 +876,7 @@ VALUES (SEQ_INFO_POST_NO.NEXTVAL, '중도금이 중요한 이유'
 
 
 해약금에 의한 계약해제
-민법에 따르면 주(主)된 계약인 매매계약의 종(從)된 계약인 계약금 계약은 계약 체결의 증거로서의 의미인 증약금(證約金)과 해제권을 보류하는 성질인 해약금(解約金), 채무이행을 확보하기 위한 성질인 위약금(違約金) 이렇게 세 가지 성질이 있다.
+민법에 따르면 주(主)된 계약인 매매계약의 종(從)된 계약인 계약금 계약은 계약 체결의 증거로서의 의미인 증약금(證約金)과 해제권을 보류하는 성질인 해약금(解約金), 채무이행을 확보하기 위한 성질인 위약금(違約金) 이렇게 세 가지 성질이 있다.
 
 
 

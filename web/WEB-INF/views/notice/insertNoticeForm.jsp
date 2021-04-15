@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.io.PrintWriter"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +39,6 @@
         margin-left: 710px;
         margin-bottom: 204px;
         font-weight: bold;
-        border-color: rgb(255,210,51);
 
 
     }
@@ -84,29 +80,23 @@
 
 <div class="container">
     <form class="form-write" action="${ pageContext.servletContext.contextPath }/notice/insert" method="post">
-       
-       
+
         <div id="box1">
        		<input type="text" value="${ sessionScope.loginMember.nickname }" name="writer" readonly id="input1">
-            <label for="input-title" ></label>
-            <input type="text" placeholder="회원님들에게 알리고싶은 좋은 소식!" required id="input2">
-        </div>
-        <div id="rectangle">
-            
-        </div>
+        	<br>
+            <input type="text" class="title" name="title" placeholder="회원님들에게 알리고싶은 좋은 소식!" required id="input2"></div>
+        <div id="rectangle"> </div>
 
-        <div id="box2"><p><textarea placeholder="내용을 입력하세요." ></textarea></p></div>
-
-        <button onclick="location.href='${ pageContext.servletContext.contextPath }/notice/list'" class="btn" type="reset" id="btn1">취소</button>
-        <input type="submit" class="btn btn-primary" id="btn2" value="등록">
+        <textarea class="content" name="content"placeholder="내용을 입력하세요." id="box2"></textarea>
+	<br>
+        <button onclick="location.href='${ pageContext.servletContext.contextPath }/notice/list'" class="btn" type="button" id="btn1">취소</button>
+        <button type="submit" class="btn" id="btn2">등록</button>
         
      
     </form>
     
 </div>   
 
-
-    
 
 </body>
 </html>

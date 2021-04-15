@@ -3,14 +3,14 @@
 <properties>
 
 	<entry key="selectTotalCount">
-    	SELECT
+    	SELECT /* com.sabang.findMyRoom.infoboard.model.dao.InfoBoardDAO#selectTotalCount() */
                COUNT(*)
           FROM TBL_INFO_BOARD A
          WHERE A.VIEW_YN = 'Y'
 	</entry>
 
 	<entry key="selectInfoBoardList">
-        SELECT 
+        SELECT /* com.sabang.findMyRoom.infoboard.model.dao.InfoBoardDAO#selectInfoBoardList() */
                A.RNUM
              , A.POST_NO
              , A.CATEGORY_NO
@@ -54,7 +54,7 @@
 	</entry>
 
 	<entry key="insertInfoBoard">
-        INSERT
+        INSERT /* com.sabang.findMyRoom.infoboard.model.dao.InfoBoardDAO#insertInfoBoard() */
           INTO TBL_INFO_BOARD A
          (
             A.POST_NO
@@ -75,7 +75,7 @@
          )
 	</entry>
 	<entry key="updateInfoBoard">
-        UPDATE 
+        UPDATE /* com.sabang.findMyRoom.infoboard.model.dao.InfoBoardDAO#updateInfoBoard() */
                TBL_INFO_BOARD A
            SET A.POST_TITLE = ?
      		 , A.POST_CONTENT = ?
@@ -83,7 +83,7 @@
            AND A.POST_NO = ?
 	</entry>
 	<entry key="deleteInfoBoard">
-        UPDATE 
+        UPDATE /* com.sabang.findMyRoom.infoboard.model.dao.InfoBoardDAO#deleteInfoBoard() */
 	           TBL_INFO_BOARD A
 	       SET A.VIEW_YN = 'N'
 	     WHERE A.VIEW_YN = 'Y'
@@ -91,7 +91,7 @@
 	</entry>
 	
 	<entry key="selectInfoBoardDetail">
-        SELECT
+        SELECT /* com.sabang.findMyRoom.infoboard.model.dao.InfoBoardDAO#selectInfoBoardDetail() */
                A.POST_NO
              , A.CATEGORY_NO
              , C.CATEGORY_NAME
@@ -108,7 +108,7 @@
 	</entry>
 
 	<entry key="incrementInfoBoardCount">
-	      UPDATE
+	      UPDATE /* com.sabang.findMyRoom.infoboard.model.dao.InfoBoardDAO#incrementInfoBoardCount() */
              TBL_INFO_BOARD A
          SET A.VIEW_NO = (SELECT B.VIEW_NO
                                    FROM TBL_INFO_BOARD B
@@ -116,9 +116,20 @@
                                 ) + 1
          WHERE A.POST_NO = ?
 	</entry>
+	
+	<entry key="selectCategoryViewCount">
+       	SELECT 
+               B.CATEGORY_NO
+             , B.CATEGORY_NAME
+             , SUM(A.VIEW_NO)
+       	  FROM TBL_INFO_BOARD A
+          JOIN TBL_INFO_CATEGORY B ON (A.CATEGORY_NO = B.CATEGORY_NO)
+      GROUP BY B.CATEGORY_NO, B.CATEGORY_NAME
+      ORDER BY B.CATEGORY_NO
+	</entry>
 
 	<entry key="searchCategoryInfoBoardCount">
-		SELECT 
+		SELECT /* com.sabang.findMyRoom.infoboard.model.dao.InfoBoardDAO#searchCategoryInfoBoardCount() */
                COUNT(*)
           FROM TBL_INFO_BOARD A
           JOIN TBL_INFO_CATEGORY B ON (A.CATEGORY_NO = B.CATEGORY_NO)
@@ -126,14 +137,14 @@
            AND B.CATEGORY_NAME LIKE '%' || ? || '%'
 	</entry>
 	<entry key="searchTitleInfoBoardCount">
-		SELECT 
+		SELECT /* com.sabang.findMyRoom.infoboard.model.dao.InfoBoardDAO#searchTitleInfoBoardCount() */
                COUNT(*)
           FROM TBL_INFO_BOARD A
          WHERE A.VIEW_YN = 'Y'
            AND A.POST_TITLE LIKE '%' || ? || '%'
 	</entry>
 	<entry key="searchContentInfoBoardCount">
-		SELECT 
+		SELECT /* com.sabang.findMyRoom.infoboard.model.dao.InfoBoardDAO#searchContentInfoBoardCount() */
                COUNT(*)
           FROM TBL_INFO_BOARD A
          WHERE A.VIEW_YN = 'Y'
@@ -142,7 +153,7 @@
 	
 	
 	<entry key="searchCategoryInfoBoard">
-        SELECT 
+        SELECT /* com.sabang.findMyRoom.infoboard.model.dao.InfoBoardDAO#searchCategoryInfoBoard() */
                A.RNUM
              , A.POST_NO
              , A.CATEGORY_NO
@@ -186,7 +197,7 @@
          WHERE A.RNUM BETWEEN ? AND ?
 	</entry>
 	<entry key="searchTitleInfoBoard">
-        SELECT 
+        SELECT /* com.sabang.findMyRoom.infoboard.model.dao.InfoBoardDAO#searchTitleInfoBoard() */
                A.RNUM
              , A.POST_NO
              , A.CATEGORY_NO
@@ -230,7 +241,7 @@
          WHERE A.RNUM BETWEEN ? AND ?
 	</entry>
 	<entry key="searchContentInfoBoard">
-        SELECT 
+        SELECT /* com.sabang.findMyRoom.infoboard.model.dao.InfoBoardDAO#searchContentInfoBoard() */
                A.RNUM
              , A.POST_NO
              , A.CATEGORY_NO

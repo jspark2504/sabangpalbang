@@ -8,13 +8,15 @@ public class CategoryDTO implements Serializable{
 	
 	private int no;
 	private String name;
+	private int viewNo;
 	
 	public CategoryDTO() {
 	}
 	
-	public CategoryDTO(int no, String name) {
+	public CategoryDTO(int no, String name, int viewNo) {
 		this.no = no;
 		this.name = name;
+		this.viewNo = viewNo;
 	}
 
 	public int getNo() {
@@ -33,10 +35,19 @@ public class CategoryDTO implements Serializable{
 		this.name = name;
 	}
 
+	public int getViewNo() {
+		return viewNo;
+	}
+
+	public void setViewNo(int viewNo) {
+		this.viewNo = viewNo;
+	}
+
 	@Override
 	public String toString() {
-		return "CategoryDTO [no=" + no + ", name=" + name + "]";
+		return "CategoryDTO [no=" + no + ", name=" + name + ", viewNo=" + viewNo + "]";
 	}
+	
 	
 	
 }

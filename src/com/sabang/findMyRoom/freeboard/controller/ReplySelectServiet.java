@@ -18,7 +18,7 @@ public class ReplySelectServiet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int boardNo = Integer.valueOf(request.getParameter("boardNo"));
 		
@@ -26,15 +26,16 @@ public class ReplySelectServiet extends HttpServlet {
 		
 		List<ReplyDTO> listReply = replyService.selectReply(boardNo);
 		
-		System.out.println(listReply);
+		System.out.println("서블릿에서 : " + listReply);
 		
 		response.setContentType("text/plain; charset=UTF-8");
 		
-		PrintWriter out = response.getWriter();
-		out.print(listReply);
-		
-		out.flush();
-		out.close();
+		String path = "";
+		if(!listReply.isEmpty()) {
+			path = "/WEB-INF/views/freeBoard/reply.jsp";
+			request.setAttribute("listReply", listReply);
+		}
+		request.getRequestDispatcher(path).forward(request, response);
 		
 	}
 
