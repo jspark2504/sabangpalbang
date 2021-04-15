@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.util.List;
 
 import com.sabang.findMyRoom.infoboard.model.dao.InfoBoardDAO;
+import com.sabang.findMyRoom.infoboard.model.dto.CategoryDTO;
 import com.sabang.findMyRoom.infoboard.model.dto.InfoBoardDTO;
 import com.sabang.findMyRoom.infoboard.model.dto.PageInfoDTO;
 
@@ -146,5 +147,15 @@ public class InfoBoardService {
 			return result;
 		}
 	   
+	   public List<CategoryDTO> selectCategoryViewCount(int no) {
+		      
+		   Connection con = getConnection();
+		 
+		   List<CategoryDTO> CategoryList = infoBoardDAO.selectCategoryViewCount(con, no);
+
+		   close(con);
+		      
+		   return CategoryList;
+	   }
 	
 }

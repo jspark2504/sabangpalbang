@@ -58,6 +58,7 @@
         <h1 class="text">정보게시판</h1>
 			<c:if test="${ sessionScope.loginMember.role eq 'ADMIN'}">
 				<button onclick="location.href='${ pageContext.servletContext.contextPath}/infoboard/insert'" class="btn pull-right">글쓰기</button>
+				<button onclick="location.href='${ pageContext.servletContext.contextPath}/chart/infoboard'" class="btn pull-right">통계보기</button>
 			</c:if>
       <table class="table table-striped table-hover">
 			<thead>

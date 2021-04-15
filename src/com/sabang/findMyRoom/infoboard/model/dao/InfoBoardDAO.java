@@ -230,9 +230,6 @@ public class InfoBoardDAO {
 		      
 		      return result;
 		   }
-
-		   
-		   
 		   
 		   
 		   /* 검색한 정보게시판 조회 카운트 */
@@ -334,8 +331,9 @@ public class InfoBoardDAO {
 		      
 		      return boardList;
 		   }
-
-			public int deleteInfoBoard(Connection con, int no) {
+		   
+		   /* 정보게시판 삭제 */    	
+		   public int deleteInfoBoard(Connection con, int no) {
 				
 				PreparedStatement pstmt = null;
 				
@@ -356,7 +354,42 @@ public class InfoBoardDAO {
 				
 				return result;
 			}
+		
+		
+		   /* 게시판 카테고리별 카운트 조회 */
+		   public List<CategoryDTO> selectCategoryViewCount(Connection con, int no) {
+			   
+			   PreparedStatement pstmt = null;
+			   ResultSet rset = null;
 
+			   List<CategoryDTO> categoryList = null;		
+			   categoryList = new ArrayList<>();
+			   String query = prop.getProperty("selectCategoryViewCount");
+			   
+			   try {
+					pstmt = con.prepareStatement(query);
+					rset = pstmt.executeQuery();
+					
+					while(rset.next()) {
+					CategoryDTO categoryChart = new CategoryDTO();
+					
+					categoryChart.setViewNo(rset.getInt("SUM(A.VIEW_NO)"));
+					categoryChart.setName(rset.getString("CATEGORY_NAME"));
+
+					categoryList.add(categoryChart);
+					
+					}
+			        
+			   } catch (SQLException e) {
+				   e.printStackTrace();
+			   } finally {
+				   close(pstmt);
+				   close(rset);
+			   }
+
+			   return categoryList;
+		   }
+		   
+		   
 }
-
 

@@ -29,7 +29,30 @@
 		<div align="center">
 			<canvas id="myChart" style="width: 500px; height: 400px;"></canvas>
 		</div>
-		<button align="center">클릭</button>
+	<form id="form" action="${ pageContext.servletContext.contextPath }/chart/infoboard" method="post">
+		<input type="hidden" name="no" value="${ requestScope.categoryChart.no }">
+	</form>
+      <table class="table table-striped table-hover">
+			<thead>
+		 		   <tr>
+		 		   	  <th style="text-align: right;">카테고리번호</th>
+					  <th style="text-align: left">카테고리이름</th>
+				      <th style="text-align: left;">카테고리별조회수</th>
+		           </tr>
+		    </thead>		
+			<tbody>
+           		 <c:forEach var="Chart" items="${ requestScope.categoryList }">
+	               <tr>
+	                  <td align="center"><c:out value="${ categoryChart.no }"/></td>
+	                  <td align="center"><c:out value="${ categoryChart.name }"/></td>
+	                  <td align="center"><c:out value="${ categoryChart.viewNo }"/></td>
+	               </tr>
+          		 </c:forEach>
+            </tbody>
+       </table>		
+
+
+
 	<jsp:include page="../common/footer.jsp" />
 
 <script>
