@@ -113,9 +113,9 @@
 		for(var i = 0 ; i < $tds.length ; i++) {
 			$tds[i].onmouseenter = function() {
 			this.parentNode.style.cursor = "pointer";
+			}
 		}
 	}
-} 
 </script>
 </body>
 </html>

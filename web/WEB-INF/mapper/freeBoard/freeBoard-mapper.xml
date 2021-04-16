@@ -258,7 +258,7 @@
 		   SEQ_REPLY_NO.NEXTVAL
 		 , ?
 		 , ?
-		 , SYSDATE
+		 , TO_CHAR(SYSDATE,'YYYY/MM/DD HH24:MI:SS')
 		 , ?
 		 )
          </entry>
