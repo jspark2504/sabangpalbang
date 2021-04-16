@@ -9,6 +9,6 @@
 <body>
 	<h1 align="center">${ requestScope.message }</h1>
 	
-	<button onclick="location.href='${ pageContext.servletContext.contextPath }/home'">홈으로 이동</button>
+	<button onclick="location.href='${ pageContext.servletContext.contextPath }'">홈으로 이동</button>
 </body>
 </html>
