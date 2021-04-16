@@ -1,6 +1,5 @@
-function showDetail() {
-	const no = $(this).find("#roomNo").val();
-	alert(no);
+function showDetail(roomNo) {
+	const no = $(roomNo).find("#roomNo").val();
 	$.ajax({
 		url: "/findMyRoom/room/detail",
 		type: "get",
@@ -22,9 +21,14 @@ function showDetail() {
 			const floor = data.floor;
 			const direction = data.direction;
 			const monthCost = data.monthCost;
-			const costInclude = data.costInclude;
+			const electricity = data.electricity;
+			const gas = data.gas;
+			const water = data.water;
+			const internet = data.internet;
+			const tv = data.tv;
 			const constructionDate = data.constructionDate;
 			const availableDate = data.availableDate;
+			const title = data.title;
 			const explanation = data.explanation;
 			const transportationInfo = data.transportationInfo;
 			const washingMachine = data.washingMachine;

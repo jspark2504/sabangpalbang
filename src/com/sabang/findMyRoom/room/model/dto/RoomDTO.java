@@ -25,6 +25,7 @@ public class RoomDTO implements java.io.Serializable {
 	private String tv;
 	private java.sql.Date constructionDate;
 	private String availableDate;
+	private String title;
 	private String explanation;
 	private String transportationInfo;
 	private String washingMachine;
@@ -42,7 +43,7 @@ public class RoomDTO implements java.io.Serializable {
 	public RoomDTO(int no, int price, String status, double area, String address, Date createDate,
 			RoomCategoryDTO category, OfficeDTO office, String floor, String direction, int monthCost,
 			String electricity, String gas, String water, String internet, String tv, Date constructionDate,
-			String availableDate, String explanation, String transportationInfo, String washingMachine,
+			String availableDate, String title, String explanation, String transportationInfo, String washingMachine,
 			String refrigerator, String airConditioner, String gasStove, String pet, String elevator, String parking,
 			int viewNo, List<RoomFileDTO> fileList) {
 		this.no = no;
@@ -63,6 +64,7 @@ public class RoomDTO implements java.io.Serializable {
 		this.tv = tv;
 		this.constructionDate = constructionDate;
 		this.availableDate = availableDate;
+		this.title = title;
 		this.explanation = explanation;
 		this.transportationInfo = transportationInfo;
 		this.washingMachine = washingMachine;
@@ -76,6 +78,12 @@ public class RoomDTO implements java.io.Serializable {
 		this.fileList = fileList;
 	}
 
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 	public int getNo() {
 		return no;
 	}

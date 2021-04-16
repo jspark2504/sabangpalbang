@@ -48,7 +48,7 @@
                 <hr>
                 <ul>
                 	<c:forEach var="room" items="${ requestScope.roomList }">
-                        <a href="#" onclick="showDetail();"> <!--  return false; -->
+                        <a href="#" onclick="showDetail(this);"> <!--  return false; -->
                             <li class="room">
                                 <figure class="img"><img src="image/city1.PNG" alt=""></figure>
                                 <div class="info">

@@ -67,6 +67,7 @@ CREATE TABLE TBL_USER (
   ENROLL_DATE DATE,
   USER_STATUS VARCHAR2(2),
   CONSTRAINT UK_U_USER_ID UNIQUE(USER_ID),
+  CONSTRAINT UK_U_NICKNAME UNIQUE(NICKNAME),
   CONSTRAINT UK_U_EMAIL UNIQUE(EMAIL),
   CONSTRAINT UK_U_PHONE UNIQUE(PHONE),
   CONSTRAINT CK_U_USER_ROLE CHECK(USER_ROLE IN ('MEMBER', 'OFFICE', 'ADMIN')),
@@ -134,7 +135,11 @@ COMMENT ON COLUMN TBL_ROOM_CATEGORY.CATEGORY_NO IS '카테고리번호';
 COMMENT ON COLUMN TBL_ROOM_CATEGORY.CATEGORY_NAME IS '카테고리이름';
 
 INSERT INTO TBL_ROOM_CATEGORY (CATEGORY_NO, CATEGORY_NAME) VALUES (1, '원룸');
+INSERT INTO TBL_ROOM_CATEGORY (CATEGORY_NO, CATEGORY_NAME) VALUES (2, '1.5룸');
+INSERT INTO TBL_ROOM_CATEGORY (CATEGORY_NO, CATEGORY_NAME) VALUES (3, '투룸');
+INSERT INTO TBL_ROOM_CATEGORY (CATEGORY_NO, CATEGORY_NAME) VALUES (4, '쓰리룸');
 
+COMMIT;
 
 ---------- 중개사무소 ----------
 CREATE TABLE TBL_OFFICE (
@@ -163,6 +168,8 @@ INSERT INTO TBL_OFFICE (OFFICE_NO, OFFICE_NAME, OFFICE_ADDR, OFFICE_PHONE, BUSIN
 VALUES (SEQ_OFFICE_NO.NEXTVAL, '402 공인중개사', '관악구 국회단지 29-11', '02-1234-5678', 9102034212346, 4, 12);
 INSERT INTO TBL_OFFICE (OFFICE_NO, OFFICE_NAME, OFFICE_ADDR, OFFICE_PHONE, BUSINESS_NO, OFFICE_RATING, USER_NO)
 VALUES (SEQ_OFFICE_NO.NEXTVAL, '짱조아 공인중개사', '관악구 국회단지 29-22', '02-1234-5012', 9102034234539, 5, 13);
+
+COMMIT;
 
 --------- 가입서류 ---------
 CREATE TABLE TBL_OFFICE_DOCUMENT (
@@ -199,9 +206,14 @@ CREATE TABLE TBL_ROOM(
   ROOM_FLOOR VARCHAR2(50) CONSTRAINT NN_RM_ROOM_FLOOR NOT NULL,
   DIRECTION VARCHAR2(50) CONSTRAINT NN_RM_DIRECTION NOT NULL,
   MONTH_COST NUMBER CONSTRAINT NN_RM_MONTH_COST NOT NULL,
-  COST_INCLUDE VARCHAR2(100),
+  ELECTRICITY_YN CHAR(1) CONSTRAINT NN_RM_ELECTRICITY_YN NOT NULL,
+  GAS_YN CHAR(1) CONSTRAINT NN_RM_GAS_YN NOT NULL,
+  WATER_YN CHAR(1) CONSTRAINT NN_RM_WATER_YN NOT NULL,
+  INTERNET_YN CHAR(1) CONSTRAINT NN_RM_INTERNET_YN NOT NULL,
+  TV_YN CHAR(1) CONSTRAINT NN_RM_TV_YN NOT NULL,
   CONSTRUCTION_DATE DATE CONSTRAINT NN_RM_CONSTRUCTION_DATE NOT NULL,
   AVAILABLE_DATE VARCHAR2(50) CONSTRAINT NN_RM_AVAILABLE_DATE NOT NULL,
+  ROOM_TITLE VARCHAR2(1000) CONSTRAINT NN_RM_ROOM_TITLE NOT NULL,
   ROOM_EXPLANATION VARCHAR2(4000) CONSTRAINT NN_RM_ROOM_EXPLANATION NOT NULL,
   TRANSPORTATION_INFO VARCHAR2(255) CONSTRAINT NN_RM_TRANSPORTATION_INFO NOT NULL,
   WASHING_MACHINE_YN CHAR(1) CONSTRAINT NN_RM_WASHING_MACHINE_YN NOT NULL,
@@ -214,6 +226,11 @@ CREATE TABLE TBL_ROOM(
   VIEW_NO NUMBER DEFAULT 0,
 
   CONSTRAINT CK_RM_ROOM_STATUS CHECK(ROOM_STATUS IN ('Y', 'N')),
+  CONSTRAINT CK_RM_ELECTRICITY_YN CHECK(ELECTRICITY_YN IN ('Y', 'N')),
+  CONSTRAINT CK_RM_GAS_YN CHECK(GAS_YN IN ('Y', 'N')),
+  CONSTRAINT CK_RM_WATER_YN CHECK(WATER_YN IN ('Y', 'N')),
+  CONSTRAINT CK_RM_INTERNET_YN CHECK(INTERNET_YN IN ('Y', 'N')),
+  CONSTRAINT CK_RM_TV_YN CHECK(TV_YN IN ('Y', 'N')),
   CONSTRAINT CK_RM_WASHING_MACHINE_YN CHECK(WASHING_MACHINE_YN IN ('Y', 'N')),
   CONSTRAINT CK_RM_REFRIGERATOR_YN CHECK(REFRIGERATOR_YN IN ('Y', 'N')),
   CONSTRAINT CK_RM_AIR_CONDITIONER_YN CHECK(AIR_CONDITIONER_YN IN ('Y', 'N')),
@@ -236,9 +253,14 @@ CREATE TABLE TBL_ROOM(
   COMMENT ON COLUMN TBL_ROOM.ROOM_FLOOR IS '층정보';
   COMMENT ON COLUMN TBL_ROOM.DIRECTION IS '방향';
   COMMENT ON COLUMN TBL_ROOM.MONTH_COST IS '월관리비';
-  COMMENT ON COLUMN TBL_ROOM.COST_INCLUDE IS '관리비포함항목';
+  COMMENT ON COLUMN TBL_ROOM.ELECTRICITY_YN IS '전기';
+  COMMENT ON COLUMN TBL_ROOM.GAS_YN IS '가스';
+  COMMENT ON COLUMN TBL_ROOM.WATER_YN IS '수도';
+  COMMENT ON COLUMN TBL_ROOM.INTERNET_YN IS '인터넷';
+  COMMENT ON COLUMN TBL_ROOM.TV_YN IS '티비';
   COMMENT ON COLUMN TBL_ROOM.CONSTRUCTION_DATE IS '준공날짜';
   COMMENT ON COLUMN TBL_ROOM.AVAILABLE_DATE IS '입주가능일';
+  COMMENT ON COLUMN TBL_ROOM.ROOM_TITLE IS '제목';
   COMMENT ON COLUMN TBL_ROOM.ROOM_EXPLANATION IS '매물상세설명';
   COMMENT ON COLUMN TBL_ROOM.TRANSPORTATION_INFO IS '교통정보';
   COMMENT ON COLUMN TBL_ROOM.WASHING_MACHINE_YN IS '세탁기';
@@ -250,33 +272,54 @@ CREATE TABLE TBL_ROOM(
   COMMENT ON COLUMN TBL_ROOM.PARKING_YN IS '주차가능여부';
   COMMENT ON COLUMN TBL_ROOM.VIEW_NO IS '조회수';
 
-INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE, CATEGORY_NO, OFFICE_NO, ROOM_FLOOR
-  , DIRECTION, MONTH_COST, COST_INCLUDE, CONSTRUCTION_DATE, AVAILABLE_DATE, ROOM_EXPLANATION
+INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE, CATEGORY_NO, OFFICE_NO, ROOM_FLOOR, DIRECTION
+  , MONTH_COST, ELECTRICITY_YN, GAS_YN, WATER_YN, INTERNET_YN, TV_YN, CONSTRUCTION_DATE, AVAILABLE_DATE, ROOM_TITLE
+  , ROOM_EXPLANATION
   , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
-VALUES (SEQ_ROOM_NO.NEXTVAL, 50000000, 22.15, '관악구 신림동 1537-1', TO_DATE('21/03/08', 'RR/MM/DD'), 1, 1, '4층/4층'
-  , '북향', 80000, '수도, 인터넷, 티비', TO_DATE('94/10/15', 'RR/MM/DD'), '즉시 입주',  '리모델링 분리형 원룸입니다. 양창문이라 환기가 잘되고 깔끔합니다.'
+VALUES (SEQ_ROOM_NO.NEXTVAL, 50000000, 22.15, '관악구 신림동 1537-1', TO_DATE('21/03/08', 'RR/MM/DD'), 1, 1, '4층/4층', '북향'
+  , 80000, 'N', 'N', 'Y', 'Y', 'Y', TO_DATE('94/10/15', 'RR/MM/DD'), '즉시 입주', '◼대학동 메인거리 ◼화이트톤 분리형 ◼︎즉시입주가능 ◼︎리모델링︎︎︎︎︎'
+  , '◼ 리모델링 분리형 원룸입니다.
+◼ 양창문이라 환기가 잘되고 깔끔합니다.
+◼ 침대까지 풀옵션들어갑니다.
+◼ 즉시입주 가능합니다.
+◼ 앞이 안막혀있어 채광이 좋습니다.
+◼ 대학동 모든학원들 가깝습니다 도보 3분안'
   , '근처 버스정류장 도보 3분', 'Y', 'Y', 'Y', 'Y', 'Y', 'N', 'N');
+
+COMMIT;
 
 --매물첨부파일--
 CREATE TABLE TBL_ROOM_FILE(
-  FILE_NO NUMBER,
   ROOM_NO NUMBER,
-  ORIGIN_NAME VARCHAR2(50),
-  SAVE_NAME VARCHAR2(100),
-  EXTENSION VARCHAR2(50),
-  CONTENT VARCHAR2(50),
-  SAVE_PATH VARCHAR2(100),
-  CONSTRAINT PK_FILE_NO_AND_ROOM_NO PRIMARY KEY (FILE_NO, ROOM_NO),
+  FILE_NO NUMBER,
+  ORIGIN_NAME VARCHAR2(255),
+  SAVE_NAME VARCHAR2(255),
+  SAVE_PATH VARCHAR2(1000),
+  THUMBNAIL_PATH VARCHAR2(255),
+  CONSTRAINT PK_ROOM_NO_AND_FILE_NO PRIMARY KEY (ROOM_NO, FILE_NO),
   CONSTRAINT FK_RF_ROOM_NO FOREIGN KEY (ROOM_NO) REFERENCES TBL_ROOM (ROOM_NO)
 );
-  COMMENT ON COLUMN TBL_ROOM_FILE.FILE_NO IS '파일번호';
   COMMENT ON COLUMN TBL_ROOM_FILE.ROOM_NO IS '매물코드';
+  COMMENT ON COLUMN TBL_ROOM_FILE.FILE_NO IS '파일번호';
   COMMENT ON COLUMN TBL_ROOM_FILE.ORIGIN_NAME IS '원본파일명';
   COMMENT ON COLUMN TBL_ROOM_FILE.SAVE_NAME IS '저장파일명';
-  COMMENT ON COLUMN TBL_ROOM_FILE.EXTENSION IS '파일확장자';
-  COMMENT ON COLUMN TBL_ROOM_FILE.CONTENT IS '파일내용';
   COMMENT ON COLUMN TBL_ROOM_FILE.SAVE_PATH IS '저장경로';
+  COMMENT ON COLUMN TBL_ROOM_FILE.THUMBNAIL_PATH IS '썸네일저장경로';
 
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (1, 1, 'room1file1', 'room1file1', '/resources/upload/room/original/room1file1', '/resources/upload/room/thumbnail/room1file1');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (1, 2, 'room1file2', 'room1file2', '/resources/upload/room/original/room1file2', '/resources/upload/room/thumbnail/room1file2');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (1, 3, 'room1file3', 'room1file3', '/resources/upload/room/original/room1file3', '/resources/upload/room/thumbnail/room1file3');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (1, 4, 'room1file4', 'room1file4', '/resources/upload/room/original/room1file4', '/resources/upload/room/thumbnail/room1file4');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (1, 5, 'room1file5', 'room1file5', '/resources/upload/room/original/room1file5', '/resources/upload/room/thumbnail/room1file5');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (1, 6, 'room1file6', 'room1file6', '/resources/upload/room/original/room1file6', '/resources/upload/room/thumbnail/room1file6');
+
+COMMIT;
 
 ---------- 서류보관 ----------
 CREATE TABLE TBL_USER_DOCUMENT (
@@ -564,37 +607,37 @@ COMMENT ON COLUMN TBL_NOTICE.NOTICE_STATUS_YN IS '공지상태';
 
 INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
       VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 개인정보처리방침 개정 안내',
-      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다. 
-      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다. 
-      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.', 
-      SYSDATE, 1, 'Y'); 
-      
+      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다.
+      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다.
+      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.',
+      SYSDATE, 1, 'Y');
+
 INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
       VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 서비스 이용약관 개정 안내',
-      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다. 
-      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다. 
-      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.', 
+      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다.
+      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다.
+      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.',
       SYSDATE, 2, 'Y');
 
 INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
       VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 개인정보처리방침 개정 안내',
-      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다. 
-      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다. 
-      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.', 
-      SYSDATE, 3, 'Y');      
-      
+      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다.
+      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다.
+      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.',
+      SYSDATE, 3, 'Y');
+
 INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
       VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 개인정보처리방침 개정 안내',
-      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다. 
-      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다. 
-      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.', 
-      SYSDATE, 4, 'Y');  
-      
+      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다.
+      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다.
+      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.',
+      SYSDATE, 4, 'Y');
+
 INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
       VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 개인정보처리방침 개정 안내',
-      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다. 
-      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다. 
-      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.', 
+      '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다.
+      개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다.
+      ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.',
       SYSDATE, 5, 'Y');
 
 

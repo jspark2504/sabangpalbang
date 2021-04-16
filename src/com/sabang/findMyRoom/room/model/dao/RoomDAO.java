@@ -18,6 +18,7 @@ import com.sabang.findMyRoom.member.model.dto.MemberDTO;
 import com.sabang.findMyRoom.room.model.dto.OfficeDTO;
 import com.sabang.findMyRoom.room.model.dto.RoomCategoryDTO;
 import com.sabang.findMyRoom.room.model.dto.RoomDTO;
+import com.sabang.findMyRoom.room.model.dto.RoomFileDTO;
 
 public class RoomDAO {
 
@@ -116,11 +117,11 @@ public class RoomDAO {
 			RoomCategoryDTO category = new RoomCategoryDTO();
 			OfficeDTO office = new OfficeDTO();
 			MemberDTO agent = new MemberDTO();
-//			List<RoomFileDTO> fileList = new ArrayList<>();
+			List<RoomFileDTO> fileList = new ArrayList<>();
 
 			while(rset.next()) {
 
-//				RoomFileDTO file = new RoomFileDTO();
+				RoomFileDTO file = new RoomFileDTO();
 
 				roomDetail.setNo(rset.getInt("ROOM_NO"));
 				roomDetail.setPrice(rset.getInt("ROOM_PRICE"));
@@ -139,9 +140,14 @@ public class RoomDAO {
 				roomDetail.setFloor(rset.getString("ROOM_FLOOR"));
 				roomDetail.setDirection(rset.getString("DIRECTION"));
 				roomDetail.setMonthCost(rset.getInt("MONTH_COST"));
-				roomDetail.setCostInclude(rset.getString("COST_INCLUDE"));
+				roomDetail.setElectricity(rset.getString("ELECTRICITY_YN"));
+				roomDetail.setGas(rset.getString("GAS_YN"));
+				roomDetail.setWater(rset.getString("WATER_YN"));
+				roomDetail.setInternet(rset.getString("INTERNET_YN"));
+				roomDetail.setTv(rset.getString("TV_YN"));
 				roomDetail.setConstructionDate(rset.getDate("CONSTRUCTION_DATE"));
 				roomDetail.setAvailableDate(rset.getString("AVAILABLE_DATE"));
+				roomDetail.setTitle(rset.getString("ROOM_TITLE"));
 				roomDetail.setExplanation(rset.getString("ROOM_EXPLANATION"));
 				roomDetail.setTransportationInfo(rset.getString("TRANSPORTATION_INFO"));
 				roomDetail.setWashingMachine(rset.getString("WASHING_MACHINE_YN"));
@@ -152,18 +158,18 @@ public class RoomDAO {
 				roomDetail.setElevator(rset.getString("ELEVATOR_YN"));
 				roomDetail.setParking(rset.getString("PARKING_YN"));
 				roomDetail.setViewNo(rset.getInt("VIEW_NO"));
-//				file.setNo(rset.getInt("FILE_NO"));
-//				file.setOriginName(rset.getString("ORIGIN_NAME"));
-//				file.setSaveName(rset.getString("SAVE_NAME"));
-//				file.setSavePath(rset.getString("SAVE_PATH"));
-//				file.setThumbnailPath(rset.getString("THUMBNAIL_PATH"));
+				file.setNo(rset.getInt("FILE_NO"));
+				file.setOriginName(rset.getString("ORIGIN_NAME"));
+				file.setSaveName(rset.getString("SAVE_NAME"));
+				file.setSavePath(rset.getString("SAVE_PATH"));
+				file.setThumbnailPath(rset.getString("THUMBNAIL_PATH"));
 
-//				fileList.add(file);
+				fileList.add(file);
 			}
 			roomDetail.setCategory(category);
 			roomDetail.setOffice(office);
 			office.setAgent(agent);
-//			roomDetail.setFileList(fileList);
+			roomDetail.setFileList(fileList);
 
 		} catch (SQLException e) {
 			e.printStackTrace();

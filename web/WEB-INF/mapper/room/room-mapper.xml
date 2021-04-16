@@ -41,9 +41,14 @@
              , A.ROOM_FLOOR
              , A.DIRECTION
              , A.MONTH_COST
-             , A.COST_INCLUDE
+             , A.ELECTRICITY_YN
+             , A.GAS_YN
+             , A.WATER_YN
+             , A.INTERNET_YN
+             , A.TV_YN
              , A.CONSTRUCTION_DATE
              , A.AVAILABLE_DATE
+             , A.ROOM_TITLE
              , A.ROOM_EXPLANATION
              , A.TRANSPORTATION_INFO
              , A.WASHING_MACHINE_YN
@@ -54,16 +59,16 @@
              , A.ELEVATOR_YN
              , A.PARKING_YN
              , A.VIEW_NO
-          /*   , E.FILE_NO */
-          /*   , E.ORIGIN_NAME */
-          /*   , E.SAVE_NAME */
-          /*   , E.SAVE_PATH */
-          /*   , E.THUMBNAIL_PATH */
+             , E.FILE_NO
+             , E.ORIGIN_NAME
+             , E.SAVE_NAME
+             , E.SAVE_PATH
+             , E.THUMBNAIL_PATH
           FROM TBL_ROOM A
           JOIN TBL_ROOM_CATEGORY B ON (A.CATEGORY_NO = B.CATEGORY_NO)
           JOIN TBL_OFFICE C ON (A.OFFICE_NO = C.OFFICE_NO)
           JOIN TBL_USER D ON (C.USER_NO = D.USER_NO)
-       /*   JOIN TBL_ROOM_FILE E ON (A.ROOM_NO = E.ROOM_NO) */
+          JOIN TBL_ROOM_FILE E ON (A.ROOM_NO = E.ROOM_NO)
          WHERE A.ROOM_NO = ?
            AND D.USER_STATUS = 'Y'
     </entry>
