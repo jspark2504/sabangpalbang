@@ -86,11 +86,23 @@
           </div>
           <!-- 주소 -->
           <div class="form-group">
-            <label for="address" class="col-lg-2 control-label">주소</label>
+            <label class="col-lg-2 control-label">주소</label>
             <div class="col-lg-10">
-              <div class="col-xs-12">
-                <input type="text" class="form-control" name="address">
+              <div class="col-xs-10">
+                <input type="text" id="address" class="form-control" name="address">
               </div>
+              <div class="col-xs-2 unit">
+                <button type="button" class="btn searchBtn" onclick="search();">검색</button>
+              </div>
+            </div>
+          </div>
+          <!-- 다음 지도 API -->
+          <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+          <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=24e099130b03e272c1eb2889137042a1&libraries=services"></script>
+          <!-- 지도 -->
+          <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+              <div id="map" class="map"></div>
             </div>
           </div>
           <!-- 구조 -->
@@ -107,6 +119,9 @@
               </div>
             </div>
           </div>
+        </article><!-- 왼쪽 입력 폼 end -->
+        <!-- 오른쪽 입력 폼 -->
+        <article class="col-sm-6">
           <!-- 층 정보 -->
           <div class="form-group">
             <label for="roomFloor" class="col-lg-2 control-label">층 정보</label>
@@ -131,9 +146,6 @@
               </div>
             </div>
           </div>
-        </article><!-- 왼쪽 입력 폼 end -->
-        <!-- 오른쪽 입력 폼 -->
-        <article class="col-sm-6">
           <!-- 관리비 -->
           <div class="form-group">
             <label for="monthCost" class="col-lg-2 control-label">관리비</label>
@@ -241,15 +253,25 @@
             </div>
           </div>
         </article>
+        <!-- 한 줄 소개 -->
+        <article class="form-group">
+          <label for="" class="col-lg-1 control-label title">한 줄 소개</label>
+          <div class="col-lg-11">
+            <div class="col-xs-12">
+              <input name="title" class="form-control" placeholder="간략한 설명을 적어주세요."></input>
+            </div>
+          </div>
+        </article>
         <!-- 상세 설명 -->
         <article class="form-group">
           <label for="" class="col-lg-1 control-label title">상세 설명</label>
           <div class="col-lg-11">
             <div class="col-xs-12">
-              <textarea name="explanation" class="form-control" rows="5" placeholder="매물에 대해 소개하고 싶은 내용을 자유롭게 적어주세요."></textarea>
+              <textarea name="explanation" class="form-control" rows="5" placeholder="소개하고 싶은 내용을 자유롭게 적어주세요."></textarea>
             </div>
           </div>
         </article>
+
       </section><!-- 한 줄짜리 영역 end -->
 
       <!-- 등록 버튼 -->
@@ -265,6 +287,7 @@
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="/findMyRoom/resources/js/roomInsertForm.js"></script>
+
 </body>
 
 </html>

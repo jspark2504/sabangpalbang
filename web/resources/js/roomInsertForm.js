@@ -63,3 +63,50 @@ function removeFile(btn) {
 
 /* keyup 이벤트 */
 
+
+/* 주소 검색 api */
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+    mapOption = {
+        center: new daum.maps.LatLng(37.47837, 126.95149), // 지도의 중심좌표
+        level: 5 // 지도의 확대 레벨
+    };
+
+//지도를 미리 생성
+var map = new kakao.maps.Map(mapContainer, mapOption);
+//주소-좌표 변환 객체를 생성
+var geocoder = new daum.maps.services.Geocoder();
+//마커를 미리 생성
+var marker = new daum.maps.Marker({
+    position: new daum.maps.LatLng(37.47837, 126.95149),
+    map: map
+});
+
+
+function search() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+            var addr = data.jibunAddress;	// 지번 주소 가져오기
+
+            document.getElementById("address").value = addr;	// 가져온 주소를 input태그에 넣기
+            // 주소로 상세 정보를 검색
+            geocoder.addressSearch(addr, function(results, status) {
+                // 정상적으로 검색이 완료됐으면
+                if (status === daum.maps.services.Status.OK) {
+
+                    var result = results[0]; //첫번째 결과의 값을 활용
+
+                    // 해당 주소에 대한 좌표를 받아서
+                    var coords = new daum.maps.LatLng(result.y, result.x);
+                    // 지도를 보여준다.
+                    mapContainer.style.display = "block";
+                    map.relayout();
+                    // 지도 중심을 변경한다.
+                    map.setCenter(coords);
+                    // 마커를 결과값으로 받은 위치로 옮긴다.
+                    marker.setPosition(coords)
+                }
+            });
+        }
+    }).open();
+}
+

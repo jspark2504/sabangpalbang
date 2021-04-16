@@ -26,7 +26,7 @@
 /* 사진 표시 영역 */
 .file figure {
     display: flex;
-    overflow: scroll;
+    overflow-x: scroll;
     margin: 10px auto 50px auto;
     width: 93%;
     height: 150px;
@@ -48,6 +48,7 @@
 .file figure .add-img-btn {
     border: 1px solid rgb(77, 77, 77);
     cursor: pointer;
+    position: sticky;
 }
 
 /* 사진 추가 버튼 영역의 내용 */
@@ -138,6 +139,29 @@
     padding: 0;
 }
 
+/* 주소 검색 버튼 */
+.searchBtn {
+    width: 60px;
+    height: 40px;
+    background-color: #ffd233;
+    color: white;
+}
+
+/* 주소 검색 버튼 focus 효과 제거 */
+.searchBtn:focus {
+    outline: none;
+}
+
+.searchBtn:hover {
+    box-shadow: 0px 0px 3px #bda343;
+}
+
+/* 지도 */
+.map {
+    height: 230px;
+    margin: 0 15px 20px 15px;
+}
+
 /* 층 정보의 '/' */
 .form-group .slash {
     font-size: 30px;
@@ -188,4 +212,12 @@
     /* color: black; */
     background-color: #ffd233;
     color: white;
+}
+
+.okbtn:focus {
+  outline: none;
+}
+
+.okbtn:hover {
+    box-shadow: 0px 0px 5px #bda343;
 }
