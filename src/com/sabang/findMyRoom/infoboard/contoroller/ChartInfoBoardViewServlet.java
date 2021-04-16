@@ -18,34 +18,20 @@ public class ChartInfoBoardViewServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String path =  "/WEB-INF/views/admin/chart.jsp";
-        request.getRequestDispatcher(path).forward(request, response);
+		List<CategoryDTO> categoryChart = new InfoBoardService().selectCategoryViewCount();
         
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		int no = Integer.valueOf(request.getParameter("no"));
+//		for(CategoryDTO categoryCharts : categoryChart) {
+//			System.out.println(categoryCharts);
+//			request.setAttribute("categoryList", categoryCharts);
+//		}
 		
-		System.out.println(no);
-		
-		InfoBoardService boardService = new InfoBoardService();
-		
-		List<CategoryDTO> categoryChart = boardService.selectCategoryViewCount(no);
-		
-		System.out.println(categoryChart);
-		
-	      String path = "";
-	      if(!(categoryChart == null)) {
-	         path = "/WEB-INF/views/admin/chart.jsp";
-	         request.setAttribute("categoryChart", categoryChart);
-	      } else {
-	         path = "/WEB-INF/views/common/failed.jsp";
-	         request.setAttribute("message", "통계 조회 실패!");
-	      }
-		
+		request.setAttribute("categoryList1", categoryChart.get(0));
+		request.setAttribute("categoryList2", categoryChart.get(1));
+		request.setAttribute("categoryList3", categoryChart.get(2));
+		String path =  "/WEB-INF/views/admin/chart.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
-	
+
+
 	}
 
 }

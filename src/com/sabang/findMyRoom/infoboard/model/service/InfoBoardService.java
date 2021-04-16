@@ -147,11 +147,12 @@ public class InfoBoardService {
 			return result;
 		}
 	   
-	   public List<CategoryDTO> selectCategoryViewCount(int no) {
+	   /* 카테고리별 조회수 목록 */
+	   public List<CategoryDTO> selectCategoryViewCount() {
 		      
 		   Connection con = getConnection();
 		 
-		   List<CategoryDTO> CategoryList = infoBoardDAO.selectCategoryViewCount(con, no);
+		   List<CategoryDTO> CategoryList = infoBoardDAO.selectCategoryViewCount(con);
 
 		   close(con);
 		      

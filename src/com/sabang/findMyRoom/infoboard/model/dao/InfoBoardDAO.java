@@ -357,33 +357,35 @@ public class InfoBoardDAO {
 		
 		
 		   /* 게시판 카테고리별 카운트 조회 */
-		   public List<CategoryDTO> selectCategoryViewCount(Connection con, int no) {
+		   public List<CategoryDTO> selectCategoryViewCount(Connection con) {
 			   
-			   PreparedStatement pstmt = null;
+			   Statement stmt = null;
 			   ResultSet rset = null;
 
 			   List<CategoryDTO> categoryList = null;		
-			   categoryList = new ArrayList<>();
+
 			   String query = prop.getProperty("selectCategoryViewCount");
 			   
 			   try {
-					pstmt = con.prepareStatement(query);
-					rset = pstmt.executeQuery();
-					
-					while(rset.next()) {
-					CategoryDTO categoryChart = new CategoryDTO();
-					
-					categoryChart.setViewNo(rset.getInt("SUM(A.VIEW_NO)"));
-					categoryChart.setName(rset.getString("CATEGORY_NAME"));
+					stmt = con.createStatement();
+					rset = stmt.executeQuery(query);
+					categoryList = new ArrayList<>();
 
-					categoryList.add(categoryChart);
-					
+					while(rset.next()) {
+						
+						CategoryDTO categoryChart = new CategoryDTO();
+						
+						categoryChart.setNo(rset.getInt("CATEGORY_NO"));
+						categoryChart.setName(rset.getString("CATEGORY_NAME"));
+						categoryChart.setViewNo(rset.getInt("SUM(A.VIEW_NO)"));
+	
+						categoryList.add(categoryChart);
 					}
 			        
 			   } catch (SQLException e) {
 				   e.printStackTrace();
 			   } finally {
-				   close(pstmt);
+				   close(stmt);
 				   close(rset);
 			   }
 
