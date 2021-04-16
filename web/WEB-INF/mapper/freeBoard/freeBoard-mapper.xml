@@ -44,7 +44,7 @@
          WHERE A.RNUM BETWEEN ? AND ?		
 	</entry>
 	<entry key="insertBoard">
-		INSERT
+		INSERT	/* com.sabang.findMyRoom.freeBoard.model.dao.BoardDAO#insertBoard() */
 		  INTO TBL_FREE_BOARD A
 		(
 		  A.POST_NO
@@ -85,20 +85,20 @@
 		 WHERE A.POST_NO = ?
 	</entry>
 	<entry key="updateBoard">
-		UPDATE
+		UPDATE	/* com.sabang.findMyRoom.freeBoard.model.dao.BoardDAO#updateBoard() */
 		       TBL_FREE_BOARD A
 		   SET A.POST_TITLE = ?
 		     , A.POST_CONTENT = ?
 		 WHERE A.POST_NO = ?
 	</entry>
 	<entry key="deleteBoard">
-		UPDATE
+		UPDATE	/* com.sabang.findMyRoom.freeBoard.model.dao.BoardDAO#deleteBoard() */
 		       TBL_FREE_BOARD A
 		   SET A.VIEW_YN = 'N'
 		 WHERE A.POST_NO = ?
 	</entry>
 	<entry key="searchWriterBoardCount">
-	    SELECT
+	    SELECT	/* com.sabang.findMyRoom.freeBoard.model.dao.BoardDAO#searchWriterBoardCount() */
 	           COUNT(*)
 	      FROM TBL_FREE_BOARD A
 	      JOIN TBL_USER B ON (A.USER_NO = B.USER_NO)
@@ -106,58 +106,58 @@
 	       AND B.NICKNAME LIKE '%' || ? || '%'
 	</entry>
 	<entry key="searchTitleBoardCount">
-	    SELECT
+	    SELECT	/* com.sabang.findMyRoom.freeBoard.model.dao.BoardDAO#searchTitleBoardCount() */
 	           COUNT(*)
 	      FROM TBL_FREE_BOARD A
 	     WHERE A.VIEW_YN = 'Y'
 	       AND A.POST_TITLE LIKE '%' || ? || '%'
 	</entry>
 	<entry key="searchBodyBoardCount">
-	    SELECT
+	    SELECT	/* com.sabang.findMyRoom.freeBoard.model.dao.BoardDAO#searchBodyBoardCount() */
 	           COUNT(*)
 	      FROM TBL_FREE_BOARD A
 	     WHERE A.VIEW_YN = 'Y'
 	       AND A.POST_CONTENT LIKE '%' || ? || '%'
 	</entry>
 	<entry key="searchWriterBoard">
-	 	SELECT 	/* com.sabang.findMyRoom.freeBoard.model.dao.BoardDAO#searchBoardList() */
-	              A.RNUM
-	             , A.POST_NO
-	             , A.POST_TITLE
-	             , A.POST_CONTENT
-	             , A.USER_NO
-	             , A.NICKNAME
-	             , A.VIEW_NO
-	             , A.CREATION_DATE
-	             , A.VIEW_YN
-	          FROM (SELECT ROWNUM RNUM
-	                     , B.POST_NO
-			             , B.POST_TITLE
-			             , B.POST_CONTENT
-			             , B.USER_NO
-			             , B.NICKNAME
-			             , B.VIEW_NO
-			             , B.CREATION_DATE
-			             , B.VIEW_YN
-	                  FROM (SELECT  C.POST_NO
-						          , C.POST_TITLE
-						          , C.POST_CONTENT
-						          , C.USER_NO
-						          , E.NICKNAME
-						          , C.VIEW_NO
-						          , C.CREATION_DATE
-						          , C.VIEW_YN
-	                         FROM TBL_FREE_BOARD C
-	                         JOIN TBL_USER E ON(C.USER_NO = E.USER_NO)
-	                        WHERE C.VIEW_YN = 'Y'
-	                        ORDER BY C.POST_NO DESC
+	 	SELECT 	/* com.sabang.findMyRoom.freeBoard.model.dao.BoardDAO#searchWriterBoard() */
+	    	   A.RNUM
+	         , A.POST_NO
+	         , A.POST_TITLE
+	         , A.POST_CONTENT
+	         , A.USER_NO
+	         , A.NICKNAME
+	         , A.VIEW_NO
+	         , A.CREATION_DATE
+	         , A.VIEW_YN
+	      FROM (SELECT ROWNUM RNUM
+	                 , B.POST_NO
+			         , B.POST_TITLE
+			         , B.POST_CONTENT
+			         , B.USER_NO
+			         , B.NICKNAME
+			         , B.VIEW_NO
+			         , B.CREATION_DATE
+			         , B.VIEW_YN
+	              FROM (SELECT C.POST_NO
+						     , C.POST_TITLE
+						     , C.POST_CONTENT
+						     , C.USER_NO
+						     , E.NICKNAME
+						     , C.VIEW_NO
+						     , C.CREATION_DATE
+						     , C.VIEW_YN
+	                      FROM TBL_FREE_BOARD C
+	                      JOIN TBL_USER E ON(C.USER_NO = E.USER_NO)
+	                     WHERE C.VIEW_YN = 'Y'
+	                     ORDER BY C.POST_NO DESC
                         ) B
-                  WHERE B.NICKNAME LIKE '%' || ? || '%'
-               ) A
+                 WHERE B.NICKNAME LIKE '%' || ? || '%'
+                ) A
          WHERE A.RNUM BETWEEN ? AND ?
 	</entry>
 	<entry key="searchTitleBoard">
-	   SELECT 	/* com.sabang.findMyRoom.freeBoard.model.dao.BoardDAO#searchBoardList() */
+	   SELECT 	/* com.sabang.findMyRoom.freeBoard.model.dao.BoardDAO#searchTitleBoard() */
 	              A.RNUM
 	             , A.POST_NO
 	             , A.POST_TITLE
@@ -194,7 +194,7 @@
          WHERE A.RNUM BETWEEN ? AND ?
 	</entry>
 	<entry key="searchBodyBoard">
-	    SELECT 	/* com.sabang.findMyRoom.freeBoard.model.dao.BoardDAO#searchBoardList() */
+	    SELECT 	/* com.sabang.findMyRoom.freeBoard.model.dao.BoardDAO#searchBodyBoard() */
 	              A.RNUM
 	             , A.POST_NO
 	             , A.POST_TITLE
@@ -245,7 +245,7 @@
 	           AND A.POST_NO = ?			
          </entry>
          <entry key="insertReply">
-         INSERT 
+         	INSERT	/* com.sabang.findMyRoom.freeBoard.model.dao.ReplyDAO#insertReply() */
            INTO TBL_REPLY A
          (
            A.REPLY_NO
@@ -263,7 +263,7 @@
 		 )
          </entry>
          <entry key="deleteReply">
-         	UPDATE
+         	UPDATE	/* com.sabang.findMyRoom.freeBoard.model.dao.ReplyDAO#deleteReply() */
 			       TBL_REPLY A
 			   SET A.VIEW_YN = 'N'
 			 WHERE A.REPLY_NO = ?

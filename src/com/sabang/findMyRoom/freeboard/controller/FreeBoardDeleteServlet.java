@@ -18,8 +18,6 @@ public class FreeBoardDeleteServlet extends HttpServlet {
 
 		int no = Integer.valueOf(request.getParameter("freeBoardNo"));
 		
-		System.out.println(no);
-		
 		int result = new FreeBoardService().deleteBoard(no);
 		
 		String page = "";

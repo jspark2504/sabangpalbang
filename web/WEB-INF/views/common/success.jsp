@@ -51,6 +51,10 @@
 					successMessage = "자유게시판 게시물 수정 성공!";
 					movePath = "${ pageContext.servletContext.contextPath }/freeboard/list";
 					break;
+				case "insertDocument" :
+					successMessage = "서류 등록 성공!";
+					movePath = "${ pageContext.servletContext.contextPath }/document/list";
+					break;
 			}
 			
 			alert(successMessage);

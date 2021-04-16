@@ -95,8 +95,26 @@
 		  FROM TBL_USER A	
 		 WHERE  A.EMAIL = ?	
 	</entry>
-	<entry key="">
-
+	<entry key="insertDocument">
+		INSERT
+		  INTO TBL_USER_DOCUMENT A
+		(
+		  A.FILE_NO
+		, A.USER_NO
+		, A.ORIGIN_NAME
+		, A.SAVE_NAME
+		, A.SAVE_PATH
+		, A.THUMBNAIL_PATH
+		)
+		VALUES
+		(
+		  SEQ_FILE_NO.NEXTVAL
+		, ?
+		, ?
+		, ?
+		, ?
+		, ?
+		)
 	</entry>
 
 </properties>

@@ -1,11 +1,16 @@
 package com.sabang.findMyRoom.freeboard.model.dto;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 import com.sabang.findMyRoom.member.model.dto.MemberDTO;
 
-public class ReplyDTO {
+public class ReplyDTO implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -9045872602324627692L;
 	private int no;
 	private int postNo;
 	private int userNo;
@@ -83,6 +88,10 @@ public class ReplyDTO {
 
 	public void setViewYn(String viewYn) {
 		this.viewYn = viewYn;
+	}
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	@Override

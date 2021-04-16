@@ -26,8 +26,6 @@ public class ReplySelectServiet extends HttpServlet {
 		
 		List<ReplyDTO> listReply = replyService.selectReply(boardNo);
 		
-		System.out.println("서블릿에서 : " + listReply);
-		
 		response.setContentType("text/plain; charset=UTF-8");
 		
 		String path = "";

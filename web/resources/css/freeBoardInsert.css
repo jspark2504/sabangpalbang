@@ -35,6 +35,10 @@ body {
   .content:focus{
   	outline:none;
   }
+  div .content2{
+  	width:700px;
+  	height:400px;
+  }
   .post{
       width: 65px;
       height: 40px;

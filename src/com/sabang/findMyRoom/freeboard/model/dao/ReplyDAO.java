@@ -84,7 +84,6 @@ private final Properties prop;
 				reply.setCreateDate(rset.getDate("CREATION_DATE"));
 				
 				listReply.add(reply);
-				System.out.println("dao" + listReply);
 				
 			}
 		} catch (SQLException e) {
@@ -94,9 +93,6 @@ private final Properties prop;
 			close(rset);
 			close(pstmt);
 		}
-		
-		
-		
 		
 		return listReply;
 	}
