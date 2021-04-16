@@ -20,7 +20,7 @@ public class RoomSelectListServlet extends HttpServlet {
 
 		List<RoomDTO> roomList = new RoomService().selectAllRoomList();
 
-		System.out.println(roomList);
+//		System.out.println(roomList);
 
 		String path = "";
 		if(!roomList.isEmpty()) {

@@ -51,14 +51,23 @@ public class RoomDAO {
 			roomList = new ArrayList<>();
 
 			while(rset.next()) {
-
 				RoomDTO room = new RoomDTO();
+				RoomFileDTO file = new RoomFileDTO();
+
 				room.setNo(rset.getInt("ROOM_NO"));
 				room.setPrice(rset.getInt("ROOM_PRICE"));
 				room.setArea(rset.getDouble("EXCLUSIVE_AREA"));
 				room.setAddress(rset.getString("ADDRESS"));
 				room.setFloor(rset.getString("ROOM_FLOOR"));
-				room.setExplanation(rset.getString("ROOM_EXPLANATION"));
+				room.setTitle(rset.getString("ROOM_TITLE"));
+
+				file.setNo(1);
+				file.setThumbnailPath(rset.getString("THUMBNAIL_PATH"));
+
+				List<RoomFileDTO> fileList = new ArrayList<>();
+				fileList.add(file);
+
+				room.setFileList(fileList);
 
 				roomList.add(room);
 			}

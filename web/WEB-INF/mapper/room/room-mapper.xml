@@ -8,9 +8,12 @@
 		     , A.EXCLUSIVE_AREA
 		     , A.ADDRESS
 		     , A.ROOM_FLOOR
-		     , A.ROOM_EXPLANATION
+		     , A.ROOM_TITLE
+             , B.THUMBNAIL_PATH
 		  FROM TBL_ROOM A
+          JOIN TBL_ROOM_FILE B ON (A.ROOM_NO = B.ROOM_NO)
 		 WHERE A.ROOM_STATUS = 'Y'
+           AND B.FILE_NO = 1
 		 ORDER BY A.ROOM_NO DESC
 	</entry>
     <entry key="incrementRoomCount">

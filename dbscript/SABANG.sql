@@ -307,17 +307,17 @@ CREATE TABLE TBL_ROOM_FILE(
   COMMENT ON COLUMN TBL_ROOM_FILE.THUMBNAIL_PATH IS '썸네일저장경로';
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (1, 1, 'room1file1', 'room1file1', '/resources/upload/room/original/room1file1', '/resources/upload/room/thumbnail/room1file1');
+VALUES (1, 1, 'room1file1.png', 'room1file1.png', '/resources/upload/room/original/room1file1.png', '/resources/upload/room/thumbnail/room1file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (1, 2, 'room1file2', 'room1file2', '/resources/upload/room/original/room1file2', '/resources/upload/room/thumbnail/room1file2');
+VALUES (1, 2, 'room1file2.png', 'room1file2.png', '/resources/upload/room/original/room1file2.png', '/resources/upload/room/thumbnail/room1file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (1, 3, 'room1file3', 'room1file3', '/resources/upload/room/original/room1file3', '/resources/upload/room/thumbnail/room1file3');
+VALUES (1, 3, 'room1file3.png', 'room1file3.png', '/resources/upload/room/original/room1file3.png', '/resources/upload/room/thumbnail/room1file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (1, 4, 'room1file4', 'room1file4', '/resources/upload/room/original/room1file4', '/resources/upload/room/thumbnail/room1file4');
+VALUES (1, 4, 'room1file4.png', 'room1file4.png', '/resources/upload/room/original/room1file4.png', '/resources/upload/room/thumbnail/room1file4.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (1, 5, 'room1file5', 'room1file5', '/resources/upload/room/original/room1file5', '/resources/upload/room/thumbnail/room1file5');
+VALUES (1, 5, 'room1file5.png', 'room1file5.png', '/resources/upload/room/original/room1file5.png', '/resources/upload/room/thumbnail/room1file5.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (1, 6, 'room1file6', 'room1file6', '/resources/upload/room/original/room1file6', '/resources/upload/room/thumbnail/room1file6');
+VALUES (1, 6, 'room1file6.png', 'room1file6.png', '/resources/upload/room/original/room1file6.png', '/resources/upload/room/thumbnail/room1file6.png');
 
 COMMIT;
 

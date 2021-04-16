@@ -50,7 +50,9 @@
                 	<c:forEach var="room" items="${ requestScope.roomList }">
                         <a href="#" onclick="showDetail(this);"> <!--  return false; -->
                             <li class="room">
-                                <figure class="img"><img src="image/city1.PNG" alt=""></figure>
+                                <figure class="img">
+                                  <img src="${ pageContext.servletContext.contextPath }${ room.fileList[0].thumbnailPath }" alt="">
+                                </figure>
                                 <div class="info">
                                 	<input type="hidden" id="roomNo" name="roomNo" value="${ room.no }" />
 
@@ -73,7 +75,7 @@
                                 	<c:set var="address" value="${ fn:substring(room.address, 0, fn:indexOf(room.address, '동 ')+1) }"/>
                                     <span class="address"><c:out value="${ address }"/></span>
 
-                                    <span class="explanation"><c:out value="${ room.explanation }"/></span>
+                                    <span class="explanation"><c:out value="${ room.title }"/></span>
                                 </div>
                             </li>
                         </a>
