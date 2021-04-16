@@ -58,5 +58,12 @@
 		JOIN TBL_USER B ON(A.USER_NO = B.USER_NO)
 	   WHERE A.NOTICE_NO = ?
 	</entry>
+	<entry key="updateNotice">
+	UPDATE
+		TBL_NOTICE A
+    SET A.TITLE = ?
+      , A.CONTENT = ?
+  WHERE	A.NOTICE_NO = ?
+	</entry>
 	
 </properties>

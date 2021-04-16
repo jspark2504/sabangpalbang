@@ -76,13 +76,7 @@
     	<button onclick="location.href='${ pageContext.servletContext.contextPath }/notice/insert'" class="btn">글쓰기</button>
     </c:if>
    
-<!--     <div class="text-center">
-        <ul class="pagination">
-            <li><a href="#">1</a></li>
 
-        </ul>
-    </div> -->
-       <!-- Bootstrap core CSS -->
        
     
 </div>
@@ -99,7 +93,7 @@
 				
 				$tds[i].onclick = function() {
 					const no = this.parentNode.children[0].innerText;
-					/* console.log(no); */
+					console.log(no);
 					location.href = "${ pageContext.servletContext.contextPath }/notice/detail?no=" + no;   
 				}
 			}

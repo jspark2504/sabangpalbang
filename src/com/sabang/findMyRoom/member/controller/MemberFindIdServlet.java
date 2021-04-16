@@ -5,17 +5,18 @@ import java.util.Properties;
 import java.util.Random;
 
 import javax.mail.Message;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpSession;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.sabang.findMyRoom.member.model.service.MemberService;
 
 
 @WebServlet("/member/findId")
@@ -23,20 +24,22 @@ public class MemberFindIdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		 
 		String path = "/WEB-INF/views/member/findIdForm.jsp";
-		String userId = request.getParameter("userId");
+		String email = request.getParameter("email");
+		String userId = new MemberService().searchId;
+//		String email = ((MemberDTO)request.getSession().getAttribute("loginMember")).getEmail();
 		
 		
 		
 		// mail server 설정
 		String host = "smtp.naver.com"; //
-		String user = ""; // 자신의 네이버 계정 
-		String password = "";// 자신의 네이버 패스워드
+		String user = "yygyung@naver.com"; // 자신의 네이버 계정 
+		String password = "gkrgus1207";// 자신의 네이버 패스워드
 
 		// 메일 받을 주소
 		/* String to_email = m.getEmail(); */
-		String to_email = "dhsdb1541@naver.com";
+		String to_email = email;
 
 		// SMTP 서버 정보를 설정한다.
 		Properties props = new Properties();
@@ -93,30 +96,12 @@ public class MemberFindIdServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();// TODO: handle exception
 		}
-		HttpSession saveKey = request.getSession();
-		saveKey.setAttribute("AuthenticationKey", AuthenticationKey);
+//		HttpSession saveKey = request.getSession();
+//		saveKey.setAttribute("AuthenticationKey", AuthenticationKey);// 로그인 세션에 담겨있음!!
 		
 		request.getRequestDispatcher(path).forward(request, response);	
 	}
 	
-	
-
-		
-//	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-	
-//	String email = request.getParameter("email");
-//	
-//	MemberDTO member = new MemberDTO();
-//	member.setId(email);
-//	
-//	String path = "";
-//	if(email != null) {
-//		path = "WEB-INF/views/member/findIdForm/jsp";
-//		
-//	} else {
-//		path = "WEB-INF/views/common/failed.jsp";
-//	}
-//	}
 	
 	
 }

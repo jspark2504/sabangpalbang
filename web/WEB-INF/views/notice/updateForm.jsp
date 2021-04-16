@@ -72,8 +72,12 @@
   <!-- 부가적인 테마 -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
+
   <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
 </head>
 
 <body>
@@ -82,20 +86,20 @@
 
 <div class="container">
     <form class="form-write" action="${ pageContext.servletContext.contextPath }/notice/update" method="post">
-			<input type="hidden" name="noticeNo" value="${requestScope.noticeList.noticeNo }">
+			<input type="hidden" name="noticeNo" value="${requestScope.notice.noticeNo }">
 
     	
         <div id="box1">
     		<input type="text" value="${ sessionScope.loginMember.nickname }" name="writer" readonly>
-            <input type="text" name="title" value="${ requestScope.noticeList.title }">
+            <input type="text" value="${ requestScope.notice.title }" name="title">
         </div>
         <div id="rectangle">
             
         </div>
 
-       <textarea name="body" style="resize:none;" required><c:out value="${ requestScope.noticeList.content }"/></textarea>
+       <textarea name="content" style="resize:none;" required><c:out value="${ requestScope.notice.content }"/></textarea>
         <br>
-        <button class="btn" type="submit" id="btn1" onclick="postRequest('deleteNotice')">삭제</button>
+       <button class="btn" type="submit" id="btn1" onclick="postRequest('deleteNotice')">삭제</button>
         <button class="btn" type="submit" id="btn2">수정</button>
         <button onclick="location.href='${ pageContext.servletContext.contextPath}/notice/list'" class="btn" type="button" id="btn3">목록</button>
         

@@ -40,7 +40,26 @@ public class NoticeUpdateServlet extends HttpServlet {
 		 * */
 		int no = Integer.valueOf(request.getParameter("noticeNo"));
 		String title = request.getParameter("title");
+		String content = request.getParameter("content");
 		
+		NoticeDTO newNotice = new NoticeDTO();
+		newNotice.setTitle(title);
+		newNotice.setContent(content);
+		newNotice.setUserNo(no);
+		
+		NoticeService noticeService = new NoticeService();
+		int result= noticeService.updateNotice(newNotice);
+		
+		String page = "";
+		if(result > 0 ) {
+			page= "/WEB-INF/views/common/success.jsp";
+			request.setAttribute("successCode", "updateNotice");
+		} else {
+			page = "/WEB-INF/views/common/failed.jsp";
+			request.setAttribute("message", "게시물 수정 실패");
+		}
+		
+		request.getRequestDispatcher(page).forward(request, response);
 		System.out.println("수정 할 공지사항 번호 : " + no);
 		System.out.println("수정 할 공지사항 제목 : " + title);
 		
