@@ -45,7 +45,8 @@ a {
     display: flex;
     height: 120px;
     max-width: 500px;
-    margin: 20px 15px;
+    padding: 0 15px;
+    margin: 20px 0;
 }
 
 .room-list .room .img {

@@ -110,7 +110,7 @@ public class RoomInsertServlet extends HttpServlet {
 							Map<String, String> fileMap = new HashMap<>();
 							fileMap.put("originFileName", originFileName);
 							fileMap.put("savedFileName", randomFileName);
-							fileMap.put("savePath", fileUploadDirectory);
+							fileMap.put("savePath", "/resources/upload/room/original/" + randomFileName);
 
 							/* 썸네일 이미지 크기 */
 							int width = 500;
@@ -127,7 +127,7 @@ public class RoomInsertServlet extends HttpServlet {
 							/* 썸네일로 변환 후 저장 */
 							Thumbnails.of(fileUploadDirectory + randomFileName).size(width, height).toFile(thumbnailDirectory + "thumbnail_" + randomFileName);
 
-							fileMap.put("thumbnailPath", "/resources/upload/thumbnail/thumbnail_" + randomFileName);
+							fileMap.put("thumbnailPath", "/resources/upload/room/thumbnail/thumbnail_" + randomFileName);
 
 							fileList.add(fileMap);
 						}
@@ -157,13 +157,13 @@ public class RoomInsertServlet extends HttpServlet {
 				System.out.println("memberNo : " + memberNo);
 
 				/* parameter에서 값 가져오기 */
-				room.setPrice(Integer.valueOf(parameter.get("price")));
+				room.setPrice(Integer.valueOf(parameter.get("price"))*10000);
 				room.setArea(Double.valueOf(parameter.get("area")));
 				room.setAddress(parameter.get("address"));
 				category.setNo(Integer.valueOf(parameter.get("category")));
-				room.setFloor(parameter.get("roomFloor") + "/" + parameter.get("buildingFloor"));
+				room.setFloor(parameter.get("roomFloor") + "층/" + parameter.get("buildingFloor") + "층");
 				room.setDirection(parameter.get("direction"));
-				room.setMonthCost(Integer.valueOf(parameter.get("monthCost")));
+				room.setMonthCost(Integer.valueOf(parameter.get("monthCost"))*10000);
 				room.setElectricity(parameter.get("electricity"));
 				room.setGas(parameter.get("gas"));
 				room.setWater(parameter.get("water"));

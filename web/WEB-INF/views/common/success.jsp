@@ -10,10 +10,10 @@
 	<script>
 		(function(){
 			const successCode = "${ requestScope.successCode }";
-			
+
 			var successMessage = "";
 			var movePath = "";
-			
+
 			switch(successCode){
 				case "insertMember" :
 					successMessage = "회원 가입에 성공하셨습니다!";
@@ -21,11 +21,11 @@
 					break;
 				case "updateMember" :
 					successMessage = "회원 정보 변경에 성공하셨습니다!";
-					movePath = "${ pageContext.servletContext.contextPath }/member/update"; 
+					movePath = "${ pageContext.servletContext.contextPath }/member/update";
 					break;
 				case "deleteMember" :
 					successMessage = "회원 탈퇴에 성공하셨습니다!";
-					movePath = "${ pageContext.servletContext.contextPath }/member/delete"; 
+					movePath = "${ pageContext.servletContext.contextPath }/member/delete";
 					break;
 				case "deleteInfoBoard" :
 					successMessage = "정보게시판 삭제에 성공하셨습니다!";
@@ -56,15 +56,20 @@
 					successMessage = "서류 등록 성공!";
 					movePath = "${ pageContext.servletContext.contextPath }/document/list";
 					break;
-					
+
 				case "updateNotice" :
 					successMessage = "공지사항 수정 성공!";
 					movePath = "${ pageContext.servletContext.contextPath }/notice/list";
+					break;
 
+				case "insertRoom" :
+					successMessage = "매물 등록 성공!"
+					movePath = "${ pageContext.servletContext.contextPath }/room/list";
+					break;
 			}
-			
+
 			alert(successMessage);
-			
+
 			location.replace(movePath);
 		})();
 	</script>
