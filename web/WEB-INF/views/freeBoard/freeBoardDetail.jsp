@@ -53,59 +53,61 @@
 </head>
 <body>
 <jsp:include page="../common/header.jsp"/>
-<div class="container">
-			<table class="nickname pull-right">
-			 	<tr>
-                    <td><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;<c:out value="${ requestScope.board.writer.nickname }" /></td>
-                </tr>
-			</table>
-				<input type="text" class="title" value="${ requestScope.board.title }" readonly>
-			<textarea style="resize:none" class="content" readonly><c:out value="${ requestScope.board.body }" /></textarea>
-				<button type="button" class="btn cancel pull-left" onclick="location.href='${ pageContext.servletContext.contextPath}/freeboard/list'">목록</button>
-				<c:if test="${ sessionScope.loginMember.no eq requestScope.board.writerMemberNo }">
-					<button class="btn post pull-right" onclick="location.href='${ pageContext.servletContext.contextPath}/freeBoard/update?no=${ requestScope.board.no }'">수정</button>
-				</c:if>
-	<c:if test="${!empty sessionScope.loginMember}">
-		
-		<textarea id="replytext" placeholder="인터넷은 우리가 함께 만들어가는 소중한 공간입니다. 댓글 작성 시 타인에 대한 배려와 책임을 담아주세요."></textarea>
-		<br>
-		<button onClick="window.location.reload()" class="btn pull-right" type="submit" id="btnReply">확인</button>
-	<div id="counter">(0 / 100)</div>
-	</c:if>
-</div>
-<%@ include file="reply.jsp" %>
-	<script>
-	listReply();
-	$("#btnReply").click(function() {
-					var boardNo = "${requestScope.board.no}"; //게시물 번호
-					var replytext = $("#replytext").val(); //댓글 내용
-					var param = {
-						"replytext" : replytext,
-						"boardNo" : boardNo
-					};
-						$.ajax({
-							type : "post", //데이터를 보낼 방식
-							url : "${ pageContext.servletContext.contextPath}/reply/insert", //데이터를 보낼 url
-							data : param, //보낼 데이터
+	<div class="container">
+		<table class="nickname pull-right">
+			 <tr>
+             	<td><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;<c:out value="${ requestScope.board.writer.nickname }" /></td>
+             </tr>
+		</table>
+		<input type="text" class="title" value="${ requestScope.board.title }" readonly>
+		<textarea style="resize:none" class="content" readonly><c:out value="${ requestScope.board.body }" /></textarea>
+		<button type="button" class="btn cancel pull-left" onclick="location.href='${ pageContext.servletContext.contextPath}/freeboard/list'">목록</button>
+		<c:if test="${ sessionScope.loginMember.no eq requestScope.board.writerMemberNo }">
+			<button class="btn post pull-right" onclick="location.href='${ pageContext.servletContext.contextPath}/freeBoard/update?no=${ requestScope.board.no }'">수정</button>
+		</c:if>
+		<c:if test="${!empty sessionScope.loginMember}">
+			<textarea id="replytext" placeholder="인터넷은 우리가 함께 만들어가는 소중한 공간입니다. 댓글 작성 시 타인에 대한 배려와 책임을 담아주세요."></textarea>
+			<br>
+			<button onClick="window.location.reload()" class="btn pull-right" type="submit" id="btnReply">확인</button>
+			<div id="counter">(0 / 50)</div>
+		</c:if>
+	</div>
+	
+	<%@ include file="reply.jsp" %>
+	
+<script>
 
-							success : function() { //데이터를 보내는것이 성공했을시 출력되는 메시지
-										alert("댓글이 등록되었습니다.");
-										listReply(); //댓글 목록 출력
-						}
-				});
+	listReply();
+	
+	$("#btnReply").click(function() {
+		var boardNo = "${requestScope.board.no}"; //게시물 번호
+		var replytext = $("#replytext").val(); //댓글 내용
+		var param = {
+			"replytext" : replytext,
+			"boardNo" : boardNo
+		};
+		$.ajax({
+			type : "post", //데이터를 보낼 방식
+			url : "${ pageContext.servletContext.contextPath}/reply/insert", //데이터를 보낼 url
+			data : param, //보낼 데이터
+			success : function() { //데이터를 보내는것이 성공했을시 출력되는 메시지
+				listReply(); //댓글 목록 출력
+			}
 		});
+	});
+	
 	$(document).ready(function() {
 	    $('#replytext').on('keyup', function() {
-	        $('#counter').html("("+$(this).val().length+" / 100)");
+	        $('#counter').html("("+$(this).val().length+" / 50)");
 	 
-	        if($(this).val().length > 100) {
-	            $(this).val($(this).val().substring(0, 100));
-	            $('#counter').html("(100 / 100)");
+	        if($(this).val().length > 50) {
+	            $(this).val($(this).val().substring(0, 50));
+	            $('#counter').html("(50 / 50)");
 	        }
 	    });
 	});
 
-	</script>
+</script>
 <jsp:include page="../common/footer.jsp" />
 </body>
 </html>

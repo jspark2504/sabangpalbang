@@ -10,25 +10,13 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
-
 <title>자유게시판</title>
-
-<!-- Bootstrap core CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-<!-- 부가적인 테마 -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-<link
-	href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
-	rel="stylesheet">
-
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
+<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/findMyRoom/resources/css/free_board.css?">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 </head>
 <body>
@@ -98,15 +86,16 @@
 			</c:when>
 			
 			<c:otherwise>
-			<li><button id="startPage"><<</button></li>
+				<li><button id="startPage"><<</button></li>
 
-			<li><c:if test="${ requestScope.pageInfo.pageNo == 1 }">
-					<button disabled><</button>
-				</c:if> 
-				<c:if test="${ requestScope.pageInfo.pageNo > 1 }">
-					<button id="prevPage"><</button>
-				</c:if></li>
-			<li><c:forEach var="p" begin="${ requestScope.pageInfo.startPage }" end="${ requestScope.pageInfo.endPage }" step="1">
+				<li><c:if test="${ requestScope.pageInfo.pageNo == 1 }">
+						<button disabled><</button>
+					</c:if> 
+					<c:if test="${ requestScope.pageInfo.pageNo > 1 }">
+						<button id="prevPage"><</button>
+					</c:if>
+				</li>
+				<li><c:forEach var="p" begin="${ requestScope.pageInfo.startPage }" end="${ requestScope.pageInfo.endPage }" step="1">
 					<c:if test="${ requestScope.pageInfo.pageNo eq p }">
 						<button disabled style="background: rgba(0, 0, 0, 0.4);">
 							<c:out value="${ p }" />
@@ -117,17 +106,18 @@
 							<c:out value="${ p }" />
 						</button>
 					</c:if>
-				</c:forEach></li>
-			<li><c:if
-					test="${ requestScope.pageInfo.pageNo == requestScope.pageInfo.maxPage }">
-					<button disabled>></button>
-				</c:if> <c:if
-					test="${ requestScope.pageInfo.pageNo < requestScope.pageInfo.maxPage }">
-					<button id="nextPage">></button>
-				</c:if></li>
-			<li><button id="maxPage">>></button></li>
+				</c:forEach>
+				</li>
+				<li><c:if test="${ requestScope.pageInfo.pageNo == requestScope.pageInfo.maxPage }">
+						<button disabled>></button>
+					</c:if> 
+					<c:if test="${ requestScope.pageInfo.pageNo < requestScope.pageInfo.maxPage }">
+						<button id="nextPage">></button>
+					</c:if>
+				</li>
+				<li><button id="maxPage">>></button></li>
 			</c:otherwise>
-			</c:choose>
+		</c:choose>
 		</ul>
 	</div>
 	<!-- 페이지 처리 -->

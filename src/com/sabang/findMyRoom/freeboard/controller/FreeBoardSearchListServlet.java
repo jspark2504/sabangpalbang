@@ -41,9 +41,7 @@ public class FreeBoardSearchListServlet extends HttpServlet {
 		/* 2. 검색 조건에 맞는 게시물 갯수 조회 */
 		FreeBoardService boardService = new FreeBoardService();
 		int totalCount = boardService.searchBoardCount(condition, value);
-		
-		System.out.println("totalSearchBoardCount : " + totalCount);
-		
+
 		/* 3. 한 페이지에 보여 줄 게시물 수 */
 		int limit = 10;
 		
@@ -52,8 +50,6 @@ public class FreeBoardSearchListServlet extends HttpServlet {
 		
 		/* 5. 페이징 처리를 위한 로직 호출 후 페이징 처리에 관한 정보를 담고 있는 인스턴스 반환 받기 */
 		PageInfoDTO pageInfo = Pagenation.getPageInfo(pageNo, totalCount, limit, buttonAmount);
-		
-		System.out.println(pageInfo);
 		
 		/* 6. 검색한 게시글을 조회해 온다. */
 		List<FreeBoardDTO> boardList = boardService.searchBoardList(pageInfo, condition, value);

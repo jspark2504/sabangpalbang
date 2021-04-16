@@ -37,8 +37,7 @@ public class FreeBoardSelectListServlet extends HttpServlet {
 
 		FreeBoardService boardService = new FreeBoardService();
 		int totalCount = boardService.selectTotalCount();
-		System.out.println(totalCount);
-		
+
 		int limit = 10;
 		
 		int buttonAmount = 5;
@@ -46,8 +45,6 @@ public class FreeBoardSelectListServlet extends HttpServlet {
 		PageInfoDTO pageInfo = Pagenation.getPageInfo(pageNo, totalCount, limit, buttonAmount);
 
 		List<FreeBoardDTO> boardList = boardService.selectBoardList(pageInfo);
-		
-		System.out.println(boardList);
 		
 		String path = "";
 		if(!boardList.isEmpty()) {

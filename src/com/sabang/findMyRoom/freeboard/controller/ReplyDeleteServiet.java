@@ -14,19 +14,12 @@ import com.sabang.findMyRoom.freeboard.model.service.ReplyService;
 public class ReplyDeleteServiet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int replyNo = Integer.valueOf(request.getParameter("replyNo"));
 		int boardNo = Integer.valueOf(request.getParameter("postNo"));
 		
-		System.out.println(replyNo);
-		System.out.println(boardNo);
-		
-		
 		int result = new ReplyService().deleteReply(replyNo, boardNo);
-		
-		System.out.println("댓글 삭제 : " + result);
 		
 		if(result > 0) {
 			response.sendRedirect(request.getContextPath() + "/freeBoard/detail?no=" + boardNo);
