@@ -102,3 +102,251 @@ a {
         height: 40vw;
     }
 }
+
+
+
+/* 상세 페이지 */
+
+/* room-detail */
+.room-detail {
+  background-color: white;
+  height: 70vw;
+  max-height: 700px;
+  padding: 0;
+  overflow: scroll;
+}
+
+/* room-detail-heading */
+.room-detail-heading {
+  display: flex;
+  margin: 15px 15px 0 15px;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+}
+
+.room-detail-title {
+  display: flex;
+  align-items: center;
+}
+
+.room-detail-title h4 {
+  margin: 0;
+}
+
+.glyphicon-menu-left {
+  padding-right: 13px;
+}
+
+.glyphicon-menu-left:hover {
+  cursor: pointer;
+}
+
+.glyphicon-heart {
+  color: #c4c4c4;
+  font-size: 20px;
+  padding-right: 20px;
+}
+
+.glyphicon-heart:hover {
+  cursor: pointer;
+}
+
+.title-end {
+  margin-bottom: 0;
+}
+
+/* room-basic-info */
+.room-basic-info-1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+}
+
+.room-status {
+  display: flex;
+  align-items: center;
+  background: #ffca0b;
+}
+
+.room-create-date {
+  color: #b2b2b2;
+}
+
+.room-basic-info-2 {
+  padding: 0 20px;
+  margin: 0;
+}
+
+.room-price {
+  margin: 0;
+}
+
+.room-no {
+  margin: 0;
+  color: #6e6e6e;
+}
+
+.room-basic-info-3 {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 0 20px;
+  margin: 0;
+}
+
+p.info {
+  font-size: 20px;
+  font-weight: 600;
+  color: #e3b30b;
+  margin: 0;
+}
+
+p.info:hover {
+  color: #e3b30b;
+}
+
+/* room title & transport value */
+.room-value {
+  color: #6e6e6e;
+  font-size: 17px;
+  text-align: center;
+  text-align: center;
+  padding: 0 20px 20px;
+  margin: 0;
+}
+
+.room-explanation-info-value {
+  color: #6e6e6e;
+  font-size: 17px;
+  padding: 0 20px 20px;
+  margin: 0;
+}
+
+/* room-info-common */
+.room-info-title {
+  margin: 20px 0 0 20px;
+}
+
+/* room-building-info */
+.room-building-info-table {
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.table-title {
+  color: #6e6e6e;
+}
+
+/* option-icon */
+.fa-times {
+  font-size: 3vw;
+}
+
+.option-icon img {
+  width: 3vw;
+  min-width: 30px;
+}
+
+.option-icon figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.option-icon figcaption {
+  padding-top: 10px;
+}
+
+.option-icon li {
+  display: flex;
+  align-content: center;
+}
+
+.no-option {
+  color: #c4c4c4;
+}
+
+.building-option {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 0 20px 0;
+}
+
+.home-appliances {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 0 20px 0;
+}
+
+.room-cost-option {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 0 20px 0;
+}
+
+/* office-info */
+.office-img {
+  width: 80px;
+}
+
+.office-name {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 15px 0 15px;
+}
+
+.office-info-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 20px 0 20px 20px;
+}
+
+/* office review */
+.office-review {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 30px;
+}
+
+.office-star {
+  display: flex;
+  align-items: center;
+}
+
+.star-score {
+  padding-right: 10px;
+  font-weight: 500;
+}
+
+.glyphicon-star {
+  color: rgb(255, 217, 0);
+  padding-right: 2px;
+}
+
+.glyphicon-star.empty {
+  color: #c4c4c4;
+}
+
+.show-review {
+  left: 40px;
+  top: 5px;
+  position: relative;
+  font-weight: 500;
+}
+
+.show-review a:hover {
+  text-decoration: none;
+  color: #c8a100;
+  cursor: pointer;
+}
+
+/* divider-line */
+.divider-line {
+  background: #fff0c8;
+  height: 10px;
+}

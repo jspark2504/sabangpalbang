@@ -51,11 +51,14 @@
 				</button>
 			</c:if>
 			<!-- 로그인이 되어 있는 경우 -->
+            <!-- 회원 -->
 			<c:if test="${ !empty sessionScope.loginMember }">
 				<button type="button" class="drop-menu-btn" onclick="function()">
 					<c:out value="${ sessionScope.loginMember.nickname }"/>
 						님 ▼
 				</button>
+            </c:if>
+			<c:if test="${ sessionScope.loginMember.role eq 'MEMBER'}">
 				<ul class="drop-menu">
 					<li>
 						<a href="${ pageContext.servletContext.contextPath }/member/logout">
@@ -78,6 +81,48 @@
 					<li>
 						<a href="${ pageContext.servletContext.contextPath }/member/update">
 							내 정보
+						</a>
+					</li>
+				</ul>
+			</c:if>
+			<c:if test="${ sessionScope.loginMember.role eq 'OFFICE'}">
+				<ul class="drop-menu">
+					<li>
+						<a href="${ pageContext.servletContext.contextPath }/member/logout">
+							로그아웃
+						</a>
+					</li>
+					<hr />
+					<li>
+						<a href="${ pageContext.servletContext.contextPath }/room/insert">
+							매물 등록
+						</a>
+					</li>
+					<hr />
+					<li>
+						<a href="${ pageContext.servletContext.contextPath }/member/update">
+							내 정보
+						</a>
+					</li>
+				</ul>
+			</c:if>
+			<c:if test="${ sessionScope.loginMember.role eq 'ADMIN'}">
+				<ul class="drop-menu">
+					<li>
+						<a href="${ pageContext.servletContext.contextPath }/member/logout">
+							로그아웃
+						</a>
+					</li>
+					<hr />
+					<li>
+						<a href="${ pageContext.servletContext.contextPath }//">
+							관리
+						</a>
+					</li>
+					<hr />
+					<li>
+						<a href="${ pageContext.servletContext.contextPath }//">
+							통계
 						</a>
 					</li>
 				</ul>
