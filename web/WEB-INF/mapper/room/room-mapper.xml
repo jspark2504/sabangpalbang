@@ -75,8 +75,99 @@
          WHERE A.ROOM_NO = ?
            AND D.USER_STATUS = 'Y'
     </entry>
-	<entry key="">
-
+    <entry key="selectOfficeNo">
+        SELECT /* com.sabang.findMyRoom.room.model.dao.RoomDAO#selectOfficeNo() */
+               A.OFFICE_NO
+          FROM TBL_OFFICE A
+          JOIN TBL_USER B ON (A.USER_NO = B.USER_NO)
+         WHERE B.USER_NO = ?
+    </entry>
+	<entry key="insertRoom">
+        INSERT /* com.sabang.findMyRoom.room.model.dao.RoomDAO#insertRoom() */
+          INTO TBL_ROOM A
+        (
+          ROOM_NO
+        , ROOM_PRICE
+        , EXCLUSIVE_AREA
+        , ADDRESS
+        , CATEGORY_NO
+        , OFFICE_NO
+        , ROOM_FLOOR
+        , DIRECTION
+        , MONTH_COST
+        , ELECTRICITY_YN
+        , GAS_YN
+        , WATER_YN
+        , INTERNET_YN
+        , TV_YN
+        , CONSTRUCTION_DATE
+        , AVAILABLE_DATE
+        , ROOM_TITLE
+        , ROOM_EXPLANATION
+        , TRANSPORTATION_INFO
+        , WASHING_MACHINE_YN
+        , REFRIGERATOR_YN
+        , AIR_CONDITIONER_YN
+        , GAS_STOVE_YN
+        , PET_YN
+        , ELEVATOR_YN
+        , PARKING_YN
+        )
+        VALUES
+        (
+          SEQ_ROOM_NO.NEXTVAL
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        )
+	</entry>
+	<entry key="selectRoomSequence">
+    SELECT /* com.greedy.findMyRoom.room.model.dao.RoomDAO#selectRoomSequence() */
+           SEQ_ROOM_NO.CURRVAL
+      FROM DUAL
+	</entry>
+	<entry key="insertFile">
+        INSERT
+          INTO TBL_ROOM_FILE A
+        (
+          ROOM_NO
+        , FILE_NO
+        , ORIGIN_NAME
+        , SAVE_NAME
+        , SAVE_PATH
+        , THUMBNAIL_PATH
+        )
+        VALUES
+        (
+          ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        )
 	</entry>
 	<entry key="">
 
@@ -84,6 +175,7 @@
 	<entry key="">
 
 	</entry>
+
 
 </properties>
 

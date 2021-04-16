@@ -91,7 +91,6 @@ public class RoomInsertServlet extends HttpServlet {
 					if(!item.isFormField()) {		// 파일 input태그인 경우
 
 						if(item.getSize() > 0) {		// 첨부파일이 존재하는 경우
-//							String fieldName = item.getFieldName();
 							String originFileName = item.getName();
 
 							/* 확장자 뽑아내기 */
@@ -109,7 +108,6 @@ public class RoomInsertServlet extends HttpServlet {
 
 							/* 필요한 정보 담기 */
 							Map<String, String> fileMap = new HashMap<>();
-//							fileMap.put("fieldName", fieldName);
 							fileMap.put("originFileName", originFileName);
 							fileMap.put("savedFileName", randomFileName);
 							fileMap.put("savePath", fileUploadDirectory);
@@ -147,17 +145,16 @@ public class RoomInsertServlet extends HttpServlet {
 				RoomDTO room = new RoomDTO();
 				RoomCategoryDTO category = new RoomCategoryDTO();
 				OfficeDTO office = new OfficeDTO();
-				MemberDTO member = new MemberDTO();
 				List<RoomFileDTO> files = new ArrayList<>();
 
 				/* 인스턴스 담기 */
 				room.setCategory(category);
 				room.setOffice(office);
-				office.setAgent(member);
 				room.setFileList(files);
 
 				/* 매물을 등록한 중개사의 회원번호 가져오기 */
-				member.setNo(((MemberDTO)request.getSession().getAttribute("loginMember")).getNo());
+				int memberNo = ((MemberDTO)request.getSession().getAttribute("loginMember")).getNo();
+				System.out.println("memberNo : " + memberNo);
 
 				/* parameter에서 값 가져오기 */
 				room.setPrice(Integer.valueOf(parameter.get("price")));
@@ -174,6 +171,7 @@ public class RoomInsertServlet extends HttpServlet {
 				room.setTv(parameter.get("tv"));
 				room.setConstructionDate(java.sql.Date.valueOf(parameter.get("constructionDate")));
 				room.setAvailableDate(parameter.get("availableDate"));
+				room.setTitle(parameter.get("title"));
 				room.setExplanation(parameter.get("explanation"));
 				room.setTransportationInfo(parameter.get("transportationInfo"));
 				room.setWashingMachine(parameter.get("washingMachine"));
@@ -184,18 +182,20 @@ public class RoomInsertServlet extends HttpServlet {
 				room.setPet(parameter.get("pet"));
 				room.setParking(parameter.get("parking"));
 
+				System.out.println("room :" + room);
+
 				for(Map<String, String> file : fileList) {
 					RoomFileDTO roomFile = new RoomFileDTO();
 					roomFile.setOriginName(file.get("originFileName"));
 					roomFile.setSaveName(file.get("savedFileName"));
-					roomFile.setOriginName(file.get("savePath"));
-					roomFile.setOriginName(file.get("thumbnailPath"));
+					roomFile.setSavePath(file.get("savePath"));
+					roomFile.setThumbnailPath(file.get("thumbnailPath"));
 
 					files.add(roomFile);
 				}
 
 				/* 서비스 메소드 호출 */
-				int result = new RoomService().insertRoom(room);
+				int result = new RoomService().insertRoom(room, memberNo);
 
 				String path = "";
 				if(result > 0) {
@@ -209,6 +209,8 @@ public class RoomInsertServlet extends HttpServlet {
 				request.getRequestDispatcher(path).forward(request, response);
 
 			} catch (Exception e) {		// 파일 업로드 실패 시 삭제 처리
+				e.printStackTrace();
+
 				int cnt = 0;
 				for(Map<String, String> file : fileList) {
 					File deleteFile = new File(fileUploadDirectory + file.get("savedFileName"));

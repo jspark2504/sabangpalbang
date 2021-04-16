@@ -190,4 +190,139 @@ public class RoomDAO {
 		return roomDetail;
 	}
 
+	/* 매물을 등록한 중개사무소 번호 조회 */
+	public int selectOfficeNo(Connection con, int memberNo) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		int officeNo = 0;
+
+		String query = prop.getProperty("selectOfficeNo");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, memberNo);
+
+			rset = pstmt.executeQuery();
+
+			if(rset.next()) {
+				officeNo = rset.getInt("OFFICE_NO");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+
+		return officeNo;
+	}
+
+	/* 매물 등록 */
+	public int insertRoom(Connection con, RoomDTO room) {
+
+		PreparedStatement pstmt = null;
+
+		int result = 0;
+
+		String query = prop.getProperty("insertRoom");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, room.getPrice());
+			pstmt.setDouble(2, room.getArea());
+			pstmt.setString(3, room.getAddress());
+			pstmt.setInt(4, room.getCategory().getNo());
+			pstmt.setInt(5, room.getOffice().getNo());
+			pstmt.setString(6, room.getFloor());
+			pstmt.setString(7, room.getDirection());
+			pstmt.setInt(8, room.getMonthCost());
+			pstmt.setString(9, room.getElectricity());
+			pstmt.setString(10, room.getGas());
+			pstmt.setString(11, room.getWater());
+			pstmt.setString(12, room.getInternet());
+			pstmt.setString(13, room.getTv());
+			pstmt.setDate(14, room.getConstructionDate());
+			pstmt.setString(15, room.getAvailableDate());
+			pstmt.setString(16, room.getTitle());
+			pstmt.setString(17, room.getExplanation());
+			pstmt.setString(18, room.getTransportationInfo());
+			pstmt.setString(19, room.getWashingMachine());
+			pstmt.setString(20, room.getRefrigerator());
+			pstmt.setString(21, room.getAirConditioner());
+			pstmt.setString(22, room.getGasStove());
+			pstmt.setString(23, room.getPet());
+			pstmt.setString(24, room.getElevator());
+			pstmt.setString(25, room.getParking());
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+
+	/* 매물 번호 조회 */
+	public int selectRoomSequence(Connection con) {
+
+		Statement stmt = null;
+		ResultSet rset = null;
+
+		int lastRoomNo = 0;
+
+		String query = prop.getProperty("selectRoomSequence");
+
+		try {
+			stmt = con.createStatement();
+
+			rset = stmt.executeQuery(query);
+
+			if(rset.next()) {
+				lastRoomNo = rset.getInt("CURRVAL");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+
+		return lastRoomNo;
+	}
+
+	/* 매물 사진 등록 */
+	public int insertFile(Connection con, int fileNo, RoomFileDTO file) {
+
+		PreparedStatement pstmt = null;
+		int result = 0;
+
+		String query = prop.getProperty("insertFile");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, file.getRoomNo());
+			pstmt.setInt(2, fileNo);
+			pstmt.setString(3, file.getOriginName());
+			pstmt.setString(4, file.getSaveName());
+			pstmt.setString(5, file.getSavePath());
+			pstmt.setString(6, file.getThumbnailPath());
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+
 }
