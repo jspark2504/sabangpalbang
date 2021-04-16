@@ -190,6 +190,64 @@ p.info {
   margin: 0 0 20px 0;
 }
 
+/* office-info */
+.office-img {
+  width: 80px;
+}
+
+.office-name {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 15px 0 15px;
+}
+
+.office-info-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 20px 0 20px 20px;
+}
+
+/* office review */
+.office-review {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 30px;
+}
+
+.office-star {
+  display: flex;
+  align-items: center;
+}
+
+.star-score {
+  padding-right: 10px;
+  font-weight: 500;
+}
+
+.glyphicon-star {
+  color: rgb(255, 217, 0);
+  padding-right: 2px;
+}
+
+.glyphicon-star.empty {
+  color: #c4c4c4;
+}
+
+.show-review {
+  left: 40px;
+  top: 5px;
+  position: relative;
+  font-weight: 500;
+}
+
+.show-review a:hover {
+  text-decoration: none;
+  color: #c8a100;
+  cursor: pointer;
+}
+
 /* divider-line */
 .divider-line {
   background: #fff0c8;

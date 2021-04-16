@@ -230,7 +230,7 @@
                     </td>
                   </tr>
                   <tr>
-                  	<td>
+                  	<td class="table-title">
                       주소
                     </td>
                   	<td colspan="2">
@@ -445,8 +445,84 @@
                 </div>
               </article> <!-- room-explanation-info fin. -->
 
-              <article class="">
-
+              <!-- office-info -->
+              <article class="office-info">
+                <div class="office-info-title">
+                  <img src="/findMyRoom/resources/image/mhn.png" alt="..." class="img-circle office-img">
+                  <span class="office-name">
+                    402 공인중개소
+                  </span>
+                  <!-- review -->
+                  <div class="office-review">
+                    <div class="office-star">
+                      <span class="star-score">
+                          4.9
+                      </span>
+                      <span class="glyphicon glyphicon-star" aria-hidden="true">
+                      </span>
+                      <span class="glyphicon glyphicon-star" aria-hidden="true">
+                      </span>
+                      <span class="glyphicon glyphicon-star" aria-hidden="true">
+                      </span>
+                      <span class="glyphicon glyphicon-star" aria-hidden="true">
+                      </span>
+                      <span class="glyphicon glyphicon-star" aria-hidden="true">
+                      </span>
+                    </div>
+                    <div class="show-review">
+                      <a href="${ pageContext.servletContext.contextPath }/introduce/detail1">
+                        리뷰 보기 >
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <!-- room-building-info-table -->
+                <div class="room-building-info-table">
+                <table class="table office-table">
+                  <tr>
+                  	<td class="table-title">
+                      대표
+                    </td>
+                  	<td colspan="2">
+                      나문휘 (92460000-08541)
+                    </td>
+                  </tr>
+                  <tr>
+                  	<td class="table-title">
+                      대표번호
+                    </td>
+                  	<td colspan="2">
+                      02-151-5488
+                    </td>
+                  </tr>
+                  <tr>
+                  	<td class="table-title">
+                      소재지
+                    </td>
+                  	<td colspan="2">
+                      서울 관악구 신림동 123-12
+                    </td>
+                  </tr>
+                  <tr>
+                  	<td class="table-title">
+                      중개 전문 분야
+                    </td>
+                  	<td colspan="2">
+                      원룸
+                    </td>
+                  </tr>
+                  <tr>
+                  	<td class="table-title">
+                      주소
+                    </td>
+                  	<td colspan="2">
+                      동작구 사당동 446-11
+                    </td>
+                  </tr>
+                </table>
+                </div>
+                <div class="divider-line">
+                </div>
               </article>
           </section> <!-- 매물 목록 영역 end -->
        </section>
