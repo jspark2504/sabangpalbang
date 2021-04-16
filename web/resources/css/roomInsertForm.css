@@ -66,6 +66,7 @@
 /* 사진 추가 버튼 hover 효과 */
 .file figure .add-img-btn:hover {
     border: 1px solid #ffd233;
+    box-shadow: 0px 0px 5px #bda343;
 }
 
 .file figure .add-img-btn span:hover {
@@ -114,6 +115,8 @@
 /* input 박스 focus 효과 */
 .insert-form .form-control:focus {
     z-index: 2;
+    border: 1px solid #ffd233;
+    box-shadow: 0px 0px 5px #bda343;
 }
 
 /* placeholder 글자 크기 조정 */
@@ -156,18 +159,33 @@
     margin-top: 8px;
 }
 
+.check .list span {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
 .check .list input {
-    margin: 0 5px 0 0;
+    margin: 0;
+    cursor: pointer;
 }
 
 .check .list label {
     margin: 0 15px 0 0;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.check .list label:hover {
+    color: #ffd233;
 }
 
 /* 등록 버튼 */
 .okbtn {
     margin: 70px auto 10px auto;
     max-width: 280px;
-    background-color: #bcbcbc;
-    color: black;
+    /* background-color: #bcbcbc; */
+    /* color: black; */
+    background-color: #ffd233;
+    color: white;
 }

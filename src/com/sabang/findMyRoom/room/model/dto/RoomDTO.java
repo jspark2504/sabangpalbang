@@ -18,7 +18,11 @@ public class RoomDTO implements java.io.Serializable {
 	private String floor;
 	private String direction;
 	private int monthCost;
-	private String costInclude;
+	private String electricity;
+	private String gas;
+	private String water;
+	private String internet;
+	private String tv;
 	private java.sql.Date constructionDate;
 	private String availableDate;
 	private String explanation;
@@ -37,9 +41,10 @@ public class RoomDTO implements java.io.Serializable {
 	}
 	public RoomDTO(int no, int price, String status, double area, String address, Date createDate,
 			RoomCategoryDTO category, OfficeDTO office, String floor, String direction, int monthCost,
-			String costInclude, Date constructionDate, String availableDate, String explanation,
-			String transportationInfo, String washingMachine, String refrigerator, String airConditioner,
-			String gasStove, String pet, String elevator, String parking, int viewNo, List<RoomFileDTO> fileList) {
+			String electricity, String gas, String water, String internet, String tv, Date constructionDate,
+			String availableDate, String explanation, String transportationInfo, String washingMachine,
+			String refrigerator, String airConditioner, String gasStove, String pet, String elevator, String parking,
+			int viewNo, List<RoomFileDTO> fileList) {
 		this.no = no;
 		this.price = price;
 		this.status = status;
@@ -51,7 +56,11 @@ public class RoomDTO implements java.io.Serializable {
 		this.floor = floor;
 		this.direction = direction;
 		this.monthCost = monthCost;
-		this.costInclude = costInclude;
+		this.electricity = electricity;
+		this.gas = gas;
+		this.water = water;
+		this.internet = internet;
+		this.tv = tv;
 		this.constructionDate = constructionDate;
 		this.availableDate = availableDate;
 		this.explanation = explanation;
@@ -133,11 +142,35 @@ public class RoomDTO implements java.io.Serializable {
 	public void setMonthCost(int monthCost) {
 		this.monthCost = monthCost;
 	}
-	public String getCostInclude() {
-		return costInclude;
+	public String getElectricity() {
+		return electricity;
 	}
-	public void setCostInclude(String costInclude) {
-		this.costInclude = costInclude;
+	public void setElectricity(String electricity) {
+		this.electricity = electricity;
+	}
+	public String getGas() {
+		return gas;
+	}
+	public void setGas(String gas) {
+		this.gas = gas;
+	}
+	public String getWater() {
+		return water;
+	}
+	public void setWater(String water) {
+		this.water = water;
+	}
+	public String getInternet() {
+		return internet;
+	}
+	public void setInternet(String internet) {
+		this.internet = internet;
+	}
+	public String getTv() {
+		return tv;
+	}
+	public void setTv(String tv) {
+		this.tv = tv;
 	}
 	public java.sql.Date getConstructionDate() {
 		return constructionDate;
@@ -222,9 +255,10 @@ public class RoomDTO implements java.io.Serializable {
 	public String toString() {
 		return "RoomDTO [no=" + no + ", price=" + price + ", status=" + status + ", area=" + area + ", address="
 				+ address + ", createDate=" + createDate + ", category=" + category + ", office=" + office + ", floor="
-				+ floor + ", direction=" + direction + ", monthCost=" + monthCost + ", costInclude=" + costInclude
-				+ ", constructionDate=" + constructionDate + ", availableDate=" + availableDate + ", explanation="
-				+ explanation + ", transportationInfo=" + transportationInfo + ", washingMachine=" + washingMachine
+				+ floor + ", direction=" + direction + ", monthCost=" + monthCost + ", electricity=" + electricity
+				+ ", gas=" + gas + ", water=" + water + ", internet=" + internet + ", tv=" + tv + ", constructionDate="
+				+ constructionDate + ", availableDate=" + availableDate + ", explanation=" + explanation
+				+ ", transportationInfo=" + transportationInfo + ", washingMachine=" + washingMachine
 				+ ", refrigerator=" + refrigerator + ", airConditioner=" + airConditioner + ", gasStove=" + gasStove
 				+ ", pet=" + pet + ", elevator=" + elevator + ", parking=" + parking + ", viewNo=" + viewNo
 				+ ", fileList=" + fileList + "]";

@@ -9,7 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
+
   <filter>
   	<filter-name>encoding</filter-name>
   	<filter-class>com.sabang.findMyRoom.common.filter.EncodingFilter</filter-class>
@@ -22,7 +22,8 @@
   	<filter-name>encoding</filter-name>
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
-  
+
+  <!-- config 관련 -->
   <context-param>
   	<param-name>connection-info</param-name>
   	<param-value>/WEB-INF/config/connection-info.properties</param-value>
@@ -31,7 +32,8 @@
   	<param-name>mapper-location</param-name>
   	<param-value>/WEB-INF/mapper/</param-value>
   </context-param>
-  
+
+  <!-- 에러페이지 관련 -->
   <error-page>
   	<error-code>403</error-code>
   	<location>/WEB-INF/views/common/error403.jsp</location>
@@ -44,5 +46,23 @@
   	<error-code>500</error-code>
   	<location>/WEB-INF/views/common/error500.jsp</location>
   </error-page>
-  
+
+  <!-- 파일 업로드 관련 -->
+  <context-param>
+    <param-name>file-upload-directory</param-name>
+    <param-value>/resources/upload/</param-value>
+  </context-param>
+  <context-param>
+    <param-name>thumbnail-directory</param-name>
+    <param-value>/resources/upload/</param-value>
+  </context-param>
+  <context-param>
+    <param-name>max-file-size</param-name>
+    <param-value>10000000</param-value>
+  </context-param>
+  <context-param>
+    <param-name>encoding-type</param-name>
+    <param-value>UTF-8</param-value>
+  </context-param>
+
 </web-app>
