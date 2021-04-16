@@ -70,7 +70,7 @@
 					</li>
 					<hr />
 					<li>
-						<a href="">
+						<a href="${ pageContext.servletContext.contextPath }/document/list">
 							내 서류
 						</a>
 					</li>
