@@ -24,20 +24,22 @@ public class DocumentSelectServlet extends HttpServlet {
 //		
 //		request.getRequestDispatcher(path).forward(request, response);
 		
-//		DocumentService documentService = new DocumentService();
-//		
-//		List<DocumentDTO> documentList = documentService.selectDocument();
-//		
-//		String path = "";
-//		if(!documentList.isEmpty()) {
-//			path = "/WEB-INF/views/thumbnail/thumbnailList.jsp";
-//			request.setAttribute("thumbnailList", documentList);
-//		} else {
-//			path = "/WEB-INF/views/common/failed.jsp";
-//			request.setAttribute("message", "썸네일 게시판 조회 실패!");
-//		}
-//		
-//		request.getRequestDispatcher(path).forward(request, response);
+		DocumentService documentService = new DocumentService();
+		
+		List<DocumentDTO> documentList = documentService.selectDocument();
+		
+		System.out.println("서블릿 : " + documentList);
+		
+		String path = "";
+		if(!documentList.isEmpty()) {
+			path = "/WEB-INF/views/document/documentList.jsp";
+			request.setAttribute("documentList", documentList);
+		} else {
+			path = "/WEB-INF/views/common/failed.jsp";
+			request.setAttribute("message", "썸네일 게시판 조회 실패!");
+		}
+		
+		request.getRequestDispatcher(path).forward(request, response);
 	}
 
 }

@@ -116,5 +116,15 @@
 		, ?
 		)
 	</entry>
-
+	<entry key="selectDocument">
+		SELECT
+		       A.FILE_NO
+		     , A.USER_NO
+		     , A.ORIGIN_NAME
+		     , A.SAVE_NAME
+		     , A.SAVE_PATH
+		     , A.THUMBNAIL_PATH
+		  FROM TBL_USER_DOCUMENT A
+		  JOIN TBL_USER B ON(A.USER_NO = B.USER_NO)
+	</entry>
 </properties>

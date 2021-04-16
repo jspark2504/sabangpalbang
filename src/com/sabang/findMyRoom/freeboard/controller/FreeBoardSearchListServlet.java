@@ -56,14 +56,17 @@ public class FreeBoardSearchListServlet extends HttpServlet {
 		
 		String path = "";
 		if(!boardList.isEmpty()) {
-			path= "/WEB-INF/views/freeBoard/freeBoardList.jsp";
+			path = "/WEB-INF/views/freeBoard/freeBoardList.jsp";
 			request.setAttribute("boardList", boardList);
 			request.setAttribute("pageInfo", pageInfo);
 			request.setAttribute("searchCondition", condition);
 			request.setAttribute("searchValue", value);
 		}else {
-			path = "/WEB-INF/views/common/failed.jsp";
-			request.setAttribute("message", "게시물 검색 결과 조회 실패");
+			path = "/WEB-INF/views/freeBoard/freeBoardList.jsp";
+			request.setAttribute("boardList", boardList);
+			request.setAttribute("pageInfo", pageInfo);
+			request.setAttribute("searchCondition", condition);
+			request.setAttribute("searchValue", value);
 		}
 		request.getRequestDispatcher(path).forward(request, response);
 

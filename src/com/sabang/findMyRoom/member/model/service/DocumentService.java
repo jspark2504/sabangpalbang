@@ -39,9 +39,21 @@ public class DocumentService {
 		
 		close(con);
 		
-		System.out.println("서비스 : " + result);
-		
 		return result;
+	}
+
+	public List<DocumentDTO> selectDocument() {
+		
+		Connection con = getConnection();
+		
+		List<DocumentDTO> documentList = documentDAO.selectDocument(con);
+		
+		close(con);
+		
+		System.out.println("서비스 : " + documentList );
+		
+		return documentList;
+		
 	}
 
 }

@@ -28,6 +28,16 @@
 	h3{
 		color:rgba(0,0,0,0.6);
 	}
+	button.btn{
+		background:rgb(255, 210, 51);
+		position:relative;
+		right:65px;
+	}
+	button.btn:hover{
+		background: rgb(81, 75, 55);
+		color: white;
+		transition-duration: 0.3s;
+	}
 </style>
 <body>
 <jsp:include page="../common/header.jsp"/>
@@ -165,6 +175,16 @@
 					reader.readAsDataURL(value.files[0]);
 				}
 			}
+			if(document.getElementsByTagName("img")) {
+				const $tds = document.getElementsByTagName("img");
+				for(var i = 0 ; i < $tds.length ; i++) {
+					
+					$tds[i].onmouseenter = function() {
+						this.parentNode.style.cursor = "pointer";
+					}
+
+				}
+			} 
 		</script>
 </body>
 </html>

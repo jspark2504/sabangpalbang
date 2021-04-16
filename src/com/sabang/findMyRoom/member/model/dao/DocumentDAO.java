@@ -1,12 +1,15 @@
 package com.sabang.findMyRoom.member.model.dao;
 
-import static com.sabang.findMyRoom.common.jdbc.JDBCTemplate.*;
+import static com.sabang.findMyRoom.common.jdbc.JDBCTemplate.close;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -51,8 +54,50 @@ public class DocumentDAO {
 			close(pstmt);
 		}
 		
-		System.out.println("dao : " + result);
 		return result;
 	}
+
+	public List<DocumentDTO> selectDocument(Connection con) {
+		
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		List<DocumentDTO> documentList = null;
+		
+		String query = prop.getProperty("selectDocument");
+		
+		try {
+			stmt = con.createStatement();
+			
+			rset = stmt.executeQuery(query);
+			
+			documentList = new ArrayList<>();
+			
+			while(rset.next()) {
+				DocumentDTO document = new DocumentDTO();
+				
+				document.setFileNo(rset.getInt("FILE_NO"));
+				document.setUserNo(rset.getInt("USER_NO"));
+				document.setOriginName(rset.getString("ORIGIN_NAME"));
+				document.setSaveName(rset.getString("SAVE_NAME"));
+				document.setSavePath(rset.getString("SAVE_PATH"));
+				document.setThumbnailPath(rset.getString("THUMBNAIL_PATH"));
+				
+				documentList.add(document);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		
+		System.out.println("dao : " + documentList);
+		
+		return documentList;
+	}
+
+	
 
 }
