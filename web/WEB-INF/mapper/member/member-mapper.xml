@@ -108,7 +108,7 @@
 		)
 		VALUES
 		(
-		  SEQ_FILE_NO.NEXTVAL
+		  SEQ_UD_FILE_NO.NEXTVAL
 		, ?
 		, ?
 		, ?
