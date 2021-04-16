@@ -76,6 +76,22 @@ public NoticeDTO selectNoticeDetail(int no) {
 	return noticeDetail;
 	
 }
+
+public int updateNotice(NoticeDTO newNotice) {
+	
+	Connection con = getConnection();
+	
+	int result = noticeDAO.updateNotice(con, newNotice);
+	
+	if(result > 0) {
+		commit(con);
+	}else {
+		rollback(con);
+	}
+	close(con);
+	
+	return result;
+}
 	
 
 }

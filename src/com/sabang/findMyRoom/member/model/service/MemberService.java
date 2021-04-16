@@ -15,6 +15,7 @@ import com.sabang.findMyRoom.member.model.dto.MemberDTO;
 public class MemberService {
 
 	private final MemberDAO memberDAO;
+	public String searchId;
 
 	public MemberService() {
 		memberDAO = new MemberDAO();
@@ -155,11 +156,11 @@ public class MemberService {
 		
 		Connection con = getConnection();
 		
-		String result = memberDAO.searchId(con, findEmail);
+		String userId = memberDAO.searchId(con, findEmail);
 		
 		close(con);
 		
-		return result;
+		return userId;
 		
 	}
 }

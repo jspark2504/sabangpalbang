@@ -29,6 +29,30 @@
 			background:red;
 			transition-duration: 0.3s;
 		}
+		#nickname{
+			width:150px;
+			position:relative;
+			bottom:5px;
+			display:inline-block;
+		}
+		#createDate{
+			display:inline-block;
+			position:relative;
+			bottom:5px;
+			right:7px;
+		}
+		#myReply{
+			width:75px;
+			text-align:center;
+			font-size:11px;
+			border:1px solid red;
+			border-radius:10px;
+			color:red;
+			display:inline-block;
+			position:relative;
+			bottom:7px;
+			left:7px;
+		}
 		
 	</style>
 </head>
@@ -37,11 +61,22 @@
 		<c:forEach items="${listReply }" var="reply">
 		<hr>
  		<form action="${ pageContext.servletContext.contextPath}/reply/delete" method="post">
-		<i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;&nbsp; ${reply.writer.nickname }
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- 		<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp; ${reply.createDate }
+ 		
+			<div id="nickname"><i class="fa fa-user-o" aria-hidden="true">
+			</i>&nbsp;&nbsp;&nbsp;${reply.writer.nickname }
+			</div>
+			
+	 		<div id="createDate"><i class="fa fa-calendar" aria-hidden="true">
+	 		</i>&nbsp;&nbsp;&nbsp;${reply.createDate }
+	 		</div>
+	 		
+			<c:if test="${ sessionScope.loginMember.no eq reply.userNo }">
+				<div id="myReply">내가 쓴 댓글</div>
+			</c:if>
+			
+ 		
 		<br><br>
-		<i class="fa fa-comments" aria-hidden="true"></i>&nbsp;&nbsp; ${reply.content }
+		<i class="fa fa-comments" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;${reply.content }
 		<input type="hidden" id="replyNo" name="replyNo" value="${reply.no }">
 		<input type="hidden" id="postNo" name="postNo" value="${reply.postNo }">
 		<c:if test="${ sessionScope.loginMember.no eq reply.userNo || sessionScope.loginMember.role eq 'ADMIN'}">

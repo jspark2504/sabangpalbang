@@ -89,7 +89,7 @@
         >취소</button>
         
   		<c:if test="${ sessionScope.loginMember.role eq 'ADMIN' }">
-        <button class="btn" type="submit" id="btn2"
+        <button class="btn" id="btn2" type="button"
         onclick="location.href='${ pageContext.servletContext.contextPath}/notice/update?no=${ requestScope.noticeList.noticeNo }'"
         >수정</button>
         </c:if>

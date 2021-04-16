@@ -81,7 +81,7 @@ private final Properties prop;
 				reply.setContent(rset.getString("REPLY_CONTENT"));
 				reply.setUserNo(rset.getInt("USER_NO"));
 				reply.getWriter().setNickname(rset.getString("NICKNAME"));
-				reply.setCreateDate(rset.getDate("CREATION_DATE"));
+				reply.setCreateDate(rset.getString("CREATION_DATE"));
 				
 				listReply.add(reply);
 				

@@ -16,14 +16,14 @@ public class ReplyDTO implements Serializable{
 	private int userNo;
 	private MemberDTO writer;
 	private String content;
-	private Date createDate;
+	private String createDate;
 	private String viewYn;
 
 	public ReplyDTO() {
 		super();
 	}
 
-	public ReplyDTO(int no, int postNo, int userNo, MemberDTO writer, String content, Date createDate, String viewYn) {
+	public ReplyDTO(int no, int postNo, int userNo, MemberDTO writer, String content, String createDate, String viewYn) {
 		super();
 		this.no = no;
 		this.postNo = postNo;
@@ -74,11 +74,11 @@ public class ReplyDTO implements Serializable{
 		this.content = content;
 	}
 
-	public Date getCreateDate() {
+	public String getCreateDate() {
 		return createDate;
 	}
 
-	public void setCreateDate(Date createDate) {
+	public void setCreateDate(String createDate) {
 		this.createDate = createDate;
 	}
 

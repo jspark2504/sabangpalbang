@@ -286,7 +286,7 @@ public class MemberDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String findId = null;
+		String findId = null; //USER_ID가 String형태니까 담아주기
 		
 		String query = prop.getProperty("selectSearchId");
 		
@@ -295,6 +295,10 @@ public class MemberDAO {
 				pstmt.setString(1, findEmail);
 				
 				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					findId = rset.getString("USER_ID");//가져올 정보를 한줄(rset)으로 담기
+				}
 				
 			} catch (SQLException e) {
 				e.printStackTrace();

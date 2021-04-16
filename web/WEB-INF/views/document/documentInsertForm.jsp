@@ -29,6 +29,8 @@
 	}
 	h3{
 		color:rgba(0,0,0,0.6);
+		position:relative;
+		left:35px;
 	}
 	button.btn{
 		background:rgb(255, 210, 51);
