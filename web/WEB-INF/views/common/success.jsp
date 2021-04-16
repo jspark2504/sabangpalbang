@@ -60,7 +60,13 @@
 				case "updateNotice" :
 					successMessage = "공지사항 수정 성공!";
 					movePath = "${ pageContext.servletContext.contextPath }/notice/list";
-
+					break;
+					
+				case "deleteNotice" : 
+					successMessage = "공지사항 삭제 성공!";
+					movePath = "${ pageContext.servletContext.contextPath }/notice/list";
+					break;
+			
 			}
 			
 			alert(successMessage);

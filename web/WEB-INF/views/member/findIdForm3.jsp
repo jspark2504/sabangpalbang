@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   
-<title>임시비밀번호 발급</title>
+<title>임시 비밀번호 발급</title>
    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   
@@ -132,15 +132,16 @@
 </head>
 <body>
 	<jsp:include page="../common/header.jsp"></jsp:include>
+	
   	<div class="container">
   
       <form class="form-signin">
         <br>
         <div id="textbox">
-        <p>에<br>연결된 아이디입니다.</p>
+        <p><%= %>에<br>연결된 아이디입니다.</p>
         <br>
         </div>
-        <!-- <h2 class="form-signin-heading">Please sign in</h2> -->
+   
         <input type="text" id="inputId" class="form-control" placeholder="example" required="" autofocus="">
         
         <button class="btn btn-lg" type="submit" id="btn1">임시 비밀번호 발급</button>
