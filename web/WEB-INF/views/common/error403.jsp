@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1 align="center">페이지를 찾을 수 없습니다~</h1>
+	<h1 align="center">요청 권한이 없는 페이지 입니다~</h1>
 </body>
 </html>
 

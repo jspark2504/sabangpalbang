@@ -30,7 +30,8 @@
 						전세 어디까지 알고 계신가요?
 					</b>
 				</h1>
-				<div class="col-lg-6">
+                <!-- 검색 기능 삭제 시 -->
+				<%-- <div class="col-lg-6">
 					<div class="input-group">
     						<input type="text" class="form-control" placeholder="정보게시판에서 원하는 정보를 검색해보세요" readonly>
 							<span class="input-group-btn">
@@ -40,7 +41,28 @@
 				              </a>
 							</span>
 					</div>
-				</div>
+				</div> --%>
+
+          <!-- 검색 기능 추가 시 -->
+          <form id="searchForm" action="${ pageContext.servletContext.contextPath }/infoboard/search" method="get">
+               <select id="searchCondition" name="searchCondition">
+                  <option value="title" <c:if test="${requestScope.searchCondition eq 'title' }"> </c:if>>제목</option>
+               </select>
+            <div class="col-lg-6">
+               <div class="input-group">
+                     <input type="search" id="searchValue" name="searchValue" class="form-control" value="${requestScope.searchValue}" placeholder="정보게시판에서 원하는 정보를 검색해보세요">
+                     <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit" id="submitBtn">
+                           <i class="fa fa-search">
+                           </i>
+                        </button>
+                     </span>
+               </div>
+            </div>
+         </form>
+            <a class="all-info" href="${ pageContext.servletContext.contextPath }/infoboard/list">
+               → 모든 정보 보러가기
+            </a>
 			</article>
 		</section>
 	</section>

@@ -132,7 +132,7 @@
                   </li>
                 </ul>
                 <hr>
-                <p class="room-title">
+                <p class="room-value title">
                   ▶신축 / 분리형 / 보증금조절가능◀ 지상층 / 풀옵션
                 </p>
                 <div class="divider-line">
@@ -141,7 +141,7 @@
 
               <!-- room-building-info-all -->
               <article class="room-building-info-all">
-                <h4 class="room-building-info-title">
+                <h4 class="room-info-title">
                   매물 정보
                 </h4>
                 <hr>
@@ -192,41 +192,63 @@
                           </figcaption>
                       </figure> -->
                     </li>
-                  </ul> <!-- option-icon -->
-                </div> <!-- option-icon -->
-                <ul class="room-building-info">
-              	  <li class="room-available-date">
-                    입주가능일
-                    <span>
+                  </ul> <!-- building-option fin. -->
+                </div> <!-- option-icon fin. -->
+                <!-- room-building-info-table -->
+                <div class="room-building-info-table">
+                <table class="table">
+                  <tr>
+                  	<td class="table-title">
+                      입주가능일
+                    </td>
+                  	<td colspan="2">
                       즉시 입주
-                    </span>
-                  </li>
-              	  <li class="room-direction">
-                    방향
-                    <span>
+                    </td>
+                  </tr>
+                  <tr>
+                  	<td class="table-title">
+                      방향
+                    </td>
+                  	<td colspan="2">
                       남향
-                    </span>
-                  </li>
-              	  <li class="room-construction-date">
-                    준공날짜
-                    <span>
+                    </td>
+                  </tr>
+                  <tr>
+                  	<td class="table-title">
+                      준공날짜
+                    </td>
+                  	<td colspan="2">
                       2019-01-08
-                    </span>
-                  </li>
-              	  <li>
-                    층/건물층수
-                    <span>
+                    </td>
+                  </tr>
+                  <tr>
+                  	<td class="table-title">
+                      층/건물층수
+                    </td>
+                  	<td colspan="2">
                       1층/4층
-                    </span>
-                  </li>
-              	  <li></li>
-              	  <li></li>
-                </ul>
-                <hr>
+                    </td>
+                  </tr>
+                  <tr>
+                  	<td>
+                      주소
+                    </td>
+                  	<td colspan="2">
+                      동작구 사당동 446-11
+                    </td>
+                  </tr>
+                </table>
+                </div>
+                <div class="divider-line">
+                </div>
               </article> <!-- room-basic-info fin. -->
 
               <!-- room-option-info -->
               <article class="room-option-info">
+                <h4 class="room-info-title">
+                  옵션 정보
+                </h4>
+                <hr>
                 <div class="option-icon">
                   <ul class="home-appliances">
                      <li class="washing-machine">
@@ -291,13 +313,18 @@
                      </li>
                   </ul> <!-- home-appliances fin. -->
                 </div> <!-- option-icon -->
-                <hr>
+                <div class="divider-line">
+                </div>
               </article> <!-- room-option-info -->
 
-              <!-- room-cost -->
+              <!-- room-cost-include -->
               <article class="room-cost-include">
+                <h4 class="room-info-title">
+                  관리비 포함 항목
+                </h4>
+                <hr>
                 <div class="option-icon">
-                  <ul class="home-appliances">
+                  <ul class="room-cost-option">
                      <li class="gas">
                       <figure>
                         <img src="data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTIzMS45NjUgNDQ5LjA0MWgxMDguNzU2djU1LjQ2aC0xMDguNzU2eiIgZmlsbD0iI2MwYzdjZiIvPjxwYXRoIGQ9Im0zODAuNTIxIDE4MS41NTh2LTQ3LjY2NWMwLTcuMTM4LTUuNzgyLTEyLjkyNS0xMi45MTQtMTIuOTI1aC0xNjQuMjQyYy03LjEzMiAwLTEyLjkxNCA1Ljc4Ny0xMi45MTQgMTIuOTI1djI0My43MjVjMCA3LjEzOCA1Ljc4MiAxMi45MjUgMTIuOTE0IDEyLjkyNWgxNjQuMjQyYzcuMTMyIDAgMTIuOTE0LTUuNzg3IDEyLjkxNC0xMi45MjV2LTE0MS40ODN6IiBmaWxsPSIjZTJmYWZmIi8+PHBhdGggZD0ibTM2Ny42MDcgMTIwLjk2OGgtMzNjNy4xMzIgMCAxMi45MTQgNS43ODcgMTIuOTE0IDEyLjkyNXY0Ny42NjUgNTQuNTc2IDE0MS40ODRjMCA3LjEzOC01Ljc4MiAxMi45MjUtMTIuOTE0IDEyLjkyNWgzM2M3LjEzMiAwIDEyLjkxNC01Ljc4NyAxMi45MTQtMTIuOTI1di0xNDEuNDg0LTU0LjU3Ni00Ny42NjVjMC03LjEzOC01Ljc4Mi0xMi45MjUtMTIuOTE0LTEyLjkyNXoiIGZpbGw9IiNjYmY0ZmYiLz48cGF0aCBkPSJtMjMxLjk2NSA3LjVoMTA4Ljc1NnY1NC40NTRoLTEwOC43NTZ6IiBmaWxsPSIjYzBjN2NmIi8+PHBhdGggZD0ibTMwNy43MjEgNDQ5LjA0MWgzM3Y1NS40NmgtMzN6IiBmaWxsPSIjYjFiN2JmIi8+PHBhdGggZD0ibTMwNy43MjEgNy41aDMzdjU0LjQ1NGgtMzN6IiBmaWxsPSIjYjFiN2JmIi8+PHBhdGggZD0ibTM1OC41MSAxMDl2LTM1LjQ0MWMwLTYuNDA5LTUuMTk2LTExLjYwNS0xMS42MDUtMTEuNjA1aC0xMjEuMjgxYy02LjQwOSAwLTExLjYwNSA1LjE5Ni0xMS42MDUgMTEuNjA1djM1LjQ0MWMwIDYuNDA5IDUuMTk2IDExLjk2OCAxMS42MDUgMTEuOTY4aDEyMS4yODFjNi40MDkgMCAxMS42MDUtNS41NTkgMTEuNjA1LTExLjk2OHoiIGZpbGw9IiNiYWVlZmMiLz48cGF0aCBkPSJtMjYwLjIyOSA2MS45NTVoNTIuMDd2NTkuMDE0aC01Mi4wN3oiIGZpbGw9IiNhMmUxZjgiLz48cGF0aCBkPSJtMzU4LjUxIDQzNy40MzZ2LTM1LjQ0MWMwLTYuNDA5LTUuMTk2LTExLjYwNS0xMS42MDUtMTEuNjA1aC0xMjEuMjgxYy02LjQwOSAwLTExLjYwNSA1LjE5Ni0xMS42MDUgMTEuNjA1djM1LjQ0MWMwIDYuNDA5IDUuMTk2IDExLjYwNSAxMS42MDUgMTEuNjA1aDEyMS4yODFjNi40MDkgMCAxMS42MDUtNS4xOTYgMTEuNjA1LTExLjYwNXoiIGZpbGw9IiNiYWVlZmMiLz48cGF0aCBkPSJtMjYwLjIyOSAzOTAuMzloNTIuMDd2NTguNjVoLTUyLjA3eiIgZmlsbD0iI2EyZTFmOCIvPjxwYXRoIGQ9Im0xOTAuNDUxIDMwOC41MzJoLTE5Ljg2NWMtOC4zMjcgMC0xNS4wNzctNi43NS0xNS4wNzctMTUuMDc3di03Mi4zMTZjMC04LjMyNyA2Ljc1LTE1LjA3NyAxNS4wNzctMTUuMDc3aDE5Ljg2NXoiIGZpbGw9IiNhMmUxZjgiLz48cGF0aCBkPSJtMTE1LjMxNCAyNDQuNDg4aDQwLjE5NXYyNS42MTdoLTQwLjE5NXoiIGZpbGw9IiNjMGM3Y2YiLz48ZWxsaXBzZSBjeD0iNjQuODE0IiBjeT0iMjU3LjI5NyIgZmlsbD0iI2ZmZTU4MiIgcng9IjU3LjMxIiByeT0iNTcuMzYxIi8+PGNpcmNsZSBjeD0iMjgzLjgxNCIgY3k9IjI1Ny4yOTYiIGZpbGw9IiM4NzhiOTEiIHI9IjU0LjUiLz48ZWxsaXBzZSBjeD0iMjg0LjAzOSIgY3k9IjI1Ny4yOTciIGZpbGw9IiNjMGM3Y2YiIHJ4PSIyMy4zNjkiIHJ5PSIyMy4zOSIvPjxwYXRoIGQ9Im0yNzMuNjk2IDIzNS45MyAxOTYuOTU3LTk4Ljg2M2MxMS41MzctNS43OTEgMjUuNTgtMS4xMjUgMzEuMzY2IDEwLjQyMiA1Ljc4NiAxMS41NDcgMS4xMjQgMjUuNjAyLTEwLjQxMyAzMS4zOTNsLTE5Ni45NTcgOTguODYzeiIgZmlsbD0iI2MwYzdjZiIvPjxwYXRoIGQ9Im03MC42NzYgMjYzLjE1NCAxOC45MTgtMTguOTM1YzYuODA3LTYuODEyLTMuNzk1LTE3LjQyNC0xMC42MTEtMTAuNjAybC0xOC45MTggMTguOTM1Yy02LjcxIDYuNzE2IDMuNzQ1IDE3LjQ3MyAxMC42MTEgMTAuNjAyeiIvPjxwYXRoIGQ9Im01MDguNzI0IDE0NC4xMjljLTcuNTIxLTE1LjAxMS0yNi40MDktMjEuMzA3LTQxLjQzNS0xMy43NjZsLTc5LjI2OSAzOS43ODl2LTM1LjI1OWMwLTExLjI2My05LjE1OC0yMC40MjUtMjAuNDE0LTIwLjQyNWgtMi40MDRjLjUxOS0xLjczNC44MDctNDAuOTA5LjgwNy00MC45MDkgMC0xMC4wOS03Ljg2OC0xOC4zNTctMTcuNzg5LTE5LjAzOHYtNDcuMDIxYzAtNC4xNDItMy4zNTctNy41LTcuNS03LjVoLTEwOC43NTVjLTQuMTQzIDAtNy41IDMuMzU4LTcuNSA3LjV2NDcuMDEzYy05Ljk5NS42MDQtMTcuOTQ2IDguOTAzLTE3Ljk0NiAxOS4wNDYgMCAwIC4yODggMzkuMTc1LjgwNyA0MC45MDloLTMuOTYxYy0xMS4yNTYgMC0yMC40MTMgOS4xNjMtMjAuNDEzIDIwLjQyNXY2My42NjhoLTEyLjM2NmMtMTIuNDQ4IDAtMjIuNTc2IDEwLjEyOC0yMi41NzYgMjIuNTc3djE1Ljg0OWgtMjEuNjU3Yy04LjUzOC0yNS44NDQtMzIuODg5LTQ0LjU1Mi02MS41MzktNDQuNTUyLTUuOTQ5IDAtMTEuODQ2LjgwOC0xNy41MjUgMi40MDEtOS4yNzMgMi42MDEtNS4yMzMgMTcuMDU1IDQuMDUxIDE0LjQ0MiA0LjM2Mi0xLjIyNCA4Ljg5Ni0xLjg0NCAxMy40NzUtMS44NDQgMjcuNDY2IDAgNDkuODExIDIyLjM2OCA0OS44MTEgNDkuODYxcy0yMi4zNDUgNDkuODYxLTQ5LjgxMSA0OS44NjFjLTI3LjQ2NSAwLTQ5LjgxLTIyLjM2OC00OS44MS00OS44NjEgMC0xMC41NDkgMy4yNDgtMjAuNjI4IDkuMzkzLTI5LjE0OCA1LjYzMy03LjgxMS02LjUyNi0xNi41OTYtMTIuMTY2LTguNzc0LTcuOTk5IDExLjA5MS0xMi4yMjcgMjQuMjA1LTEyLjIyNyAzNy45MjMgMCAzNS43NjQgMjkuMDczIDY0Ljg2MSA2NC44MSA2NC44NjEgMjguNjQ5IDAgNTMtMTguNzA4IDYxLjUzOS00NC41NTJoMjEuNjU3djE1Ljg0OWMwIDEyLjQ0OSAxMC4xMjggMjIuNTc3IDIyLjU3NiAyMi41NzdoMTIuMzY2djYxLjU4NmMwIDExLjI2MyA5LjE1NyAyMC40MjUgMjAuNDEzIDIwLjQyNSAxLjAzMy0uMjU0IDIuNTAzIDAgMy41NyAwLS4yNzYgMS4zMDMtLjQxNSAyLjYyLS40MTYgMy45NTF2MzUuNDQxYzAgMTAuMTQzIDcuOTUyIDE4LjQ0MiAxNy45NDYgMTkuMDQ2djQ4LjAyYzAgNC4xNDIgMy4zNTcgNy41IDcuNSA3LjVoMTA4Ljc1NmM0LjE0MyAwIDcuNS0zLjM1OCA3LjUtNy41di00OC4wMjZjOS45MjEtLjY4MSAxNy43ODktOC45NDggMTcuNzg5LTE5LjAzOHYtMzUuNDQxYzAtMS4zNTUtLjE0Ny0yLjY3NS0uNDE2LTMuOTUxaDIuMDEzYzExLjI1NiAwIDIwLjQxNC05LjE2MyAyMC40MTQtMjAuNDI1di0yNy44MjJjMC05LjYzLTE1LTkuNjQ0LTE1IDB2MjcuODIyYzAgMi45OTItMi40MjkgNS40MjUtNS40MTQgNS40MjVoLTE2NC4yNDNjLTIuOTg0IDAtNS40MTMtMi40MzQtNS40MTMtNS40MjV2LTY5LjA4Ni0xMDIuNDctNzEuMTY4YzAtMi45OTIgMi40MjktNS40MjUgNS40MTMtNS40MjVoMTY0LjI0MmMyLjk4NSAwIDUuNDE0IDIuNDM0IDUuNDE0IDUuNDI1djQyLjc4OGwtNTUuOTA1IDI4LjA2MmMtLjY0NC0xLjAzNy0xLjU0OS0xLjkzMi0yLjY4OC0yLjU3NC05LjIzLTUuMi0xOS43MzktNy45NDktMzAuMzg5LTcuOTQ5LTM0LjIwMiAwLTYyLjAyOCAyNy44NDctNjIuMDI4IDYyLjA3NnMyNy44MjYgNjIuMDc2IDYyLjAyOCA2Mi4wNzZjMzEuOTYxIDAgNTguNDktMjMuOTY4IDYxLjcxLTU1Ljc1MS4xMDUtMS4wMzgtLjAwOC0yLjA0Ny0uMy0yLjk4NGwyNy41NzEtMTMuODM5djU3Ljk5OGMwIDkuNjMgMTUgOS42NDQgMTUgMHYtNjUuNTI3bDEwNi45NDktNTMuNjg0YzE1LjIxNC03LjYzNyAyMS4zODQtMjYuMjM0IDEzLjc1NS00MS40NTh6bS0yODcuMjA1IDI5My4zMDd2LTM1LjQ0MWMwLTEuODk4IDEuMzAyLTMuNDg0IDMuMDU1LTMuOTUxaDI4LjE1NnY0My40OTdoLTI3LjEwNWMtMi4yNjQgMC00LjEwNi0xLjg0Mi00LjEwNi00LjEwNXptNDYuMjExIDQuMTA1di00My40OTdoMzcuMDY5djQzLjQ5N3ptNjUuNDkxIDU1LjQ1OWgtOTMuNzU2di0zOS40NTRoOTMuNzU2em0xNy43ODktOTUuMDA1djM1LjQ0MWMwIDIuMjYzLTEuODQyIDQuMTA0LTQuMTA1IDQuMTA0aC0yNy4xMDV2LTQzLjQ5N2gyOC4xNTZjMS43NTIuNDY4IDMuMDU0IDIuMDU0IDMuMDU0IDMuOTUyem0tMjIxLjYyMS0xMzkuMzljLjE0My0xLjc1My4yMzUtMy41Mi4yMzUtNS4zMDlzLS4wOTMtMy41NTYtLjIzNS01LjMwOWgxOC42MnYxMC42MTh6bTQxLjE5NiAzOC40MjdjLTQuMTc4IDAtNy41NzYtMy4zOTktNy41NzYtNy41Nzd2LTIzLjM0OS0yNS42MTgtMjMuMzQ5YzAtNC4xNzggMy4zOTgtNy41NzcgNy41NzYtNy41NzdoMTIuMzY2djg3LjQ3em0xMzQuMjE0LTIzMS41Nzd2NDMuNjVoLTM3LjA2OXYtNDMuNjV6bTQ2LjIxMSA0LjEwNHYzNS40NDFjMCAyLjI2NC0xLjg0MiA0LjEwNS00LjEwNSA0LjEwNWgtMjcuMTA1di00My42NWgyMC45MjIgNi4xODRjMi4yNjIgMCA0LjEwNCAxLjg0MSA0LjEwNCA0LjEwNHptLTExMS41NDUtNTguNTU5aDkzLjc1NnYzOS40NTVoLTkzLjc1NnptLTE3Ljk0NiA1OC41NTljMC0yLjI2MyAxLjg0Mi00LjEwNCA0LjEwNS00LjEwNGg2LjM0MSAyMC43NjV2NDMuNjVoLTI3LjEwNWMtMi4yNjQgMC00LjEwNS0xLjg0MS00LjEwNS00LjEwNXYtMzUuNDQxem02Mi41MiAyMzAuODE0Yy0yNS45MzIgMC00Ny4wMjgtMjEuMTE4LTQ3LjAyOC00Ny4wNzZzMjEuMDk3LTQ3LjA3NiA0Ny4wMjgtNDcuMDc2YzYuMDAyIDAgMTEuOTM5IDEuMTU0IDE3LjQ2MiAzLjM2bC0zMS4xNyAxNS42NDZjLS43ODkuMzk2LTEuNDcuOTE3LTIuMDQ3IDEuNTItOS4wNDEgNS4zOTMtMTUuMTE0IDE1LjI3My0xNS4xMTQgMjYuNTQ5IDAgMTcuMDMzIDEzLjg0OCAzMC44OSAzMC44NjkgMzAuODkgNi41ODggMCAxMi42OTUtMi4wODIgMTcuNzEzLTUuNjE0bDI3Ljk3NC0xNC4wNDJjLTUuMDQgMjAuODI5LTIzLjY2IDM1Ljg0My00NS42ODcgMzUuODQzem05LjgzNy0zNC42MzEtMi41OTIgMS4zMDFjLS41OS4yOTYtMS4xMTcuNjY2LTEuNTkgMS4wODItMS43Ni42NzUtMy42NjEgMS4wNjEtNS42NTUgMS4wNjEtOC43NSAwLTE1Ljg2OS03LjEyOC0xNS44NjktMTUuODlzNy4xMTktMTUuODkgMTUuODY5LTE1Ljg5IDE1Ljg2OSA3LjEyOCAxNS44NjkgMTUuODljLjAwMSA1LjA0Mi0yLjM2NCA5LjUzMy02LjAzMiAxMi40NDZ6bTE5NC4zNjYtOTcuNTYzLTE3My4zOTkgODcuMDM5Yy4wMzktLjYzNi4wNjYtMS4yNzUuMDY2LTEuOTIxIDAtMTEuMDk3LTUuODgxLTIwLjg0My0xNC42ODUtMjYuMjlsMTczLjc5Ni04Ny4yMzdjMTguNDE3LTkuMjQ3IDMyLjQwNCAxOS4yODMgMTQuMjIyIDI4LjQwOXoiLz48cGF0aCBkPSJtNDc5LjUyNSAxNTEuNDExYy05LjY1MiAwLTkuNjY4IDE1IDAgMTUgOS42NTEgMCA5LjY2Ny0xNSAwLTE1eiIvPjwvc3ZnPg==" />
@@ -375,9 +402,52 @@
                      </li>
                   </ul> <!-- home-appliances fin. -->
                 </div> <!-- option-icon -->
-                <hr>
-              </article>
+                <div class="divider-line">
+                </div>
+              </article> <!-- room-cost-include -->
 
+              <article class="room-transportation-info">
+                <h4 class="room-info-title">
+                  교통 정보
+                </h4>
+                <hr>
+                <p class="room-value transport">
+                  사당역(2호선,4호선), 남성역(7호선), 낙성대역(2호선)
+                </p>
+                <div class="divider-line">
+                </div>
+              </article> <!-- room-transportation-info fin. -->
+
+              <article class="room-explanation-info">
+                <h4 class="room-info-title">
+                  상세 설명
+                </h4>
+                <hr>
+                <p class="room-explanation-info-value">
+                  ▣ 구조 및 특징 ▣ <br>
+                  = 신축. <br>
+                  = 지상층 최저가. <br>
+                  = 보증금 조절 가능. (월세 전환 가능) <br>
+                  = 가장 인기 많은 분리형 원룸 구조. <br>
+                  = 풀옵션 - 에어컨,세탁기,냉장고,주방시설,옷장 등. <br>
+                  = 가격대비 평수가 커서 짐이 많은 분들께 강추. <br>
+                  = 빌트인 옵션이 깔끔하게 들어가 있어 활용공간 우수. <br>
+                  = 사당역 역세권 (2호선, 4호선) <br>
+                  <br>
+                  ▣ 교통 및 주변환경 ▣ <br>
+                  <br>
+                  = 사당역 2호선 / 4호선 7분. <br>
+                  = 각종 편의시설이 가깝게 배치되어 있어 도보로 이용 가능합니다 - 영화관, 백화점, 시장, 마트, 편의점, 세탁소 등. <br>
+                  = 주변 먹자골목 및 시장이 있어 식료품 구매 및 식사 용이. <br>
+                  = 여성안전시스템으로 집주변 CCTV 24시간 작동중입니다!
+                </p>
+                <div class="divider-line">
+                </div>
+              </article> <!-- room-explanation-info fin. -->
+
+              <article class="">
+
+              </article>
           </section> <!-- 매물 목록 영역 end -->
        </section>
       </main>
