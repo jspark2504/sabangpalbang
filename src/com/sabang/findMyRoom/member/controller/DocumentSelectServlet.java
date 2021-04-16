@@ -35,8 +35,8 @@ public class DocumentSelectServlet extends HttpServlet {
 			path = "/WEB-INF/views/document/documentList.jsp";
 			request.setAttribute("documentList", documentList);
 		} else {
-			path = "/WEB-INF/views/common/failed.jsp";
-			request.setAttribute("message", "썸네일 게시판 조회 실패!");
+			path = "/WEB-INF/views/document/documentList.jsp";
+			request.setAttribute("documentList", documentList);
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);

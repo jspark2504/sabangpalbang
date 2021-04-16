@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +10,7 @@
 <link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <style>
 	[id*=area]{
 		background:white;
@@ -105,7 +107,8 @@
 		<input type="file" id="documentImg7" name="documentImg7" onchange="loadImg(this,7)">
 		<input type="file" id="documentImg8" name="documentImg8" onchange="loadImg(this,8)">
 	</div>
-	<button class="btn pull-right" type="submit">등록하기</button>
+
+	<button id="submitBtn" class="btn pull-right" type="submit">등록하기</button>
 	</form>
 </div>
 <jsp:include page="../common/footer.jsp" />
@@ -184,7 +187,19 @@
 					}
 
 				}
-			} 
+			}
+			$ (document).ready ( function(){
+			    $('#submitBtn').attr('disabled',true);
+			    $('input:file').change(
+			        function(){
+			            if ($(this).val()){
+			                $('#submitBtn').removeAttr('disabled'); 
+			            }
+			            else {
+			                $('#submitBtn').attr('disabled',true);
+			            }
+			        });
+			});   
 		</script>
 </body>
 </html>

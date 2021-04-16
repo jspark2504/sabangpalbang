@@ -10,13 +10,14 @@
 <link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <style>
 	[id*=area]{
 		background:white;
 		max-width:190px;
 		height:250px; 
 		margin:45px; 
-		padding:0px auto;
+		padding:10px auto;
 		border:rgba(0,0,0,0.3); 
 		border-radius:5px; 
 		border-style:dashed;
@@ -42,6 +43,10 @@
 		background: rgb(81, 75, 55);
 		color: white;
 		transition-duration: 0.3s;
+	}
+	.checkbox{
+		position:relative;
+		bottom:25px;
 	}
 </style>
 <body>
