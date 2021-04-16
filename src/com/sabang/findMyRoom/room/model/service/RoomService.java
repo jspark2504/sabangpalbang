@@ -56,4 +56,9 @@ public class RoomService {
 
 		return roomDetail;
 	}
+
+	public int insertRoom(RoomDTO room) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

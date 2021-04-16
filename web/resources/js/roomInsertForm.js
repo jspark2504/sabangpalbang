@@ -1,3 +1,4 @@
+/* 사진 추가 및 삭제 처리 */
 const $addBtn = document.getElementById("addImgBtn");
 
 let fileName = "file1";
@@ -59,3 +60,6 @@ function removeFile(btn) {
     i--;
     fileName = fileName.substr(0, 4) + i;
 }
+
+/* keyup 이벤트 */
+
