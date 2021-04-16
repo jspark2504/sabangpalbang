@@ -62,10 +62,17 @@
 					movePath = "${ pageContext.servletContext.contextPath }/notice/list";
 					break;
 
+				case "deleteNotice" :
+					successMessage = "공지사항 삭제 성공!";
+					movePath = "${ pageContext.servletContext.contextPath }/notice/list";
+					break;
+
 				case "insertRoom" :
 					successMessage = "매물 등록 성공!"
 					movePath = "${ pageContext.servletContext.contextPath }/room/list";
 					break;
+
+
 			}
 
 			alert(successMessage);

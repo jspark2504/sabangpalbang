@@ -33,10 +33,13 @@ function loadImg(value) {
 function removeFile(btn) {
     const removedImgId = $(btn).prev().attr("id"); // 삭제된 이미지의 id 속성값
     const removedImgNo = parseInt(removedImgId.substr(3)); // 삭제된 이미지의 번호
+	const removedFileName = "file" + removedImgNo;
+
 
     /* 이미지 삭제 */
-    $(btn).closest("div").empty();
     $(btn).closest("div").remove();
+	/* 파일 삭제 */
+	$("input[name='" + removedFileName + "']").val("");
 
     /* 이미지 ID 및 파일 input name 변경 */
     for (let j = removedImgNo + 1; j < i; j++) {
@@ -50,8 +53,8 @@ function removeFile(btn) {
         console.log("fileNameNow", fileNameNow);
         console.log("fileNameNew", fileNameNew);
 
-        document.getElementById(imgIdNow).attr("id", imgIdNew);
-        $("input[name='" + fileNameNow + "']").attr("name", fileNameNew);
+        document.getElementById(imgIdNow).prop("id", imgIdNew);
+        $("input[name='" + fileNameNow + "']").prop("name", fileNameNew);
 
         console.log(imgIdNow, imgIdNew);
         console.log(fileNameNow, fileNameNew);

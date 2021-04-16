@@ -64,6 +64,14 @@
     SET A.TITLE = ?
       , A.CONTENT = ?
   WHERE	A.NOTICE_NO = ?
+    AND A.NOTICE_STATUS_YN='Y'
+	</entry>
+	<entry key="deleteNotice">
+	UPDATE
+		   TBL_NOTICE A
+	   SET A.NOTICE_STATUS_YN = 'N'
+	 WHERE A.NOTICE_STATUS_YN = 'Y'
+	   AND A.NOTICE_NO = ?
 	</entry>
 	
 </properties>

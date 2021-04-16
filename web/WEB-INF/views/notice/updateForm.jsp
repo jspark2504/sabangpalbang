@@ -5,8 +5,19 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>공지수정</title>
+    
+    
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <link rel="stylesheet" href="/findMyRoom/resources/css/freeBoardDetail.css">
+	<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
     
     <style>
     *{
@@ -14,7 +25,7 @@
         color: gray;
     }
     
-    .form-write{
+    #form{
         position : absolute;
         /* background: chartreuse; */
         left: 50%;
@@ -66,18 +77,7 @@
     #box1{ margin-top: 218px; }
 
     </style>
-      <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-  <!-- 부가적인 테마 -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-
-  <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  
+ 
 </head>
 
 <body>
@@ -85,7 +85,7 @@
 <jsp:include page="../common/header.jsp"/>
 
 <div class="container">
-    <form class="form-write" action="${ pageContext.servletContext.contextPath }/notice/update" method="post">
+    <form id="form" action="${ pageContext.servletContext.contextPath }/notice/update" method="post">
 			<input type="hidden" name="noticeNo" value="${requestScope.notice.noticeNo }">
 
     	
@@ -99,16 +99,16 @@
 
        <textarea name="content" style="resize:none;" required><c:out value="${ requestScope.notice.content }"/></textarea>
         <br>
-       <button class="btn" type="submit" id="btn1" onclick="postRequest('deleteNotice')">삭제</button>
-        <button class="btn" type="submit" id="btn2">수정</button>
         <button onclick="location.href='${ pageContext.servletContext.contextPath}/notice/list'" class="btn" type="button" id="btn3">목록</button>
+        <button class="btn" type="submit" id="btn2">수정</button>
+       <button class="btn" type="button" id="btn1" onclick="postRequest('deleteNotice')">삭제</button>
         
     </form>
     
-</div>   
+	</div>   
 	<script>
 		function postRequest(intent){
-			var $form = document.getElementById("form-write");
+			var $form = document.getElementById("form");
 			
 			requestPath = "<%=request.getContextPath()%>";
 			

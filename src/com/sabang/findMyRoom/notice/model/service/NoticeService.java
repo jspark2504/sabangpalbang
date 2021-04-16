@@ -92,6 +92,23 @@ public int updateNotice(NoticeDTO newNotice) {
 	
 	return result;
 }
+
+public int deleteNotice(int no) {
+	
+	Connection con = getConnection();
+	
+	int result = noticeDAO.deleteNotice(con, no);
+	
+	if(result > 0) {
+		commit(con);
+	} else {
+		rollback(con);
+	}
+	close(con);
+
+	return result;
+	
+}
 	
 
 }
