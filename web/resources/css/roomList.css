@@ -1,8 +1,8 @@
 @charset "UTF-8";
-main {
-    /* background-color: burlywood; */
-    /* height: 800px; */
+.room-list-main {
+    padding: 0px;
     margin-top: -10px;
+    margin-bottom: -50px;
 }
 
 ul {
@@ -16,9 +16,8 @@ a {
 }
 /* 지도 */
 .map {
-    /* background-color: aquamarine; */
-    height: 70vw;
-    max-height: 700px;
+    height: 60vw;
+    max-height: 800px;
     padding: 0px;
 }
 
@@ -32,11 +31,10 @@ a {
 
 /* 매물 목록 */
 .room-list {
-    background-color: white;
-    height: 70vw;
-    max-height: 700px;
-    padding: 0;
-    overflow: scroll;
+    height: 60vw;
+    max-height: 800px;
+    padding: 0px;
+    overflow-y: scroll;
 }
 
 .room-list-heading {
@@ -48,13 +46,12 @@ a {
     height: 120px;
     max-width: 500px;
     margin: 20px 15px;
-/*     background-color: aqua; */
 }
 
 .room-list .room .img {
     width: 172px;
     overflow: hidden;
-    margin-right: 12px;
+    margin-right: 20px;
 }
 
 .room-list .room .img img {
@@ -76,7 +73,7 @@ a {
     font-weight: bold;
 }
 
-.room-list .room .info .explanation {
+.room-list .room .info .title {
     color: #6a6a6a;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -92,4 +89,16 @@ a {
 .room-list ul :hover {
 	text-decoration: none;
 	color: black;
+}
+
+/* 미디어 쿼리 */
+@media screen and (max-width: 992px) {
+
+    .room-list-main {
+         margin-bottom: 0;
+    }
+
+    .map {
+        height: 40vw;
+    }
 }

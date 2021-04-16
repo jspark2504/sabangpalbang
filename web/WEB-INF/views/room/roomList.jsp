@@ -24,26 +24,26 @@
 
 <body>
 	<jsp:include page="../common/header.jsp"/>
-    <main class="container-fluid">
+    <main class="container-fluid room-list-main">
         <section class="row">
             <!-- 지도 영역 -->
-            <article class="map col-sm-8">
+            <article class="map col-md-8">
                 <figure id="map" style="width: 100%; height: 100%;">
                     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=24e099130b03e272c1eb2889137042a1&libraries=services,clusterer,drawing"></script>
                     <script src="/findMyRoom/resources/js/map.js"></script>
                 </figure>
             </article> <!-- 지도 영역 end -->
 
-            <!-- 검색 필터 영역 -->
+<!--             검색 필터 영역
             <form class="search" action="">
             	<button type="button">검색 조건을 설정해주세요.</button>
             	<input type="text" />
             	<button type="submit"></button>
             	<button type="reset">모두 초기화</button>
-            </form><!-- 검색 필터 영역 end -->
+            </form>검색 필터 영역 end -->
 
             <!-- 매물 목록 영역 -->
-            <article class="room-list col-sm-4">
+            <article class="room-list col-md-4">
                 <h4 class="room-list-heading">지역 목록 163개</h4>
                 <hr>
                 <ul>
@@ -75,7 +75,7 @@
                                 	<c:set var="address" value="${ fn:substring(room.address, 0, fn:indexOf(room.address, '동 ')+1) }"/>
                                     <span class="address"><c:out value="${ address }"/></span>
 
-                                    <span class="explanation"><c:out value="${ room.title }"/></span>
+                                    <span class="title"><c:out value="${ room.title }"/></span>
                                 </div>
                             </li>
                         </a>
@@ -85,6 +85,8 @@
             </article> <!-- 매물 목록 영역 end -->
         </section>
     </main>
+    <!-- footer -->
+    <jsp:include page="../common/footer.jsp"/>
 
     <!-- 이벤트 처리 -->
     <script src="/findMyRoom/resources/js/room.js"></script>
