@@ -18,7 +18,9 @@ public class RoomSelectListServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		List<RoomDTO> roomList = new RoomService().selectAllRoomList();
+		int categoryNo = Integer.valueOf(request.getParameter("no"));	// 카테고리
+
+		List<RoomDTO> roomList = new RoomService().selectRoomList(categoryNo);
 
 //		System.out.println(roomList);
 
@@ -27,8 +29,8 @@ public class RoomSelectListServlet extends HttpServlet {
 			path = "/WEB-INF/views/room/roomList.jsp";
 			request.setAttribute("roomList", roomList);
 		} else {
-			path = "/WEB-INF/views/common/failed.jsp";
-			request.setAttribute("message", "매물 목록 조회 실패!");
+			path = "/WEB-INF/views/room/roomList.jsp";
+			request.setAttribute("result", "0");
 		}
 
 		request.getRequestDispatcher(path).forward(request, response);

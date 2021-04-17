@@ -23,22 +23,22 @@
 			</div>
 			<ul class="navbar_menu">
 				<li>
-					<a href="${ pageContext.servletContext.contextPath }/room/list">
+					<a href="${ pageContext.servletContext.contextPath }/room/list?no=1">
 						원룸
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="${ pageContext.servletContext.contextPath }/room/list?no=2">
 						1.5룸
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="${ pageContext.servletContext.contextPath }/room/list?no=3">
 						투룸
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="${ pageContext.servletContext.contextPath }/room/list?no=4">
 						쓰리룸
 					</a>
 				</li>

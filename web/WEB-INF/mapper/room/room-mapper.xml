@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-	<entry key="selectAllRoomList">
+	<entry key="selectRoomList">
 		SELECT /* com.sabang.findMyRoom.room.model.dao.RoomDAO#selectAllRoomList(); */
 		       A.ROOM_NO
 		     , A.ROOM_PRICE
@@ -14,6 +14,7 @@
           JOIN TBL_ROOM_FILE B ON (A.ROOM_NO = B.ROOM_NO)
 		 WHERE A.ROOM_STATUS = 'Y'
            AND B.FILE_NO = 1
+           AND (A.CATEGORY_NO = ?)
 		 ORDER BY A.ROOM_NO DESC
 	</entry>
     <entry key="incrementRoomCount">

@@ -21,11 +21,11 @@ public class RoomService {
 	}
 
 	/* 매물 전체 목록 조회용 메소드 */
-	public List<RoomDTO> selectAllRoomList() {
+	public List<RoomDTO> selectRoomList(int categoryNo) {
 
 		Connection con = getConnection();
 
-		List<RoomDTO> roomList = roomDAO.selectAllRoomList(con);
+		List<RoomDTO> roomList = roomDAO.selectRoomList(con, categoryNo);
 
 		close(con);
 

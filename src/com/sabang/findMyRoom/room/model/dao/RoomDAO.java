@@ -35,18 +35,20 @@ public class RoomDAO {
 	}
 
 	/* 매물 전체 목록 조회용 메소드 */
-	public List<RoomDTO> selectAllRoomList(Connection con) {
+	public List<RoomDTO> selectRoomList(Connection con, int categoryNo) {
 
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 
 		List<RoomDTO> roomList = null;
 
-		String query = prop.getProperty("selectAllRoomList");
+		String query = prop.getProperty("selectRoomList");
 
 		try {
-			stmt = con.createStatement();
-			rset = stmt.executeQuery(query);
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, categoryNo);
+
+			rset = pstmt.executeQuery();
 
 			roomList = new ArrayList<>();
 
@@ -76,7 +78,7 @@ public class RoomDAO {
 			e.printStackTrace();
 		} finally {
 			close(rset);
-			close(stmt);
+			close(pstmt);
 		}
 
 		return roomList;
