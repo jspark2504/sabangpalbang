@@ -165,9 +165,9 @@ COMMENT ON COLUMN TBL_OFFICE.OFFICE_RATING IS '평점';
 COMMENT ON COLUMN TBL_OFFICE.USER_NO IS '대표중개사';
 
 INSERT INTO TBL_OFFICE (OFFICE_NO, OFFICE_NAME, OFFICE_ADDR, OFFICE_PHONE, BUSINESS_NO, OFFICE_RATING, USER_NO)
-VALUES (SEQ_OFFICE_NO.NEXTVAL, '402 공인중개사', '관악구 국회단지 29-11', '02-1234-5678', 9102034212346, 4, 12);
+VALUES (SEQ_OFFICE_NO.NEXTVAL, '402 공인중개사', '관악구 국회단지 29-11', '02-1234-5678', 9102034212346, 4.9, 12);
 INSERT INTO TBL_OFFICE (OFFICE_NO, OFFICE_NAME, OFFICE_ADDR, OFFICE_PHONE, BUSINESS_NO, OFFICE_RATING, USER_NO)
-VALUES (SEQ_OFFICE_NO.NEXTVAL, '짱조아 공인중개사', '관악구 국회단지 29-22', '02-1234-5012', 9102034234539, 5, 13);
+VALUES (SEQ_OFFICE_NO.NEXTVAL, '짱조아 공인중개사', '관악구 국회단지 29-22', '02-1234-5012', 9102034234539, 4.7, 13);
 
 COMMIT;
 
@@ -276,15 +276,10 @@ INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE,
   , MONTH_COST, ELECTRICITY_YN, GAS_YN, WATER_YN, INTERNET_YN, TV_YN, CONSTRUCTION_DATE, AVAILABLE_DATE, ROOM_TITLE
   , ROOM_EXPLANATION
   , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
-VALUES (SEQ_ROOM_NO.NEXTVAL, 50000000, 22.15, '서울 관악구 신림동 1537-1', TO_DATE('21/03/08', 'RR/MM/DD'), 1, 1, '4층/4층', '북향'
+VALUES (SEQ_ROOM_NO.NEXTVAL, 50000000, 22.15, '서울 관악구 신림동 1537-1', TO_DATE('21/04/11', 'RR/MM/DD'), 1, 1, '4층/4층', '북향'
   , 80000, NULL, NULL, 'Y', 'Y', 'Y', TO_DATE('94/10/15', 'RR/MM/DD'), '즉시 입주', '◼대학동 메인거리 ◼화이트톤 분리형 ◼︎즉시입주가능 ◼︎리모델링︎︎︎︎︎'
-  , '◼ 리모델링 분리형 원룸입니다.
-◼ 양창문이라 환기가 잘되고 깔끔합니다.
-◼ 침대까지 풀옵션들어갑니다.
-◼ 즉시입주 가능합니다.
-◼ 앞이 안막혀있어 채광이 좋습니다.
-◼ 대학동 모든학원들 가깝습니다 도보 3분안'
-  , '근처 버스정류장 도보 3분', 'Y', 'Y', 'Y', 'Y', 'Y', NULL, NULL);
+  , '◼ 리모델링 분리형 원룸입니다.<br>◼ 양창문이라 환기가 잘되고 깔끔합니다.<br>◼ 침대까지 풀옵션들어갑니다.<br>◼ 즉시입주 가능합니다.<br>◼ 앞이 안막혀있어 채광이 좋습니다.<br>◼ 대학동 모든학원들 가깝습니다 도보 3분안'
+  , '인근 버스정류장 도보 1분', 'Y', 'Y', 'Y', 'Y', 'Y', NULL, NULL);
 
 COMMIT;
 

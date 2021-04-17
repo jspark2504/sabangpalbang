@@ -136,13 +136,14 @@ public class RoomDAO {
 				roomDetail.setPrice(rset.getInt("ROOM_PRICE"));
 				roomDetail.setArea(rset.getDouble("EXCLUSIVE_AREA"));
 				roomDetail.setAddress(rset.getString("ADDRESS"));
-				roomDetail.setCreateDate(rset.getDate("CREATE_DATE"));
+				roomDetail.setCreateDate(rset.getString("CREATE_DATE"));
 				roomDetail.setNo(rset.getInt("CATEGORY_NO"));
 				category.setName(rset.getString("CATEGORY_NAME"));
 				roomDetail.setNo(rset.getInt("OFFICE_NO"));
 				office.setName(rset.getString("OFFICE_NAME"));
 				office.setAddr(rset.getString("OFFICE_ADDR"));
 				office.setPhone(rset.getString("OFFICE_PHONE"));
+				office.setBusinessNo(rset.getString("BUSINESS_NO"));
 				office.setRating(rset.getDouble("OFFICE_RATING"));
 				office.setNo(rset.getInt("USER_NO"));
 				agent.setNickname(rset.getString("NICKNAME"));
@@ -154,7 +155,7 @@ public class RoomDAO {
 				roomDetail.setWater(rset.getString("WATER_YN"));
 				roomDetail.setInternet(rset.getString("INTERNET_YN"));
 				roomDetail.setTv(rset.getString("TV_YN"));
-				roomDetail.setConstructionDate(rset.getDate("CONSTRUCTION_DATE"));
+				roomDetail.setConstructionDate(rset.getString("CONSTRUCTION_DATE"));
 				roomDetail.setAvailableDate(rset.getString("AVAILABLE_DATE"));
 				roomDetail.setTitle(rset.getString("ROOM_TITLE"));
 				roomDetail.setExplanation(rset.getString("ROOM_EXPLANATION"));
@@ -244,7 +245,7 @@ public class RoomDAO {
 			pstmt.setString(11, room.getWater());
 			pstmt.setString(12, room.getInternet());
 			pstmt.setString(13, room.getTv());
-			pstmt.setDate(14, room.getConstructionDate());
+			pstmt.setDate(14, java.sql.Date.valueOf(room.getConstructionDate()));
 			pstmt.setString(15, room.getAvailableDate());
 			pstmt.setString(16, room.getTitle());
 			pstmt.setString(17, room.getExplanation());

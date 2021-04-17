@@ -31,13 +31,14 @@
              , A.ROOM_PRICE
              , A.EXCLUSIVE_AREA
              , A.ADDRESS
-             , A.CREATE_DATE
+             , TRUNC(SYSDATE - A.CREATE_DATE) AS CREATE_DATE
              , A.CATEGORY_NO
              , B.CATEGORY_NAME
              , A.OFFICE_NO
              , C.OFFICE_NAME
              , C.OFFICE_ADDR
              , C.OFFICE_PHONE
+             , C.BUSINESS_NO
              , C.OFFICE_RATING
              , C.USER_NO
              , D.NICKNAME
@@ -49,7 +50,7 @@
              , A.WATER_YN
              , A.INTERNET_YN
              , A.TV_YN
-             , A.CONSTRUCTION_DATE
+             , TO_CHAR(A.CONSTRUCTION_DATE, 'YYYY-MM-DD') AS CONSTRUCTION_DATE
              , A.AVAILABLE_DATE
              , A.ROOM_TITLE
              , A.ROOM_EXPLANATION
