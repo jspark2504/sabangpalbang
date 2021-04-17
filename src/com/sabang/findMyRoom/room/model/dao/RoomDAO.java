@@ -19,6 +19,7 @@ import com.sabang.findMyRoom.room.model.dto.OfficeDTO;
 import com.sabang.findMyRoom.room.model.dto.RoomCategoryDTO;
 import com.sabang.findMyRoom.room.model.dto.RoomDTO;
 import com.sabang.findMyRoom.room.model.dto.RoomFileDTO;
+import com.sabang.findMyRoom.room.model.dto.RoomSearchOptionDTO;
 
 public class RoomDAO {
 
@@ -34,21 +35,51 @@ public class RoomDAO {
 		}
 	}
 
-	/* 매물 전체 목록 조회용 메소드 */
-	public List<RoomDTO> selectRoomList(Connection con, int categoryNo) {
+	/* 매물 목록 조회용 메소드 */
+	public List<RoomDTO> selectRoomList(Connection con, RoomSearchOptionDTO searchOption) {
 
-		PreparedStatement pstmt = null;
+		Statement stmt = null;
 		ResultSet rset = null;
 
 		List<RoomDTO> roomList = null;
 
-		String query = prop.getProperty("selectRoomList");
+		StringBuffer query = new StringBuffer();
+		query.append("SELECT");
+		query.append("  A.ROOM_NO");
+		query.append(", A.ROOM_PRICE");
+		query.append(", A.EXCLUSIVE_AREA");
+		query.append(", A.ADDRESS");
+		query.append(", A.ROOM_FLOOR");
+		query.append(", A.ROOM_TITLE");
+		query.append(", B.THUMBNAIL_PATH");
+		query.append(" FROM TBL_ROOM A");
+		query.append(" JOIN TBL_ROOM_FILE B ON (A.ROOM_NO = B.ROOM_NO)");
+		query.append(" WHERE A.ROOM_STATUS = 'Y'");
+		query.append(" AND B.FILE_NO = 1");
+		query.append(" AND (A.CATEGORY_NO = ");
+		query.append(searchOption.getCategoryNo());
+		query.append(" AND (A.ROOM_PRICE <= ");
+		query.append(searchOption.getPrice());
+		query.append(" AND (A.PET_YN = ");
+		query.append(searchOption.getPet());
+		query.append(" AND (A.ELEVATOR_YN = ");
+		query.append(searchOption.getElevator());
+		query.append(" AND (A.PARKING_YN = ");
+		query.append(searchOption.getParking());
+		query.append(" ORDER BY A.ROOM_NO DESC");
+
+		System.out.println(query);
 
 		try {
-			pstmt = con.prepareStatement(query);
-			pstmt.setInt(1, categoryNo);
+//			pstmt = con.prepareStatement(query);
+//			pstmt.setString(1, searchOption.getCategoryNo());
+//			pstmt.setInt(2, searchOption.getPrice());
+//			pstmt.setString(3, searchOption.getPet());
+//			pstmt.setString(4, searchOption.getElevator());
+//			pstmt.setString(5, searchOption.getParking());
 
-			rset = pstmt.executeQuery();
+			stmt = con.createStatement();
+			rset = stmt.executeQuery(query.toString());
 
 			roomList = new ArrayList<>();
 
@@ -78,7 +109,7 @@ public class RoomDAO {
 			e.printStackTrace();
 		} finally {
 			close(rset);
-			close(pstmt);
+			close(stmt);
 		}
 
 		return roomList;

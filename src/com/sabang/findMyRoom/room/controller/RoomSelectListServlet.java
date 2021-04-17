@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sabang.findMyRoom.room.model.dto.RoomDTO;
+import com.sabang.findMyRoom.room.model.dto.RoomSearchOptionDTO;
 import com.sabang.findMyRoom.room.model.service.RoomService;
 
 @WebServlet("/room/list")
@@ -18,20 +19,52 @@ public class RoomSelectListServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		int categoryNo = Integer.valueOf(request.getParameter("no"));	// 카테고리
+		/* 검색 조건 받아오기 */
+		String categoryNo = request.getParameter("no");			// 카테고리
+		String price = request.getParameter("price");			// 매물 가격
+		String pet = request.getParameter("pet");				// 반려동물
+		String elevator = request.getParameter("elevator");		// 엘리베이터
+		String parking = request.getParameter("parking");		// 주차
 
-		List<RoomDTO> roomList = new RoomService().selectRoomList(categoryNo);
+		/* 검색 조건 가공 */
+		categoryNo += ")";
+
+		if("300000000".equals(price)) {
+			price += " OR 1=1)";
+		} else {
+			price += ")";
+		}
+
+		if("Y".equals(pet)) {
+			pet += "'Y')";
+		} else {
+			pet += "'Y' OR 1=1)";
+		}
+
+		if("Y".equals(elevator)) {
+			elevator += "'Y')";
+		} else {
+			elevator += "'Y' OR 1=1)";
+		}
+
+		if("Y".equals(parking)) {
+			parking += "'Y')";
+		} else {
+			parking += "'Y' OR 1=1)";
+		}
+
+		/* 검색 조건을 하나의 DTO에 담기 */
+		RoomSearchOptionDTO searchOption = new RoomSearchOptionDTO(categoryNo, "3000 OR 1=1)", "'Y')", "'Y' OR 1=1)", "'Y' OR 1=1)");
+
+		/* 매물 목록 조회 */
+		List<RoomDTO> roomList = new RoomService().selectRoomList(searchOption);
 
 //		System.out.println(roomList);
 
-		String path = "";
-		if(!roomList.isEmpty()) {
-			path = "/WEB-INF/views/room/roomList.jsp";
-			request.setAttribute("roomList", roomList);
-		} else {
-			path = "/WEB-INF/views/room/roomList.jsp";
-			request.setAttribute("result", "0");
-		}
+		String path = "/WEB-INF/views/room/roomList.jsp";
+		int resultNum = roomList.size();
+		request.setAttribute("roomList", roomList);
+		request.setAttribute("result", resultNum);
 
 		request.getRequestDispatcher(path).forward(request, response);
 	}
