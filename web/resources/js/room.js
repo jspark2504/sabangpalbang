@@ -1,3 +1,40 @@
+/* 헤더 메뉴 색상 변경 */
+$(document).ready(function(){
+	let param = new URLSearchParams(location.search);
+	let no = param.get('no');
+
+	switch(no){
+	case "1":
+		$('.menu1').css('color','#ffd233');
+		$('.menu2').css('color','black');
+		$('.menu3').css('color','black');
+		$('.menu4').css('color','black');
+		break;
+
+	case "2":
+		$('.menu1').css('color','black');
+		$('.menu2').css('color','#ffd233');
+		$('.menu3').css('color','black');
+		$('.menu4').css('color','black');
+		break;
+
+	case "3":
+		$('.menu1').css('color','black');
+		$('.menu2').css('color','black');
+		$('.menu3').css('color','#ffd233');
+		$('.menu4').css('color','black');
+		break;
+
+	case "4":
+		$('.menu1').css('color','black');
+		$('.menu2').css('color','black');
+		$('.menu3').css('color','black');
+		$('.menu4').css('color','#ffd233');
+		break;
+	}
+});
+
+/* 상세 페이지 조회 */
 function showDetail(room) {
 	const no = $(room).find("#roomNo").val();
 	$.ajax({
