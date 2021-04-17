@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="incrementPageCount">
+        UPDATE 
+               TBL_PAGE_COUNT A
+           SET A.PAGE_VIEW = (SELECT B.PAGE_VIEW
+                                FROM TBL_PAGE_COUNT B
+                               WHERE B.PAGE_NO = ?
+                              ) + 1
+         WHERE A.PAGE_NO = ?
+	</entry>
+	<entry key="selectPageViewCount">
+        SELECT 
+               A.PAGE_NO
+             , A.PAGE_VIEW
+             , A.PAGE_NAME
+          FROM TBL_PAGE_COUNT A;
+	</entry>
+</properties>
+
+
+
+
+
+
+
+
+
+
+

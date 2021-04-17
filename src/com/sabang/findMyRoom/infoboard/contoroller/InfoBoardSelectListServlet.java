@@ -19,7 +19,6 @@ public class InfoBoardSelectListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		      String currentPage = request.getParameter("currentPage");
 		      
 		      /* 페이징 처리를 위한 처리 */
@@ -60,7 +59,6 @@ public class InfoBoardSelectListServlet extends HttpServlet {
 		      List<InfoBoardDTO> boardList = boardService.selectInfoBoardList(pageInfo);
 //		      for(InfoBoardDTO bDto : boardList) {
 //		         System.out.println("한페이지에 보여질 게시글들 : " + bDto);
-//		         
 //		      }
 		      
 		      String path = "";

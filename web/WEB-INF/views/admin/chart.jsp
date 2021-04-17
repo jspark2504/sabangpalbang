@@ -27,103 +27,70 @@
    <jsp:include page="../common/header.jsp"/>
 		<h3 align="center">관리자 통계</h3>
 		<div align="center">
-			<canvas id="myChart" style="width: 500px; height: 400px;"></canvas>
+			<canvas id="myChart" style="width: 900px; height: 500px;"></canvas>
 		</div>
-		<div>
-		
-		</div>
-	<form id="form" action="${ pageContext.servletContext.contextPath }/chart/infoboard" method="get">
-		<input id="charts1" type="hidden" name="categoryChart1" value="${ requestScope.categoryList1.name }">
-		<input id="charts1_1" type="hidden" name="categoryChart1" value="${ requestScope.categoryList1.viewNo }">
-		<input id="charts2" type="hidden" name="categoryChart2" value="${ requestScope.categoryList2.name }">
-		<input id="charts2_1" type="hidden" name="categoryChart2" value="${ requestScope.categoryList2.viewNo }">
-		<input id="charts3" type="hidden" name="categoryChart3" value="${ requestScope.categoryList3.name }">
-		<input id="charts3_1" type="hidden" name="categoryChart3" value="${ requestScope.categoryList3.viewNo }">
-	</form>
-	
-<%--
- 		<div align="center" >
-      <table style="width: 500px;" class="table table-striped table-hover">
-		 		   <tr>
-		 		   	  <th style="text-align: center;"> 카테고리 번호</th>
-					  <th style="text-align: center;"> 카테고리 이름</th>
-				      <th style="text-align: center;"> 카테고리별 조회수</th>
-		           </tr>
-           		 <c:forEach var="categoryChart" items="${ categoryList }">
-	               <tr>
-	                  <td id="no" align="center"><c:out value="${ categoryChart.no }"/></td>
-	                  <td id="names" align="center"><c:out value="${ categoryChart.name }"/></td>
-	                  <td id="viewNo" align="center"><c:out value="${ categoryChart.viewNo }"/></td>
-	               </tr>
-          		 </c:forEach>
-       </table>		
-		</div> 
---%>
-
-	
-	<jsp:include page="../common/footer.jsp" />
+		<form id="form" action="${ pageContext.servletContext.contextPath }/chart/infoboard" method="get">
+			<input id="chartName1" type="hidden" name="categoryChart1" value="${ requestScope.categoryList1.name }">
+			<input id="chartViewNo1" type="hidden" name="categoryChart1" value="${ requestScope.categoryList1.viewNo }">
+			<input id="chartName2" type="hidden" name="categoryChart2" value="${ requestScope.categoryList2.name }">
+			<input id="chartViewNo2" type="hidden" name="categoryChart2" value="${ requestScope.categoryList2.viewNo }">
+			<input id="chartName3" type="hidden" name="categoryChart3" value="${ requestScope.categoryList3.name }">
+			<input id="chartViewNo3" type="hidden" name="categoryChart3" value="${ requestScope.categoryList3.viewNo }">
+		</form>
+   <jsp:include page="../common/footer.jsp" />
 
 <script>
+var protocol = location.protocol;
+var hostName = location.hostname;
+var port = location.port;
+var href = location.href;
+var protocol = location.protocol;
+ 
+console.log(protocol); // http:
+console.log(hostName); // localhost
+console.log(port);	//8888
+console.log(href);	// http://localhost:8888/findMyRoom/chart/infoboard
+console.log(protocol);	// http:
 
-    var chart1 = $( "#charts1" ).val();
-        console.log(chart1);
-    var chart2 = $( "#charts2" ).val();
-        console.log(chart2);
-    var chart3 = $( "#charts3" ).val();
-        console.log(chart3);
-    var chart1_1 = $( "#charts1_1" ).val();
-        console.log(chart1_1);
-    var chart2_1 = $( "#charts2_1" ).val();
-        console.log(chart2_1);
-    var chart3_1 = $( "#charts3_1" ).val();
-        console.log(chart3_1);
 
-/* 
-var names = {name_0:"", name_1:"", name_2:""}
-var viewNo = {viewNo_0:"", viewNo_1:"", viewNo_2:""} 
+    var chartName1 = $( "#chartName1" ).val();
+    var chartName2 = $( "#chartName2" ).val();
+    var chartName3 = $( "#chartName3" ).val();
+    var chartViewNo1 = $( "#chartViewNo1" ).val();
+    var chartViewNo2 = $( "#chartViewNo2" ).val();
+    var chartViewNo3 = $( "#chartViewNo3" ).val();
+/*      console.log(chartName1);
+        console.log(chartName2);
+        console.log(chartName3);
+        console.log(chartViewNo1);
+        console.log(chartViewNo2);
+        console.log(chartViewNo3); 
 */
 
-/* 
-for (i = 0; i < chart.length; i++) {
- 	chart.push(chart[i].name)
-	chart.push(chart[i].viewNo) 
-	names["name_" + i] = chart[i].name
-	names["viewNo_" + i] = chart[i].viewNo
-}
- */
 
-var ctx = document.getElementById('myChart');
+var cht = document.getElementById('myChart');
 var charts = document.getElementById("charts");
-var data = [{name: chart1 , viewNo: chart1_1}, {name: chart2, viewNo: chart2_1}, {name: chart3, viewNo: chart3_1}];
-var  myChart = new Chart(ctx, {
+var data = [{name: chartName1 , viewNo: chartViewNo1}, {name: chartName2, viewNo: chartViewNo2}, {name: chartName3, viewNo: chartViewNo3}];
+var  myChart = new Chart(cht, {
     type: 'bar',
     data: {
         datasets: [{
-            label: '# of 카테고리 차트',
-            data: data , parsing: {
-            	xAxisKey: 'name',
-                yAxisKey: 'viewNo',
+            label: '# of 정보게시판 카테고리 차트',
+            data: data 
+            ,parsing: { xAxisKey: 'name', yAxisKey: 'viewNo'
             },
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)'
+            backgroundColor: [ 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)'
             ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)'
+            borderColor: [ 'rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'
             ],
             borderWidth: 1
-        }]
+       }]
     },
     options: {
     responsive: false,
-        scales: {
-            y: {
-                beginAtZero: true
-            },
-        }
+    legend: {
+    	display:true,
+    },	
    },
 });
 
