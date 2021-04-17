@@ -105,4 +105,18 @@ public class RoomService {
 
 		return result;
 	}
+
+	/* 매물 관리 목록 조회 */
+	public List<RoomDTO> selectManagementList(int memberNo) {
+
+		Connection con = getConnection();
+
+		List<RoomDTO> roomList = roomDAO.selectManagementList(con, memberNo);
+
+		close(con);
+
+		return roomList;
+	}
+
+
 }

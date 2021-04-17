@@ -169,7 +169,7 @@ public class RoomInsertServlet extends HttpServlet {
 				room.setWater(parameter.get("water"));
 				room.setInternet(parameter.get("internet"));
 				room.setTv(parameter.get("tv"));
-				room.setConstructionDate(java.sql.Date.valueOf(parameter.get("constructionDate")));
+				room.setConstructionDate(parameter.get("constructionDate"));
 				room.setAvailableDate(parameter.get("availableDate"));
 				room.setTitle(parameter.get("title"));
 				room.setExplanation(parameter.get("explanation"));

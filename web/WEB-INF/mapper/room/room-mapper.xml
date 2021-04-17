@@ -2,7 +2,7 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 	<entry key="selectRoomList">
-		SELECT /* com.sabang.findMyRoom.room.model.dao.RoomDAO#selectRoomList(); */
+		SELECT
 		       A.ROOM_NO
 		     , A.ROOM_PRICE
 		     , A.EXCLUSIVE_AREA
@@ -170,6 +170,26 @@
         , ?
         )
 	</entry>
+    <entry key="selectManagementList">
+        SELECT /* com.sabang.findMyRoom.room.model.dao.RoomDAO#selectManagementList(); */
+               A.ROOM_NO
+             , A.ROOM_PRICE
+             , A.ROOM_STATUS
+             , A.EXCLUSIVE_AREA
+             , A.ADDRESS
+             , B.CATEGORY_NAME
+             , A.ROOM_FLOOR
+             , A.ROOM_TITLE
+             , C.THUMBNAIL_PATH
+          FROM TBL_ROOM A
+          JOIN TBL_ROOM_CATEGORY B ON (A.CATEGORY_NO = B.CATEGORY_NO)
+          JOIN TBL_ROOM_FILE C ON (A.ROOM_NO = C.ROOM_NO)
+          JOIN TBL_OFFICE D ON (A.OFFICE_NO = D.OFFICE_NO)
+          JOIN TBL_USER E ON (D.USER_NO = E.USER_NO)
+         WHERE C.FILE_NO = 1
+           AND E.USER_NO = ?
+         ORDER BY A.ROOM_STATUS DESC, A.ROOM_NO DESC
+    </entry>
 	<entry key="">
 
 	</entry>

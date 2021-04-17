@@ -71,12 +71,6 @@ public class RoomDAO {
 		System.out.println(query);
 
 		try {
-//			pstmt = con.prepareStatement(query);
-//			pstmt.setString(1, searchOption.getCategoryNo());
-//			pstmt.setInt(2, searchOption.getPrice());
-//			pstmt.setString(3, searchOption.getPet());
-//			pstmt.setString(4, searchOption.getElevator());
-//			pstmt.setString(5, searchOption.getParking());
 
 			stmt = con.createStatement();
 			rset = stmt.executeQuery(query.toString());
@@ -224,7 +218,7 @@ public class RoomDAO {
 		return roomDetail;
 	}
 
-	/* 매물을 등록한 중개사무소 번호 조회 */
+	/* 회원 번호를 통해 중개사무소 번호 조회 */
 	public int selectOfficeNo(Connection con, int memberNo) {
 
 		PreparedStatement pstmt = null;
@@ -357,6 +351,59 @@ public class RoomDAO {
 		}
 
 		return result;
+	}
+
+	/* 매물 관리 목록 조회 */
+	public List<RoomDTO> selectManagementList(Connection con, int memberNo) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		List<RoomDTO> roomList = null;
+
+		String query = prop.getProperty("selectManagementList");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, memberNo);
+
+			rset = pstmt.executeQuery();
+
+			roomList = new ArrayList<>();
+
+			while(rset.next()) {
+				RoomDTO room = new RoomDTO();
+				RoomCategoryDTO category = new RoomCategoryDTO();
+				RoomFileDTO file = new RoomFileDTO();
+
+				room.setNo(rset.getInt("ROOM_NO"));
+				room.setPrice(rset.getInt("ROOM_PRICE"));
+				room.setStatus(rset.getString("ROOM_STATUS"));
+				room.setArea(rset.getDouble("EXCLUSIVE_AREA"));
+				room.setAddress(rset.getString("ADDRESS"));
+				category.setName(rset.getString("CATEGORY_NAME"));
+				room.setFloor(rset.getString("ROOM_FLOOR"));
+				room.setTitle(rset.getString("ROOM_TITLE"));
+				file.setNo(1);
+				file.setThumbnailPath(rset.getString("THUMBNAIL_PATH"));
+
+				room.setCategory(category);
+
+				List<RoomFileDTO> fileList = new ArrayList<>();
+				fileList.add(file);
+				room.setFileList(fileList);
+
+				roomList.add(room);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+
+		return roomList;
 	}
 
 }

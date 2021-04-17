@@ -98,6 +98,11 @@
 							매물 등록
 						</a>
 					</li>
+					<li>
+						<a href="${ pageContext.servletContext.contextPath }/room/management">
+							매물 관리
+						</a>
+					</li>
 					<hr />
 					<li>
 						<a href="${ pageContext.servletContext.contextPath }/member/update">
