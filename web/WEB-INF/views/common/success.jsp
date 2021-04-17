@@ -56,6 +56,11 @@
 					successMessage = "서류 등록 성공!";
 					movePath = "${ pageContext.servletContext.contextPath }/document/list";
 					break;
+					
+				case "deleteDocument" :
+					successMessage = "서류 삭제 성공!";
+					movePath = "${ pageContext.servletContext.contextPath }/document/list";
+					break;
 
 				case "updateNotice" :
 					successMessage = "공지사항 수정 성공!";
