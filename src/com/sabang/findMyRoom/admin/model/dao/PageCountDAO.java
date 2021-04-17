@@ -75,6 +75,7 @@ public class PageCountDAO {
 					
 					PageCountDTO pageCount = new PageCountDTO();
 					
+					pageCount.setPageNo(rset.getInt("PAGE_NO"));
 					pageCount.setPageName(rset.getString("PAGE_NAME"));
 					pageCount.setPageView(rset.getInt("PAGE_VIEW"));
 

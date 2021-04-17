@@ -15,7 +15,7 @@
                A.PAGE_NO
              , A.PAGE_VIEW
              , A.PAGE_NAME
-          FROM TBL_PAGE_COUNT A;
+          FROM TBL_PAGE_COUNT A
 	</entry>
 </properties>
 

@@ -40,32 +40,12 @@
    <jsp:include page="../common/footer.jsp" />
 
 <script>
-var protocol = location.protocol;
-var hostName = location.hostname;
-var port = location.port;
-var href = location.href;
-var protocol = location.protocol;
- 
-console.log(protocol); // http:
-console.log(hostName); // localhost
-console.log(port);	//8888
-console.log(href);	// http://localhost:8888/findMyRoom/chart/infoboard
-console.log(protocol);	// http:
-
-
     var chartName1 = $( "#chartName1" ).val();
     var chartName2 = $( "#chartName2" ).val();
     var chartName3 = $( "#chartName3" ).val();
     var chartViewNo1 = $( "#chartViewNo1" ).val();
     var chartViewNo2 = $( "#chartViewNo2" ).val();
     var chartViewNo3 = $( "#chartViewNo3" ).val();
-/*      console.log(chartName1);
-        console.log(chartName2);
-        console.log(chartName3);
-        console.log(chartViewNo1);
-        console.log(chartViewNo2);
-        console.log(chartViewNo3); 
-*/
 
 
 var cht = document.getElementById('myChart');
@@ -93,8 +73,6 @@ var  myChart = new Chart(cht, {
     },	
    },
 });
-
-
 
 </script>
 </body>
