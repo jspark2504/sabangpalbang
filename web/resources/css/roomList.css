@@ -54,6 +54,10 @@ a {
   opacity: 0.2;
 }
 
+.check-icon:hover {
+  cursor: pointer;
+}
+
 a.tip span {
   display: none;
   font-size: xx-small;

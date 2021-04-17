@@ -234,6 +234,18 @@ function wishList(){
 		}
 }
 
+function option(img){
+
+		let option = $(img).css('opacity');
+
+		if(option == '0.2') {
+			$(img).css('opacity', '1');
+
+		} else {
+			$(img).css('opacity', '0.2');
+		}
+}
+
 
 function search() {
 
