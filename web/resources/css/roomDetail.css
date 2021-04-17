@@ -31,7 +31,7 @@ a {
 /* room-detail-heading */
 .room-detail-heading {
   display: flex;
-  margin: 15px 0 0 15px;
+  margin: 15px 15px 0 15px;
   justify-content: space-between;
   align-items: center;
   position: sticky;
@@ -50,14 +50,18 @@ a {
   padding-right: 13px;
 }
 
+.glyphicon-menu-left:hover {
+  cursor: pointer;
+}
+
 .glyphicon-heart {
-  color: #ff5959;
+  color: #c4c4c4;
   font-size: 20px;
   padding-right: 20px;
 }
 
-.glyphicon-heart.empty {
-  color: #c4c4c4;
+.glyphicon-heart:hover {
+  cursor: pointer;
 }
 
 .title-end {
@@ -98,6 +102,7 @@ a {
 .room-basic-info-3 {
   display: flex;
   justify-content: space-between;
+  text-align: center;
   padding: 0 20px;
   margin: 0;
 }
@@ -107,6 +112,10 @@ p.info {
   font-weight: 600;
   color: #e3b30b;
   margin: 0;
+}
+
+p.info:hover {
+  color: #e3b30b;
 }
 
 /* room title & transport value */
