@@ -29,12 +29,19 @@ a {
 }
 
 /* room-detail-heading */
+
 .room-detail-heading {
   display: flex;
-  margin: 15px 15px 0 15px;
+  position: fixed;
+  background: white;
+  top: 85px;
+  width: 575px;
+  margin: 0;
+  padding: 15px 22px 22px 15px;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
+  border: 1px solid #f3f3f3;
+  z-index: 1;
 }
 
 .room-detail-title {

@@ -126,14 +126,20 @@
           <div class="form-group">
             <label for="roomFloor" class="col-lg-2 control-label">층 정보</label>
             <div class="col-lg-10">
-              <span class="col-xs-5">
+              <span class="col-xs-4">
                 <input type="number" class="form-control" name="roomFloor" placeholder="해당층">
+              </span>
+              <span class="col-xs-1 unit">
+                층
               </span>
               <span class="col-xs-2 slash">
                 /
               </span>
-              <span class="col-xs-5">
+              <span class="col-xs-4">
                 <input type="number" class="form-control" name="buildingFloor" placeholder="전체층">
+              </span>
+              <span class="col-xs-1 unit">
+                층
               </span>
             </div>
           </div>

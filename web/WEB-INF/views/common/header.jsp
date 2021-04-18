@@ -23,22 +23,22 @@
 			</div>
 			<ul class="navbar_menu">
 				<li>
-					<a href="${ pageContext.servletContext.contextPath }/room/list?no=1" class="menu1">
+					<a href="${ pageContext.servletContext.contextPath }/room/list?category=1" class="menu1">
 						원룸
 					</a>
 				</li>
 				<li>
-					<a href="${ pageContext.servletContext.contextPath }/room/list?no=2" class="menu2">
+					<a href="${ pageContext.servletContext.contextPath }/room/list?category=2" class="menu2">
 						1.5룸
 					</a>
 				</li>
 				<li>
-					<a href="${ pageContext.servletContext.contextPath }/room/list?no=3" class="menu3">
+					<a href="${ pageContext.servletContext.contextPath }/room/list?category=3" class="menu3">
 						투룸
 					</a>
 				</li>
 				<li>
-					<a href="${ pageContext.servletContext.contextPath }/room/list?no=4" class="menu4">
+					<a href="${ pageContext.servletContext.contextPath }/room/list?category=4" class="menu4">
 						쓰리룸
 					</a>
 				</li>
@@ -53,7 +53,7 @@
 			<!-- 로그인이 되어 있는 경우 -->
             <!-- 회원 -->
 			<c:if test="${ !empty sessionScope.loginMember }">
-				<button type="button" class="drop-menu-btn" onclick="function()">
+				<button type="button" class="drop-menu-btn" onclick="nav();">
 					<c:out value="${ sessionScope.loginMember.nickname }"/>
 						님 ▼
 				</button>
@@ -85,6 +85,7 @@
 					</li>
 				</ul>
 			</c:if>
+            <!-- 중개사 -->
 			<c:if test="${ sessionScope.loginMember.role eq 'OFFICE'}">
 				<ul class="drop-menu">
 					<li>
@@ -98,9 +99,22 @@
 							매물 등록
 						</a>
 					</li>
+					<hr />
 					<li>
 						<a href="${ pageContext.servletContext.contextPath }/room/management">
 							매물 관리
+						</a>
+					</li>
+					<hr />
+					<li>
+						<a href="${ pageContext.servletContext.contextPath }/payment">
+							이용권
+						</a>
+					</li>
+					<hr />
+					<li>
+						<a href="${ pageContext.servletContext.contextPath }/payment/list">
+							결제 내역
 						</a>
 					</li>
 					<hr />
@@ -111,6 +125,7 @@
 					</li>
 				</ul>
 			</c:if>
+            <!-- 관리자 -->
 			<c:if test="${ sessionScope.loginMember.role eq 'ADMIN'}">
 				<ul class="drop-menu">
 					<li>
@@ -120,22 +135,22 @@
 					</li>
 					<hr />
 					<li>
-						<a href="${ pageContext.servletContext.contextPath }//">
+						<a href="${ pageContext.servletContext.contextPath }/manage/list">
 							관리
 						</a>
 					</li>
 					<hr />
 					<li>
-						<a href="${ pageContext.servletContext.contextPath }//">
+						<a href="${ pageContext.servletContext.contextPath }/pagecount/List">
 							통계
 						</a>
 					</li>
 				</ul>
 			</c:if>
-				<a href="#" class="navbar_toggleBtn">
-					<i class="fas fa-bars">
-					</i>
-				</a>
+            <a href="#" class="navbar_toggleBtn">
+                <i class="fas fa-bars">
+                </i>
+            </a>
 			</div>
 		</div>
 		<hr class="hr-shadow">
@@ -144,7 +159,10 @@
 <script src="https://kit.fontawesome.com/11694e3acf.js">
 </script>
 <!-- header js -->
-<script src="/findMyRoom/resources/js/header.js" defer>
+<script src="/findMyRoom/resources/js/header.js">
+</script>
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
 </script>
 <!-- roomList js -->
 <script src="/findMyRoom/resources/js/room.js">

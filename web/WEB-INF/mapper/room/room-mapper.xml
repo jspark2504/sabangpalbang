@@ -75,6 +75,7 @@
           JOIN TBL_ROOM_FILE E ON (A.ROOM_NO = E.ROOM_NO)
          WHERE A.ROOM_NO = ?
            AND D.USER_STATUS = 'Y'
+           AND E.FILE_NO != 1
     </entry>
     <entry key="selectOfficeNo">
         SELECT /* com.sabang.findMyRoom.room.model.dao.RoomDAO#selectOfficeNo() */

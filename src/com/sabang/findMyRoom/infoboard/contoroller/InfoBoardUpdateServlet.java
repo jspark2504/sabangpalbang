@@ -62,7 +62,7 @@ public class InfoBoardUpdateServlet extends HttpServlet {
 
 		} else {
 			path = "/WEB-INF/views/common/failed.jsp";
-			request.setAttribute("message", "공지사항 수정 실패!");
+			request.setAttribute("message", "정보게시판 업데이트 실패!");
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);

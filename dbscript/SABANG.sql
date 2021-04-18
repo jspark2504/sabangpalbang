@@ -36,6 +36,7 @@ DROP SEQUENCE SEQ_MEMBERSHIP_NO;
 DROP SEQUENCE SEQ_REPLY_NO;
 DROP SEQUENCE SEQ_NOTICE_NO;
 DROP SEQUENCE SEQ_UD_FILE_NO;
+DROP SEQUENCE SEQ_PAYMENT_NO;
 
 -- 시퀀스 생성
 CREATE SEQUENCE SEQ_USER_NO;
@@ -49,6 +50,7 @@ CREATE SEQUENCE SEQ_MEMBERSHIP_NO;
 CREATE SEQUENCE SEQ_REPLY_NO;
 CREATE SEQUENCE SEQ_NOTICE_NO;
 CREATE SEQUENCE SEQ_UD_FILE_NO;
+CREATE SEQUENCE SEQ_PAYMENT_NO;
 
 
 -- 테이블 생성
@@ -570,16 +572,13 @@ CREATE TABLE TBL_PAYMENT_LIST(
   PAYMENT_NO NUMBER   CONSTRAINT PK_PAYMENT_NO PRIMARY KEY,
   EXPIRATION_DATE DATE CONSTRAINT NN_EXPIRATION_DATE NOT NULL,
   PAYMENT_DATE DATE CONSTRAINT NN_PAYMENT_DATE NOT NULL,
-  MEMBERSHIP_NO   NUMBER CONSTRAINT NN_MEMBERSHIP_NO NOT NULL,
   USER_NO NUMBER CONSTRAINT NN_USER_NO NOT NULL,
-  CONSTRAINT FK_MEMBERSHIP_NO FOREIGN KEY (MEMBERSHIP_NO) REFERENCES TBL_MEMBERSHIP (MEMBERSHIP_NO),
   CONSTRAINT FK_PL_USER_NO FOREIGN KEY (USER_NO) REFERENCES TBL_USER (USER_NO)
 );
 
 COMMENT ON COLUMN TBL_PAYMENT_LIST.PAYMENT_NO IS '결제번호';
 COMMENT ON COLUMN TBL_PAYMENT_LIST.EXPIRATION_DATE IS '유효기간';
 COMMENT ON COLUMN TBL_PAYMENT_LIST.PAYMENT_DATE IS '결제일';
-COMMENT ON COLUMN TBL_PAYMENT_LIST.MEMBERSHIP_NO IS '이용권코드';
 COMMENT ON COLUMN TBL_PAYMENT_LIST.USER_NO IS '회원번호';
 
 
@@ -608,39 +607,39 @@ COMMENT ON COLUMN TBL_NOTICE.CONTENT IS '글내용';
 COMMENT ON COLUMN TBL_NOTICE.NOTICE_STATUS_YN IS '공지상태';
 
 INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
-      VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 개인정보처리방침 개정 안내',
+      VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 사방팔방 개인정보 처리방침(2021/03/10) 개정방안',
       '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다.
       개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다.
       ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.',
-      SYSDATE, 1, 'Y');
+      TO_DATE('21/03/10', 'RR/MM/DD'), 1, 'Y');
 
 INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
-      VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 서비스 이용약관 개정 안내',
+      VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 사방팔방 개인정보 처리방침(2021/03/22) 개정방안',
       '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다.
       개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다.
       ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.',
-      SYSDATE, 1, 'Y');
+      TO_DATE('21/03/22', 'RR/MM/DD'), 1, 'Y');
 
 INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
-      VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 개인정보처리방침 개정 안내',
+      VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 사방팔방 개인정보 처리방침(2021/03/28) 개정방안',
       '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다.
       개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다.
       ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.',
-      SYSDATE, 1, 'Y');
+      TO_DATE('21/03/28', 'RR/MM/DD'), 1, 'Y');
 
 INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
-      VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 개인정보처리방침 개정 안내',
+      VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 사방팔방 개인정보 처리방침(2021/04/01) 개정방안',
       '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다.
       개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다.
       ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.',
-      SYSDATE, 1, 'Y');
+      TO_DATE('21/04/01', 'RR/MM/DD'), 1, 'Y');
 
 INSERT INTO TBL_NOTICE A (A.NOTICE_NO, A.TITLE, A.CONTENT, A.CREATION_DATE, A.USER_NO, A.NOTICE_STATUS_YN)
-      VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 구해줘! 내 방 개인정보처리방침 개정 안내',
+      VALUES (SEQ_NOTICE_NO.NEXTVAL, '[공지] 사방팔방 개인정보 처리방침(2021/04/19) 개정방안',
       '안녕하세요, 구해줘! 내 방 입니다. 구해줘! 내 방 개인정보처리방침이 개정되어 안내해 드립니다.
       개인정보처리방침에서 변경되는 항목을 확인하시고, 서비스 이용에 불편함 없으시기 바랍니다.
       ※ 자세한 사항은 구해줘! 내 방 개인정보처리방침을 확인하여 주시기 바랍니다.',
-      SYSDATE, 1, 'Y');
+      TO_DATE('21/04/19', 'RR/MM/DD'), 1, 'Y');
 
 
 

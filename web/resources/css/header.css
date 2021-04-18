@@ -70,6 +70,7 @@ header {
 	color: black;
 }
 
+
 /* drop-menu */
 .drop-menu-btn {
 	background-color: #e2e2e2;
@@ -78,28 +79,21 @@ header {
 	padding: 0 10px;
 	margin-right: 20px;
 	font-size: 12px;
+	outline: none;
 }
 
 .drop-menu {
-	opacity: 0;
+    display: none;
 	position: absolute;
 	background: white;
 	padding: 0;
 	font-size: 12px;
 	text-align: center;
-	z-index: 20px;
+	border: 1px solid #e2e2e2;
 }
 
 .drop-menu li {
-	padding: 10px 16px;
-}
-
-.drop-menu-btn:hover + .drop-menu {
-	opacity: 1;
-}
-
-.drop-menu:hover {
-	opacity: 1;
+	padding: 10px 17px 10px 16px;
 }
 
 .drop-menu li:hover {
@@ -133,37 +127,46 @@ header {
 		align-items: flex-start;
 		padding: 8px 12px;
 	}
+
 	.navbar-logo img {
 		text-align: center;
 	}
+
 	.navbar_menu {
 		display: none;
 		flex-direction: column;
 		align-items: center;
 		width: 100%;
 	}
+
 	.navbar_menu li {
 		width: 100%;
 		text-align: center;
 		padding: 10px;
 		font-size: 14px;
 	}
+
 	.btn-gr {
 		display: flex;
 		align-items: center;
 		position: absolute;
 		right: 25px;
 	}
+
 	.drop-menu {
 		top: 7vw;
 	}
+
 	.navbar_toggleBtn {
 		display: block;
 	}
+
 	.navbar_toggleBtn:hover {
 		color: var(--accent-color);
 	}
+
 	.navbar_menu.active {
 		display: flex;
 	}
+
 }
