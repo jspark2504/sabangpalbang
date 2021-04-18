@@ -74,10 +74,9 @@
 
             <!-- 매물 목록 영역 -->
             <article class="room-list col-md-4">
-                <h4 class="room-list-heading">지역 목록 163개</h4>
+                <h4 class="room-list-heading"><c:out value="매물 목록 ${ fn:length(requestScope.roomList) }개"/></h4>
                 <hr>
-                <div class="map-position">
-                  <ul class="map-api">
+                  <ul>
                   	<c:forEach var="room" items="${ requestScope.roomList }">
                           <a href="#" onclick="showDetail(this);"> <!--  return false; -->
                               <li class="room">
@@ -85,10 +84,30 @@
                                   <figure class="img">
                                     <img src="${ pageContext.servletContext.contextPath }${ room.fileList[0].thumbnailPath }" alt="">
                                   </figure>
+
                                   <!-- 매물 정보 -->
                                   <div class="info">
                                     <!-- 매물번호 -->
                                   	<input type="hidden" id="roomNo" name="roomNo" value="${ room.no }" />
+
+                                    <!-- 중개사인 경우 -->
+                                    <c:if test="${ sessionScope.loginMember.role eq 'OFFICE' }">
+                                      <div class="moreInfo">
+                                        <span class="no"><c:out value="#등록번호 ${ room.no }"/></span>
+                                        <span class="category"><c:out value="#${ room.category.name }"/></span>
+                                        <c:if test="${ room.status eq 'Y' }">
+                                          <div class="status" style="border: 1px solid #ffd233; color: #ffd233; width: 50px;">
+                                            중개 중
+                                          </div>
+                                        </c:if>
+                                        <c:if test="${ room.status eq 'N' }">
+                                          <div class="status" style="border: 1px solid #bcbcbc; color: #bcbcbc; width: 60px;">
+                                            중개 종료
+                                          </div>
+                                        </c:if>
+                                      </div>
+                                    </c:if>
+
                                     <!-- 매물 가격 -->
       	                            <span class="price"><c:out value="${ room.formatPrice }"/></span>
                                     <!-- 면적 및 층수 -->
@@ -101,11 +120,21 @@
                                     <!-- 제목 -->
                                     <span class="title"><c:out value="${ room.title }"/></span>
                                   </div>
+
+                                  <!-- 중개사인 경우 매물 수정/삭제 버튼 -->
+                                  <div class="btns">
+                                    <button class="btn">수정하기</button>
+                                    <c:if test="${ room.status eq 'Y' }">
+                                      <button class="btn roomDown">방내리기</button>
+                                    </c:if>
+                                    <c:if test="${ room.status eq 'N' }">
+                                      <button class="btn roomUp">방올리기</button>
+                                    </c:if>
+                                  </div>
                               </li>
                           </a>
                   	</c:forEach>
                   </ul>
-                </div>
 
             </article> <!-- 매물 목록 영역 end -->
         </section>

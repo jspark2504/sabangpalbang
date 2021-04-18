@@ -192,7 +192,7 @@ function showDetail(room) {
 
 /* 목록으로 돌아가기 */
 function showList() {
-	$(".room-list button").remove();
+	$(".room-list button:not(.btns button)").remove();
 	$(".room-detail-heading").remove();
 	$(".room-basic-info-all").remove();
 	$(".room-basic-info-1").remove();
@@ -206,7 +206,7 @@ function showList() {
 	$(".room-building").remove();
 	$(".office-info").remove();
 	$(".room-building-info-table").remove();
-	$(".title").remove();
+	$(".room-value").remove();
 	$(".divider-line").remove();
 	$(".title-end").remove();
 	$("hr:not(hr:first-of-type)").remove();

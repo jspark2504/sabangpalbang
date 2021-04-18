@@ -147,7 +147,7 @@ a.tip:hover span {
 .room-list .room {
     display: flex;
     height: 120px;
-    max-width: 500px;
+    max-width: 600px;
     padding: 0 15px;
     margin: 20px 0;
 }
@@ -163,6 +163,7 @@ a.tip:hover span {
     height: 120px;
 }
 
+/* 매물 정보 */
 .room-list .room .info {
     display: flex;
     flex-direction: column;
@@ -190,9 +191,53 @@ a.tip:hover span {
     background-color: #f3f3f3;
 }
 
-.room-list ul :hover {
+.room-list ul:hover span,button{
 	text-decoration: none;
 	color: black;
+}
+
+/* 중개사인 경우 추가 정보 및 수정/삭제 버튼 */
+.moreInfo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 12px;
+}
+
+.moreInfo span {
+  margin-right: 10px;
+}
+
+.moreInfo .status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.btns button {
+  width: 60px;
+  text-align: center;
+  padding: 5px;
+  margin: 3px 5px;
+  font-size: 12px;
+}
+
+.btns button:hover {
+  background: #ffd233;
+}
+
+.btns:hover .room-list a {
+  background-color: white;
 }
 
 /* 미디어 쿼리 */

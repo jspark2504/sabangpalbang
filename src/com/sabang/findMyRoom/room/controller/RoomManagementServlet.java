@@ -1,6 +1,7 @@
 package com.sabang.findMyRoom.room.controller;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -24,6 +25,25 @@ public class RoomManagementServlet extends HttpServlet {
 
 		/* 매물 조회 */
 		List<RoomDTO> roomList = new RoomService().selectManagementList(memberNo);
+
+		/* price값 가공 */
+		for(RoomDTO room : roomList) {
+			int intPrice = room.getPrice();
+			String formatPrice = room.getFormatPrice();
+			DecimalFormat df = new DecimalFormat("#,###");
+
+			int price1 = intPrice / 100000000;
+			int price2 = intPrice % 100000000 / 10000;
+
+			if(price1 > 0 && price2 > 0) {
+				formatPrice = "전세 " + price1 + "억 " + df.format(price2);
+			} else if(price1 > 0) {
+				formatPrice = "전세 " + price1 + "억";
+			} else {
+				formatPrice = "전세 " + df.format(price2);
+			}
+			room.setFormatPrice(formatPrice);
+		}
 
 		String path = "/WEB-INF/views/room/roomList.jsp";
 		request.setAttribute("roomList", roomList);
