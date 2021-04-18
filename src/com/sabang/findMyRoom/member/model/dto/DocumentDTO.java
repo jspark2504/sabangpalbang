@@ -17,16 +17,16 @@ public class DocumentDTO implements Serializable {
 	private String savePath;
 	private Date registerDate;
 	private String thumbnailPath;
-	
+	private String documentStatus;
+
 	private List<DocumentDTO> documentList;
-	
 
 	public DocumentDTO() {
 		super();
 	}
 
 	public DocumentDTO(int fileNo, int userNo, String originName, String saveName, String savePath, Date registerDate,
-			String thumbnailPath) {
+			String thumbnailPath, String documentStatus, List<DocumentDTO> documentList) {
 		super();
 		this.fileNo = fileNo;
 		this.userNo = userNo;
@@ -35,19 +35,7 @@ public class DocumentDTO implements Serializable {
 		this.savePath = savePath;
 		this.registerDate = registerDate;
 		this.thumbnailPath = thumbnailPath;
-	}
-
-
-	public DocumentDTO(int fileNo, int userNo, String originName, String saveName, String savePath, Date registerDate,
-			String thumbnailPath, List<DocumentDTO> documentList) {
-		super();
-		this.fileNo = fileNo;
-		this.userNo = userNo;
-		this.originName = originName;
-		this.saveName = saveName;
-		this.savePath = savePath;
-		this.registerDate = registerDate;
-		this.thumbnailPath = thumbnailPath;
+		this.documentStatus = documentStatus;
 		this.documentList = documentList;
 	}
 
@@ -107,10 +95,13 @@ public class DocumentDTO implements Serializable {
 		this.thumbnailPath = thumbnailPath;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public String getDocumentStatus() {
+		return documentStatus;
 	}
-	
+
+	public void setDocumentStatus(String documentStatus) {
+		this.documentStatus = documentStatus;
+	}
 
 	public List<DocumentDTO> getDocumentList() {
 		return documentList;
@@ -120,13 +111,9 @@ public class DocumentDTO implements Serializable {
 		this.documentList = documentList;
 	}
 
-	@Override
-	public String toString() {
-		return "DocumentDTO [fileNo=" + fileNo + ", userNo=" + userNo + ", originName=" + originName + ", saveName="
-				+ saveName + ", savePath=" + savePath + ", registerDate=" + registerDate + ", thumbnailPath="
-				+ thumbnailPath + "]";
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
-	
 
 }

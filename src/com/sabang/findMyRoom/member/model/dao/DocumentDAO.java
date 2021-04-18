@@ -57,9 +57,9 @@ public class DocumentDAO {
 		return result;
 	}
 
-	public List<DocumentDTO> selectDocument(Connection con) {
+	public List<DocumentDTO> selectDocument(Connection con, int userNo) {
 		
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
 		List<DocumentDTO> documentList = null;
@@ -67,9 +67,10 @@ public class DocumentDAO {
 		String query = prop.getProperty("selectDocument");
 		
 		try {
-			stmt = con.createStatement();
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, userNo);
 			
-			rset = stmt.executeQuery(query);
+			rset = pstmt.executeQuery();
 			
 			documentList = new ArrayList<>();
 			
@@ -82,20 +83,47 @@ public class DocumentDAO {
 				document.setSaveName(rset.getString("SAVE_NAME"));
 				document.setSavePath(rset.getString("SAVE_PATH"));
 				document.setThumbnailPath(rset.getString("THUMBNAIL_PATH"));
+				document.setDocumentStatus(rset.getString("DOCUMENT_STATUS"));
 				
 				documentList.add(document);
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(rset);
-			close(stmt);
+			close(pstmt);
 		}
 		
 		System.out.println("dao : " + documentList);
 		
 		return documentList;
+	}
+
+	public int deleteDocument(Connection con, int fileNo) {
+		
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("deleteDocument");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, fileNo);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		System.out.println("dao 삭제 : " + result);
+		
+		return result;
 	}
 
 	
