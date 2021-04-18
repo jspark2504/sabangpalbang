@@ -1,5 +1,6 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -30,7 +31,7 @@
 
   <!-- main -->
   <main class="container">
-    <h3>매물 등록</h3>
+    <h3>매물 정보 수정</h3>
     <hr />
     <!-- 매물등록 양식 outer 영역 -->
     <form class="insert-form form-horizontal" action="${ pageContext.servletContext.contextPath }/room/update" method="post" encType="multipart/form-data">
@@ -66,7 +67,7 @@
             <label for="price" class="col-lg-2 control-label">가격</label>
             <div class="col-lg-10">
               <div class="col-xs-10">
-                <input type="number" class="form-control" name="price" value="${ requestScope.room.price }">
+                <input type="number" class="form-control" name="price" placeholder="Ex. 1억 5천만 원 → 15000" value="${ requestScope.room.price }">
               </div>
               <div class="col-xs-2 unit">
                 만 원
@@ -78,7 +79,7 @@
             <label for="area" class="col-lg-2 control-label">전용면적</label>
             <div class="col-lg-10">
               <div class="col-xs-10">
-                <input type="number" class="form-control" name="area" step="0.1" value="${ requestScope.room.area }">
+                <input type="number" class="form-control" name="area" placeholder="Ex. 22.6" step="0.1" value="${ requestScope.room.area }">
               </div>
               <div class="col-xs-2 unit">
                 m<sup>2</sup>
@@ -111,11 +112,31 @@
             <label for="category" class="col-lg-2 control-label">구조</label>
             <div class="col-lg-10">
               <div class="col-xs-12">
-                <select class="form-control" name="category"  value="${ requestScope.room.category.name }">
-                  <option value="1">원룸</option>
-                  <option value="2">1.5룸</option>
-                  <option value="3">투룸</option>
-                  <option value="4">쓰리룸</option>
+                <select class="form-control" name="category">
+                  <c:if test="${ requestScope.room.category.no eq 1}">
+                    <option value="1" selected>원룸</option>
+                    <option value="2">1.5룸</option>
+                    <option value="3">투룸</option>
+                    <option value="4">쓰리룸</option>
+                  </c:if>
+                  <c:if test="${ requestScope.room.category.no eq 2}">
+                    <option value="1">원룸</option>
+                    <option value="2" selected>1.5룸</option>
+                    <option value="3">투룸</option>
+                    <option value="4">쓰리룸</option>
+                  </c:if>
+                  <c:if test="${ requestScope.room.category.no eq 3}">
+                    <option value="1">원룸</option>
+                    <option value="2">1.5룸</option>
+                    <option value="3" selected>투룸</option>
+                    <option value="4">쓰리룸</option>
+                  </c:if>
+                  <c:if test="${ requestScope.room.category.no eq 4}">
+                    <option value="1">원룸</option>
+                    <option value="2">1.5룸</option>
+                    <option value="3">투룸</option>
+                    <option value="4" selected>쓰리룸</option>
+                  </c:if>
                 </select>
               </div>
             </div>
@@ -127,14 +148,22 @@
           <div class="form-group">
             <label for="roomFloor" class="col-lg-2 control-label">층 정보</label>
             <div class="col-lg-10">
-              <span class="col-xs-5">
-                <input type="number" class="form-control" name="roomFloor" placeholder="해당층">
+              <span class="col-xs-4">
+                <c:set var="roomFloor" value="${ fn:substring(room.floor, 0, fn:indexOf(room.floor, '층')) }"/>
+                <input type="number" class="form-control" name="roomFloor" placeholder="해당층" value="${ roomFloor }">
+              </span>
+              <span class="col-xs-1 unit">
+                층
               </span>
               <span class="col-xs-2 slash">
                 /
               </span>
-              <span class="col-xs-5">
-                <input type="number" class="form-control" name="buildingFloor" placeholder="전체층">
+              <span class="col-xs-4">
+                <c:set var="buildingFloor" value="${ fn:substring(room.floor, fn:indexOf(room.floor, '/')+1, fn:length(room.floor)-1 ) }"/>
+                <input type="number" class="form-control" name="buildingFloor" placeholder="전체층" value="${ buildingFloor }">
+              </span>
+              <span class="col-xs-1 unit">
+                층
               </span>
             </div>
           </div>
@@ -143,7 +172,7 @@
             <label for="direction" class="col-lg-2 control-label">방향</label>
             <div class="col-lg-10">
               <div class="col-xs-12">
-                <input type="text" class="form-control" name="direction" value="${ requestScope.room.direction }">
+                <input type="text" class="form-control" name="direction" placeholder="Ex. 남향" value="${ requestScope.room.direction }">
               </div>
             </div>
           </div>
@@ -152,7 +181,7 @@
             <label for="monthCost" class="col-lg-2 control-label">관리비</label>
             <div class="col-lg-10">
               <div class="col-xs-10">
-                <input type="number" class="form-control" name="monthCost" value="${ requestScope.room.monthCost }">
+                <input type="number" class="form-control" name="monthCost" placeholder="Ex. 5만 원 → 5" value="${ requestScope.room.monthCost }">
               </div>
               <div class="col-xs-2 unit">
                 만 원
@@ -165,23 +194,48 @@
             <div class="col-lg-10">
               <div class="col-xs-12 list">
                 <span>
-                  <input type="checkbox" id="electricity" value="Y" name="electricity">
+                  <c:if test="${ not empty requestScope.room.electricity }">
+                    <input type="checkbox" id="electricity" value="Y" name="electricity" checked>
+                  </c:if>
+                  <c:if test="${ empty requestScope.room.electricity }">
+                    <input type="checkbox" id="electricity" value="Y" name="electricity">
+                  </c:if>
                   <label for="electricity">전기</label>
                 </span>
                 <span>
-                  <input type="checkbox" id="gas" value="Y" name="gas">
+                  <c:if test="${ not empty requestScope.room.gas }">
+                    <input type="checkbox" id="gas" value="Y" name="gas" checked>
+                  </c:if>
+                  <c:if test="${ empty requestScope.room.gas }">
+                    <input type="checkbox" id="gas" value="Y" name="gas">
+                  </c:if>
                   <label for="gas">가스</label>
                 </span>
                 <span>
-                  <input type="checkbox" id="water" value="Y" name="water">
+                  <c:if test="${ not empty requestScope.room.water }">
+                    <input type="checkbox" id="water" value="Y" name="water" checked>
+                  </c:if>
+                  <c:if test="${ empty requestScope.room.water }">
+                    <input type="checkbox" id="water" value="Y" name="water">
+                  </c:if>
                   <label for="water">수도</label>
                 </span>
                 <span>
-                  <input type="checkbox" id="internet" value="Y" name="internet">
+                  <c:if test="${ not empty requestScope.room.internet }">
+                    <input type="checkbox" id="internet" value="Y" name="internet" checked>
+                  </c:if>
+                  <c:if test="${ empty requestScope.room.internet }">
+                    <input type="checkbox" id="internet" value="Y" name="internet">
+                  </c:if>
                   <label for="internet">인터넷</label>
                 </span>
                 <span>
-                  <input type="checkbox" id="tv" value="Y" name="tv">
+                  <c:if test="${ not empty requestScope.room.tv }">
+                    <input type="checkbox" id="tv" value="Y" name="tv" checked>
+                  </c:if>
+                  <c:if test="${ empty requestScope.room.tv }">
+                    <input type="checkbox" id="tv" value="Y" name="tv">
+                  </c:if>
                   <label for="tv">티비</label>
                 </span>
               </div>
@@ -201,7 +255,7 @@
             <label for="availableDate" class="col-lg-2 control-label">입주가능일</label>
             <div class="col-lg-10">
               <div class="col-xs-12">
-                <input type="text" class="form-control" name="availableDate" value="${ requestScope.room.availableDate }">
+                <input type="text" class="form-control" name="availableDate" placeholder="Ex. 즉시 입주" value="${ requestScope.room.availableDate }">
               </div>
             </div>
           </div>
@@ -210,7 +264,7 @@
             <label for="transportationInfo" class="col-lg-2 control-label">교통 정보</label>
             <div class="col-lg-10">
               <div class="col-xs-12">
-                <input type="text" class="form-control" name="transportationInfo" value="${ requestScope.room.transportationInfo }">
+                <input type="text" class="form-control" name="transportationInfo" placeholder="Ex. 2호선 신림역 도보 5분, 인근 버스정류장 도보 3분" value="${ requestScope.room.transportationInfo }">
               </div>
             </div>
           </div>
@@ -224,31 +278,66 @@
           <div class="col-lg-11">
             <div class="col-xs-12 list">
               <span>
-                <input type="checkbox" id="washingMachine" value="Y" name="washingMachine">
+                <c:if test="${ not empty requestScope.room.washingMachine }">
+                  <input type="checkbox" id="washingMachine" value="Y" name="washingMachine" checked>
+                </c:if>
+                <c:if test="${ empty requestScope.room.washingMachine }">
+                  <input type="checkbox" id="washingMachine" value="Y" name="washingMachine">
+                </c:if>
                 <label for="washingMachine">세탁기</label>
               </span>
               <span>
-                <input type="checkbox" id="refrigerator" value="Y" name="refrigerator">
+                <c:if test="${ not empty requestScope.room.refrigerator }">
+                  <input type="checkbox" id="refrigerator" value="Y" name="refrigerator" checked>
+                </c:if>
+                <c:if test="${ empty requestScope.room.refrigerator }">
+                  <input type="checkbox" id="refrigerator" value="Y" name="refrigerator">
+                </c:if>
                 <label for="refrigerator">냉장고</label>
               </span>
               <span>
-                <input type="checkbox" id="airConditioner" value="Y" name="airConditioner">
+                <c:if test="${ not empty requestScope.room.airConditioner }">
+                  <input type="checkbox" id="airConditioner" value="Y" name="airConditioner" checked>
+                </c:if>
+                <c:if test="${ empty requestScope.room.airConditioner }">
+                  <input type="checkbox" id="airConditioner" value="Y" name="airConditioner">
+                </c:if>
                 <label for="airConditioner">에어컨</label>
               </span>
               <span>
-                <input type="checkbox" id="gasStove" value="Y" name="gasStove">
+                <c:if test="${ not empty requestScope.room.gasStove }">
+                  <input type="checkbox" id="gasStove" value="Y" name="gasStove" checked>
+                </c:if>
+                <c:if test="${ empty requestScope.room.gasStove }">
+                  <input type="checkbox" id="gasStove" value="Y" name="gasStove">
+                </c:if>
                 <label for="gasStove">인덕션/가스레인지</label>
               </span>
               <span>
-                <input type="checkbox" id="elevator" value="Y" name="elevator">
+                <c:if test="${ not empty requestScope.room.elevator }">
+                  <input type="checkbox" id="elevator" value="Y" name="elevator" checked>
+                </c:if>
+                <c:if test="${ empty requestScope.room.elevator }">
+                  <input type="checkbox" id="elevator" value="Y" name="elevator">
+                </c:if>
                 <label for="elevator">엘리베이터</label>
               </span>
               <span>
-                <input type="checkbox" id="pet" value="Y" name="pet">
+                <c:if test="${ not empty requestScope.room.pet }">
+                  <input type="checkbox" id="pet" value="Y" name="pet" checked>
+                </c:if>
+                <c:if test="${ empty requestScope.room.pet }">
+                  <input type="checkbox" id="pet" value="Y" name="pet">
+                </c:if>
                 <label for="pet">반려동물 가능</label>
               </span>
               <span>
-                <input type="checkbox" id="parking" value="Y" name="parking">
+                <c:if test="${ not empty requestScope.room.parking }">
+                  <input type="checkbox" id="parking" value="Y" name="parking" checked>
+                </c:if>
+                <c:if test="${ empty requestScope.room.parking }">
+                  <input type="checkbox" id="parking" value="Y" name="parking">
+                </c:if>
                 <label for="parking">주차 가능</label>
               </span>
             </div>
@@ -259,7 +348,7 @@
           <label for="" class="col-lg-1 control-label title">한 줄 소개</label>
           <div class="col-lg-11">
             <div class="col-xs-12">
-              <input name="title" class="form-control" value="${ requestScope.room.title }">
+              <input name="title" class="form-control" placeholder="간략한 설명을 적어주세요." value="${ requestScope.room.title }">
             </div>
           </div>
         </article>
@@ -268,7 +357,7 @@
           <label for="" class="col-lg-1 control-label title">상세 설명</label>
           <div class="col-lg-11">
             <div class="col-xs-12">
-              <textarea name="explanation" class="form-control" rows="5">${ requestScope.room.explanation }</textarea>
+              <textarea name="explanation" class="form-control" rows="5" placeholder="소개하고 싶은 내용을 자유롭게 적어주세요.">${ requestScope.room.explanation }</textarea>
             </div>
           </div>
         </article>
@@ -288,7 +377,6 @@
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="/findMyRoom/resources/js/roomInsertForm.js"></script>
-  scrr
 </body>
 
 </html>

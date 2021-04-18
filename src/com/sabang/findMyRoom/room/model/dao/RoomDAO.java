@@ -172,7 +172,7 @@ public class RoomDAO {
 				roomDetail.setArea(rset.getDouble("EXCLUSIVE_AREA"));
 				roomDetail.setAddress(rset.getString("ADDRESS"));
 				roomDetail.setCreateDate(rset.getString("CREATE_DATE"));
-				roomDetail.setNo(rset.getInt("CATEGORY_NO"));
+				category.setNo(rset.getInt("CATEGORY_NO"));
 				category.setName(rset.getString("CATEGORY_NAME"));
 				roomDetail.setNo(rset.getInt("OFFICE_NO"));
 				office.setName(rset.getString("OFFICE_NAME"));
