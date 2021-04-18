@@ -81,32 +81,25 @@
                   	<c:forEach var="room" items="${ requestScope.roomList }">
                           <a href="#" onclick="showDetail(this);"> <!--  return false; -->
                               <li class="room">
+                                  <!-- 매물 사진 -->
                                   <figure class="img">
                                     <img src="${ pageContext.servletContext.contextPath }${ room.fileList[0].thumbnailPath }" alt="">
                                   </figure>
+                                  <!-- 매물 정보 -->
                                   <div class="info">
+                                    <!-- 매물번호 -->
                                   	<input type="hidden" id="roomNo" name="roomNo" value="${ room.no }" />
-
-      	                            <fmt:parseNumber var="price1" value="${ room.price / 100000000 }" integerOnly="true"/>
-                                	    <fmt:formatNumber var="price2" value="${ room.price % 100000000 / 10000 }" groupingUsed="true"/>
-                                  	<c:if test="${ price1 > 0 && (room.price % 100000000) > 0 }">
-      	                                <span class="price"><c:out value="전세 ${ price1 }억 ${ price2 }"/></span>
-                                  	</c:if>
-                                  	<c:if test="${ price1 > 0 && (room.price % 100000000) == 0 }">
-      	                                <span class="price"><c:out value="전세 ${ price1 }억"/></span>
-                                  	</c:if>
-      								<c:if test="${ price1 == 0 }">
-      	                                <span class="price"><c:out value="전세 ${ price2 }"/></span>
-      								</c:if>
-
-                                      <fmt:formatNumber var="area" value="${ room.area }" pattern="#"/>
-                                      <c:set var="floor" value="${ fn:substring(room.floor, 0, fn:indexOf(room.floor, '/')) }"/>
-                                      <span class="area floor"><c:out value="${ area }m<sup>2</sup> ∙ ${ floor }" escapeXml="false"/></span>
-
-                                  	<c:set var="address" value="${ fn:substring(room.address, 0, fn:indexOf(room.address, '동 ')+1) }"/>
-                                      <span class="address"><c:out value="${ address }"/></span>
-
-                                      <span class="title"><c:out value="${ room.title }"/></span>
+                                    <!-- 매물 가격 -->
+      	                            <span class="price"><c:out value="${ room.formatPrice }"/></span>
+                                    <!-- 면적 및 층수 -->
+                                    <fmt:formatNumber var="area" value="${ room.area }" pattern="#"/>
+                                    <c:set var="floor" value="${ fn:substring(room.floor, 0, fn:indexOf(room.floor, '/')) }"/>
+                                    <span class="area floor"><c:out value="${ area }m<sup>2</sup> ∙ ${ floor }" escapeXml="false"/></span>
+                                    <!-- 주소 -->
+                                  	<c:set var="address" value="${ fn:substring(room.address, fn:indexOf(room.address, ' ')+1, fn:indexOf(room.address, '동 ')+1 ) }"/>
+                                    <span class="address"><c:out value="${ address }"/></span>
+                                    <!-- 제목 -->
+                                    <span class="title"><c:out value="${ room.title }"/></span>
                                   </div>
                               </li>
                           </a>
