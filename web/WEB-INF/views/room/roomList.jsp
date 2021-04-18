@@ -74,12 +74,14 @@
             </article> <!-- 검색 필터 영역 end -->
 
             <!-- 매물 목록 영역 -->
-            <article class="room-list col-md-4">
+            <section class="room-list col-md-4">
                 <h4 class="room-list-heading"><c:out value="매물 목록 ${ fn:length(requestScope.roomList) }개"/></h4>
                 <hr>
-                  <ul>
-                  	<c:forEach var="room" items="${ requestScope.roomList }">
-                          <a href="#" onclick="showDetail(this);"> <!--  return false; -->
+                <c:forEach var="room" items="${ requestScope.roomList }">
+                  <section class="room-area">
+                    <article class="room-info">
+                      <ul>
+                          <a href="#" onclick="showDetail(this);">
                               <li class="room">
                                   <!-- 매물 사진 -->
                                   <figure class="img">
@@ -93,7 +95,7 @@
 
                                     <!-- 중개사인 경우 -->
                                     <c:if test="${ sessionScope.loginMember.role eq 'OFFICE' }">
-                                      <div class="moreInfo">
+                                      <div class="more-info">
                                         <span class="no"><c:out value="#등록번호 ${ room.no }"/></span>
                                         <span class="category"><c:out value="#${ room.category.name }"/></span>
                                         <c:if test="${ room.status eq 'Y' }">
@@ -121,25 +123,33 @@
                                     <!-- 제목 -->
                                     <span class="title"><c:out value="${ room.title }"/></span>
                                   </div>
-
-                                  <!-- 중개사인 경우 매물 수정/삭제 버튼 -->
-                                  <c:if test="${ sessionScope.loginMember.role eq 'OFFICE' }">
-                                    <div class="btns">
-                                      <button class="btn">수정하기</button>
-                                      <c:if test="${ room.status eq 'Y' }">
-                                        <button class="btn roomDown">방내리기</button>
-                                      </c:if>
-                                      <c:if test="${ room.status eq 'N' }">
-                                        <button class="btn roomUp">방올리기</button>
-                                      </c:if>
-                                    </div>
-                                  </c:if>
-                              </li>
-                          </a>
-                  	</c:forEach>
-                  </ul>
-
-            </article> <!-- 매물 목록 영역 end -->
+                                </li>
+                            </a>
+                        </ul>
+                    </article>
+                    <!-- 중개사인 경우 매물 수정/삭제 버튼 -->
+                    <c:if test="${ sessionScope.loginMember.role eq 'OFFICE' }">
+                      <article class="btns-area">
+                        <div class="btns">
+                          <button type="button" class="btn" onclick="location.href='${ pageContext.servletContext.contextPath }/room/update?no=${ room.no }'">
+                            수정하기
+                          </button>
+                          <c:if test="${ room.status eq 'Y' }">
+                            <button type="button" class="btn roomDown" onclick="location.href='${ pageContext.servletContext.contextPath }/room/change?no=${ room.no }&status=N'">
+                              방내리기
+                            </button>
+                          </c:if>
+                          <c:if test="${ room.status eq 'N' }">
+                            <button type="button" class="btn roomUp" onclick="location.href='${ pageContext.servletContext.contextPath }/room/change?no=${ room.no }&status=Y'">
+                              방올리기
+                            </button>
+                          </c:if>
+                        </div>
+                      </article>
+                    </c:if>
+                </section>
+              </c:forEach>
+            </section> <!-- 매물 목록 영역 end -->
         </section>
     </main>
     <!-- footer -->
