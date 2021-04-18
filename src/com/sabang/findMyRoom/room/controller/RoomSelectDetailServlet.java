@@ -23,6 +23,8 @@ public class RoomSelectDetailServlet extends HttpServlet {
 
 		int no = Integer.valueOf(request.getParameter("no"));
 
+		System.out.println("room no : " + no);
+
 		RoomService roomService = new RoomService();
 		RoomDTO roomDetail = roomService.selectRoomDetail(no);
 

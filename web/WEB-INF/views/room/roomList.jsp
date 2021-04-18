@@ -83,7 +83,7 @@
                   <section class="room-area">
                     <article class="room-info">
                       <ul>
-                          <a href="#" onclick="showDetail(this);">
+                          <a href="" onclick="showDetail(this);return false;">
                             <li class="room">
                                   <!-- 매물 사진 -->
                                   <figure class="img">
@@ -129,7 +129,6 @@
                             </a>
                         </ul>
                     </article>
-                    <c:out value="${ request.getRequestURL() }"/>
                     <!-- 중개사 매물 관리 수정/삭제 버튼 -->
                     <c:if test="${ sessionScope.loginMember.role eq 'OFFICE' && requestScope.path eq 'management' }">
                       <article class="btns-area">

@@ -154,9 +154,7 @@ function showDetail(room) {
 
 
 			/* 매물 목록 안 보이게 설정 */
-			$(".room-list h4").css('display', 'none');
-			$(".room-list hr").css('display', 'none');
-			$(".room-list ul").css('display', 'none');
+			$(".sticky-nav").css('display', 'none');
 			$(".room-area").css('display', 'none');
 
 			/* 매물 상세 페이지 추가 */
@@ -211,10 +209,13 @@ function showList() {
 	$(".container").remove();
 
 	/* 매물 목록 다시 표시 */
-	$(".room-list h4").css('display', 'block');
-	$(".room-list hr").css('display', 'block');
-	$(".room-list ul").css('display', 'block');
+	//$(".room-list h4").css('display', 'block');
+	//$(".room-list hr").css('display', 'block');
+	//$(".room-list ul").css('display', 'block');
+	//$(".room-area").css('display', 'block');
+	$(".sticky-nav").css('display', 'block');
 	$(".room-area").css('display', 'block');
+
 }
 
 /* 찜하기 */
@@ -309,21 +310,21 @@ function search() {
 			$(".room-list h4").text(heading);
 
 			/* 기존 목록 지우기 */
-			$(".room-list ul").remove();
 			$(".room-area").remove();
 
 			/* 새로 목록 뿌리기 */
 			for(let i = 0 ; i < data.length ; i++) {
-				const no = data[i].no;
-				const price = data[i].formatPrice;
-				const area = data[i].area;
-				const floor = data[i].floor;
-				const address = data[i].address;
-				const title = data[i].title;
-
+				let no = data[i].no;
+				let price = data[i].formatPrice;
+				let area = Math.floor(data[i].area);
+				let floor = data[i].floor;
+				let formatFloor = floor.substring(0, floor.indexOf('/'));
+				let address = data[i].address;
+				let formatAddress = address.substring(address.indexOf(' ') + 1, address.indexOf('동') + 1);
+				let title = data[i].title;
 				let hostIndex = location.href.indexOf(location.host) + location.host.length;
 				let path = location.href.substring(hostIndex, location.href.indexOf('/', hostIndex + 1));
-				const filePath = path + data[i].fileList[0].thumbnailPath;
+				let filePath = path + data[i].fileList[0].thumbnailPath;
 
 //				console.log('price : ' + price);
 //				console.log('no : ' + no);
@@ -333,12 +334,9 @@ function search() {
 //				console.log('title : ' + title);
 //				console.log('filePath : ' + filePath);
 
-
+				$(".room-list").append("<section class='room-area'><article class='room-info'><ul onclick='showDetail(this);'><li class='room'><figure class='img'><img src='" + filePath + "' alt='대표사진'></figure><div class='info'><input type='hidden' id='roomNo' name='roomNo' value=" + no + " /><span class='price'>" + price + "</span><span class='area floor'>" + area + "m<sup>2</sup> ∙ " + formatFloor + "</span><span class='address'>" + formatAddress + "</span><span class='title'>" + title + "</span></div></li></ul></article></section>");
 
 			}
-
-
-
 		},
 		error: function(error) {
 			console.log(error);
