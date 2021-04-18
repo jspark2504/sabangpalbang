@@ -313,6 +313,7 @@ public class MemberDAO {
 	public int searchPw(Connection con, String email, String uerPwd) {
 		
 		PreparedStatement pstmt = null;
+		ResultSet rset = null;
 		int result = 0;
 		
 		String query = prop.getProperty("updateSearchPw");
