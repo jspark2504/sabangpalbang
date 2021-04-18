@@ -20,26 +20,22 @@ import javax.servlet.http.HttpSession;
 import com.sabang.findMyRoom.member.model.service.MemberService;
 
 
-@WebServlet("/member/findId")
-public class MemberFindIdServlet extends HttpServlet {
+@WebServlet("/member/findPw")
+public class MemberFindPwServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = "/WEB-INF/views/member/findIdForm.jsp";
-		
-		request.getRequestDispatcher(path).forward(request, response);
-		
-	}
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 
-		String path = "/WEB-INF/views/member/findIdForm2.jsp";
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String path = "/WEB-INF/views/member/findPwForm.jsp";
+		String userPwd = request.getParameter("uerPwd");
 		String email = request.getParameter("email");
-		String userId = new MemberService().searchId(email);
-//		String email = ((MemberDTO)request.getSession().getAttribute("loginMember")).getEmail();
+
+		int result = new MemberService().searchPw(email,userPwd);
 		
-		System.out.println(path);
+		System.out.println(userPwd);
 		System.out.println(email);
-		System.out.println(userId);
+		System.out.println(result);
+		
 		
 		// mail server 설정
 		String host = "smtp.naver.com"; //
@@ -66,21 +62,19 @@ public class MemberFindIdServlet extends HttpServlet {
 			int rIndex = rnd.nextInt(3);
 			switch (rIndex) {
 			case 0:
-				// 0-9
-				temp.append((rnd.nextInt(10)));
-				break;
+			    // a-z
+                temp.append((char) ((int) (rnd.nextInt(26)) + 97));
+                break;
 			case 1:
 				// 0-9
-				temp.append((rnd.nextInt(10)));
-				break;
+			    // a-z
+                temp.append((char) ((int) (rnd.nextInt(26)) + 97));
+                break;
 			case 2:
 				// 0-9
 				temp.append((rnd.nextInt(10)));
 				break;
-			case 3 :
-				// 0-9
-				temp.append((rnd.nextInt(10)));
-				break;
+
 			}
 		}
 		String AuthenticationKey = temp.toString();
@@ -88,7 +82,7 @@ public class MemberFindIdServlet extends HttpServlet {
 
 		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(user, password); //관리자꺼
+				return new PasswordAuthentication(user, password); //아이디 비번 반환
 			}
 		});
 
@@ -112,14 +106,29 @@ public class MemberFindIdServlet extends HttpServlet {
 		HttpSession saveKey = request.getSession();
 		saveKey.setAttribute("AuthenticationKey", AuthenticationKey);// 로그인 세션에 담겨있음!!
 		
-	
-		
+	    request.setAttribute("email", email);
 		request.getRequestDispatcher(path).forward(request, response);	
 		
 		
 	}
 	
-	
-	
-	
+//	protected void doGet1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        // TODO Auto-generated method stub
+//        String AuthenticationKey = (String)request.getSession().getAttribute("AuthenticationKey");
+//        String AuthenticationUser = request.getParameter("AuthenticationUser");
+//        if(!AuthenticationKey.equals(AuthenticationUser))
+//        {
+//            System.out.println("인증번호 일치하지 않음");
+//            request.setAttribute("mssage", "인증번호가 일치하지 않습니다");
+//            request.setAttribute("loc", "/member/searchPw");
+//            request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
+//            return;
+//        }
+        
+//	}
 }
+
+
+	
+
+

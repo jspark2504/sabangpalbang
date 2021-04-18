@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   
-<title>임시 비밀번호 발급</title>
+<title>아이디 뿌리기</title>
    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   
@@ -138,17 +138,16 @@
       <form class="form-signin">
         <br>
         <div id="textbox">
-        <p><%= %>에<br>연결된 아이디입니다.</p>
+        <p>에<br>연결된 아이디입니다.</p>
         <br>
         </div>
    
-        <input type="text" id="inputId" class="form-control" placeholder="example" required="" autofocus="">
+        <input type="text" id="inputId" class="form-control" required="" autofocus="" readonly>
         
         <button class="btn btn-lg" type="submit" id="btn1">임시 비밀번호 발급</button>
         <button class="btn btn-lg" type="submit" id="btn2">로그인</button>
     </form>
-    </div> <!-- /container -->
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    </div> 
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   <script>
  	

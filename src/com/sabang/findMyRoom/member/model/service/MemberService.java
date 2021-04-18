@@ -5,6 +5,7 @@ import static com.sabang.findMyRoom.common.jdbc.JDBCTemplate.commit;
 import static com.sabang.findMyRoom.common.jdbc.JDBCTemplate.getConnection;
 import static com.sabang.findMyRoom.common.jdbc.JDBCTemplate.rollback;
 
+import java.lang.reflect.Member;
 import java.sql.Connection;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -163,4 +164,29 @@ public class MemberService {
 		return userId;
 		
 	}
+	
+	/*비밀번호 찾기 */
+	public int searchPw(String email, String userPwd) {
+		
+		Connection con = getConnection();
+		
+		int result = memberDAO.searchPw(con, userPwd, email);
+		
+		if(result > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return result;
+		
+	}
+
+
+
+
+
+
 }

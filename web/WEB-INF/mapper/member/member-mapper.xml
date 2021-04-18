@@ -91,7 +91,7 @@
 
 	<entry key="selectSearchId">
 		SELECT
-				A.MEMBER_ID
+				A.USER_ID
 		  FROM TBL_USER A	
 		 WHERE  A.EMAIL = ?	
 	</entry>
@@ -136,5 +136,11 @@
 		   SET A.DOCUMENT_STATUS = 'N'
 		 WHERE A.DOCUMENT_STATUS = 'Y'
 		   AND A.FILE_NO = ?
+	</entry>
+	<entry key="updateSearchId">
+	  UPDATE
+			TBL_USER A
+		SET A.USER_PWD = ?
+	  WHERE EMAIL = ?
 	</entry>
 </properties>

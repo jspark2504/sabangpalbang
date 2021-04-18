@@ -1,3 +1,6 @@
+.range-slider {
+  width: 315px;
+}
 
 .range-slider__range {
   -webkit-appearance: none;
@@ -6,7 +9,7 @@
   border-radius: 5px;
   outline: none;
   padding: 0;
-  margin-left: 17px;
+  margin: 0;
 }
 .range-slider__range::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -56,7 +59,7 @@
   border-radius: 3px;
   background: #ffca0b;
   padding: 5px 10px;
-  margin: 0 10px 0 30px;
+  margin: 0 10px 0 16px;
 }
 .range-slider__value:after {
   position: absolute;

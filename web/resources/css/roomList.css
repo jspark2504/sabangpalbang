@@ -127,6 +127,10 @@ a.tip:hover span {
   cursor: help;
 }
 
+.gas-stove {
+  margin-right: 10px;
+}
+
 .range-slider {
   display: flex;
   align-items: center;
