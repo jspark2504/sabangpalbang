@@ -170,9 +170,9 @@ COMMENT ON COLUMN TBL_OFFICE.OFFICE_RATING IS '평점';
 COMMENT ON COLUMN TBL_OFFICE.USER_NO IS '대표중개사';
 
 INSERT INTO TBL_OFFICE (OFFICE_NO, OFFICE_NAME, OFFICE_ADDR, OFFICE_PHONE, BUSINESS_NO, OFFICE_RATING, USER_NO)
-VALUES (SEQ_OFFICE_NO.NEXTVAL, '402 공인중개사', '관악구 국회단지 29-11', '02-1234-5678', 9102034212346, 4.9, 12);
+VALUES (SEQ_OFFICE_NO.NEXTVAL, '402 공인중개사', '관악구 국회단지 29-11', '02-1234-5678', 9102034212346, 4.9, 13);
 INSERT INTO TBL_OFFICE (OFFICE_NO, OFFICE_NAME, OFFICE_ADDR, OFFICE_PHONE, BUSINESS_NO, OFFICE_RATING, USER_NO)
-VALUES (SEQ_OFFICE_NO.NEXTVAL, '짱조아 공인중개사', '관악구 국회단지 29-22', '02-1234-5012', 9102034234539, 4.7, 13);
+VALUES (SEQ_OFFICE_NO.NEXTVAL, '짱조아 공인중개사', '관악구 국회단지 29-22', '02-1234-5012', 9102034234539, 4.7, 14);
 
 COMMIT;
 
@@ -286,6 +286,58 @@ VALUES (SEQ_ROOM_NO.NEXTVAL, 50000000, 22.15, '서울 관악구 신림동 1537-1
   , '◼ 리모델링 분리형 원룸입니다.<br>◼ 양창문이라 환기가 잘되고 깔끔합니다.<br>◼ 침대까지 풀옵션들어갑니다.<br>◼ 즉시입주 가능합니다.<br>◼ 앞이 안막혀있어 채광이 좋습니다.<br>◼ 대학동 모든학원들 가깝습니다 도보 3분안'
   , '인근 버스정류장 도보 1분', 'Y', 'Y', 'Y', 'Y', 'Y', NULL, NULL);
 
+-- 투룸 관련 인서트!!
+INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE, CATEGORY_NO, OFFICE_NO, ROOM_FLOOR, DIRECTION
+  , MONTH_COST, ELECTRICITY_YN, GAS_YN, WATER_YN, INTERNET_YN, TV_YN, CONSTRUCTION_DATE, AVAILABLE_DATE, ROOM_TITLE
+  , ROOM_EXPLANATION
+  , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
+VALUES (SEQ_ROOM_NO.NEXTVAL, 100000000, 10, '관악구 신림동 251-207', TO_DATE('21/04/18', 'RR/MM/DD'), 3, 1, '1층/3층'
+, '남서향', 50000, 'Y', 'Y', 'Y', 'Y', 'Y', TO_DATE('18/06/28', 'RR/MM/DD'), '즉시 입주'
+,'1. 대학동 메인거리 2. 투룸 3. 즉시 입주가능 4. 반려동물 거주 가능'
+, '대학동쪽 위치한 투룸입니다. 전용주차가 가능한 주차시설이 있습니다. 주변 편의시설이 많고 주택가라 조용합니다. 즉시 입주 가능합니다. 반려동물과 함께 거주 가능합니다.'
+, '교통편 정보', 'Y', 'Y', 'Y', 'Y', 'Y', NULL, 'Y');
+
+INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE, CATEGORY_NO, OFFICE_NO, ROOM_FLOOR, DIRECTION
+  , MONTH_COST, ELECTRICITY_YN, GAS_YN, WATER_YN, INTERNET_YN, TV_YN, CONSTRUCTION_DATE, AVAILABLE_DATE, ROOM_TITLE
+  , ROOM_EXPLANATION
+  , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
+VALUES (SEQ_ROOM_NO.NEXTVAL, 120000000, 10, '관악구 신림동 592-19', TO_DATE('21/04/14', 'RR/MM/DD'), 3, 1, '2층/3층'
+, '북동향', 50000, 'Y', 'Y', 'Y', 'Y', 'Y', TO_DATE('90/12/14', 'RR/MM/DD'), '2021/05/07 이후'
+,'1. 투룸 올수리 예정! 2. 생활 환경 굿! 3. 신림동'
+, '난우초등학교 인근입니다. 생활편의 시설이 가까이에 있습니다. 버스이용 용이합니다. 입주전 올수리 예정입니다.'
+, '신대방역(2호선), 신림역(2호선)', 'Y', 'Y', 'Y', 'Y', 'N', NULL, 'N');
+
+INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE, CATEGORY_NO, OFFICE_NO, ROOM_FLOOR, DIRECTION
+  , MONTH_COST, ELECTRICITY_YN, GAS_YN, WATER_YN, INTERNET_YN, TV_YN, CONSTRUCTION_DATE, AVAILABLE_DATE, ROOM_TITLE
+  , ROOM_EXPLANATION
+  , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
+VALUES (SEQ_ROOM_NO.NEXTVAL, 130000000, 9, '관악구 봉천동 670-8', TO_DATE('21/04/17', 'RR/MM/DD'), 3, 1, '반지하/3층'
+, '남서향', 70000, 'Y', 'Y', 'Y', 'Y', 'Y', TO_DATE('15/12/08', 'RR/MM/DD'), '2021/05/12 이후'
+,'1. 대학동 메인거리 2. 깔끔하고 저렴한 투룸이에요. 3. 2호선 역세권'
+, '대학동쪽 위치한 투룸입니다. 신림역까지 도보로 13분 소요. 집도 깔끔하며, 답답한 느낌이 안들어요. 대로변이랑 인접하며 마트도 가깝습니다. 집 근처에 파출소도 있고, 가정집들이 많은 지역이라서 치안부분도 안전합니다.'
+, '신림역(2호선), 봉천역(2호선), 신대방삼거리역(7호선)', 'Y', 'Y', 'N', 'Y', 'N', NULL, 'N');
+
+INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE, CATEGORY_NO, OFFICE_NO, ROOM_FLOOR, DIRECTION
+  , MONTH_COST, ELECTRICITY_YN, GAS_YN, WATER_YN, INTERNET_YN, TV_YN, CONSTRUCTION_DATE, AVAILABLE_DATE, ROOM_TITLE
+  , ROOM_EXPLANATION
+  , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
+VALUES (SEQ_ROOM_NO.NEXTVAL, 120000000, 11, '관악구 신림동 412-324', TO_DATE('21/04/18', 'RR/MM/DD'), 3, 1, '1층/2층'
+, '남서향', 60000, 'Y', 'Y', 'Y', 'Y', 'Y', TO_DATE('91/04/06', 'RR/MM/DD'), '즉시 입주'
+,'1. 입주전 수리 예정 2. 투룸+서비스룸 ?즉시 입주가능'
+, '주택가라 조용합니다. 마트등 편의시설은 도보 1분내에 위치합니다 신림역으로가는 버스 정류장 또한 도보1분에 있습니다. 버스타고 역으로 가실경우 약 8분정도 소요됩니다. 배차간격은 약  3~5분정도 됩니다.'
+, '신림역(2호선), 봉천역(2호선)', 'Y', 'Y', 'Y', 'Y', 'N', NULL, 'N');
+
+INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE, CATEGORY_NO, OFFICE_NO, ROOM_FLOOR, DIRECTION
+  , MONTH_COST, ELECTRICITY_YN, GAS_YN, WATER_YN, INTERNET_YN, TV_YN, CONSTRUCTION_DATE, AVAILABLE_DATE, ROOM_TITLE
+  , ROOM_EXPLANATION
+  , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
+VALUES (SEQ_ROOM_NO.NEXTVAL, 150000000, 13, '관악구 남현동 1072-15', TO_DATE('21/04/18', 'RR/MM/DD'), 3, 1, '2층/2층'
+, '남동향', 50000, 'Y', 'Y', 'Y', 'Y', 'Y', TO_DATE('18/06/28', 'RR/MM/DD'), '즉시 입주'
+,'1. 풀옵션 투룸 2. 반려동물가능 3. 즉시 입주가능'
+, '풀옵션 리모델링 투룸. 반려동물가능. 입주날짜는 즉시입주 가능. 즉시 입주 가능합니다. 주변에 각종편의시설 인접, 사당역 도보이용 풀옵션(세탁기, 냉장고, 에어컨, 가스렌지 등). 사진에는 없지만 옵션 넣어드립니다.'
+, '사당역(2호선,4호선), 낙성대역(2호선), 남성역(7호선)', 'Y', 'Y', 'Y', 'Y', 'Y', NULL, 'Y');
+-- 투름 끝
+  
 COMMIT;
 
 --매물첨부파일--
@@ -318,6 +370,81 @@ INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, 
 VALUES (1, 5, 'room1file5.png', 'room1file5.png', '/resources/upload/room/original/room1file5.png', '/resources/upload/room/thumbnail/room1file5.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (1, 6, 'room1file6.png', 'room1file6.png', '/resources/upload/room/original/room1file6.png', '/resources/upload/room/thumbnail/room1file6.png');
+
+-- 투룸관련 인서트!!
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (2, 1, 'tworoom1file1.png', 'tworoom1file1.png', '/resources/upload/room/original/tworoom1file1.png', '/resources/upload/room/thumbnail/tworoom1file1.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (2, 2, 'tworoom1file2.png', 'tworoom1file2.png', '/resources/upload/room/original/tworoom1file2.png', '/resources/upload/room/thumbnail/tworoom1file2.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (2, 3, 'tworoom1file3.png', 'tworoom1file3.png', '/resources/upload/room/original/tworoom1file3.png', '/resources/upload/room/thumbnail/tworoom1file3.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (2, 4, 'tworoom1file4.png', 'tworoom1file4.png', '/resources/upload/room/original/tworoom1file4.png', '/resources/upload/room/thumbnail/tworoom1file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (2, 5, 'tworoom1file5.png', 'tworoom1file5.png', '/resources/upload/room/original/tworoom1file5.png', '/resources/upload/room/thumbnail/tworoom1file5.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (2, 6, 'tworoom1file6.png', 'tworoom1file6.png', '/resources/upload/room/original/tworoom1file6.png', '/resources/upload/room/thumbnail/tworoom1file6.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (2, 7, 'tworoom1file7.png', 'tworoom1file7.png', '/resources/upload/room/original/tworoom1file7.png', '/resources/upload/room/thumbnail/tworoom1file7.png');
+
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (3, 1, 'tworoom2file1.png', 'tworoom2file1.png', '/resources/upload/room/original/tworoom2file1.png', '/resources/upload/room/thumbnail/tworoom2file1.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (3, 2, 'tworoom2file2.png', 'tworoom2file2.png', '/resources/upload/room/original/tworoom2file2.png', '/resources/upload/room/thumbnail/tworoom2file2.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (3, 3, 'tworoom2file3.png', 'tworoom2file3.png', '/resources/upload/room/original/tworoom2file3.png', '/resources/upload/room/thumbnail/tworoom2file3.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (3, 4, 'tworoom2file4.png', 'tworoom2file4.png', '/resources/upload/room/original/tworoom2file4.png', '/resources/upload/room/thumbnail/tworoom2file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (3, 5, 'tworoom2file5.png', 'tworoom2file5.png', '/resources/upload/room/original/tworoom2file5.png', '/resources/upload/room/thumbnail/tworoom2file5.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (3, 6, 'tworoom2file6.png', 'tworoom2file6.png', '/resources/upload/room/original/tworoom2file6.png', '/resources/upload/room/thumbnail/tworoom2file6.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (3, 7, 'tworoom2file7.png', 'tworoom2file7.png', '/resources/upload/room/original/tworoom2file7.png', '/resources/upload/room/thumbnail/tworoom2file7.png');
+
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (4, 1, 'tworoom3file1.png', 'tworoom3file1.png', '/resources/upload/room/original/tworoom3file1.png', '/resources/upload/room/thumbnail/tworoom3file1.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (4, 2, 'tworoom3file2.png', 'tworoom3file2.png', '/resources/upload/room/original/tworoom3file2.png', '/resources/upload/room/thumbnail/tworoom3file2.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (4, 3, 'tworoom3file3.png', 'tworoom3file3.png', '/resources/upload/room/original/tworoom3file3.png', '/resources/upload/room/thumbnail/tworoom3file3.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (4, 4, 'tworoom3file4.png', 'tworoom3file4.png', '/resources/upload/room/original/tworoom3file4.png', '/resources/upload/room/thumbnail/tworoom3file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (4, 5, 'tworoom3file5.png', 'tworoom3file5.png', '/resources/upload/room/original/tworoom3file5.png', '/resources/upload/room/thumbnail/tworoom3file5.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (4, 6, 'tworoom3file6.png', 'tworoom3file6.png', '/resources/upload/room/original/tworoom3file6.png', '/resources/upload/room/thumbnail/tworoom3file6.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (4, 7, 'tworoom3file7.png', 'tworoom3file7.png', '/resources/upload/room/original/tworoom3file7.png', '/resources/upload/room/thumbnail/tworoom3file7.png');
+
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (5, 1, 'tworoom4file1.png', 'tworoom4file1.png', '/resources/upload/room/original/tworoom4file1.png', '/resources/upload/room/thumbnail/tworoom4file1.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (5, 2, 'tworoom4file2.png', 'tworoom4file2.png', '/resources/upload/room/original/tworoom4file2.png', '/resources/upload/room/thumbnail/tworoom4file2.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (5, 3, 'tworoom4file3.png', 'tworoom4file3.png', '/resources/upload/room/original/tworoom4file3.png', '/resources/upload/room/thumbnail/tworoom4file3.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (5, 4, 'tworoom4file4.png', 'tworoom4file4.png', '/resources/upload/room/original/tworoom4file4.png', '/resources/upload/room/thumbnail/tworoom4file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (5, 5, 'tworoom4file5.png', 'tworoom4file5.png', '/resources/upload/room/original/tworoom4file5.png', '/resources/upload/room/thumbnail/tworoom4file5.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (5, 6, 'tworoom4file6.png', 'tworoom4file6.png', '/resources/upload/room/original/tworoom4file6.png', '/resources/upload/room/thumbnail/tworoom4file6.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (5, 7, 'tworoom4file7.png', 'tworoom4file7.png', '/resources/upload/room/original/tworoom4file7.png', '/resources/upload/room/thumbnail/tworoom4file7.png');
+
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (6, 1, 'tworoom5file1.png', 'tworoom5file1.png', '/resources/upload/room/original/tworoom5file1.png', '/resources/upload/room/thumbnail/tworoom5file1.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (6, 2, 'tworoom5file2.png', 'tworoom5file2.png', '/resources/upload/room/original/tworoom5file2.png', '/resources/upload/room/thumbnail/tworoom5file2.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (6, 3, 'tworoom5file3.png', 'tworoom5file3.png', '/resources/upload/room/original/tworoom5file3.png', '/resources/upload/room/thumbnail/tworoom5file3.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (6, 4, 'tworoom5file4.png', 'tworoom5file4.png', '/resources/upload/room/original/tworoom5file4.png', '/resources/upload/room/thumbnail/tworoom5file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (6, 5, 'tworoom5file5.png', 'tworoom5file5.png', '/resources/upload/room/original/tworoom5file5.png', '/resources/upload/room/thumbnail/tworoom5file5.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (6, 6, 'tworoom5file6.png', 'tworoom5file6.png', '/resources/upload/room/original/tworoom5file6.png', '/resources/upload/room/thumbnail/tworoom5file6.png');
+-- 투룸 끝
 
 COMMIT;
 
