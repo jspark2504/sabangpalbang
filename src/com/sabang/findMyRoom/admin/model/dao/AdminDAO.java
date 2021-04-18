@@ -96,51 +96,52 @@ public class AdminDAO {
 		   return pageCountList;
 	   }
 	   
-//		/* 회원 정지하는 메소드(STATUS 전환 :비공개)  */
-//		public int deleteMember(Connection con, MemberDTO requestMember) {
-//
-//			PreparedStatement pstmt = null;
-//			int result = 0;
-//
-//			String query = prop.getProperty("deleteMember");
-//
-//			try {
-//				pstmt = con.prepareStatement(query);
-//				pstmt.setString(1, requestMember.getId());
-//
-//				result = pstmt.executeUpdate();
-//
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			} finally {
-//				close(pstmt);
-//			}
-//
-//			return result;
-//		}
-//		
-//		/* 정지회원 복원하는 메소드 */
-//		public int restoreMember(Connection con, MemberDTO requestMember) {
-//
-//			PreparedStatement pstmt = null;
-//			int result = 0;
-//
-//			String query = prop.getProperty("restoreMember");
-//
-//			try {
-//				pstmt = con.prepareStatement(query);
-//				pstmt.setString(1, requestMember.getId());
-//
-//				result = pstmt.executeUpdate();
-//
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			} finally {
-//				close(pstmt);
-//			}
-//
-//			return result;
-//		}
+		/* 회원 정지하는 메소드(STATUS 전환 :비공개) */
+		public int pauseMember(Connection con, int no) {
+
+			PreparedStatement pstmt = null;
+			int result = 0;
+
+			String query = prop.getProperty("pauseMember");
+
+			try {
+				pstmt = con.prepareStatement(query);
+				pstmt.setInt(1, no);
+
+				result = pstmt.executeUpdate();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+
+			return result;
+		}
+		
+		
+		/* 정지회원 복원하는 메소드 */
+		public int restoreMember(Connection con, int no) {
+
+			PreparedStatement pstmt = null;
+			int result = 0;
+
+			String query = prop.getProperty("restoreMember");
+
+			try {
+				pstmt = con.prepareStatement(query);
+				pstmt.setInt(1, no);
+
+				result = pstmt.executeUpdate();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+
+			return result;
+		}
 		
 	   /* 유저 정보 : 페이징 처리를 위한 전체 게시물 수 가져오는 메소드 */
 	   public int selectTotalCount(Connection con) {
@@ -197,6 +198,8 @@ public class AdminDAO {
 	            member.setEmail(rset.getString("EMAIL"));
 	            member.setPhone(rset.getString("PHONE"));
 	            member.setRole(rset.getString("USER_ROLE"));
+	            member.setApplyDate(rset.getDate("APPLY_DATE"));
+	            member.setApproval(rset.getString("APPROVAL_YN"));
 	            member.setEnrollDate(rset.getDate("ENROLL_DATE"));
 				member.setStatus(rset.getString("USER_STATUS"));
 
@@ -232,6 +235,10 @@ public class AdminDAO {
 		     query = prop.getProperty("searchPhoneManageCount");
 		  } else if(condition.equals("userRoll")) {
 		     query = prop.getProperty("searchUserRollManageCount");
+		  } else if(condition.equals("applyDate")) {
+			 query = prop.getProperty("searchApplyDateManageCount");
+		  } else if(condition.equals("approval")) {
+			 query = prop.getProperty("searchApprovalManageCount");
 		  } else if(condition.equals("enrollDate")) {
 			 query = prop.getProperty("searchEnrollDateManageCount");
 		  } else if(condition.equals("userStatus")) {
@@ -278,6 +285,10 @@ public class AdminDAO {
 			  query = prop.getProperty("searchPhoneManage");
 		  } else if(condition.equals("userRoll")) {
 			  query = prop.getProperty("searchUserRoleManage");
+		  } else if(condition.equals("applyDate")) {
+			  query = prop.getProperty("searchApplyDateManage");
+		  } else if(condition.equals("approval")) {
+			  query = prop.getProperty("searchApprovalManage");
 		  } else if(condition.equals("enrollDate")) {
 			  query = prop.getProperty("searchEnrollDateManage");
 		  } else if(condition.equals("userStatus")) {
@@ -303,6 +314,8 @@ public class AdminDAO {
 	            member.setEmail(rset.getString("EMAIL"));
 	            member.setPhone(rset.getString("PHONE"));
 	            member.setRole(rset.getString("USER_ROLE"));
+	            member.setApplyDate(rset.getDate("APPLY_DATE"));
+	            member.setApproval(rset.getString("APPROVAL_YN"));
 	            member.setEnrollDate(rset.getDate("ENROLL_DATE"));
 				member.setStatus(rset.getString("USER_STATUS"));
 

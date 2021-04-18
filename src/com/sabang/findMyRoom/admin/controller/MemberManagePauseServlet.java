@@ -14,8 +14,8 @@ import com.sabang.findMyRoom.common.paging.Pagenation;
 import com.sabang.findMyRoom.infoboard.model.dto.PageInfoDTO;
 import com.sabang.findMyRoom.member.model.dto.MemberDTO;
 
-@WebServlet("/manage/list")
-public class MemberManageSelectListServlet extends HttpServlet {
+@WebServlet("/manage/pause")
+public class MemberManagePauseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -68,9 +68,33 @@ public class MemberManageSelectListServlet extends HttpServlet {
 	      
 	      request.getRequestDispatcher(path).forward(request, response);
 		}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		int no = Integer.valueOf(request.getParameter("no"));
+		
+		int result = new AdminService().pauseMember(no);
+		
+		String page = "";
+		if(result > 0) {
+			page = "/WEB-INF/views/common/success.jsp";
+			request.setAttribute("successCode", "pauseMember");
+		} else {
+			page = "/WEB-INF/views/common/failed.jsp";
+			request.setAttribute("message", "회원 정지 실패!");
+
+		}
+		request.getRequestDispatcher(page).forward(request, response);
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+

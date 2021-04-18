@@ -11,9 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sabang.findMyRoom.admin.model.service.AdminService;
 import com.sabang.findMyRoom.common.paging.Pagenation;
-import com.sabang.findMyRoom.infoboard.model.dto.InfoBoardDTO;
 import com.sabang.findMyRoom.infoboard.model.dto.PageInfoDTO;
-import com.sabang.findMyRoom.infoboard.model.service.InfoBoardService;
 import com.sabang.findMyRoom.member.model.dto.MemberDTO;
 
 @WebServlet("/manage/search")

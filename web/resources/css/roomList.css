@@ -144,8 +144,24 @@ a.tip:hover span {
     overflow-y: scroll;
 }
 
+.sticky-nav {
+  position: fixed;
+  top: 85px;
+  width: 575px;
+  background: white;
+  border: 1px solid #f3f3f3;
+  z-index: 1;
+}
+
+.nav-content {
+  position: fixed;
+  bottom: -2px;
+  background: white;
+}
+
 .room-list-heading {
-    margin: 15px 0 0 15px;
+  margin: 0;
+  padding: 15px 0 15px 15px;
 }
 
 .room-list .room {
@@ -168,6 +184,15 @@ a.tip:hover span {
 }
 
 /* 매물 정보 */
+.room:hover {
+  text-decoration: none;
+  background-color: #f3f3f3;
+}
+
+.room-area {
+   margin-top: 70px;
+}
+
 .room-info {
     margin-right: 15px;
 }
@@ -194,11 +219,6 @@ a.tip:hover span {
     overflow: hidden;
 }
 
-.room-area:hover {
-    text-decoration: none;
-    background-color: #f3f3f3;
-}
-
 .room-list a :hover btns {
     background-color: #f3f3f3;
 }
@@ -209,9 +229,9 @@ a.tip:hover span {
 }
 
 /* 중개사인 경우 추가 정보 및 수정/삭제 버튼 */
-.room-area {
+/* .room-area {
   display: flex;
-}
+} */
 
 .more-info {
   display: flex;
@@ -276,6 +296,16 @@ a.tip:hover span {
     .room-list {
         margin-left: 15px;
     }
+
+    .sticky-nav {
+      position: relative;
+      top: 0;
+      width: 1000px;
+    }
+
+    .room-area {
+      margin-top: 20px;
+    }
 }
 
 
@@ -294,9 +324,16 @@ a.tip:hover span {
 /* room-detail-heading */
 .room-detail-heading {
   display: flex;
-  margin: 15px 15px 0 15px;
+  position: fixed;
+  background: white;
+  top: 85px;
+  width: 573px;
+  margin: 0;
+  padding: 15px 30px 15px 15px;
   justify-content: space-between;
   align-items: center;
+  border: 1px solid #f3f3f3;
+  z-index: 2;
 }
 
 .sticky-heading {
@@ -349,6 +386,7 @@ a.tip:hover span {
 
 .room-create-date {
   color: #b2b2b2;
+  padding-right: 15px;
 }
 
 .room-basic-info-2 {
