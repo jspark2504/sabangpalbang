@@ -36,13 +36,13 @@ public class MemberFindIdServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String userId = new MemberService().searchId(email);
 //		String email = ((MemberDTO)request.getSession().getAttribute("loginMember")).getEmail();
-		
+
 		System.out.println(path);
 		System.out.println(email);
 		System.out.println(userId);
 		
 		// mail server 설정
-		String host = "smtp.naver.com"; //
+		String host = "smtp.naver.com"; //        
 		String user = "yygyung@naver.com"; // 자신의 네이버 계정 
 		String password = "qorhvk1207";// 자신의 네이버 패스워드
 

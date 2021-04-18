@@ -142,5 +142,6 @@
 			TBL_USER A
 		SET A.USER_PWD = ?
 	  WHERE EMAIL = ?
+	    AND A.USER_PWD  
 	</entry>
 </properties>

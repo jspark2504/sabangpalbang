@@ -166,11 +166,11 @@ public class MemberService {
 	}
 	
 	/*비밀번호 찾기 */
-	public int searchPw(String email, String userPwd) {
+	public int searchPw(String email, String AuthenticationKey) {
 		
 		Connection con = getConnection();
 		
-		int result = memberDAO.searchPw(con, userPwd, email);
+		int result = memberDAO.searchPw(con, AuthenticationKey, email);
 		
 		if(result > 0) {
 			commit(con);
