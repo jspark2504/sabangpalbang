@@ -157,10 +157,12 @@ function showDetail(room) {
 			$(".room-list h4").css('display', 'none');
 			$(".room-list hr").css('display', 'none');
 			$(".room-list ul").css('display', 'none');
+			$(".room-area").css('display', 'none');
 
 			/* 매물 상세 페이지 추가 */
 			/* 헤드 */
-			$(".room-list").prepend("<article class='room-detail-heading'><div class='room-detail-title'><span class='glyphicon glyphicon-menu-left' aria-hidden='true' onclick='showList();'></span><h4>" + shortAddress + "</h4></div><span class='glyphicon glyphicon glyphicon-heart empty' aria-hidden='true' onclick='wishList();'></span></article>");
+			//$(".room-list").prepend("<article class='room-detail-heading'><div class='room-detail-title'><span class='glyphicon glyphicon-menu-left' aria-hidden='true' onclick='showList();'></span><h4>" + shortAddress + "</h4></div><span class='glyphicon glyphicon glyphicon-heart empty' aria-hidden='true' onclick='wishList();'></span></article>");
+			$(".room-list").prepend("<section class='fixced-nav'><article class='room-detail-heading'><div class='room-detail-title'><span class='glyphicon glyphicon-menu-left' aria-hidden='true' onclick='showList();'></span><h4>" + shortAddress + "</h4></div><span class='glyphicon glyphicon glyphicon-heart empty' aria-hidden='true' onclick='wishList();'></span></article><hr></section>");
 			/* 구분선 */
 			$(".room-list").append("<hr class='title-end'>");
 			/* 이미지 */
@@ -208,13 +210,14 @@ function showList() {
 	$(".room-value").remove();
 	$(".divider-line").remove();
 	$(".title-end").remove();
-	$("hr:not(hr:first-of-type)").remove();
+	$("hr").remove();
 	$(".container").remove();
 
 	/* 매물 목록 다시 표시 */
 	$(".room-list h4").css('display', 'block');
 	$(".room-list hr").css('display', 'block');
 	$(".room-list ul").css('display', 'block');
+	$(".room-area").css('display', 'block');
 }
 
 /* 찜하기 */

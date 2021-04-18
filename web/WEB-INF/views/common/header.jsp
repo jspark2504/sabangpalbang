@@ -141,12 +141,16 @@
 					</li>
 					<hr />
 					<li>
-						<a href="${ pageContext.servletContext.contextPath }//">
+						<a href="${ pageContext.servletContext.contextPath }/pagecount/List">
 							통계
 						</a>
 					</li>
 				</ul>
 			</c:if>
+            <a href="#" class="navbar_toggleBtn">
+                <i class="fas fa-bars">
+                </i>
+            </a>
 			</div>
 		</div>
 		<hr class="hr-shadow">

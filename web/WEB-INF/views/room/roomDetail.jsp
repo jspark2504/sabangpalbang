@@ -46,18 +46,20 @@
 
             <!-- room-detail-all -->
             <section class='room-detail col-sm-4'>
-              <article class='room-detail-heading'>
+              <section class='fixced-nav'>
+                <article class='room-detail-heading'>
                   <div class='room-detail-title'>
                     <span class='glyphicon glyphicon-menu-left' aria-hidden='true' onclick='showList();'>
                     </span>
                     <h4>
-                      동작구 사당동
+                      관악구 신림동
                     </h4>
                   </div>
-                    <span class='glyphicon glyphicon glyphicon-heart' aria-hidden='true' onclick='wishList();'>
-                    </span>
-                    <hr class='title-end'>
-              </article>
+                  <span class='glyphicon glyphicon glyphicon-heart empty' aria-hidden='true' onclick='wishList();'>
+                  </span>
+                </article>
+                <hr>
+              </section>
 
               <!-- room-basic-info-all -->
               <article class='room-basic-info-all'>

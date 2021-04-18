@@ -76,14 +76,15 @@
 
             <!-- 매물 목록 영역 -->
             <section class="room-list col-md-4">
-                <h4 class="room-list-heading"><c:out value="매물 목록 ${ fn:length(requestScope.roomList) }개"/></h4>
-                <hr style="margin-bottom: 0px;">
+              <section class="sticky-nav">
+                  <h4 class="room-list-heading"><c:out value="매물 목록 ${ fn:length(requestScope.roomList) }개"/></h4>
+              </section>
                 <c:forEach var="room" items="${ requestScope.roomList }">
                   <section class="room-area">
                     <article class="room-info">
                       <ul>
                           <a href="#" onclick="showDetail(this);">
-                              <li class="room">
+                            <li class="room">
                                   <!-- 매물 사진 -->
                                   <figure class="img">
                                     <img src="${ pageContext.servletContext.contextPath }${ room.fileList[0].thumbnailPath }" alt="">

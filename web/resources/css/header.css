@@ -64,6 +64,13 @@ header {
 	color: #ffd233;
 }
 
+.navbar_toggleBtn {
+	display: none;
+	font-size: 5vw;
+	color: black;
+}
+
+
 /* drop-menu */
 .drop-menu-btn {
 	background-color: #e2e2e2;
@@ -120,37 +127,46 @@ header {
 		align-items: flex-start;
 		padding: 8px 12px;
 	}
+
 	.navbar-logo img {
 		text-align: center;
 	}
+
 	.navbar_menu {
 		display: none;
 		flex-direction: column;
 		align-items: center;
 		width: 100%;
 	}
+
 	.navbar_menu li {
 		width: 100%;
 		text-align: center;
 		padding: 10px;
 		font-size: 14px;
 	}
+
 	.btn-gr {
 		display: flex;
 		align-items: center;
 		position: absolute;
 		right: 25px;
 	}
+
 	.drop-menu {
 		top: 7vw;
 	}
+
 	.navbar_toggleBtn {
 		display: block;
 	}
+
 	.navbar_toggleBtn:hover {
 		color: var(--accent-color);
 	}
+
 	.navbar_menu.active {
 		display: flex;
 	}
+
 }
