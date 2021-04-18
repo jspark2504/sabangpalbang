@@ -147,7 +147,7 @@ a.tip:hover span {
 .sticky-nav {
   position: fixed;
   top: 85px;
-  width: 575px;
+  width: 100%;
   background: white;
   border: 1px solid #f3f3f3;
   z-index: 1;
@@ -161,7 +161,7 @@ a.tip:hover span {
 
 .room-list-heading {
   margin: 0;
-  padding: 15px 0 15px 15px;
+  padding: 15px 0 15px 40px;
 }
 
 .room-list .room {
@@ -282,34 +282,6 @@ section:nth-of-type(2) {
   background-color: white;
 }
 
-/* 미디어 쿼리 */
-@media screen and (max-width: 992px) {
-
-    .room-list-main {
-         margin-bottom: 0;
-    }
-
-    .map {
-        height: 40vw;
-    }
-
-    .room-list {
-        margin-left: 15px;
-    }
-
-    .sticky-nav {
-      position: relative;
-      top: 0;
-      width: 1000px;
-    }
-
-    .room-area {
-      margin-top: 20px;
-    }
-}
-
-
-
 /* 상세 페이지 */
 
 /* room-detail */
@@ -327,17 +299,13 @@ section:nth-of-type(2) {
   position: fixed;
   background: white;
   top: 85px;
-  width: 573px;
+  width: 35vw;
   margin: 0;
-  padding: 15px 30px 15px 15px;
+  padding: 15px 50px 12px 15px;
   justify-content: space-between;
   align-items: center;
   border: 1px solid #f3f3f3;
   z-index: 2;
-}
-
-.sticky-heading {
-  position: sticky;
 }
 
 .room-detail-title {
@@ -360,7 +328,7 @@ section:nth-of-type(2) {
 .glyphicon-heart {
   color: #c4c4c4;
   font-size: 20px;
-  padding-right: 20px;
+  z-index: 10;
 }
 
 .glyphicon-heart:hover {
@@ -520,6 +488,10 @@ p.info:hover {
   margin: 20px 0 20px 20px;
 }
 
+.tel:hover {
+  color: #c8a100;
+}
+
 /* office review */
 .office-review {
   display: flex;
@@ -566,3 +538,38 @@ p.info:hover {
   height: 10px;
 }
 
+/* 미디어 쿼리 */
+@media screen and (max-width: 992px) {
+
+    .room-list-main {
+         margin-bottom: 0;
+    }
+
+    .map {
+        height: 40vw;
+    }
+
+    .room-list {
+        margin-left: 15px;
+    }
+
+    .sticky-nav {
+      position: relative;
+      top: 0;
+      width: 100%;
+    }
+
+    .room-detail-heading {
+      position: relative;
+      top: 0px;
+      width: 100%;
+    }
+
+    .room-area {
+      margin-top: 20px;
+    }
+
+    hr.hr-fshadow {
+      margin-top: 0;
+    }
+}
