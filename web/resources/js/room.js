@@ -218,10 +218,6 @@ function showList() {
 }
 
 /* 찜하기 */
-//function wishList(){
-//	$(".glyphicon-heart").css('color', '#ff5959');
-//}
-
 function wishList(){
 
 		let heartColor = $(".glyphicon-heart").css('color');
@@ -234,6 +230,7 @@ function wishList(){
 		}
 }
 
+/* 카테고리 필터 */
 function option(img){
 
 		let option = $(img).css('opacity');
@@ -246,17 +243,14 @@ function option(img){
 		}
 }
 
-function phoneCall(phoneNumber) {
-  location.href = "tel:" + num;
-}
 
-phoneCall("02-1234-5678");
 
 
 function search() {
 
 }
 
+/* 리뷰 보기 */
 function goReview(){
 	let hostIndex = location.href.indexOf(location.host) + location.host.length;
 	let contextPath = location.href.substring(hostIndex, location.href.indexOf('/', hostIndex + 1));

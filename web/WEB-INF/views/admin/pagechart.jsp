@@ -59,18 +59,18 @@ var cht = document.getElementById('myChart');
 var charts = document.getElementById("charts");
 var data = [{name: chartName1 , viewNo: chartViewNo1}, {name: chartName2, viewNo: chartViewNo2}, {name: chartName3, viewNo: chartViewNo3}, {name: chartName4, viewNo: chartViewNo4}, {name: chartName5, viewNo: chartViewNo5}];
 var  myChart = new Chart(cht, {
-    type: 'line',
+    type: 'bar',
     data: {
         datasets: [{
             label: '# of 홈페이지 조회수 차트',
             data: data 
             ,parsing: { xAxisKey: 'name', yAxisKey: 'viewNo'
             },
-            backgroundColor: [ 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(255, 206, 86, 0.2)'
+            backgroundColor: [ 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 255, 0, 0.2)', 'rgba(255, 0, 255, 0.2)', 'rgba(0, 255, 0, 0.2)'
             ],
-            borderColor: [ 'rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(255, 206, 86, 1)', 'rgba(255, 206, 86, 1)'
+            borderColor: [ 'rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 255, 0, 1)', 'rgba(255, 0, 255, 1)', 'rgba(0, 255, 0, 1)'
             ],
-            borderWidth: 8
+            borderWidth: 1
        }]
     },
     options: {

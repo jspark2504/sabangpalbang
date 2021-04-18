@@ -185,14 +185,12 @@ public class InfoBoardDAO {
 
 		            boardDetail.setNo(rset.getInt("POST_NO"));
 		            boardDetail.setCategoryNo(rset.getInt("CATEGORY_NO"));
-		            boardDetail.getCategory().setName(rset.getString("CATEGORY_NAME"));
-		            
+		            boardDetail.getCategory().setName(rset.getString("CATEGORY_NAME"));		            
 		            boardDetail.setTitle(rset.getString("POST_TITLE"));
+		            
 		            boardDetail.setContent(rset.getString("POST_CONTENT"));
 		            boardDetail.setWriterMemberNo(rset.getInt("USER_NO"));
-		            
 		            boardDetail.getWriteUser().setNickname(rset.getString("NICKNAME"));
-		            
 		            boardDetail.setViewNo(rset.getInt("VIEW_NO"));
 		            boardDetail.setCreateDate(rset.getDate("CREATION_DATE"));
 		         }

@@ -207,27 +207,27 @@
 				<article class="board">
 					<ul>
 						<li class="title">
-							<a href="#">
+							<a href="${ pageContext.servletContext.contextPath }/notice/detail?no=5">
 								[공지] 사방팔방 개인정보 처리방침(2021/04/19) 개정방안
 							</a>
 						</li>
 						<li class="title">
-							<a href="#">
+							<a href="${ pageContext.servletContext.contextPath }/notice/detail?no=4">
 								[공지] 사방팔방 개인정보 처리방침(2021/04/01) 개정방안
 							</a>
 						</li>
 						<li class="title">
-							<a href="#">
+							<a href="${ pageContext.servletContext.contextPath }/notice/detail?no=3">
 								[공지] 사방팔방 개인정보 처리방침(2021/03/28) 개정방안
 							</a>
 						</li>
 						<li class="title">
-							<a href="#">
+							<a href="${ pageContext.servletContext.contextPath }/notice/detail?no=2">
 								[공지] 사방팔방 개인정보 처리방침(2021/03/22) 개정방안
 							</a>
 						</li>
 						<li class="title">
-							<a href="#">
+							<a href="${ pageContext.servletContext.contextPath }/notice/detail?no=1">
 								[공지] 사방팔방 개인정보 처리방침(2021/03/10) 개정방안
 							</a>
 						</li>

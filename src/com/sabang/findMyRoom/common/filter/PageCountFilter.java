@@ -11,7 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
-import com.sabang.findMyRoom.admin.model.service.PageCountService;
+import com.sabang.findMyRoom.admin.model.service.AdminService;
 
 
 @WebFilter("/*")
@@ -39,24 +39,24 @@ public class PageCountFilter implements Filter {
 
 		/* 주소의 필요한 부분만 추출 */
 		System.out.println("intent 필터 확인중 : " + intent);
-		PageCountService pageCountService = new PageCountService();
+		AdminService adminService = new AdminService();
 
 		if(intent.equals(room)) {	
-			int no = pageCountService.incrementPageCount(roomNo);
+			int no = adminService.incrementPageCount(roomNo);
 			System.out.println("사이트 조회수 결과 확인 : " + no);
 		} else if(intent.equals(notice)) {
-			int no = pageCountService.incrementPageCount(noticeNo);
+			int no = adminService.incrementPageCount(noticeNo);
 			System.out.println("사이트 조회수 결과 확인 : " + no);
 		} else if(intent.equals(info)) {
-			int no = pageCountService.incrementPageCount(infoNo);
+			int no = adminService.incrementPageCount(infoNo);
 			System.out.println("사이트 조회수 결과 확인 : " + no);
 		} else if(intent .equals(free)) {
-			int no = pageCountService.incrementPageCount(freeNo);
+			int no = adminService.incrementPageCount(freeNo);
 			System.out.println("사이트 조회수 결과 확인 : " + no);
 		}
 		
 		if(intent.equals(all)) {
-			int no = pageCountService.incrementPageCount(allNo);
+			int no = adminService.incrementPageCount(allNo);
 			System.out.println("사이트 조회수 결과 확인 : " + no);
 		}	
 		
