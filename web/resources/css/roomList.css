@@ -31,7 +31,7 @@ a {
 
 .category-icon {
   display: inline-flex;
-  position: absolute;
+  position: fixed;
   border: 1px solid #ffd233;
   left: 30px;
   top: 100px;
@@ -103,7 +103,7 @@ a.tip:hover span {
 
 .room-live-type-all {
   display: inline-flex;
-  position: absolute;
+  position: fixed;
   border: 1px solid #ffd233;
   left: 30px;
   top: 148px;
