@@ -17,28 +17,28 @@
              , A.PAGE_NAME
           FROM TBL_PAGE_COUNT A
 	</entry>
-	<entry key="deleteMember">
+	<entry key="pauseMember">
 	    UPDATE /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#deleteMember() */
 	           TBL_USER A
 	       SET USER_STATUS = 'N'
 	     WHERE USER_STATUS = 'Y'
-	       AND USER_ID = ?
+	       AND USER_NO = ?
 	</entry>
 	<entry key="restoreMember">
 	    UPDATE /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#restoreMember() */ 
 	           TBL_USER A
 	       SET USER_STATUS = 'Y'
 	     WHERE USER_STATUS = 'N'
-	       AND USER_ID = ?
+	       AND USER_NO = ?
 	</entry>
 	
 	<entry key="selectTotalCount">
-    	SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO# */
+    	SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#selectTotalCount() */
                COUNT(*)
           FROM TBL_INFO_BOARD A
 	</entry>
 	<entry key="selectAllMemberList">
-        SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO# */
+        SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#selectAllMemberList() */
                A.RNUM
              , A.USER_NO
              , A.USER_ID
@@ -46,6 +46,8 @@
              , A.EMAIL
              , A.PHONE
              , A.USER_ROLE
+             , A.APPLY_DATE
+             , A.APPROVAL_YN
              , A.ENROLL_DATE
              , A.USER_STATUS
           FROM (SELECT ROWNUM RNUM
@@ -55,6 +57,8 @@
                      , B.EMAIL
                      , B.PHONE
                      , B.USER_ROLE
+		             , B.APPLY_DATE
+        		     , B.APPROVAL_YN
                      , B.ENROLL_DATE
                      , B.USER_STATUS
                   FROM (SELECT C.USER_NO
@@ -63,6 +67,8 @@
                              , C.EMAIL
                              , C.PHONE
                              , C.USER_ROLE
+      			             , C.APPLY_DATE
+            				 , C.APPROVAL_YN
                              , C.ENROLL_DATE
                              , C.USER_STATUS
                           FROM TBL_USER C
@@ -73,50 +79,62 @@
 	</entry>
 
 	<entry key="searchUserIdManageCount">
-		SELECT 
+		SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#searchUserManageCount() */
                COUNT(*)
           FROM TBL_USER A
          WHERE A.USER_ID LIKE '%' || ? || '%'
 	</entry>
 	<entry key="searchNickNameManageCount">
-		SELECT 
+		SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#searchUserManageCount() */
                COUNT(*)
           FROM TBL_USER A
          WHERE A.NICKNAME LIKE '%' || ? || '%'
 	</entry>
 	<entry key="searchEmailManageCount">
-		SELECT 
+		SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#searchUserManageCount() */
                COUNT(*)
           FROM TBL_USER A
          WHERE A.EMAIL LIKE '%' || ? || '%'
 	</entry>
 	<entry key="searchPhoneManageCount">
-		SELECT 
+		SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#searchUserManageCount() */
                COUNT(*)
           FROM TBL_USER A
          WHERE A.PHONE LIKE '%' || ? || '%'
 	</entry>
 	<entry key="searchUserRollManageCount">
-		SELECT 
+		SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#searchUserManageCount() */
                COUNT(*)
           FROM TBL_USER A
          WHERE A.USER_ROLE LIKE '%' || ? || '%'
 	</entry>
+	<entry key="searchApplyDateManageCount">
+		SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#searchUserManageCount() */
+               COUNT(*)
+          FROM TBL_USER A
+         WHERE A.APPLY_DATE LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchApprovalManageCount">
+		SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#searchUserManageCount() */
+               COUNT(*)
+          FROM TBL_USER A
+         WHERE A.APPROVAL_YN LIKE '%' || ? || '%'
+	</entry>
 	<entry key="searchEnrollDateManageCount">
-		SELECT 
+		SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#searchUserManageCount() */
                COUNT(*)
           FROM TBL_USER A
          WHERE A.ENROLL_DATE LIKE '%' || ? || '%'
 	</entry>
 	<entry key="searchUserStatusManageCount">
-		SELECT 
+		SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#searchUserManageCount() */
                COUNT(*)
           FROM TBL_USER A
          WHERE A.USER_STATUS LIKE '%' || ? || '%'
 	</entry>
 	
 	<entry key="searchUserIdManage">
-        SELECT
+        SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#searchUserManageList() */
                A.RNUM
              , A.USER_NO
              , A.USER_ID
@@ -124,6 +142,8 @@
              , A.EMAIL
              , A.PHONE
              , A.USER_ROLE
+             , A.APPLY_DATE
+             , A.APPROVAL_YN
              , A.ENROLL_DATE
              , A.USER_STATUS
           FROM (SELECT ROWNUM RNUM
@@ -133,6 +153,8 @@
                      , B.EMAIL
                      , B.PHONE
                      , B.USER_ROLE
+		             , B.APPLY_DATE
+        		     , B.APPROVAL_YN
                      , B.ENROLL_DATE
                      , B.USER_STATUS
                   FROM (SELECT C.USER_NO
@@ -141,6 +163,8 @@
                              , C.EMAIL
                              , C.PHONE
                              , C.USER_ROLE
+      			             , C.APPLY_DATE
+            				 , C.APPROVAL_YN
                              , C.ENROLL_DATE
                              , C.USER_STATUS
                           FROM TBL_USER C
@@ -151,7 +175,7 @@
          WHERE A.RNUM BETWEEN ? AND ?
 	</entry>
 	<entry key="searchNickNameManage">
-        SELECT
+        SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#searchUserManageList() */
                A.RNUM
              , A.USER_NO
              , A.USER_ID
@@ -159,6 +183,8 @@
              , A.EMAIL
              , A.PHONE
              , A.USER_ROLE
+             , A.APPLY_DATE
+             , A.APPROVAL_YN
              , A.ENROLL_DATE
              , A.USER_STATUS
           FROM (SELECT ROWNUM RNUM
@@ -168,6 +194,8 @@
                      , B.EMAIL
                      , B.PHONE
                      , B.USER_ROLE
+		             , B.APPLY_DATE
+        		     , B.APPROVAL_YN
                      , B.ENROLL_DATE
                      , B.USER_STATUS
                   FROM (SELECT C.USER_NO
@@ -176,6 +204,8 @@
                              , C.EMAIL
                              , C.PHONE
                              , C.USER_ROLE
+      			             , C.APPLY_DATE
+            				 , C.APPROVAL_YN
                              , C.ENROLL_DATE
                              , C.USER_STATUS
                           FROM TBL_USER C
@@ -186,7 +216,7 @@
          WHERE A.RNUM BETWEEN ? AND ?
 	</entry>
 	<entry key="searchEmailManage">
-        SELECT
+        SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#searchUserManageList() */
                A.RNUM
              , A.USER_NO
              , A.USER_ID
@@ -194,6 +224,8 @@
              , A.EMAIL
              , A.PHONE
              , A.USER_ROLE
+             , A.APPLY_DATE
+             , A.APPROVAL_YN
              , A.ENROLL_DATE
              , A.USER_STATUS
           FROM (SELECT ROWNUM RNUM
@@ -203,6 +235,8 @@
                      , B.EMAIL
                      , B.PHONE
                      , B.USER_ROLE
+		             , B.APPLY_DATE
+        		     , B.APPROVAL_YN
                      , B.ENROLL_DATE
                      , B.USER_STATUS
                   FROM (SELECT C.USER_NO
@@ -211,6 +245,8 @@
                              , C.EMAIL
                              , C.PHONE
                              , C.USER_ROLE
+      			             , C.APPLY_DATE
+            				 , C.APPROVAL_YN
                              , C.ENROLL_DATE
                              , C.USER_STATUS
                           FROM TBL_USER C
@@ -221,7 +257,7 @@
          WHERE A.RNUM BETWEEN ? AND ?
 	</entry>
 	<entry key="searchPhoneManage">
-        SELECT
+        SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#searchUserManageList() */
                A.RNUM
              , A.USER_NO
              , A.USER_ID
@@ -229,6 +265,8 @@
              , A.EMAIL
              , A.PHONE
              , A.USER_ROLE
+             , A.APPLY_DATE
+             , A.APPROVAL_YN
              , A.ENROLL_DATE
              , A.USER_STATUS
           FROM (SELECT ROWNUM RNUM
@@ -238,6 +276,8 @@
                      , B.EMAIL
                      , B.PHONE
                      , B.USER_ROLE
+		             , B.APPLY_DATE
+        		     , B.APPROVAL_YN
                      , B.ENROLL_DATE
                      , B.USER_STATUS
                   FROM (SELECT C.USER_NO
@@ -246,6 +286,8 @@
                              , C.EMAIL
                              , C.PHONE
                              , C.USER_ROLE
+      			             , C.APPLY_DATE
+            				 , C.APPROVAL_YN
                              , C.ENROLL_DATE
                              , C.USER_STATUS
                           FROM TBL_USER C
@@ -256,7 +298,7 @@
          WHERE A.RNUM BETWEEN ? AND ?
 	</entry>
 	<entry key="searchUserRoleManage">
-        SELECT
+        SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#searchUserManageList() */
                A.RNUM
              , A.USER_NO
              , A.USER_ID
@@ -264,6 +306,8 @@
              , A.EMAIL
              , A.PHONE
              , A.USER_ROLE
+             , A.APPLY_DATE
+             , A.APPROVAL_YN
              , A.ENROLL_DATE
              , A.USER_STATUS
           FROM (SELECT ROWNUM RNUM
@@ -273,6 +317,8 @@
                      , B.EMAIL
                      , B.PHONE
                      , B.USER_ROLE
+		             , B.APPLY_DATE
+        		     , B.APPROVAL_YN
                      , B.ENROLL_DATE
                      , B.USER_STATUS
                   FROM (SELECT C.USER_NO
@@ -281,6 +327,8 @@
                              , C.EMAIL
                              , C.PHONE
                              , C.USER_ROLE
+      			             , C.APPLY_DATE
+            				 , C.APPROVAL_YN
                              , C.ENROLL_DATE
                              , C.USER_STATUS
                           FROM TBL_USER C
@@ -290,8 +338,8 @@
                ) A
          WHERE A.RNUM BETWEEN ? AND ?
 	</entry>
-	<entry key="searchEnrollDateManage">
-        SELECT
+	<entry key="searchApplyDateManage">
+        SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#searchUserManageList() */
                A.RNUM
              , A.USER_NO
              , A.USER_ID
@@ -299,6 +347,8 @@
              , A.EMAIL
              , A.PHONE
              , A.USER_ROLE
+             , A.APPLY_DATE
+             , A.APPROVAL_YN
              , A.ENROLL_DATE
              , A.USER_STATUS
           FROM (SELECT ROWNUM RNUM
@@ -308,6 +358,8 @@
                      , B.EMAIL
                      , B.PHONE
                      , B.USER_ROLE
+		             , B.APPLY_DATE
+        		     , B.APPROVAL_YN
                      , B.ENROLL_DATE
                      , B.USER_STATUS
                   FROM (SELECT C.USER_NO
@@ -316,6 +368,90 @@
                              , C.EMAIL
                              , C.PHONE
                              , C.USER_ROLE
+      			             , C.APPLY_DATE
+            				 , C.APPROVAL_YN
+                             , C.ENROLL_DATE
+                             , C.USER_STATUS
+                          FROM TBL_USER C
+                         ORDER BY C.USER_NO DESC
+                        ) B
+                 WHERE B.APPLY_DATE LIKE '%' || ? || '%'
+               ) A
+         WHERE A.RNUM BETWEEN ? AND ?
+	</entry>	
+	<entry key="searchApprovalManage">
+        SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#searchUserManageList() */
+               A.RNUM
+             , A.USER_NO
+             , A.USER_ID
+             , A.NICKNAME
+             , A.EMAIL
+             , A.PHONE
+             , A.USER_ROLE
+             , A.APPLY_DATE
+             , A.APPROVAL_YN
+             , A.ENROLL_DATE
+             , A.USER_STATUS
+          FROM (SELECT ROWNUM RNUM
+                     , B.USER_NO
+                     , B.USER_ID
+                     , B.NICKNAME
+                     , B.EMAIL
+                     , B.PHONE
+                     , B.USER_ROLE
+		             , B.APPLY_DATE
+        		     , B.APPROVAL_YN
+                     , B.ENROLL_DATE
+                     , B.USER_STATUS
+                  FROM (SELECT C.USER_NO
+                             , C.USER_ID
+                             , C.NICKNAME
+                             , C.EMAIL
+                             , C.PHONE
+                             , C.USER_ROLE
+      			             , C.APPLY_DATE
+            				 , C.APPROVAL_YN
+                             , C.ENROLL_DATE
+                             , C.USER_STATUS
+                          FROM TBL_USER C
+                         ORDER BY C.USER_NO DESC
+                        ) B
+                 WHERE B.APPROVAL_YN LIKE '%' || ? || '%'
+               ) A
+         WHERE A.RNUM BETWEEN ? AND ?
+	</entry>	
+	<entry key="searchEnrollDateManage">
+        SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#searchUserManageList() */
+               A.RNUM
+             , A.USER_NO
+             , A.USER_ID
+             , A.NICKNAME
+             , A.EMAIL
+             , A.PHONE
+             , A.USER_ROLE
+             , A.APPLY_DATE
+             , A.APPROVAL_YN
+             , A.ENROLL_DATE
+             , A.USER_STATUS
+          FROM (SELECT ROWNUM RNUM
+                     , B.USER_NO
+                     , B.USER_ID
+                     , B.NICKNAME
+                     , B.EMAIL
+                     , B.PHONE
+                     , B.USER_ROLE
+		             , B.APPLY_DATE
+        		     , B.APPROVAL_YN
+                     , B.ENROLL_DATE
+                     , B.USER_STATUS
+                  FROM (SELECT C.USER_NO
+                             , C.USER_ID
+                             , C.NICKNAME
+                             , C.EMAIL
+                             , C.PHONE
+                             , C.USER_ROLE
+      			             , C.APPLY_DATE
+            				 , C.APPROVAL_YN
                              , C.ENROLL_DATE
                              , C.USER_STATUS
                           FROM TBL_USER C
@@ -326,7 +462,7 @@
          WHERE A.RNUM BETWEEN ? AND ?
 	</entry>
 	<entry key="searchUserStatusManage">
-        SELECT
+        SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#searchUserManageList() */
                A.RNUM
              , A.USER_NO
              , A.USER_ID
@@ -334,6 +470,8 @@
              , A.EMAIL
              , A.PHONE
              , A.USER_ROLE
+             , A.APPLY_DATE
+             , A.APPROVAL_YN
              , A.ENROLL_DATE
              , A.USER_STATUS
           FROM (SELECT ROWNUM RNUM
@@ -343,6 +481,8 @@
                      , B.EMAIL
                      , B.PHONE
                      , B.USER_ROLE
+		             , B.APPLY_DATE
+        		     , B.APPROVAL_YN
                      , B.ENROLL_DATE
                      , B.USER_STATUS
                   FROM (SELECT C.USER_NO
@@ -351,6 +491,8 @@
                              , C.EMAIL
                              , C.PHONE
                              , C.USER_ROLE
+      			             , C.APPLY_DATE
+            				 , C.APPROVAL_YN
                              , C.ENROLL_DATE
                              , C.USER_STATUS
                           FROM TBL_USER C

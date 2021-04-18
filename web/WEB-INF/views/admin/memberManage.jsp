@@ -24,22 +24,39 @@
 
     <link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
     <link rel="stylesheet" href="/findMyRoom/resources/css/free_board.css?">
+    <style>
+    .btns {
+    position: relative;
+	background: rgb(255, 210, 51);
+	color: black;
+	border: hidden;
+	}
+	.btns:hover {
+	background: rgb(81, 75, 55);
+	color: white;
+	transition-duration: 0.3s;
+	}
+    </style>
 </head>
 <body>
    <jsp:include page="../common/header.jsp"/>
     <div class="container">
         <h1 class="text">회원관리</h1>
+      <form id="form" action="${ pageContext.servletContext.contextPath }/manage/list" method="post">
       <table class="table table-striped table-hover">
 			<thead>
 		 		   <tr>
-		 		   	  <th style="width: 80px;">회원번호</th>
-		 		   	  <th style="width: 100px;">회원아이디</th>
-		              <th style="width: 120px; text-align: center;">이름</th>
-					  <th style="width: 200px;">이메일</th>
-					  <th style="width: 200px;">전화번호</th>
+		 		   	  <th style="text-align: center;">회원번호</th>
+		 		   	  <th style="text-align: center;">회원아이디</th>
+		              <th style="text-align: center;">이름</th>
+					  <th style="text-align: center;">이메일</th>
+					  <th style="text-align: center;">전화번호</th>
 				      <th style="text-align: center;">회원구분</th>
+					  <th style="text-align: center;">가입신청일</th>
+					  <th style="text-align: center;">승인여부</th>
 					  <th style="text-align: center;">회원등록일</th>
 					  <th style="text-align: center;">회원상태</th>
+					  <th style="text-align: center;">회원정지</th>
 		           </tr>
 		    </thead>
 			<tbody>
@@ -51,12 +68,17 @@
 	                  <td align="center"><c:out value="${ member.email }"/></td>
 	                  <td align="center"><c:out value="${ member.phone }"/></td>
 	                  <td align="center"><c:out value="${ member.role }"/></td>
+	                  <td align="center"><c:out value="${ member.applyDate }"/></td>
+	                  <td align="center"><c:out value="${ member.approval }"/></td>
 	                  <td align="center"><c:out value="${ member.enrollDate }"/></td>
 	                  <td align="center"><c:out value="${ member.status }"/></td>
+	                  <td align="center"><button value="${ member.no }" name="no" class="btns" onclick="postRequest('pauseMember')">정지</button>
+	                  <button value="${ member.no }" name="no" class="btns" onclick="postRequest('restoreMember')">복구</button></td>
 	               </tr>
             	</c:forEach>
             </tbody>
        </table>
+       </form>
 	</div>
 	<!-- table-area end -->
 	
@@ -139,6 +161,8 @@
 					<option value="email" <c:if test="${requestScope.searchCondition eq 'email' }">selected</c:if>>이메일</option>
 					<option value="phone" <c:if test="${requestScope.searchCondition eq 'phone' }">selected</c:if>>전화번호</option>
 					<option value="userRoll" <c:if test="${requestScope.searchCondition eq 'role' }">selected</c:if>>회원구분</option>
+					<option value="applyDate" <c:if test="${requestScope.searchCondition eq 'applyDate' }">selected</c:if>>가입신청일</option>
+					<option value="approval" <c:if test="${requestScope.searchCondition eq 'approval' }">selected</c:if>>승인여부</option>
 					<option value="enrollDate" <c:if test="${requestScope.searchCondition eq 'enrollDate' }">selected</c:if>>회원등록일</option>
 					<option value="userStatus" <c:if test="${requestScope.searchCondition eq 'status' }">selected</c:if>>회원상태</option>
 				</select>
@@ -151,6 +175,8 @@
 					<option value="email">이메일</option>
 					<option value="phone">전화번호</option>
 					<option value="userRoll">회원구분</option>
+					<option value="applyDate">가입신청일</option>
+					<option value="approval">승인여부</option>
 					<option value="enrollDate">회원등록일</option>
 					<option value="userStatus">회원상태</option>
 				</select>
@@ -238,14 +264,25 @@
 	      const $tds = document.getElementsByTagName("td");
 	      for(var i = 0 ; i < $tds.length ; i++) {
 	         
-	      $tds[i].onmouseenter = function() {
-	         this.parentNode.style.cursor = "pointer";
-	      }
-	         
-	      }
-
-		} 
-		
+		      $tds[i].onmouseenter = function() {
+		         this.parentNode.style.cursor = "pointer";
+		      }
+	      	}
+		  } 
+		/* 정지와 복구 기능을 위한 함수 처리 */
+		function postRequest(intent){
+			var $form = document.getElementById("form");
+			
+			requestPath = "<%=request.getContextPath()%>";
+			
+			switch(intent){
+			case "pauseMember" : requestPath += "/manage/pause"; break;
+			case "restoreMember" : requestPath += "/manage/restore"; break;
+			}
+			$form.action = requestPath;
+			$form.submit();
+		}
+		  
 	</script>
 	<jsp:include page="../common/footer.jsp" />
 

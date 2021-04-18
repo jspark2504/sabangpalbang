@@ -28,7 +28,7 @@ public class ChartInfoBoardViewServlet extends HttpServlet {
 		request.setAttribute("categoryList1", categoryChart.get(0));
 		request.setAttribute("categoryList2", categoryChart.get(1));
 		request.setAttribute("categoryList3", categoryChart.get(2));
-		String path =  "/WEB-INF/views/admin/chart.jsp";
+		String path =  "/WEB-INF/views/admin/infoBoardChart.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 
 

@@ -86,7 +86,14 @@
 					successMessage = "해당 매물의 중개가 종료되었습니다."
 					movePath = "${ pageContext.servletContext.contextPath }/room/management";
 					break;
-
+				case "pauseMember" :
+					successMessage = "회원 정지에 성공하셨습니다!";
+					movePath = "${ pageContext.servletContext.contextPath }/manage/list";
+					break;
+				case "restoreMember" :
+					successMessage = "회원 복구에 성공하셨습니다!";
+					movePath = "${ pageContext.servletContext.contextPath }/manage/list";
+					break;
 			}
 
 			alert(successMessage);

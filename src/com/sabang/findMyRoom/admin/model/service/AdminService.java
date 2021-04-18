@@ -47,38 +47,39 @@ public class AdminService {
 		   return pageCountList;
 	   }
 	   
-//		/* 회원 탈퇴용 메소드(비공개 전환) */
-//		public int deleteMember(MemberDTO requestMember) {
-//			Connection con = getConnection();
-//			
-//			int result = adminDAO.deleteMember(con, requestMember);
-//			
-//			if(result > 0) {
-//				commit(con);
-//			} else {
-//				rollback(con);
-//			}
-//			
-//			close(con);
-//			
-//			return result;
-//		}
-//		/* 회원 복원용 메소드 */
-//		public int restoreMember(MemberDTO requestMember) {
-//			Connection con = getConnection();
-//			
-//			int result = adminDAO.deleteMember(con, requestMember);
-//			
-//			if(result > 0) {
-//				commit(con);
-//			} else {
-//				rollback(con);
-//			}
-//			
-//			close(con);
-//			
-//			return result;
-//		}
+		/* 회원 정지용 메소드(비공개 전환) */
+		public int pauseMember(int no) {
+			Connection con = getConnection();
+			
+			int result = adminDAO.pauseMember(con, no);
+			
+			if(result > 0) {
+				commit(con);
+			} else {
+				rollback(con);
+			}
+			
+			close(con);
+			
+			return result;
+		}
+		
+		/* 회원 복원용 메소드 */
+		public int restoreMember(int no) {
+			Connection con = getConnection();
+			
+			int result = adminDAO.restoreMember(con, no);
+			
+			if(result > 0) {
+				commit(con);
+			} else {
+				rollback(con);
+			}
+			
+			close(con);
+			
+			return result;
+		}
 	   
 	   /* 페이징 처리를 위한 전체 게시물 수 조회용 메소드 */
 	   public int selectTotalCount() {

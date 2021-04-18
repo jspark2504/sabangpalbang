@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sabang.findMyRoom.admin.model.dto.PageCountDTO;
 import com.sabang.findMyRoom.admin.model.service.AdminService;
-import com.sabang.findMyRoom.admin.model.service.PageCountService;
 
 @WebServlet("/pagecount/List")
 public class PageCountListServlet extends HttpServlet {
