@@ -383,7 +383,7 @@ VALUES (1, 5, 'room1file5.png', 'room1file5.png', '/resources/upload/room/origin
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (1, 6, 'room1file6.png', 'room1file6.png', '/resources/upload/room/original/room1file6.png', '/resources/upload/room/thumbnail/room1file6.png');
 
-<<<<<<< HEAD
+
 -- 투룸관련 인서트!!
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (2, 1, 'tworoom1file1.png', 'tworoom1file1.png', '/resources/upload/room/original/tworoom1file1.png', '/resources/upload/room/thumbnail/tworoom1file1.png');
@@ -458,7 +458,7 @@ VALUES (6, 5, 'tworoom5file5.png', 'tworoom5file5.png', '/resources/upload/room/
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (6, 6, 'tworoom5file6.png', 'tworoom5file6.png', '/resources/upload/room/original/tworoom5file6.png', '/resources/upload/room/thumbnail/tworoom5file6.png');
 -- 투룸 끝
-=======
+
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (2, 1, '1.5room_1.png', '1.5room_1.png', '/resources/upload/room/original/1.5room_1.png', '/resources/upload/room/thumbnail/1.5room_1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
@@ -471,9 +471,6 @@ INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, 
 VALUES (2, 5, '1.5room_5.png', '1.5room_5.png', '/resources/upload/room/original/1.5room_5.png', '/resources/upload/room/thumbnail/1.5room_5.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (2, 6, '1.5room_6.png', '1.5room_6.png', '/resources/upload/room/original/1.5room_6.png', '/resources/upload/room/thumbnail/1.5room_6.png');
-
-
->>>>>>> refs/remotes/origin/master
 
 COMMIT;
 
