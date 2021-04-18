@@ -44,6 +44,7 @@ public class RoomService {
 
 		if(result > 0) {
 			roomDetail = roomDAO.selectRoomDetail(con, no);
+			System.out.println("roomDetail at Service : " + roomDetail);
 
 			if(roomDetail != null) {
 				commit(con);

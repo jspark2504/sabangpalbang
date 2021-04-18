@@ -150,6 +150,8 @@ public class RoomDAO {
 		RoomDTO roomDetail = null;
 
 		String query = prop.getProperty("selectRoomDetail");
+		System.out.println("query : " + query);
+		System.out.println("no : " + no);
 
 		try {
 			pstmt = con.prepareStatement(query);
@@ -210,6 +212,7 @@ public class RoomDAO {
 				file.setThumbnailPath(rset.getString("THUMBNAIL_PATH"));
 
 				fileList.add(file);
+				System.out.println("createDate ; " + roomDetail.getCreateDate());
 			}
 			roomDetail.setCategory(category);
 			roomDetail.setOffice(office);

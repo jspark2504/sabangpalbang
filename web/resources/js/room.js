@@ -312,21 +312,21 @@ function search() {
 			$(".room-list h4").text(heading);
 
 			/* 기존 목록 지우기 */
-			$(".room-list ul").remove();
 			$(".room-area").remove();
 
 			/* 새로 목록 뿌리기 */
 			for(let i = 0 ; i < data.length ; i++) {
-				const no = data[i].no;
-				const price = data[i].formatPrice;
-				const area = data[i].area;
-				const floor = data[i].floor;
-				const address = data[i].address;
-				const title = data[i].title;
-
+				let no = data[i].no;
+				let price = data[i].formatPrice;
+				let area = Math.floor(data[i].area);
+				let floor = data[i].floor;
+				let formatFloor = floor.substring(0, floor.indexOf('/'));
+				let address = data[i].address;
+				let formatAddress = address.substring(address.indexOf(' ') + 1, address.indexOf('동') + 1);
+				let title = data[i].title;
 				let hostIndex = location.href.indexOf(location.host) + location.host.length;
 				let path = location.href.substring(hostIndex, location.href.indexOf('/', hostIndex + 1));
-				const filePath = path + data[i].fileList[0].thumbnailPath;
+				let filePath = path + data[i].fileList[0].thumbnailPath;
 
 //				console.log('price : ' + price);
 //				console.log('no : ' + no);
@@ -336,12 +336,9 @@ function search() {
 //				console.log('title : ' + title);
 //				console.log('filePath : ' + filePath);
 
-
+				$(".room-list").append("<section class='room-area'><article class='room-info'><ul><a onclick='showDetail(this);'><li class='room'><figure class='img'><img src='" + filePath + "' alt='대표사진'></figure><div class='info'><input type='hidden' id='roomNo' name='roomNo' value=" + no + " /><span class='price'>" + price + "</span><span class='area floor'>" + area + "m<sup>2</sup> ∙ " + formatFloor + "</span><span class='address'>" + formatAddress + "</span>" + title + "<span class='title'></span></div></li></a></ul></article></section>");
 
 			}
-
-
-
 		},
 		error: function(error) {
 			console.log(error);
