@@ -112,7 +112,7 @@
 	<jsp:include page="../common/header.jsp"></jsp:include>
   <div class="container">
 
-    <form id="form" class="form-signin" action="${pageContext.servletContext.contextPath}" method="post">
+    <form id="form" class="form-signin" action="${pageContext.servletContext.contextPath}/member/findId" method="post" >
       <br>
       <div id="textbox">
       <p>가입 시 등록한<br>이메일을 입력해주세요.</p>
@@ -120,10 +120,10 @@
       </div>
       <label for="inputEmail" class="sr-only">Email</label>
       <input type="text" id="inputEmail" class="form-control" placeholder="이메일 주소" required="" autofocus="" name="email">
-      <button class="btn btn-lg btn-block" type="submit" id="btn" onclick="">다음</button>  /*누름과 동시에 제출되어야하고 다음장으로 넘어가야함 */
+      <button class="btn btn-lg btn-block" type="submit" id="btn">다음</button>
     </form>
   </div> 
-  <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+
 
 
 </body>

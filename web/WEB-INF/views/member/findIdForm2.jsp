@@ -117,15 +117,14 @@
 	<jsp:include page="../common/header.jsp"></jsp:include>
 	    <div class="container">
   
-      <form class="form-signin">
+      <form class="form-signin" action="${pageContext.servletContext.contextPath}/member/findId" >
         <br>
         <div id="textbox">
-        <p><%=  %>으로 전송된<br>4자리 숫자를 입력해주세요.</p>
+        <p>이메일로 전송된<br>숫자를 입력해주세요.</p>
         <br>
         </div>
-        <!-- <h2 class="form-signin-heading">Please sign in</h2> -->
         <label for="inputEmail" class="sr-only">Email</label>
-        <input type="text" id="inputEmail" class="form-control" placeholder="이메일 주소" required="" autofocus="">
+        <input type="text" id="inputEmail" class="form-control" placeholder="" required="" autofocus="">
         <a href="">재전송 받기</a>
         <button class="btn btn-lg btn-block" type="submit" id="btn">다음</button>
       </form>

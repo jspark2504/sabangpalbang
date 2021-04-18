@@ -44,7 +44,7 @@
 			<input type="password" name="userPwd" class="form-control" placeholder="비밀번호를 입력해주세요." required>
 			<br>
 			<button type="button" class="findId" onclick="location.href='${ pageContext.servletContext.contextPath }/member/findId'">아이디찾기</button>
-			<button type="button" class="findPwd">비밀번호찾기</button>
+			<button type="button" class="findPwd" onclick="location.href='${ pageContext.servletContext.contextPath }/member/findPw'">비밀번호찾기</button>
 			<button type="button" class="signUp" onclick="location.href='${ pageContext.servletContext.contextPath }/member/regist'">회원가입</button>
 			<br><br>
 			<button class="btn btn-lg btn-block" type="submit" id="login">시작하기</button>
