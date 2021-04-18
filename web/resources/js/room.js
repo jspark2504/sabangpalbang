@@ -154,9 +154,7 @@ function showDetail(room) {
 
 
 			/* 매물 목록 안 보이게 설정 */
-			$(".room-list h4").css('display', 'none');
-			$(".room-list hr").css('display', 'none');
-			$(".room-list ul").css('display', 'none');
+			$(".sticky-nav").css('display', 'none');
 			$(".room-area").css('display', 'none');
 
 			/* 매물 상세 페이지 추가 */
@@ -211,10 +209,13 @@ function showList() {
 	$(".container").remove();
 
 	/* 매물 목록 다시 표시 */
-	$(".room-list h4").css('display', 'block');
-	$(".room-list hr").css('display', 'block');
-	$(".room-list ul").css('display', 'block');
+	//$(".room-list h4").css('display', 'block');
+	//$(".room-list hr").css('display', 'block');
+	//$(".room-list ul").css('display', 'block');
+	//$(".room-area").css('display', 'block');
+	$(".sticky-nav").css('display', 'block');
 	$(".room-area").css('display', 'block');
+
 }
 
 /* 찜하기 */
@@ -333,7 +334,7 @@ function search() {
 //				console.log('title : ' + title);
 //				console.log('filePath : ' + filePath);
 
-				$(".room-list").append("<section class='room-area'><article class='room-info'><ul><a onclick='showDetail(this);'><li class='room'><figure class='img'><img src='" + filePath + "' alt='대표사진'></figure><div class='info'><input type='hidden' id='roomNo' name='roomNo' value=" + no + " /><span class='price'>" + price + "</span><span class='area floor'>" + area + "m<sup>2</sup> ∙ " + formatFloor + "</span><span class='address'>" + formatAddress + "</span>" + title + "<span class='title'></span></div></li></a></ul></article></section>");
+				$(".room-list").append("<section class='room-area'><article class='room-info'><ul><a href='' onclick='showDetail(this);'><li class='room'><figure class='img'><img src='" + filePath + "' alt='대표사진'></figure><div class='info'><input type='hidden' id='roomNo' name='roomNo' value=" + no + " /><span class='price'>" + price + "</span><span class='area floor'>" + area + "m<sup>2</sup> ∙ " + formatFloor + "</span><span class='address'>" + formatAddress + "</span>" + title + "<span class='title'></span></div></li></a></ul></article></section>");
 
 			}
 		},
