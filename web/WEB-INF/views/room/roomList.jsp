@@ -122,15 +122,17 @@
                                   </div>
 
                                   <!-- 중개사인 경우 매물 수정/삭제 버튼 -->
-                                  <div class="btns">
-                                    <button class="btn">수정하기</button>
-                                    <c:if test="${ room.status eq 'Y' }">
-                                      <button class="btn roomDown">방내리기</button>
-                                    </c:if>
-                                    <c:if test="${ room.status eq 'N' }">
-                                      <button class="btn roomUp">방올리기</button>
-                                    </c:if>
-                                  </div>
+                                  <c:if test="${ sessionScope.loginMember.role eq 'OFFICE' }">
+                                    <div class="btns">
+                                      <button class="btn">수정하기</button>
+                                      <c:if test="${ room.status eq 'Y' }">
+                                        <button class="btn roomDown">방내리기</button>
+                                      </c:if>
+                                      <c:if test="${ room.status eq 'N' }">
+                                        <button class="btn roomUp">방올리기</button>
+                                      </c:if>
+                                    </div>
+                                  </c:if>
                               </li>
                           </a>
                   	</c:forEach>
