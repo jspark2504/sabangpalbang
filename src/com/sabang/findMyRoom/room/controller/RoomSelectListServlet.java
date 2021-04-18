@@ -20,33 +20,53 @@ public class RoomSelectListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		/* 검색 조건 받아오기 */
-		String categoryNo = request.getParameter("no");			// 카테고리
-		String price = request.getParameter("price");			// 매물 가격
-		String pet = request.getParameter("pet");				// 반려동물
-		String elevator = request.getParameter("elevator");		// 엘리베이터
-		String parking = request.getParameter("parking");		// 주차
+		String categoryNo = request.getParameter("no");						// 카테고리
+		String price = request.getParameter("price");						// 매물 가격
+		String washingMachine = request.getParameter("washingMachine");		// 세탁기
+		String refrigerator = request.getParameter("refrigerator");			// 냉장고
+		String airConditioner = request.getParameter("airConditioner");		// 에어컨
+		String gasStove = request.getParameter("gasStove");					// 가스레인지, 인덕션
+		String pet = request.getParameter("pet");							// 반려동물
+		String elevator = request.getParameter("elevator");					// 엘리베이터
+		String parking = request.getParameter("parking");					// 주차
 
 		/* 검색 조건 가공 */
 		categoryNo += ")";
-
 		if("300000000".equals(price)) {
 			price += " OR 1=1)";
 		} else {
 			price += ")";
 		}
-
+		if("Y".equals(washingMachine)) {
+			washingMachine += "'Y')";
+		} else {
+			washingMachine += "'Y' OR 1=1)";
+		}
+		if("Y".equals(refrigerator)) {
+			refrigerator += "'Y')";
+		} else {
+			refrigerator += "'Y' OR 1=1)";
+		}
+		if("Y".equals(airConditioner)) {
+			airConditioner += "'Y')";
+		} else {
+			airConditioner += "'Y' OR 1=1)";
+		}
+		if("Y".equals(gasStove)) {
+			gasStove += "'Y')";
+		} else {
+			gasStove += "'Y' OR 1=1)";
+		}
 		if("Y".equals(pet)) {
 			pet += "'Y')";
 		} else {
 			pet += "'Y' OR 1=1)";
 		}
-
 		if("Y".equals(elevator)) {
 			elevator += "'Y')";
 		} else {
 			elevator += "'Y' OR 1=1)";
 		}
-
 		if("Y".equals(parking)) {
 			parking += "'Y')";
 		} else {
@@ -54,7 +74,7 @@ public class RoomSelectListServlet extends HttpServlet {
 		}
 
 		/* 검색 조건을 하나의 DTO에 담기 */
-		RoomSearchOptionDTO searchOption = new RoomSearchOptionDTO(categoryNo, "3000 OR 1=1)", "'Y')", "'Y' OR 1=1)", "'Y' OR 1=1)");
+		RoomSearchOptionDTO searchOption = new RoomSearchOptionDTO(categoryNo, price, washingMachine, refrigerator, airConditioner, gasStove, pet, elevator, parking);
 
 		/* 매물 목록 조회 */
 		List<RoomDTO> roomList = new RoomService().selectRoomList(searchOption);

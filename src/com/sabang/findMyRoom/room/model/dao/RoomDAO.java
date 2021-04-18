@@ -60,6 +60,14 @@ public class RoomDAO {
 		query.append(searchOption.getCategoryNo());
 		query.append(" AND (A.ROOM_PRICE <= ");
 		query.append(searchOption.getPrice());
+		query.append(" AND (A.WASHING_MACHINE_YN = ");
+		query.append(searchOption.getWashingMachine());
+		query.append(" AND (A.REFRIGERATOR_YN = ");
+		query.append(searchOption.getRefrigerator());
+		query.append(" AND (A.AIR_CONDITIONER_YN = ");
+		query.append(searchOption.getAirConditioner());
+		query.append(" AND (A.GAS_STOVE_YN = ");
+		query.append(searchOption.getGasStove());
 		query.append(" AND (A.PET_YN = ");
 		query.append(searchOption.getPet());
 		query.append(" AND (A.ELEVATOR_YN = ");
