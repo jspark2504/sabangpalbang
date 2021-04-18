@@ -123,12 +123,12 @@
 
                                   <!-- 중개사인 경우 매물 수정/삭제 버튼 -->
                                   <div class="btns">
-                                    <button class="btn">수정하기</button>
+                                    <button type="button" class="btn" onclick="location.href='${ pageContext.servletContext.contextPath }/room/update?no=${ room.no }'">수정하기</button>
                                     <c:if test="${ room.status eq 'Y' }">
-                                      <button class="btn roomDown">방내리기</button>
+                                      <button type="button" class="btn roomDown" onclick="location.href='${ pageContext.servletContext.contextPath }/room/change?no=${ room.no }&status=N'">방내리기</button>
                                     </c:if>
                                     <c:if test="${ room.status eq 'N' }">
-                                      <button class="btn roomUp">방올리기</button>
+                                      <button type="button" class="btn roomUp" onclick="location.href='${ pageContext.servletContext.contextPath }/room/change?no=${ room.no }&status=Y'">방올리기</button>
                                     </c:if>
                                   </div>
                               </li>
