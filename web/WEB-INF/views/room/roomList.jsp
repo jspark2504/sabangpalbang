@@ -21,6 +21,7 @@
 	<!-- css -->
     <link rel="stylesheet" href="/findMyRoom/resources/css/roomList.css">
     <link rel="stylesheet" href="/findMyRoom/resources/css/range.css" />
+    <link rel='stylesheet' href='/findMyRoom/resources/css/carousel.css' />
 </head>
 
 <body>
