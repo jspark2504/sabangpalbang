@@ -170,9 +170,9 @@ COMMENT ON COLUMN TBL_OFFICE.OFFICE_RATING IS '평점';
 COMMENT ON COLUMN TBL_OFFICE.USER_NO IS '대표중개사';
 
 INSERT INTO TBL_OFFICE (OFFICE_NO, OFFICE_NAME, OFFICE_ADDR, OFFICE_PHONE, BUSINESS_NO, OFFICE_RATING, USER_NO)
-VALUES (SEQ_OFFICE_NO.NEXTVAL, '402 공인중개사', '관악구 국회단지 29-11', '02-1234-5678', 9102034212346, 4.9, 12);
+VALUES (SEQ_OFFICE_NO.NEXTVAL, '402 공인중개사', '관악구 국회단지 29-11', '02-1234-5678', 9102034212346, 4.9, 13);
 INSERT INTO TBL_OFFICE (OFFICE_NO, OFFICE_NAME, OFFICE_ADDR, OFFICE_PHONE, BUSINESS_NO, OFFICE_RATING, USER_NO)
-VALUES (SEQ_OFFICE_NO.NEXTVAL, '짱조아 공인중개사', '관악구 국회단지 29-22', '02-1234-5012', 9102034234539, 4.7, 13);
+VALUES (SEQ_OFFICE_NO.NEXTVAL, '짱조아 공인중개사', '관악구 국회단지 29-22', '02-1234-5012', 9102034234539, 4.7, 14);
 
 COMMIT;
 
@@ -282,9 +282,21 @@ INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE,
   , ROOM_EXPLANATION
   , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
 VALUES (SEQ_ROOM_NO.NEXTVAL, 50000000, 22.15, '서울 관악구 신림동 1537-1', TO_DATE('21/04/11', 'RR/MM/DD'), 1, 1, '4층/4층', '북향'
-  , 80000, NULL, NULL, 'Y', 'Y', 'Y', TO_DATE('94/10/15', 'RR/MM/DD'), '즉시 입주', '◼대학동 메인거리 ◼화이트톤 분리형 ◼︎즉시입주가능 ◼︎리모델링︎︎︎︎︎'
-  , '◼ 리모델링 분리형 원룸입니다.<br>◼ 양창문이라 환기가 잘되고 깔끔합니다.<br>◼ 침대까지 풀옵션들어갑니다.<br>◼ 즉시입주 가능합니다.<br>◼ 앞이 안막혀있어 채광이 좋습니다.<br>◼ 대학동 모든학원들 가깝습니다 도보 3분안'
+  , 80000, NULL, NULL, 'Y', 'Y', 'Y', TO_DATE('94/10/15', 'RR/MM/DD'), '즉시 입주', '?대학동 메인거리 ?화이트톤 분리형 ??즉시입주가능 ??리모델링?????'
+  , '? 리모델링 분리형 원룸입니다.<br>? 양창문이라 환기가 잘되고 깔끔합니다.<br>? 침대까지 풀옵션들어갑니다.<br>? 즉시입주 가능합니다.<br>? 앞이 안막혀있어 채광이 좋습니다.<br>? 대학동 모든학원들 가깝습니다 도보 3분안'
   , '인근 버스정류장 도보 1분', 'Y', 'Y', 'Y', 'Y', 'Y', NULL, NULL);
+  
+  
+
+INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE, CATEGORY_NO, OFFICE_NO, ROOM_FLOOR, DIRECTION
+  , MONTH_COST, ELECTRICITY_YN, GAS_YN, WATER_YN, INTERNET_YN, TV_YN, CONSTRUCTION_DATE, AVAILABLE_DATE, ROOM_TITLE
+  , ROOM_EXPLANATION
+  , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
+VALUES (SEQ_ROOM_NO.NEXTVAL, 70000000, 22.15, '서울 관악구 신림동 1537-1', TO_DATE('21/04/11', 'RR/MM/DD'), 2, 1, '4층/4층', '북향'
+  , 80000, NULL, NULL, 'Y', 'Y', 'Y', TO_DATE('94/10/15', 'RR/MM/DD'), '즉시 입주', '?대학동 메인거리 ?화이트톤 분리형 ??즉시입주가능 ??리모델링?????'
+  , '? 리모델링 분리형 1.5룸입니다.<br>? 양창문이라 환기가 잘되고 깔끔합니다.<br>? 침대까지 풀옵션들어갑니다.<br>? 즉시입주 가능합니다.<br>? 앞이 안막혀있어 채광이 좋습니다.<br>? 대학동 모든학원들 가깝습니다 도보 3분안'
+  , '인근 버스정류장 도보 1분', 'Y', 'Y', 'Y', 'Y', 'Y', NULL, NULL);
+
 
 COMMIT;
 
@@ -318,6 +330,21 @@ INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, 
 VALUES (1, 5, 'room1file5.png', 'room1file5.png', '/resources/upload/room/original/room1file5.png', '/resources/upload/room/thumbnail/room1file5.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (1, 6, 'room1file6.png', 'room1file6.png', '/resources/upload/room/original/room1file6.png', '/resources/upload/room/thumbnail/room1file6.png');
+
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (2, 1, '1.5room_1.png', '1.5room_1.png', '/resources/upload/room/original/1.5room_1.png', '/resources/upload/room/thumbnail/1.5room_1.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (2, 2, '1.5room_2.png', '1.5room_2.png', '/resources/upload/room/original/1.5room_2.png', '/resources/upload/room/thumbnail/1.5room_2.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (2, 3, '1.5room_3.png', '1.5room_3.png', '/resources/upload/room/original/1.5room_3.png', '/resources/upload/room/thumbnail/1.5room_3.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (2, 4, '1.5room_4.png', '1.5room_4.png', '/resources/upload/room/original/1.5room_4.png', '/resources/upload/room/thumbnail/1.5room_4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (2, 5, '1.5room_5.png', '1.5room_5.png', '/resources/upload/room/original/1.5room_5.png', '/resources/upload/room/thumbnail/1.5room_5.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (2, 6, '1.5room_6.png', '1.5room_6.png', '/resources/upload/room/original/1.5room_6.png', '/resources/upload/room/thumbnail/1.5room_6.png');
+
+
 
 COMMIT;
 
