@@ -118,5 +118,23 @@ public class RoomService {
 		return roomList;
 	}
 
+	/* 매물 상태 변경 */
+	public int changeStatus(int no, String status) {
+
+		Connection con = getConnection();
+
+		int result = roomDAO.changeStatus(con, no, status);
+
+		if(result > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+
+		close(con);
+
+		return result;
+	}
+
 
 }
