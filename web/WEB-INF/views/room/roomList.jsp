@@ -151,6 +151,8 @@
                     </c:if>
                 </section>
               </c:forEach>
+              
+              
             </section> <!-- 매물 목록 영역 end -->
         </section>
     </main>

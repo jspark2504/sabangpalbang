@@ -117,7 +117,7 @@
 	<jsp:include page="../common/header.jsp"></jsp:include>
 	    <div class="container">
   
-      <form class="form-signin" action="${pageContext.servletContext.contextPath}/member/findId" >
+      <form class="form-signin">
         <br>
         <div id="textbox">
         <p>이메일로 전송된<br>숫자를 입력해주세요.</p>

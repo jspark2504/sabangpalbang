@@ -310,16 +310,17 @@ public class MemberDAO {
 		return findId;
 	}
 
-	public int searchPw(Connection con, String userPwd, String email) {
+	public int searchPw(Connection con, String email, String uerPwd) {
 		
 		PreparedStatement pstmt = null;
+		ResultSet rset = null;
 		int result = 0;
 		
 		String query = prop.getProperty("updateSearchPw");
 		
 			try {
 				pstmt = con.prepareStatement(query);
-				pstmt.setString(1, userPwd);
+				pstmt.setString(1, uerPwd);
 				pstmt.setString(2, email);
 				
 				result = pstmt.executeUpdate();

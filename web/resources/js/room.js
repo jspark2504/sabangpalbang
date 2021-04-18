@@ -334,7 +334,7 @@ function search() {
 //				console.log('title : ' + title);
 //				console.log('filePath : ' + filePath);
 
-				$(".room-list").append("<section class='room-area'><article class='room-info'><ul><a href='' onclick='showDetail(this);'><li class='room'><figure class='img'><img src='" + filePath + "' alt='대표사진'></figure><div class='info'><input type='hidden' id='roomNo' name='roomNo' value=" + no + " /><span class='price'>" + price + "</span><span class='area floor'>" + area + "m<sup>2</sup> ∙ " + formatFloor + "</span><span class='address'>" + formatAddress + "</span>" + title + "<span class='title'></span></div></li></a></ul></article></section>");
+				$(".room-list").append("<section class='room-area'><article class='room-info'><ul onclick='showDetail(this);'><li class='room'><figure class='img'><img src='" + filePath + "' alt='대표사진'></figure><div class='info'><input type='hidden' id='roomNo' name='roomNo' value=" + no + " /><span class='price'>" + price + "</span><span class='area floor'>" + area + "m<sup>2</sup> ∙ " + formatFloor + "</span><span class='address'>" + formatAddress + "</span><span class='title'>" + title + "</span></div></li></ul></article></section>");
 
 			}
 		},

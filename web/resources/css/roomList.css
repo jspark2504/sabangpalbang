@@ -189,8 +189,13 @@ a.tip:hover span {
   background-color: #f3f3f3;
 }
 
-section:nth-of-type(2) {
-   margin-top: 70px;
+.room {
+  cursor: pointer;
+}
+
+.room-area {
+   position: relative;
+   top: 60px;
 }
 
 .room-info {
@@ -211,7 +216,7 @@ section:nth-of-type(2) {
     font-weight: bold;
 }
 
-.room-list .room .info .title {
+.room-area .info .title {
     color: #6a6a6a;
     display: -webkit-box;
     -webkit-box-orient: vertical;
