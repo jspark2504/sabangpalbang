@@ -32,38 +32,37 @@ function loadImg(value) {
 }
 
 function removeFile(btn) {
-    const removedImgId = $(btn).prev().attr("id"); // 삭제된 이미지의 id 속성값
-    const removedImgNo = parseInt(removedImgId.substr(3)); // 삭제된 이미지의 번호
-	const removedFileName = "file" + removedImgNo;
-
+//    const removedImgId = $(btn).prev().attr("id"); // 삭제된 이미지의 id 속성값
+//    const removedImgNo = parseInt(removedImgId.substr(3)); // 삭제된 이미지의 번호
+//	const removedFileName = "file" + removedImgNo;
 
     /* 이미지 삭제 */
     $(btn).closest("div").remove();
 	/* 파일 삭제 */
-	$("input[name='" + removedFileName + "']").select();
-	document.selection.clear();
+//	$("input[name='" + removedFileName + "']").select();
+//	document.selection.clear();
 
     /* 이미지 ID 및 파일 input name 변경 */
-    for (let j = removedImgNo + 1; j < i; j++) {
-        let imgIdNow = "img" + j;
-        let imgIdNew = "img" + (j - 1);
-        console.log("imgIdNow", imgIdNow);
-        console.log("imgIdNew", imgIdNew);
+//    for (let j = removedImgNo + 1; j < i; j++) {
+//        let imgIdNow = "img" + j;
+//        let imgIdNew = "img" + (j - 1);
+//        console.log("imgIdNow", imgIdNow);
+ //       console.log("imgIdNew", imgIdNew);
 
-        let fileNameNow = "file" + j;
-        let fileNameNew = "file" + (j - 1);
-        console.log("fileNameNow", fileNameNow);
-        console.log("fileNameNew", fileNameNew);
+//        let fileNameNow = "file" + j;
+ //       let fileNameNew = "file" + (j - 1);
+ //       console.log("fileNameNow", fileNameNow);
+  //      console.log("fileNameNew", fileNameNew);
 
-        document.getElementById(imgIdNow).attr("id", imgIdNew);
-        $("input[name='" + fileNameNow + "']").attr("name", fileNameNew);
+    //    document.getElementById(imgIdNow).attr("id", imgIdNew);
+      //  $("input[name='" + fileNameNow + "']").attr("name", fileNameNew);
 
-        console.log(imgIdNow, imgIdNew);
-        console.log(fileNameNow, fileNameNew);
-    }
+        //console.log(imgIdNow, imgIdNew);
+        //console.log(fileNameNow, fileNameNew);
+    //}
 
-    i--;
-    fileName = fileName.substr(0, 4) + i;
+   // i--;
+    //fileName = fileName.substr(0, 4) + i;
 }
 
 
