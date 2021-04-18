@@ -23,7 +23,7 @@
      <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 
 	<style>
-  body {
+  .container {
     padding-top: 270px;
     padding-bottom: 40px;
     background-color:white;
@@ -113,7 +113,7 @@
 	<jsp:include page="../common/header.jsp"/>
 	 <div class="container">
 
-    <form class="form-signin">
+    <form class="form-signin"  action="${pageContext.servletContext.contextPath}/member/findPw">
       <br>
       <div id="textbox">
       <p>가입하신 이메일 주소를 입력해주세요.<br>임시 비밀번호를 보내드립니다.</p>

@@ -16,8 +16,8 @@
 
 			switch(successCode){
 				case "insertMember" :
-					successMessage = "회원 가입에 성공하셨습니다!";
-					movePath = "${ pageContext.servletContext.contextPath }/index.jsp";
+					successMessage = "환영합니다! 로그인 후 다양한 서비스를 이용해 보세요.";
+					movePath = "${ pageContext.servletContext.contextPath }/member/login.jsp";
 					break;
 				case "updateMember" :
 					successMessage = "회원 정보 변경에 성공하셨습니다!";
@@ -56,7 +56,7 @@
 					successMessage = "서류 등록 성공!";
 					movePath = "${ pageContext.servletContext.contextPath }/document/list";
 					break;
-					
+
 				case "deleteDocument" :
 					successMessage = "서류 삭제 성공!";
 					movePath = "${ pageContext.servletContext.contextPath }/document/list";
@@ -73,10 +73,19 @@
 					break;
 
 				case "insertRoom" :
-					successMessage = "매물 등록 성공!"
-					movePath = "${ pageContext.servletContext.contextPath }/room/list";
+					successMessage = "매물이 등록되었습니다."
+					movePath = "${ pageContext.servletContext.contextPath }/room/management";
 					break;
 
+				case "changeRoomStatusY" :
+					successMessage = "중개 중인 매물로 변경되었습니다."
+					movePath = "${ pageContext.servletContext.contextPath }/room/management";
+					break;
+
+				case "changeRoomStatusN" :
+					successMessage = "해당 매물의 중개가 종료되었습니다."
+					movePath = "${ pageContext.servletContext.contextPath }/room/management";
+					break;
 
 			}
 
