@@ -190,8 +190,11 @@
            AND E.USER_NO = ?
          ORDER BY A.ROOM_STATUS DESC, A.ROOM_NO DESC
     </entry>
-	<entry key="">
-
+	<entry key="changeStatus">
+        UPDATE /* com.sabang.findMyRoom.room.model.dao.RoomDAO#changeStatus(); */
+               TBL_ROOM A
+           SET A.ROOM_STATUS = ?
+         WHERE A.ROOM_NO = ?
 	</entry>
 	<entry key="">
 

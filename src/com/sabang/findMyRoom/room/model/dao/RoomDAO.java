@@ -414,4 +414,28 @@ public class RoomDAO {
 		return roomList;
 	}
 
+	/* 매물 상태 변경 */
+	public int changeStatus(Connection con, int no, String status) {
+
+		PreparedStatement pstmt = null;
+		int result = 0;
+
+		String query = prop.getProperty("changeStatus");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, status);
+			pstmt.setInt(2, no);
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+
 }
