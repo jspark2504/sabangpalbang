@@ -180,7 +180,7 @@ function showDetail(room) {
 			$(".room-list").append("<article class='room-explanation-info'><h4 class='room-info-title'>상세 설명</h4><hr><p class='room-explanation-info-value'>" + explanation + "</p><div class='divider-line'></div></article>")
 			/* 공인중개소 정보 */
 			$(".room-list").append("<article class='office-info'><div class='office-info-title'><img src='/findMyRoom/resources/image/mhn.png' alt='...' class='img-circle office-img'><span class='office-name'>" + officeName + "</span><div class='office-review'><div class='office-star'><span class='star-score'>" + officeRating + "</span><span class='glyphicon glyphicon-star' aria-hidden='true'></span><span class='glyphicon glyphicon-star' aria-hidden='true'></span><span class='glyphicon glyphicon-star' aria-hidden='true'></span><span class='glyphicon glyphicon-star' aria-hidden='true'></span><span class='glyphicon glyphicon-star' aria-hidden='true'></span></div><div class='show-review'><a onclick='goReview();'>리뷰 보기 ></a></div></div></div>")
-			$(".room-list").append("<div class='room-building-info-table'><table class='table office-table'><tr><td class='table-title'>대표</td><td colspan='2'>" + agentName + " (" + businessNo + ")</td></tr><tr><td class='table-title'>대표번호</td><td colspan='2'>" + officePhone + "</td></tr><tr><td class='table-title'>소재지</td><td colspan='2'>" + officeAddr + "</td></tr><tr><td class='table-title'>중개 전문 분야</td><td colspan='2'>원룸</td></tr></table></div><div class='divider-line'></div></article></section></section></main>")
+			$(".room-list").append("<div class='room-building-info-table'><table class='table office-table'><tr><td class='table-title'>대표</td><td colspan='2'>" + agentName + " (" + businessNo + ")</td></tr><tr><td class='table-title'>대표번호</td><td colspan='2'><a href='tel:" + officePhone + "'>" + officePhone + "</a></td></tr><tr><td class='table-title'>소재지</td><td colspan='2'>" + officeAddr + "</td></tr><tr><td class='table-title'>중개 전문 분야</td><td colspan='2'>원룸</td></tr></table></div><div class='divider-line'></div></article></section></section></main>")
 
 		},
 		error: function(error) {
@@ -245,6 +245,12 @@ function option(img){
 			$(img).css('opacity', '0.2');
 		}
 }
+
+function phoneCall(phoneNumber) {
+  location.href = "tel:" + num;
+}
+
+phoneCall("02-1234-5678");
 
 
 function search() {
