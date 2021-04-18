@@ -136,5 +136,82 @@ public class RoomService {
 		return result;
 	}
 
+	/* 매물 정보 수정 */
+	public int updateRoom(RoomDTO room, int memberNo) {
+
+		Connection con = getConnection();
+
+		int result = 0;
+
+		/* 중개사무소 번호 조회 */
+		int officeNo = roomDAO.selectOfficeNo(con, memberNo);
+		room.getOffice().setNo(officeNo);
+		System.out.println("officeNo : " + officeNo);
+
+		/* 매물 테이블 update 작업 */
+		int roomResult = roomDAO.updateRoom(con, room);
+
+//		/* 파일 리스트에 매물 번호 추가 */
+//		List<RoomFileDTO> fileList = room.getFileList();
+//		int roomNo = room.getNo();
+//		for(int i = 0 ; i < fileList.size() ; i++) {
+//			fileList.get(i).setRoomNo(roomNo);
+//		}
+//
+//		/* 기존 첨부파일 개수 조회 */
+//		int fileOld = roomDAO.selectFileNum(con, roomNo);
+//		/* 새로운 첨부파일 개수 */
+//		int fileNew = fileList.size();
+//
+//		System.out.println("여기까진 했니..?");
+//
+//		/* 파일 DML 작업 결과 담을 변수 */
+//		int fileResult1 = 0;
+//		int fileResult2 = 0;
+//
+//		/* 파일 개수가 동일하거나 늘어난 경우 */
+//		if(fileNew >= fileOld) {
+//			int fileNo = 1;			// 파일 번호
+//			/* 매물 첨부파일 테이블에 기존 파일 개수만큼 update 작업 */
+//			for( ; fileNo <= fileOld ; fileNo++) {
+//				fileResult1 += roomDAO.updateFile(con, fileNo, fileList.get(fileNo - 1));
+//			}
+//			/* 파일 개수가 늘어난 경우 추가 insert 작업 */
+//			if(fileNew > fileOld) {
+//				for( ; fileNo <= fileNew ; fileNo++) {
+//					fileResult1 += roomDAO.insertFile(con, fileNo, fileList.get(fileNo - 1));
+//				}
+//			}
+//
+//		/* 파일 개수가 줄어든 경우 */
+//		} else if(fileNew < fileOld) {
+//			int fileNo = 1;		// 파일 번호
+//			/* 새로운 파일 개수만큼 update 작업 */
+//			for( ; fileNo <= fileNew ; fileNo++) {
+//				fileResult2 += roomDAO.updateFile(con, fileNo, fileList.get(fileNo - 1));
+//			}
+//			/* 줄어든 파일 개수만큼 delete 작업 */
+//			for( ; fileNo <= fileOld ; fileNo++) {
+//				fileResult2 += roomDAO.deleteFile(con, fileNo, roomNo);
+//			}
+//
+//		}
+
+//		System.out.println("fileResult1 : " + fileResult1);
+//		System.out.println("fileResult2 : " + fileResult2);
+//		System.out.println("fileOld : " + fileOld);
+//		System.out.println("fileNew : " + fileNew);
+		/* update 작업 모두 성공 시 commit */
+		if(roomResult > 0 /*&& (fileResult1 == fileNew || fileResult2 == fileOld)*/) {
+			commit(con);
+			result = 1;
+		} else {
+			rollback(con);
+		}
+
+		close(con);
+
+		return result;
+	}
 
 }

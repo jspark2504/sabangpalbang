@@ -35,7 +35,7 @@
     <hr />
     <!-- 매물등록 양식 outer 영역 -->
     <form class="insert-form form-horizontal" action="${ pageContext.servletContext.contextPath }/room/update" method="post" encType="multipart/form-data">
-      <input type="hidden" name="roomNo" value="${ requestScope.room.no }" />
+      <input type="hidden" name="no" value="${ requestScope.room.no }" />
       <!-- 사진 등록 영역 -->
       <section class="form-group file">
         <label for="price" class="control-label">사진 등록 (최대 10장)</label>
@@ -49,6 +49,9 @@
               <span class='remove-btn' onclick='removeFile(this);'>
                 <img src='data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjUxMi4wMDAwMXB0IiB2aWV3Qm94PSIwIDAgNTEyLjAwMDAxIDUxMi4wMDAwMSIgd2lkdGg9IjUxMi4wMDAwMXB0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im04MCAxNmgzNTJjMzUuMzQ3NjU2IDAgNjQgMjguNjUyMzQ0IDY0IDY0djM1MmMwIDM1LjM0NzY1Ni0yOC42NTIzNDQgNjQtNjQgNjRoLTM1MmMtMzUuMzQ3NjU2IDAtNjQtMjguNjUyMzQ0LTY0LTY0di0zNTJjMC0zNS4zNDc2NTYgMjguNjUyMzQ0LTY0IDY0LTY0em0wIDAiIGZpbGw9IiNmZmM0NzciLz48ZyBmaWxsPSIjM2UzZDQyIj48cGF0aCBkPSJtNDMyIDBoLTM1MmMtNDQuMTYwMTU2LjA1NDY4NzUtNzkuOTQ1MzEyNSAzNS44Mzk4NDQtODAgODB2MzUyYy4wNTQ2ODc1IDQ0LjE2MDE1NiAzNS44Mzk4NDQgNzkuOTQ1MzEyIDgwIDgwaDM1MmM0NC4xNjAxNTYtLjA1NDY4OCA3OS45NDUzMTItMzUuODM5ODQ0IDgwLTgwdi0zNTJjLS4wNTQ2ODgtNDQuMTYwMTU2LTM1LjgzOTg0NC03OS45NDUzMTI1LTgwLTgwem00OCA0MzJjMCAyNi41MDc4MTItMjEuNDkyMTg4IDQ4LTQ4IDQ4aC0zNTJjLTI2LjUxMTcxOSAwLTQ4LTIxLjQ4ODI4MS00OC00OHYtMzUyYzAtMjYuNTA3ODEyIDIxLjQ4ODI4MS00OCA0OC00OGgzNTJjMjYuNTA3ODEyIDAgNDggMjEuNDg4MjgxIDQ4IDQ4em0wIDAiLz48cGF0aCBkPSJtMzgwLjQ0OTIxOSAxMDguOTI5Njg4LTEyNC40NDkyMTkgMTI0LjQ0NTMxMi0xMjQuNDQ5MjE5LTEyNC40NDUzMTItMjIuNjIxMDkzIDIyLjYyMTA5MyAxMjQuNDQ1MzEyIDEyNC40NDkyMTktMTI0LjQ0NTMxMiAxMjQuNDQ5MjE5IDIyLjYyMTA5MyAyMi42MjEwOTMgMTI0LjQ0OTIxOS0xMjQuNDQ1MzEyIDEyNC40NDkyMTkgMTI0LjQ0NTMxMiAyMi42MjEwOTMtMjIuNjIxMDkzLTEyNC40NDUzMTItMTI0LjQ0OTIxOSAxMjQuNDQ1MzEyLTEyNC40NDkyMTl6bTAgMCIvPjwvZz48L3N2Zz4=' />
               </span>
+            </div>
+            <div class="file-area" style="display: none;">
+              <input type="file" name="file" value="${ pageContext.servletContext.contextPath }${ file.thumbnailPath }">
             </div>
           </c:forEach>
         </figure>
@@ -87,7 +90,7 @@
             <label for="area" class="col-lg-2 control-label">전용면적</label>
             <div class="col-lg-10">
               <div class="col-xs-10">
-                <input type="number" class="form-control" name="area" placeholder="Ex. 22.6" step="0.1" value="${ requestScope.room.area }">
+                <input type="number" class="form-control" name="area" placeholder="Ex. 22.6" step="0.01" value="${ requestScope.room.area }">
               </div>
               <div class="col-xs-2 unit">
                 m<sup>2</sup>

@@ -438,4 +438,111 @@ public class RoomDAO {
 		return result;
 	}
 
+	/* 매물 update 작업 */
+	public int updateRoom(Connection con, RoomDTO room) {
+
+		PreparedStatement pstmt = null;
+
+		int result = 0;
+
+		String query = prop.getProperty("updateRoom");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, room.getPrice());
+			pstmt.setDouble(2, room.getArea());
+			pstmt.setString(3, room.getAddress());
+			pstmt.setInt(4, room.getCategory().getNo());
+			pstmt.setInt(5, room.getOffice().getNo());
+			pstmt.setString(6, room.getFloor());
+			pstmt.setString(7, room.getDirection());
+			pstmt.setInt(8, room.getMonthCost());
+			pstmt.setString(9, room.getElectricity());
+			pstmt.setString(10, room.getGas());
+			pstmt.setString(11, room.getWater());
+			pstmt.setString(12, room.getInternet());
+			pstmt.setString(13, room.getTv());
+			pstmt.setDate(14, java.sql.Date.valueOf(room.getConstructionDate()));
+			pstmt.setString(15, room.getAvailableDate());
+			pstmt.setString(16, room.getTitle());
+			pstmt.setString(17, room.getExplanation());
+			pstmt.setString(18, room.getTransportationInfo());
+			pstmt.setString(19, room.getWashingMachine());
+			pstmt.setString(20, room.getRefrigerator());
+			pstmt.setString(21, room.getAirConditioner());
+			pstmt.setString(22, room.getGasStove());
+			pstmt.setString(23, room.getPet());
+			pstmt.setString(24, room.getElevator());
+			pstmt.setString(25, room.getParking());
+			pstmt.setInt(26, room.getNo());
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+
+	/* 기존 첨부파일 개수 조회 */
+	public int selectFileNum(Connection con, int roomNo) {
+		return 0;
+	}
+
+	/* 파일 update 작업 */
+	public int updateFile(Connection con, int fileNo, RoomFileDTO file) {
+
+		PreparedStatement pstmt = null;
+		int result = 0;
+
+		String query = prop.getProperty("updateFile");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, file.getOriginName());
+			pstmt.setString(2, file.getSaveName());
+			pstmt.setString(3, file.getSavePath());
+			pstmt.setString(4, file.getThumbnailPath());
+			pstmt.setInt(5, file.getRoomNo());
+			pstmt.setInt(6, fileNo);
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+
+	/* 파일 delete 작업 */
+	public int deleteFile(Connection con, int fileNo, int roomNo) {
+
+		PreparedStatement pstmt = null;
+		int result = 0;
+
+		String query = prop.getProperty("deleteFile");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, roomNo);
+			pstmt.setInt(2, fileNo);
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+
+
 }

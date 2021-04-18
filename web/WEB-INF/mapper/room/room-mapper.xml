@@ -88,32 +88,32 @@
         INSERT /* com.sabang.findMyRoom.room.model.dao.RoomDAO#insertRoom() */
           INTO TBL_ROOM A
         (
-          ROOM_NO
-        , ROOM_PRICE
-        , EXCLUSIVE_AREA
-        , ADDRESS
-        , CATEGORY_NO
-        , OFFICE_NO
-        , ROOM_FLOOR
-        , DIRECTION
-        , MONTH_COST
-        , ELECTRICITY_YN
-        , GAS_YN
-        , WATER_YN
-        , INTERNET_YN
-        , TV_YN
-        , CONSTRUCTION_DATE
-        , AVAILABLE_DATE
-        , ROOM_TITLE
-        , ROOM_EXPLANATION
-        , TRANSPORTATION_INFO
-        , WASHING_MACHINE_YN
-        , REFRIGERATOR_YN
-        , AIR_CONDITIONER_YN
-        , GAS_STOVE_YN
-        , PET_YN
-        , ELEVATOR_YN
-        , PARKING_YN
+          A.ROOM_NO
+        , AROOM_PRICE
+        , AEXCLUSIVE_AREA
+        , AADDRESS
+        , ACATEGORY_NO
+        , AOFFICE_NO
+        , AROOM_FLOOR
+        , ADIRECTION
+        , AMONTH_COST
+        , AELECTRICITY_YN
+        , AGAS_YN
+        , AWATER_YN
+        , AINTERNET_YN
+        , ATV_YN
+        , ACONSTRUCTION_DATE
+        , AAVAILABLE_DATE
+        , AROOM_TITLE
+        , AROOM_EXPLANATION
+        , ATRANSPORTATION_INFO
+        , AWASHING_MACHINE_YN
+        , AREFRIGERATOR_YN
+        , AAIR_CONDITIONER_YN
+        , AGAS_STOVE_YN
+        , APET_YN
+        , AELEVATOR_YN
+        , APARKING_YN
         )
         VALUES
         (
@@ -154,12 +154,12 @@
         INSERT
           INTO TBL_ROOM_FILE A
         (
-          ROOM_NO
-        , FILE_NO
-        , ORIGIN_NAME
-        , SAVE_NAME
-        , SAVE_PATH
-        , THUMBNAIL_PATH
+          A.ROOM_NO
+        , A.FILE_NO
+        , A.ORIGIN_NAME
+        , A.SAVE_NAME
+        , A.SAVE_PATH
+        , A.THUMBNAIL_PATH
         )
         VALUES
         (
@@ -197,7 +197,51 @@
            SET A.ROOM_STATUS = ?
          WHERE A.ROOM_NO = ?
 	</entry>
-	<entry key="">
+    <entry key="updateRoom">
+        UPDATE /* com.sabang.findMyRoom.room.model.dao.RoomDAO#updateRoom() */
+               TBL_ROOM A
+           SET A.ROOM_PRICE = ?
+             , A.EXCLUSIVE_AREA = ?
+             , A.ADDRESS = ?
+             , A.CATEGORY_NO = ?
+             , A.OFFICE_NO = ?
+             , A.ROOM_FLOOR = ?
+             , A.DIRECTION = ?
+             , A.MONTH_COST = ?
+             , A.ELECTRICITY_YN = ?
+             , A.GAS_YN = ?
+             , A.WATER_YN = ?
+             , A.INTERNET_YN = ?
+             , A.TV_YN = ?
+             , A.CONSTRUCTION_DATE = ?
+             , A.AVAILABLE_DATE = ?
+             , A.ROOM_TITLE = ?
+             , A.ROOM_EXPLANATION = ?
+             , A.TRANSPORTATION_INFO = ?
+             , A.WASHING_MACHINE_YN = ?
+             , A.REFRIGERATOR_YN = ?
+             , A.AIR_CONDITIONER_YN = ?
+             , A.GAS_STOVE_YN = ?
+             , A.PET_YN = ?
+             , A.ELEVATOR_YN = ?
+             , A.PARKING_YN = ?
+         WHERE A.ROOM_NO = ?
+	</entry>
+	<entry key="updateFile">
+        UPDATE /* com.sabang.findMyRoom.room.model.dao.RoomDAO#updateFile() */
+               TBL_ROOM_FILE A
+           SET A.ORIGIN_NAME = ?
+             , A.SAVE_NAME = ?
+             , A.SAVE_PATH = ?
+             , A.THUMBNAIL_PATH = ?
+         WHERE A.ROOM_NO = ?
+           AND A.FILE_NO = ?
+	</entry>
+	<entry key="deleteFile">
+        DELETE /* com.sabang.findMyRoom.room.model.dao.RoomDAO#updateFile() */
+          FROM TBL_ROOM_FILE A
+         WHERE A.ROOM_NO = ?
+           AND A.FILE_NO = ?
 
 	</entry>
 
