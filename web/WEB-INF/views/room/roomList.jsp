@@ -82,8 +82,7 @@
                 <c:forEach var="room" items="${ requestScope.roomList }">
                   <section class="room-area">
                     <article class="room-info">
-                      <ul>
-                          <a href="" onclick="showDetail(this);return false;">
+                      <ul onclick="showDetail(this);return false;">
                             <li class="room">
                                   <!-- 매물 사진 -->
                                   <figure class="img">
@@ -126,7 +125,6 @@
                                     <span class="title"><c:out value="${ room.title }"/></span>
                                   </div>
                                 </li>
-                            </a>
                         </ul>
                     </article>
                     <!-- 중개사 매물 관리 수정/삭제 버튼 -->

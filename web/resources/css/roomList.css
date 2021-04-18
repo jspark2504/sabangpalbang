@@ -189,7 +189,7 @@ a.tip:hover span {
   background-color: #f3f3f3;
 }
 
-section:nth-of-type(2) {
+.room-area {
    margin-top: 70px;
 }
 
