@@ -184,12 +184,10 @@
 	<script>
 		const link = "${ pageContext.servletContext.contextPath }/infoboard/list";
 		const searchLink = "${ pageContext.servletContext.contextPath }/infoboard/search";
-		
 		/* 원하는 페이지 클릭시 실행되는 콜백 함수 */
 		function pageButtonAction(text) {
 			location.href = link + "?currentPage=" + text;
 		}
-		
 		function searchPageButtonAction(text) {
 			location.href = searchLink + "?currentPage=" + text + "&searchCondition=${requestScope.searchCondition}&searchValue=${requestScope.searchValue}";
 		}

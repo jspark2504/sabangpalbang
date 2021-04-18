@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sabang.findMyRoom.member.model.dto.DocumentDTO;
+import com.sabang.findMyRoom.member.model.dto.MemberDTO;
 import com.sabang.findMyRoom.member.model.service.DocumentService;
 
 
@@ -19,14 +20,13 @@ public class DocumentSelectServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// 서류 저장 전.
-//		String path = "/WEB-INF/views/document/documentList.jsp";
-//		
-//		request.getRequestDispatcher(path).forward(request, response);
+		int userNo = ((MemberDTO)request.getSession().getAttribute("loginMember")).getNo();
+		
+		System.out.println("로그인" + userNo);
 		
 		DocumentService documentService = new DocumentService();
 		
-		List<DocumentDTO> documentList = documentService.selectDocument();
+		List<DocumentDTO> documentList = documentService.selectDocument(userNo);
 		
 		System.out.println("서블릿 : " + documentList);
 		

@@ -62,20 +62,12 @@ public class InfoBoardSearchListServlet extends HttpServlet {
 			System.out.println("infoboardList : " + b);			
 		}
 		
-		String path = "";
-		if(!boardList.isEmpty()) {
+			String path = "";
 			path = "/WEB-INF/views/infoboard/infoBoardList.jsp";
 			request.setAttribute("boardList", boardList);
 			request.setAttribute("pageInfo", pageInfo);
 			request.setAttribute("searchCondition", condition);
 			request.setAttribute("searchValue", value);
-		} else {
-			path = "/WEB-INF/views/infoboard/infoBoardList.jsp";
-			request.setAttribute("boardList", boardList);
-			request.setAttribute("pageInfo", pageInfo);
-			request.setAttribute("searchCondition", condition);
-			request.setAttribute("searchValue", value);
-		}
 		
 		request.getRequestDispatcher(path).forward(request, response);
 		

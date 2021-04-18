@@ -19,6 +19,7 @@ import com.sabang.findMyRoom.room.model.dto.OfficeDTO;
 import com.sabang.findMyRoom.room.model.dto.RoomCategoryDTO;
 import com.sabang.findMyRoom.room.model.dto.RoomDTO;
 import com.sabang.findMyRoom.room.model.dto.RoomFileDTO;
+import com.sabang.findMyRoom.room.model.dto.RoomSearchOptionDTO;
 
 public class RoomDAO {
 
@@ -34,19 +35,53 @@ public class RoomDAO {
 		}
 	}
 
-	/* 매물 전체 목록 조회용 메소드 */
-	public List<RoomDTO> selectAllRoomList(Connection con) {
+	/* 매물 목록 조회용 메소드 */
+	public List<RoomDTO> selectRoomList(Connection con, RoomSearchOptionDTO searchOption) {
 
 		Statement stmt = null;
 		ResultSet rset = null;
 
 		List<RoomDTO> roomList = null;
 
-		String query = prop.getProperty("selectAllRoomList");
+		StringBuffer query = new StringBuffer();
+		query.append("SELECT");
+		query.append("  A.ROOM_NO");
+		query.append(", A.ROOM_PRICE");
+		query.append(", A.EXCLUSIVE_AREA");
+		query.append(", A.ADDRESS");
+		query.append(", A.ROOM_FLOOR");
+		query.append(", A.ROOM_TITLE");
+		query.append(", B.THUMBNAIL_PATH");
+		query.append(" FROM TBL_ROOM A");
+		query.append(" JOIN TBL_ROOM_FILE B ON (A.ROOM_NO = B.ROOM_NO)");
+		query.append(" WHERE A.ROOM_STATUS = 'Y'");
+		query.append(" AND B.FILE_NO = 1");
+		query.append(" AND (A.CATEGORY_NO = ");
+		query.append(searchOption.getCategoryNo());
+		query.append(" AND (A.ROOM_PRICE <= ");
+		query.append(searchOption.getPrice());
+		query.append(" AND (A.WASHING_MACHINE_YN = ");
+		query.append(searchOption.getWashingMachine());
+		query.append(" AND (A.REFRIGERATOR_YN = ");
+		query.append(searchOption.getRefrigerator());
+		query.append(" AND (A.AIR_CONDITIONER_YN = ");
+		query.append(searchOption.getAirConditioner());
+		query.append(" AND (A.GAS_STOVE_YN = ");
+		query.append(searchOption.getGasStove());
+		query.append(" AND (A.PET_YN = ");
+		query.append(searchOption.getPet());
+		query.append(" AND (A.ELEVATOR_YN = ");
+		query.append(searchOption.getElevator());
+		query.append(" AND (A.PARKING_YN = ");
+		query.append(searchOption.getParking());
+		query.append(" ORDER BY A.ROOM_NO DESC");
+
+		System.out.println(query);
 
 		try {
+
 			stmt = con.createStatement();
-			rset = stmt.executeQuery(query);
+			rset = stmt.executeQuery(query.toString());
 
 			roomList = new ArrayList<>();
 
@@ -136,13 +171,14 @@ public class RoomDAO {
 				roomDetail.setPrice(rset.getInt("ROOM_PRICE"));
 				roomDetail.setArea(rset.getDouble("EXCLUSIVE_AREA"));
 				roomDetail.setAddress(rset.getString("ADDRESS"));
-				roomDetail.setCreateDate(rset.getDate("CREATE_DATE"));
+				roomDetail.setCreateDate(rset.getString("CREATE_DATE"));
 				roomDetail.setNo(rset.getInt("CATEGORY_NO"));
 				category.setName(rset.getString("CATEGORY_NAME"));
 				roomDetail.setNo(rset.getInt("OFFICE_NO"));
 				office.setName(rset.getString("OFFICE_NAME"));
 				office.setAddr(rset.getString("OFFICE_ADDR"));
 				office.setPhone(rset.getString("OFFICE_PHONE"));
+				office.setBusinessNo(rset.getString("BUSINESS_NO"));
 				office.setRating(rset.getDouble("OFFICE_RATING"));
 				office.setNo(rset.getInt("USER_NO"));
 				agent.setNickname(rset.getString("NICKNAME"));
@@ -154,7 +190,7 @@ public class RoomDAO {
 				roomDetail.setWater(rset.getString("WATER_YN"));
 				roomDetail.setInternet(rset.getString("INTERNET_YN"));
 				roomDetail.setTv(rset.getString("TV_YN"));
-				roomDetail.setConstructionDate(rset.getDate("CONSTRUCTION_DATE"));
+				roomDetail.setConstructionDate(rset.getString("CONSTRUCTION_DATE"));
 				roomDetail.setAvailableDate(rset.getString("AVAILABLE_DATE"));
 				roomDetail.setTitle(rset.getString("ROOM_TITLE"));
 				roomDetail.setExplanation(rset.getString("ROOM_EXPLANATION"));
@@ -190,7 +226,7 @@ public class RoomDAO {
 		return roomDetail;
 	}
 
-	/* 매물을 등록한 중개사무소 번호 조회 */
+	/* 회원 번호를 통해 중개사무소 번호 조회 */
 	public int selectOfficeNo(Connection con, int memberNo) {
 
 		PreparedStatement pstmt = null;
@@ -244,7 +280,7 @@ public class RoomDAO {
 			pstmt.setString(11, room.getWater());
 			pstmt.setString(12, room.getInternet());
 			pstmt.setString(13, room.getTv());
-			pstmt.setDate(14, room.getConstructionDate());
+			pstmt.setDate(14, java.sql.Date.valueOf(room.getConstructionDate()));
 			pstmt.setString(15, room.getAvailableDate());
 			pstmt.setString(16, room.getTitle());
 			pstmt.setString(17, room.getExplanation());
@@ -323,6 +359,59 @@ public class RoomDAO {
 		}
 
 		return result;
+	}
+
+	/* 매물 관리 목록 조회 */
+	public List<RoomDTO> selectManagementList(Connection con, int memberNo) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		List<RoomDTO> roomList = null;
+
+		String query = prop.getProperty("selectManagementList");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, memberNo);
+
+			rset = pstmt.executeQuery();
+
+			roomList = new ArrayList<>();
+
+			while(rset.next()) {
+				RoomDTO room = new RoomDTO();
+				RoomCategoryDTO category = new RoomCategoryDTO();
+				RoomFileDTO file = new RoomFileDTO();
+
+				room.setNo(rset.getInt("ROOM_NO"));
+				room.setPrice(rset.getInt("ROOM_PRICE"));
+				room.setStatus(rset.getString("ROOM_STATUS"));
+				room.setArea(rset.getDouble("EXCLUSIVE_AREA"));
+				room.setAddress(rset.getString("ADDRESS"));
+				category.setName(rset.getString("CATEGORY_NAME"));
+				room.setFloor(rset.getString("ROOM_FLOOR"));
+				room.setTitle(rset.getString("ROOM_TITLE"));
+				file.setNo(1);
+				file.setThumbnailPath(rset.getString("THUMBNAIL_PATH"));
+
+				room.setCategory(category);
+
+				List<RoomFileDTO> fileList = new ArrayList<>();
+				fileList.add(file);
+				room.setFileList(fileList);
+
+				roomList.add(room);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+
+		return roomList;
 	}
 
 }

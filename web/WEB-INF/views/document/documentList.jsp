@@ -48,6 +48,20 @@
 		position:relative;
 		bottom:25px;
 	}
+	[id*=deleteDocument]{
+		background:rgb(81, 75, 55);
+		width:21px;
+		color:white;
+		position:relative;
+		bottom:30px;
+		left:70px;
+		border:none;
+		border-radius:5px;
+	}
+	[id*=eleteDocument]:hover{
+		background:red;
+		transition-duration: 0.3s;
+	}
 </style>
 <body>
 <jsp:include page="../common/header.jsp"/>
@@ -61,22 +75,47 @@
 		<tr>
 			<td>
 				<div id="area1">
-					<img id="document1" src="${ pageContext.servletContext.contextPath }${ requestScope.documentList[0].thumbnailPath}" width="183" height="244" onError="this.style.visibility='hidden'">
+					<form action="${ pageContext.servletContext.contextPath  }/document/delete" method="post">
+					<input type="hidden" id="fileNo" name="fileNo" value="${requestScope.documentList[0].fileNo}">
+					<img id="document1" name="document1" src="${ pageContext.servletContext.contextPath }${ requestScope.documentList[0].thumbnailPath}" width="183" height="244" onError="this.style.visibility='hidden'">
+					<c:if test="${!empty requestScope.documentList[0].thumbnailPath}">
+					<button type="submit" id="deleteDocument1" onClick="location.href='${ pageContext.servletContext.contextPath }/document/delete'">X</button>
+					</c:if>
+
+					</form>
 				</div>
 			</td>
 			<td>
 				<div id="area2">
+					<form action="${ pageContext.servletContext.contextPath  }/document/delete" method="post">
+					<input type="hidden" id="fileNo" name="fileNo" value="${requestScope.documentList[1].fileNo}">
 					<img id="document2" src="${ pageContext.servletContext.contextPath }${ requestScope.documentList[1].thumbnailPath}" width="183" height="244" onError="this.style.visibility='hidden'">
+					<c:if test="${!empty requestScope.documentList[1].thumbnailPath}">
+					<button type="submit" id="deleteDocument2" onClick="location.href='${ pageContext.servletContext.contextPath }/document/delete'">X</button>
+					</c:if>
+					</form>
 				</div>
 			</td>
 			<td>
 				<div id="area3">
+					<form action="${ pageContext.servletContext.contextPath  }/document/delete" method="post">
+					<input type="hidden" id="fileNo" name="fileNo" value="${requestScope.documentList[2].fileNo}">
 					<img id="document3" src="${ pageContext.servletContext.contextPath }${ requestScope.documentList[2].thumbnailPath}" width="183" height="244" onError="this.style.visibility='hidden'">
+					<c:if test="${!empty requestScope.documentList[2].thumbnailPath}">
+					<button type="submit" id="deleteDocument2" onClick="location.href='${ pageContext.servletContext.contextPath }/document/delete'">X</button>
+					</c:if>
+					</form>
 				</div>
 			</td>
 			<td>
 				<div id="area4">
+					<form action="${ pageContext.servletContext.contextPath  }/document/delete" method="post">
+					<input type="hidden" id="fileNo" name="fileNo" value="${requestScope.documentList[3].fileNo}">
 					<img id="document4" src="${ pageContext.servletContext.contextPath }${ requestScope.documentList[3].thumbnailPath}" width="183" height="244" onError="this.style.visibility='hidden'">
+					<c:if test="${!empty requestScope.documentList[3].thumbnailPath}">
+					<button type="submit" id="deleteDocument2" onClick="location.href='${ pageContext.servletContext.contextPath }/document/delete'">X</button>
+					</c:if>
+					</form>
 				</div>
 			</td>
 		</tr>
@@ -85,26 +124,51 @@
 		<tr>
 			<td>
 				<div id="area5">
+					<form action="${ pageContext.servletContext.contextPath  }/document/delete" method="post">
+					<input type="hidden" id="fileNo" name="fileNo" value="${requestScope.documentList[4].fileNo}">
 					<img id="document5" src="${ pageContext.servletContext.contextPath }${ requestScope.documentList[4].thumbnailPath}" width="183" height="244" onError="this.style.visibility='hidden'">
+					<c:if test="${!empty requestScope.documentList[4].thumbnailPath}">
+					<button type="submit" id="deleteDocument2" onClick="location.href='${ pageContext.servletContext.contextPath }/document/delete'">X</button>
+					</c:if>
+					</form>
 				</div>
 			</td>
 			<td>
 				<div id="area6">
+					<form action="${ pageContext.servletContext.contextPath  }/document/delete" method="post">
+					<input type="hidden" id="fileNo" name="fileNo" value="${requestScope.documentList[5].fileNo}">
 					<img id="document6" src="${ pageContext.servletContext.contextPath }${ requestScope.documentList[5].thumbnailPath}" width="183" height="244" onError="this.style.visibility='hidden'">
+					<c:if test="${!empty requestScope.documentList[5].thumbnailPath}">
+					<button type="submit" id="deleteDocument2" onClick="location.href='${ pageContext.servletContext.contextPath }/document/delete'">X</button>
+					</c:if>
+					</form>
 				</div>
 			</td>
 			<td>
 				<div id="area7">
+					<form action="${ pageContext.servletContext.contextPath  }/document/delete" method="post">
+					<input type="hidden" id="fileNo" name="fileNo" value="${requestScope.documentList[6].fileNo}">
 					<img id="document7" src="${ pageContext.servletContext.contextPath }${ requestScope.documentList[6].thumbnailPath}" width="183" height="244" onError="this.style.visibility='hidden'">
+					<c:if test="${!empty requestScope.documentList[6].thumbnailPath}">
+					<button type="submit" id="deleteDocument2" onClick="location.href='${ pageContext.servletContext.contextPath }/document/delete'">X</button>
+					</c:if>
+					</form>
 				</div>
 			</td>
-			<td>	
+			<td>
 				<div id="area8">
+					<form action="${ pageContext.servletContext.contextPath  }/document/delete" method="post">
+					<input type="hidden" id="fileNo" name="fileNo" value="${requestScope.documentList[7].fileNo}">
 					<img id="document8" src="${ pageContext.servletContext.contextPath }${ requestScope.documentList[7].thumbnailPath}" width="183" height="244" onError="this.style.visibility='hidden'">
+					<c:if test="${!empty requestScope.documentList[7].thumbnailPath}">
+					<button type="submit" id="deleteDocument2" onClick="location.href='${ pageContext.servletContext.contextPath }/document/delete'">X</button>
+					</c:if>
+					</form>
 				</div>
 			</td>
 		</tr>
 	</table>
+
 </div>
 <jsp:include page="../common/footer.jsp" />
 <script>

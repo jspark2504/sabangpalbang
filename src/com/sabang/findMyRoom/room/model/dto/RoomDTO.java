@@ -1,6 +1,5 @@
 package com.sabang.findMyRoom.room.model.dto;
 
-import java.sql.Date;
 import java.util.List;
 
 public class RoomDTO implements java.io.Serializable {
@@ -9,10 +8,11 @@ public class RoomDTO implements java.io.Serializable {
 
 	private int no;
 	private int price;
+	private String formatPrice;
 	private String status;
 	private double area;
 	private String address;
-	private java.sql.Date createDate;
+	private String createDate;
 	private RoomCategoryDTO category;
 	private OfficeDTO office;
 	private String floor;
@@ -23,7 +23,7 @@ public class RoomDTO implements java.io.Serializable {
 	private String water;
 	private String internet;
 	private String tv;
-	private java.sql.Date constructionDate;
+	private String constructionDate;
 	private String availableDate;
 	private String title;
 	private String explanation;
@@ -40,9 +40,9 @@ public class RoomDTO implements java.io.Serializable {
 
 	public RoomDTO() {
 	}
-	public RoomDTO(int no, int price, String status, double area, String address, Date createDate,
+	public RoomDTO(int no, int price, String status, double area, String address, String createDate,
 			RoomCategoryDTO category, OfficeDTO office, String floor, String direction, int monthCost,
-			String electricity, String gas, String water, String internet, String tv, Date constructionDate,
+			String electricity, String gas, String water, String internet, String tv, String constructionDate,
 			String availableDate, String title, String explanation, String transportationInfo, String washingMachine,
 			String refrigerator, String airConditioner, String gasStove, String pet, String elevator, String parking,
 			int viewNo, List<RoomFileDTO> fileList) {
@@ -96,6 +96,12 @@ public class RoomDTO implements java.io.Serializable {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	public String getFormatPrice() {
+		return formatPrice;
+	}
+	public void setFormatPrice(String formatPrice) {
+		this.formatPrice = formatPrice;
+	}
 	public String getStatus() {
 		return status;
 	}
@@ -114,10 +120,10 @@ public class RoomDTO implements java.io.Serializable {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public java.sql.Date getCreateDate() {
+	public String getCreateDate() {
 		return createDate;
 	}
-	public void setCreateDate(java.sql.Date createDate) {
+	public void setCreateDate(String createDate) {
 		this.createDate = createDate;
 	}
 	public RoomCategoryDTO getCategory() {
@@ -180,10 +186,10 @@ public class RoomDTO implements java.io.Serializable {
 	public void setTv(String tv) {
 		this.tv = tv;
 	}
-	public java.sql.Date getConstructionDate() {
+	public String getConstructionDate() {
 		return constructionDate;
 	}
-	public void setConstructionDate(java.sql.Date constructionDate) {
+	public void setConstructionDate(String constructionDate) {
 		this.constructionDate = constructionDate;
 	}
 	public String getAvailableDate() {

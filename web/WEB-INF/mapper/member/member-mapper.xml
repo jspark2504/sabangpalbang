@@ -124,8 +124,18 @@
 		     , A.SAVE_NAME
 		     , A.SAVE_PATH
 		     , A.THUMBNAIL_PATH
+		     , A.DOCUMENT_STATUS
 		  FROM TBL_USER_DOCUMENT A
 		  JOIN TBL_USER B ON(A.USER_NO = B.USER_NO)
+		 WHERE A.DOCUMENT_STATUS = 'Y'
+		   AND A.USER_NO = ?
+	</entry>
+	<entry key="deleteDocument">
+		UPDATE
+		  	   TBL_USER_DOCUMENT A
+		   SET A.DOCUMENT_STATUS = 'N'
+		 WHERE A.DOCUMENT_STATUS = 'Y'
+		   AND A.FILE_NO = ?
 	</entry>
 	<entry key="updateSearchId">
 	  UPDATE

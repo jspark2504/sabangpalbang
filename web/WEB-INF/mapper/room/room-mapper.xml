@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-	<entry key="selectAllRoomList">
-		SELECT /* com.sabang.findMyRoom.room.model.dao.RoomDAO#selectAllRoomList(); */
+	<entry key="selectRoomList">
+		SELECT
 		       A.ROOM_NO
 		     , A.ROOM_PRICE
 		     , A.EXCLUSIVE_AREA
@@ -31,13 +31,14 @@
              , A.ROOM_PRICE
              , A.EXCLUSIVE_AREA
              , A.ADDRESS
-             , A.CREATE_DATE
+             , TRUNC(SYSDATE - A.CREATE_DATE) AS CREATE_DATE
              , A.CATEGORY_NO
              , B.CATEGORY_NAME
              , A.OFFICE_NO
              , C.OFFICE_NAME
              , C.OFFICE_ADDR
              , C.OFFICE_PHONE
+             , C.BUSINESS_NO
              , C.OFFICE_RATING
              , C.USER_NO
              , D.NICKNAME
@@ -49,7 +50,7 @@
              , A.WATER_YN
              , A.INTERNET_YN
              , A.TV_YN
-             , A.CONSTRUCTION_DATE
+             , TO_CHAR(A.CONSTRUCTION_DATE, 'YYYY-MM-DD') AS CONSTRUCTION_DATE
              , A.AVAILABLE_DATE
              , A.ROOM_TITLE
              , A.ROOM_EXPLANATION
@@ -169,6 +170,26 @@
         , ?
         )
 	</entry>
+    <entry key="selectManagementList">
+        SELECT /* com.sabang.findMyRoom.room.model.dao.RoomDAO#selectManagementList(); */
+               A.ROOM_NO
+             , A.ROOM_PRICE
+             , A.ROOM_STATUS
+             , A.EXCLUSIVE_AREA
+             , A.ADDRESS
+             , B.CATEGORY_NAME
+             , A.ROOM_FLOOR
+             , A.ROOM_TITLE
+             , C.THUMBNAIL_PATH
+          FROM TBL_ROOM A
+          JOIN TBL_ROOM_CATEGORY B ON (A.CATEGORY_NO = B.CATEGORY_NO)
+          JOIN TBL_ROOM_FILE C ON (A.ROOM_NO = C.ROOM_NO)
+          JOIN TBL_OFFICE D ON (A.OFFICE_NO = D.OFFICE_NO)
+          JOIN TBL_USER E ON (D.USER_NO = E.USER_NO)
+         WHERE C.FILE_NO = 1
+           AND E.USER_NO = ?
+         ORDER BY A.ROOM_STATUS DESC, A.ROOM_NO DESC
+    </entry>
 	<entry key="">
 
 	</entry>

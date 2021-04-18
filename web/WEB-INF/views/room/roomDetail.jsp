@@ -47,17 +47,17 @@
             <!-- room-detail-all -->
             <section class='room-detail col-sm-4'>
               <article class='room-detail-heading'>
-                <div class='room-detail-title'>
-                  <span class='glyphicon glyphicon-menu-left' aria-hidden='true' onclick='showList();'>
-                  </span>
-                  <h4>
-                    동작구 사당동
-                  </h4>
-                </div>
-                  <span class='glyphicon glyphicon glyphicon-heart' aria-hidden='true' onclick='wishList();'>
-                  </span>
+                  <div class='room-detail-title'>
+                    <span class='glyphicon glyphicon-menu-left' aria-hidden='true' onclick='showList();'>
+                    </span>
+                    <h4>
+                      동작구 사당동
+                    </h4>
+                  </div>
+                    <span class='glyphicon glyphicon glyphicon-heart' aria-hidden='true' onclick='wishList();'>
+                    </span>
+                    <hr class='title-end'>
               </article>
-              <hr class='title-end'>
 
               <!-- room-basic-info-all -->
               <article class='room-basic-info-all'>
@@ -507,14 +507,6 @@
                     </td>
                   	<td colspan='2'>
                       원룸
-                    </td>
-                  </tr>
-                  <tr>
-                  	<td class='table-title'>
-                      주소
-                    </td>
-                  	<td colspan='2'>
-                      동작구 사당동 446-11
                     </td>
                   </tr>
                 </table>

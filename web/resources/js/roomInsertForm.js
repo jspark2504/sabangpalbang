@@ -8,6 +8,7 @@ $addBtn.onclick = function () {
     $("input[name='" + fileName + "']").click();
 };
 
+/* 이미지 미리보기 생성 */
 function loadImg(value) {
     const imgId = "img" + i;
 
@@ -39,7 +40,8 @@ function removeFile(btn) {
     /* 이미지 삭제 */
     $(btn).closest("div").remove();
 	/* 파일 삭제 */
-	$("input[name='" + removedFileName + "']").val("");
+	$("input[name='" + removedFileName + "']").select();
+	document.selection.clear();
 
     /* 이미지 ID 및 파일 input name 변경 */
     for (let j = removedImgNo + 1; j < i; j++) {
@@ -53,8 +55,8 @@ function removeFile(btn) {
         console.log("fileNameNow", fileNameNow);
         console.log("fileNameNew", fileNameNew);
 
-        document.getElementById(imgIdNow).prop("id", imgIdNew);
-        $("input[name='" + fileNameNow + "']").prop("name", fileNameNew);
+        document.getElementById(imgIdNow).attr("id", imgIdNew);
+        $("input[name='" + fileNameNow + "']").attr("name", fileNameNew);
 
         console.log(imgIdNow, imgIdNew);
         console.log(fileNameNow, fileNameNew);

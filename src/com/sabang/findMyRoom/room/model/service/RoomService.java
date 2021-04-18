@@ -11,6 +11,7 @@ import java.util.List;
 import com.sabang.findMyRoom.room.model.dao.RoomDAO;
 import com.sabang.findMyRoom.room.model.dto.RoomDTO;
 import com.sabang.findMyRoom.room.model.dto.RoomFileDTO;
+import com.sabang.findMyRoom.room.model.dto.RoomSearchOptionDTO;
 
 public class RoomService {
 
@@ -20,12 +21,12 @@ public class RoomService {
 		roomDAO = new RoomDAO();
 	}
 
-	/* 매물 전체 목록 조회용 메소드 */
-	public List<RoomDTO> selectAllRoomList() {
+	/* 매물 목록 조회용 메소드 */
+	public List<RoomDTO> selectRoomList(RoomSearchOptionDTO searchOption) {
 
 		Connection con = getConnection();
 
-		List<RoomDTO> roomList = roomDAO.selectAllRoomList(con);
+		List<RoomDTO> roomList = roomDAO.selectRoomList(con, searchOption);
 
 		close(con);
 
@@ -49,6 +50,7 @@ public class RoomService {
 			} else {
 				rollback(con);
 			}
+
 		} else {
 			rollback(con);
 		}
@@ -103,4 +105,18 @@ public class RoomService {
 
 		return result;
 	}
+
+	/* 매물 관리 목록 조회 */
+	public List<RoomDTO> selectManagementList(int memberNo) {
+
+		Connection con = getConnection();
+
+		List<RoomDTO> roomList = roomDAO.selectManagementList(con, memberNo);
+
+		close(con);
+
+		return roomList;
+	}
+
+
 }
