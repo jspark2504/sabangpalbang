@@ -376,7 +376,7 @@
   <!-- script -->
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="/findMyRoom/resources/js/roomInsertForm.js"></script>
+  <script src="/findMyRoom/resources/js/roomUpdateForm.js"></script>
 </body>
 
 </html>
