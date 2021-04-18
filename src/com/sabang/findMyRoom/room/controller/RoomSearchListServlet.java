@@ -1,6 +1,7 @@
 package com.sabang.findMyRoom.room.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.util.List;
 
@@ -10,12 +11,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.sabang.findMyRoom.room.model.dto.RoomDTO;
 import com.sabang.findMyRoom.room.model.dto.RoomSearchOptionDTO;
 import com.sabang.findMyRoom.room.model.service.RoomService;
 
-@WebServlet("/room/list")
-public class RoomSelectListServlet extends HttpServlet {
+@WebServlet("/room/search")
+public class RoomSearchListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,6 +34,7 @@ public class RoomSelectListServlet extends HttpServlet {
 		String elevator = request.getParameter("elevator");					// 엘리베이터
 		String parking = request.getParameter("parking");					// 주차
 
+		System.out.println("categoryNo : " + categoryNo);
 		/* 검색 조건 가공 */
 		categoryNo += ")";
 		if("300000000".equals(price) || price == null) {
@@ -101,12 +105,19 @@ public class RoomSelectListServlet extends HttpServlet {
 			room.setFormatPrice(formatPrice);
 		}
 
-		String path = "/WEB-INF/views/room/roomList.jsp";
-		int resultNum = roomList.size();
-		request.setAttribute("roomList", roomList);
-		request.setAttribute("result", resultNum);
+		/* Gson */
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-		request.getRequestDispatcher(path).forward(request, response);
+		String jsonString = gson.toJson(roomList);
+		System.out.println(jsonString);
+
+		response.setContentType("application/json; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+
+		out.print(jsonString);
+
+		out.flush();
+		out.close();
 	}
 
 }

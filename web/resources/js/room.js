@@ -1,9 +1,9 @@
 /* 헤더 메뉴 색상 변경 */
 $(document).ready(function(){
 	let param = new URLSearchParams(location.search);
-	let no = param.get('no');
+	let category = param.get('category');
 
-	switch(no){
+	switch(category){
 	case "1":
 		$('.menu1').css('color','#ffd233');
 		$('.menu2').css('color','black');
@@ -244,12 +244,110 @@ function option(img){
 		} else {
 			$(img).css('opacity', '0.2');
 		}
+
+		search();
 }
 
-
-
-
 function search() {
+	//alert('test');
+	const param = new URLSearchParams(location.search);
+	const category = param.get('category');
+	let washingMachine;
+	let refrigerator;
+	let airConditioner;
+	let gasStove;
+	let pet;
+	let elevator;
+	let parking;
+	let roomPrice = $('#roomPrice').val();
+
+	/* 엘리베이터 */
+	if($('#elevator').css('opacity') == '1') {
+		elevator = 'Y';
+	}
+	/* 주차 */
+	if($('#parking').css('opacity') == '1') {
+		parking = 'Y';
+	}
+	/* 반려동물 */
+	if($('#pet').css('opacity') == '1') {
+		pet = 'Y';
+	}
+	/* 세탁기 */
+	if($('#washingMachine').css('opacity') == '1') {
+		washingMachine = 'Y';
+	}
+	/* 냉장고 */
+	if($('#refrigerator').css('opacity') == '1') {
+		refrigerator = 'Y';
+	}
+	/* 에어컨 */
+	if($('#airConditioner').css('opacity') == '1') {
+		airConditioner = 'Y';
+	}
+	/* 가스레인지 */
+	if($('#gasStove').css('opacity') == '1') {
+		gasStove = 'Y';
+	}
+
+	//console.log(washingMachine, refrigerator, airConditioner, gasStove, pet, elevator, parking, roomPrice);
+	$.ajax({
+		url: "/findMyRoom/room/search",
+		type: "get",
+		data: {
+				category : category,
+				washingMachine : washingMachine,
+				refrigerator : refrigerator,
+				airConditioner : airConditioner,
+				gasStove : gasStove,
+				pet : pet,
+				elevator : elevator,
+				parking : parking,
+				roomPrice : roomPrice
+		},
+		success: function(data) {
+
+			/* 헤더 변경 */
+			let heading = "매물 목록 " + data.length + "개";
+			$(".room-list h4").text(heading);
+
+			/* 기존 목록 지우기 */
+			$(".room-list ul").remove();
+			$(".room-area").remove();
+
+			/* 새로 목록 뿌리기 */
+			for(let i = 0 ; i < data.length ; i++) {
+				const no = data[i].no;
+				const price = data[i].formatPrice;
+				const area = data[i].area;
+				const floor = data[i].floor;
+				const address = data[i].address;
+				const title = data[i].title;
+
+				let hostIndex = location.href.indexOf(location.host) + location.host.length;
+				let path = location.href.substring(hostIndex, location.href.indexOf('/', hostIndex + 1));
+				const filePath = path + data[i].fileList[0].thumbnailPath;
+
+//				console.log('price : ' + price);
+//				console.log('no : ' + no);
+//				console.log('area : ' + area);
+//				console.log('floor : ' + floor);
+//				console.log('address : ' + address);
+//				console.log('title : ' + title);
+//				console.log('filePath : ' + filePath);
+
+
+
+			}
+
+
+
+		},
+		error: function(error) {
+			console.log(error);
+		}
+	});
+
 
 }
 
