@@ -210,6 +210,7 @@ function showList() {
 	$(".divider-line").remove();
 	$(".title-end").remove();
 	$("hr:not(hr:first-of-type)").remove();
+	$(".container").remove();
 
 	/* 매물 목록 다시 표시 */
 	$(".room-list h4").css('display', 'block');
