@@ -53,8 +53,8 @@
 		width:21px;
 		color:white;
 		position:relative;
-		bottom:30px;
-		left:70px;
+		bottom:255px;
+		left:90px;
 		border:none;
 		border-radius:5px;
 	}
@@ -62,6 +62,27 @@
 		background:red;
 		transition-duration: 0.3s;
 	}
+	.container img {
+    -webkit-transform:scale(1);
+    -moz-transform:scale(1);
+    -ms-transform:scale(1); 
+    -o-transform:scale(1);  
+    transform:scale(1);
+    -webkit-transition:.4s;
+    -moz-transition:.4s;
+    -ms-transition:.4s;
+    -o-transition:.4s;
+    transition:.4s;
+	}
+	.container img:hover {
+    -webkit-transform:scale(2.7);
+    -moz-transform:scale(2.7);
+    -ms-transform:scale(2.7);   
+    -o-transform:scale(2.7);
+    transform:scale(2.7);
+    position:relative;
+    z-index:1;
+}
 </style>
 <body>
 <jsp:include page="../common/header.jsp"/>
@@ -120,6 +141,8 @@
 			</td>
 		</tr>
 	</table>
+	<br>
+	<br>
 	<table>
 		<tr>
 			<td>

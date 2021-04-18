@@ -143,4 +143,30 @@
 		SET A.USER_PWD = ?
 	  WHERE EMAIL = ?
 	</entry>
+	<entry key="payment">
+		INSERT
+		  INTO TBL_PAYMENT_LIST
+		(
+		  PAYMENT_NO
+		, EXPIRATION_DATE
+		, PAYMENT_DATE
+		, USER_NO
+		)
+		VALUES
+		(
+		  SEQ_PAYMENT_NO.NEXTVAL
+		, SYSDATE + 30
+        , SYSDATE
+        , ?
+		)
+	</entry>
+	<entry key="selectPayment">
+		SELECT
+		       A.PAYMENT_NO
+		     , A.PAYMENT_DATE
+		     , A.EXPIRATION_DATE
+		     , A.USER_NO
+		  FROM TBL_PAYMENT_LIST A
+		 WHERE A.USER_NO = ?
+	</entry>
 </properties>
