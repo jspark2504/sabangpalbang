@@ -76,7 +76,7 @@
             <!-- 매물 목록 영역 -->
             <section class="room-list col-md-4">
                 <h4 class="room-list-heading"><c:out value="매물 목록 ${ fn:length(requestScope.roomList) }개"/></h4>
-                <hr>
+                <hr style="margin-bottom: 0px;">
                 <c:forEach var="room" items="${ requestScope.roomList }">
                   <section class="room-area">
                     <article class="room-info">
@@ -93,8 +93,8 @@
                                     <!-- 매물번호 -->
                                   	<input type="hidden" id="roomNo" name="roomNo" value="${ room.no }" />
 
-                                    <!-- 중개사인 경우 -->
-                                    <c:if test="${ sessionScope.loginMember.role eq 'OFFICE' }">
+                                    <!-- 중개사 매물 관리 -->
+                                    <c:if test="${ sessionScope.loginMember.role eq 'OFFICE' && requestScope.path eq 'management' }">
                                       <div class="more-info">
                                         <span class="no"><c:out value="#등록번호 ${ room.no }"/></span>
                                         <span class="category"><c:out value="#${ room.category.name }"/></span>
@@ -127,8 +127,9 @@
                             </a>
                         </ul>
                     </article>
-                    <!-- 중개사인 경우 매물 수정/삭제 버튼 -->
-                    <c:if test="${ sessionScope.loginMember.role eq 'OFFICE' }">
+                    <c:out value="${ request.getRequestURL() }"/>
+                    <!-- 중개사 매물 관리 수정/삭제 버튼 -->
+                    <c:if test="${ sessionScope.loginMember.role eq 'OFFICE' && requestScope.path eq 'management' }">
                       <article class="btns-area">
                         <div class="btns">
                           <button type="button" class="btn" onclick="location.href='${ pageContext.servletContext.contextPath }/room/update?no=${ room.no }'">

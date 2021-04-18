@@ -47,6 +47,7 @@ public class RoomManagementServlet extends HttpServlet {
 
 		String path = "/WEB-INF/views/room/roomList.jsp";
 		request.setAttribute("roomList", roomList);
+		request.setAttribute("path", "management");
 
 		request.getRequestDispatcher(path).forward(request, response);
 	}
