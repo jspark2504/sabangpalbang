@@ -56,7 +56,7 @@
 	<div class="container">
 		<table class="nickname pull-right">
 			 <tr>
-             	<td><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;<c:out value="${ requestScope.board.writer.nickname }" /></td>
+             	<td><i class="fa fa-user" aria-hidden="true">&nbsp;&nbsp;<c:out value="${ requestScope.board.writer.nickname }" /></i></td>
              </tr>
 		</table>
 		<input type="text" class="title" value="${ requestScope.board.title }" readonly>
