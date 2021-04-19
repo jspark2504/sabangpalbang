@@ -137,12 +137,12 @@
 		 WHERE A.DOCUMENT_STATUS = 'Y'
 		   AND A.FILE_NO = ?
 	</entry>
-	<entry key="updateSearchId">
+	<entry key="updateSearchPw">
 	  UPDATE
 			TBL_USER A
 		SET A.USER_PWD = ?
 	  WHERE EMAIL = ?
-	    AND A.USER_PWD  
+	  
 	</entry>
 	<entry key="payment">
 		INSERT

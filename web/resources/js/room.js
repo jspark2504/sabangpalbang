@@ -45,7 +45,7 @@ function showDetail(room) {
 			const price = data.formatPrice;
 			const area = data.area;
 			const address = data.address;
-			const shortAddress = address.substring(address.indexOf(' ') + 1, address.indexOf('동') + 1);
+			const shortAddress = address.substring(address.indexOf(' ') + 1, address.indexOf('동 ') + 1);
 			const createDate = data.createDate;
 			const categoryName = data.category.name;
 			const officeName = data.office.name;
@@ -77,7 +77,7 @@ function showDetail(room) {
 			let filesPath = new Array();
 			let hostIndex = location.href.indexOf(location.host) + location.host.length;
 			let path = location.href.substring(hostIndex, location.href.indexOf('/', hostIndex + 1));
-			for(let i = 1 ; i < data.fileList.length ; i++) {
+			for(let i = 0 ; i < data.fileList.length ; i++) {
 				filesPath[i] = path + data.fileList[i].thumbnailPath;
 				console.log(filesPath[i]);
 			}
@@ -161,7 +161,15 @@ function showDetail(room) {
 			/* 헤드 */
 			$(".room-list").prepend("<section class='fixced-nav'><article class='room-detail-heading'><div class='room-detail-title'><span class='glyphicon glyphicon-menu-left' aria-hidden='true' onclick='showList();'></span><h4>" + shortAddress + "</h4></div><span class='glyphicon glyphicon glyphicon-heart empty' aria-hidden='true' onclick='wishList();'></span></article></section>");
 			/* 이미지 */
-			$(".room-list").append("<div class='container'><div class='carousel'><input type='radio' id='carousel-1' name='carousel[]' ><input type='radio' id='carousel-2' name='carousel[]'><input type='radio' id='carousel-3' name='carousel[]'><input type='radio' id='carousel-4' name='carousel[]'><input type='radio' id='carousel-5' name='carousel[]'><ul class='carousel__items'><li class='carousel__item'><img src='/findMyRoom/resources/image/room1.png' alt=''></li><li class='carousel__item'><img src='/findMyRoom/resources/image/room2.png' alt=''></li><li class='carousel__item'><img src='/findMyRoom/resources/image/room3.png' alt=''></li><li class='carousel__item'><img src='/findMyRoom/resources/image/room4.png' alt=''></li><li class='carousel__item'><img src='/findMyRoom/resources/image/room3.png' alt=''></li></ul><div class='carousel__prev'><label for='carousel-1'></label><label for='carousel-2'></label><label for='carousel-3'></label><label for='carousel-4'></label><label for='carousel-5'></label></div><div class='carousel__next'><label for='carousel-1'></label><label for='carousel-2'></label><label for='carousel-3'></label><label for='carousel-4'></label><label for='carousel-5'></label></div><div class='carousel__nav'><label for='carousel-1'></label><label for='carousel-2'></label><label for='carousel-3'></label><label for='carousel-4'></label><label for='carousel-5'></label></div></div></div>");
+			//$(".room-list").append("<div class='container'><div class='carousel'><input type='radio' id='carousel-1' name='carousel[]' ><input type='radio' id='carousel-2' name='carousel[]'><input type='radio' id='carousel-3' name='carousel[]'><input type='radio' id='carousel-4' name='carousel[]'><input type='radio' id='carousel-5' name='carousel[]'><ul class='carousel__items'><li class='carousel__item'><img src='/findMyRoom/resources/image/room1.png' alt=''></li><li class='carousel__item'><img src='/findMyRoom/resources/image/room2.png' alt=''></li><li class='carousel__item'><img src='/findMyRoom/resources/image/room3.png' alt=''></li><li class='carousel__item'><img src='/findMyRoom/resources/image/room4.png' alt=''></li><li class='carousel__item'><img src='/findMyRoom/resources/image/room3.png' alt=''></li></ul><div class='carousel__prev'><label for='carousel-1'></label><label for='carousel-2'></label><label for='carousel-3'></label><label for='carousel-4'></label><label for='carousel-5'></label></div><div class='carousel__next'><label for='carousel-1'></label><label for='carousel-2'></label><label for='carousel-3'></label><label for='carousel-4'></label><label for='carousel-5'></label></div><div class='carousel__nav'><label for='carousel-1'></label><label for='carousel-2'></label><label for='carousel-3'></label><label for='carousel-4'></label><label for='carousel-5'></label></div></div></div>");
+			$(".room-list").append("<div class='container'><div class='carousel'><input type='radio' id='carousel-1' name='carousel[]' checked><ul class='carousel__items'><li class='carousel__item'><img src='" + filesPath[0] + "' alt=''></li></ul><div class='carousel__prev'><label for='carousel-1'></label></div><div class='carousel__next'><label for='carousel-1'></label></div><div class='carousel__nav'><label for='carousel-1'></label></div></div></div>");
+			for(let i = 1 ; i < data.fileList.length ; i++) {
+				$(".carousel input:last-of-type").after("<input type='radio' id='carousel-" + (i+1) + "' name='carousel[]'>");
+				$(".carousel__items").append("<li class='carousel__item'><img src='" + filesPath[i] + "' alt=''></li>");
+				$(".carousel__prev").append("<label for='carousel-" + (i+1) + "'></label>");
+				$(".carousel__next").append("<label for='carousel-" + (i+1) + "'></label>");
+				$(".carousel__nav").append("<label for='carousel-" + (i+1) + "'></label>");
+			}
 			/* 기본 정보(가격, 면적, 제목) */
 			$(".room-list").append("<div class='room-basic-info-1'><span class='label label-info room-status'>거래 가능</span><span class='room-create-date'>" + createDate + "</span></div><div class='room-basic-info-2'><h3 class='room-price'><b>" + price + "</b></h3><p class='room-no'>등록번호 " + no + "</p></div><hr><ul class='room-basic-info-3'><li class='room-exclusive-area'>면적(전용)<p class='info'>" + area + "m<sup>2</sup></p></li><li class='room-cost'>관리비<p class='info'>" + monthCost + "만원</p></li><li class='room-category'>구조<p class='info'>" + categoryName + "</p></li></ul><hr><p class='room-value title'>" + title + "</p><div class='divider-line'></div></article>")
 			/* 매물 정보(엘리베이터, 주차, 반려동물) */
@@ -320,7 +328,7 @@ function search() {
 				let floor = data[i].floor;
 				let formatFloor = floor.substring(0, floor.indexOf('/'));
 				let address = data[i].address;
-				let formatAddress = address.substring(address.indexOf(' ') + 1, address.indexOf('동') + 1);
+				let formatAddress = address.substring(address.indexOf(' ') + 1, address.indexOf('동 ') + 1);
 				let title = data[i].title;
 				let hostIndex = location.href.indexOf(location.host) + location.host.length;
 				let path = location.href.substring(hostIndex, location.href.indexOf('/', hostIndex + 1));

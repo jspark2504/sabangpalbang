@@ -91,8 +91,10 @@
 
                                   <!-- 매물 정보 -->
                                   <div class="info">
-                                    <!-- 매물번호 -->
+                                    <!-- input-hidden -->
                                   	<input type="hidden" id="roomNo" name="roomNo" value="${ room.no }" />
+                                  	<input type="hidden" name="address" value="${ room.address }" />
+                                  	<input type="hidden" name="price" value="${ room.formatPrice }" />
 
                                     <!-- 중개사 매물 관리 -->
                                     <c:if test="${ sessionScope.loginMember.role eq 'OFFICE' && requestScope.path eq 'management' }">
@@ -149,8 +151,8 @@
                     </c:if>
                 </section>
               </c:forEach>
-              
-              
+
+
             </section> <!-- 매물 목록 영역 end -->
         </section>
     </main>
