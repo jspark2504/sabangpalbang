@@ -117,28 +117,14 @@ public class MemberFindPwServlet extends HttpServlet {
       HttpSession saveKey = request.getSession();
       saveKey.setAttribute("AuthenticationKey", AuthenticationKey);// 로그인 세션에 담겨있음!!
       
-       request.setAttribute("email", email);
+      request.setAttribute("email", email);
       request.getRequestDispatcher(path).forward(request, response);   
       
    
    }
    
    
-   
-//   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        // TODO Auto-generated method stub
-//        String AuthenticationKey = (String)request.getSession().getAttribute("AuthenticationKey");
-//        String AuthenticationUser = request.getParameter("AuthenticationUser");
-//        if(!AuthenticationKey.equals(AuthenticationUser))
-//        {
-//            System.out.println("인증번호 일치하지 않음");
-//            request.setAttribute("mssage", "인증번호가 일치하지 않습니다");
-//            request.setAttribute("loc", "/member/searchPw");
-//            request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
-//            return;
-//        }
-        
-//   }
+
 }
 
 

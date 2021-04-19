@@ -184,6 +184,24 @@ public class MemberService {
 		
 	}
 
+	public int updatePwd(String email, String encryptPwd, String AuthenticationKey) {
+	Connection con = getConnection();
+		
+		int result = memberDAO.searchPw(con, AuthenticationKey, email);
+		
+		if(result > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return result;
+	
+	
+	}
+
 
 
 
