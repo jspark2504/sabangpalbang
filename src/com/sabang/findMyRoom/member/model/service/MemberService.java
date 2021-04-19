@@ -165,12 +165,13 @@ public class MemberService {
 		
 	}
 	
-	/*비밀번호 찾기 */
-	public int searchPw(String email, String AuthenticationKey) {
-		
+
+	//비번찾기
+	public int updatePwd(String email, String encryptPwd) {
+	
 		Connection con = getConnection();
 		
-		int result = memberDAO.searchPw(con, AuthenticationKey, email);
+		int result = memberDAO.updatePwd(con, email, encryptPwd);
 		
 		if(result > 0) {
 			commit(con);
@@ -181,25 +182,6 @@ public class MemberService {
 		close(con);
 		
 		return result;
-		
-	}
-
-	public int updatePwd(String email, String encryptPwd, String AuthenticationKey) {
-	Connection con = getConnection();
-		
-		int result = memberDAO.searchPw(con, AuthenticationKey, email);
-		
-		if(result > 0) {
-			commit(con);
-		} else {
-			rollback(con);
-		}
-		
-		close(con);
-		
-		return result;
-	
-	
 	}
 
 

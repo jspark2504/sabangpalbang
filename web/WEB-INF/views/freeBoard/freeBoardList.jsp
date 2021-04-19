@@ -17,7 +17,8 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/findMyRoom/resources/css/free_board.css?">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
+<style>
+</style>
 </head>
 <body>
 <jsp:include page="../common/header.jsp"/>
@@ -51,6 +52,7 @@
 	</div>
 	<!-- table-area end -->
 
+	<br><br><br>
 	<%-- 페이지 처리 --%>
 	<div class="text-center">
 		<ul class="pagination">

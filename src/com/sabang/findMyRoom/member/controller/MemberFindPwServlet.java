@@ -1,7 +1,5 @@
 package com.sabang.findMyRoom.member.controller;
 
-import javax.mail.*;
-
 import java.io.IOException;
 import java.util.Properties;
 import java.util.Random;
@@ -19,37 +17,34 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import com.sabang.findMyRoom.member.model.service.MemberService;
 
 
 @WebServlet("/member/findPw")
 public class MemberFindPwServlet extends HttpServlet {
    private static final long serialVersionUID = 1L;
-   
-
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       String path = "/WEB-INF/views/member/findPwForm.jsp";
-
-      request.getRequestDispatcher(path).forward(request, response);   
       
+      request.getRequestDispatcher(path).forward(request, response);
       
    }
    
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      
+       
       String path = "/WEB-INF/views/member/signin.jsp";
-      String userPwd = request.getParameter("uerPwd");
       String email = request.getParameter("email");
+//      String userId = new MemberService().searchId(email);
+//      String email = ((MemberDTO)request.getSession().getAttribute("loginMember")).getEmail();
 
-      int result = new MemberService().searchPw(email,userPwd);
-      
-      System.out.println(userPwd);
+      System.out.println(path);
       System.out.println(email);
-      System.out.println(result);
-      
+//      System.out.println(userId);
       
       // mail server 설정
-      String host = "smtp.naver.com"; //
+      String host = "smtp.naver.com"; //        
       String user = "yygyung@naver.com"; // 자신의 네이버 계정 
       String password = "qorhvk1207";// 자신의 네이버 패스워드
 
@@ -73,19 +68,21 @@ public class MemberFindPwServlet extends HttpServlet {
          int rIndex = rnd.nextInt(3);
          switch (rIndex) {
          case 0:
-             // a-z
-                temp.append((char) ((int) (rnd.nextInt(26)) + 97));
-                break;
+            // 0-9
+            temp.append((rnd.nextInt(10)));
+            break;
          case 1:
             // 0-9
-             // a-z
-                temp.append((char) ((int) (rnd.nextInt(26)) + 97));
-                break;
+            temp.append((rnd.nextInt(10)));
+            break;
          case 2:
             // 0-9
             temp.append((rnd.nextInt(10)));
             break;
-
+         case 3 :
+            // 0-9
+            temp.append((rnd.nextInt(10)));
+            break;
          }
       }
       String AuthenticationKey = temp.toString();
@@ -93,10 +90,11 @@ public class MemberFindPwServlet extends HttpServlet {
 
       Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
          protected PasswordAuthentication getPasswordAuthentication() {
-            return new PasswordAuthentication(user, password); //아이디 비번 반환
+            return new PasswordAuthentication(user, password); //관리자꺼
          }
       });
-
+      
+      
       // email 전송
       try {
          MimeMessage msg = new MimeMessage(session);// 관리자가 로그인 해야함
@@ -110,23 +108,31 @@ public class MemberFindPwServlet extends HttpServlet {
 
          Transport.send(msg);
          System.out.println("이메일 전송");
+         
+         
 
       } catch (Exception e) {
-         e.printStackTrace();
+         e.printStackTrace();// TODO: handle exception
       }
+      
+      BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+      String encryptPwd = passwordEncoder.encode(temp);
+      System.out.println("암호화 된 발급 비번 : " + encryptPwd);
+      int result = new MemberService().updatePwd(email, encryptPwd);
+      System.out.println("비번과 이멜 : " + email + encryptPwd);
+      
       HttpSession saveKey = request.getSession();
-      saveKey.setAttribute("AuthenticationKey", AuthenticationKey);// 로그인 세션에 담겨있음!!
+      saveKey.setAttribute("AuthenticationKey", encryptPwd);// 로그인 세션에 담겨있음!!
+      System.out.println("보내기전 입력받은 이메일 : " + email);
       
       request.setAttribute("email", email);
+      
       request.getRequestDispatcher(path).forward(request, response);   
       
-   
+      
    }
    
    
-
-}
-
-
    
-
+   
+}
