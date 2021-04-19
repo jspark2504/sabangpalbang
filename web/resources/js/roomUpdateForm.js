@@ -1,8 +1,9 @@
 /* 사진 추가 및 삭제 처리 */
 const $addBtn = document.getElementById("addImgBtn");
 
-let fileName = "file1";
 let i = 1;
+
+/* 사진 로드 */
 
 $addBtn.onclick = function () {
     $("input[name='" + fileName + "']").click();
