@@ -66,11 +66,11 @@ var  myChart = new Chart(cht, {
             data: data 
             ,parsing: { xAxisKey: 'name', yAxisKey: 'viewNo'
             },
-            backgroundColor: [ 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 255, 0, 0.2)', 'rgba(255, 0, 255, 0.2)', 'rgba(0, 255, 0, 0.2)'
+            backgroundColor: [ 'rgba(255, 99, 132, 0.6)', 'rgba(245, 165, 80, 0.6)', 'rgba(255, 206, 80, 0.6)', 'rgba(0, 215, 100, 0.6)', 'rgba(54, 162, 235, 0.6)'
             ],
-            borderColor: [ 'rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 255, 0, 1)', 'rgba(255, 0, 255, 1)', 'rgba(0, 255, 0, 1)'
+            borderColor: [ 'rgba(255, 99, 132, 0.6)', 'rgba(245, 165, 80, 0.6)', 'rgba(255, 206, 80, 0.6)', 'rgba(0, 215, 100, 0.6)', 'rgba(54, 162, 235, 0.6)'
             ],
-            borderWidth: 1
+            borderWidth: 0
        }]
     },
     options: {
