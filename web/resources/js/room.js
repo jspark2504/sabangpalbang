@@ -160,6 +160,21 @@ function showDetail(room) {
 			/* 매물 상세 페이지 추가 */
 			/* 헤드 */
 			$(".room-list").prepend("<section class='fixced-nav'><article class='room-detail-heading'><div class='room-detail-title'><span class='glyphicon glyphicon-menu-left' aria-hidden='true' onclick='showList();'></span><h4>" + shortAddress + "</h4></div><span class='glyphicon glyphicon glyphicon-heart empty' aria-hidden='true' onclick='wishList();'></span></article></section>");
+			/* 찜한 매물 표시 처리 */
+			$.ajax({
+				url: "/findMyRoom/room/wishlist",
+				type: "get",
+				data: { no : no },
+				success: function(data) {
+					if(data == 'Y') {
+						$(".glyphicon-heart").css('color', '#ff5959');
+					}
+				},
+				error: function(error) {
+					console.log(error);
+				}
+			});
+
 			/* 이미지 */
 			//$(".room-list").append("<div class='container'><div class='carousel'><input type='radio' id='carousel-1' name='carousel[]' ><input type='radio' id='carousel-2' name='carousel[]'><input type='radio' id='carousel-3' name='carousel[]'><input type='radio' id='carousel-4' name='carousel[]'><input type='radio' id='carousel-5' name='carousel[]'><ul class='carousel__items'><li class='carousel__item'><img src='/findMyRoom/resources/image/room1.png' alt=''></li><li class='carousel__item'><img src='/findMyRoom/resources/image/room2.png' alt=''></li><li class='carousel__item'><img src='/findMyRoom/resources/image/room3.png' alt=''></li><li class='carousel__item'><img src='/findMyRoom/resources/image/room4.png' alt=''></li><li class='carousel__item'><img src='/findMyRoom/resources/image/room3.png' alt=''></li></ul><div class='carousel__prev'><label for='carousel-1'></label><label for='carousel-2'></label><label for='carousel-3'></label><label for='carousel-4'></label><label for='carousel-5'></label></div><div class='carousel__next'><label for='carousel-1'></label><label for='carousel-2'></label><label for='carousel-3'></label><label for='carousel-4'></label><label for='carousel-5'></label></div><div class='carousel__nav'><label for='carousel-1'></label><label for='carousel-2'></label><label for='carousel-3'></label><label for='carousel-4'></label><label for='carousel-5'></label></div></div></div>");
 			$(".room-list").append("<div class='container'><div class='carousel'><input type='radio' id='carousel-1' name='carousel[]' checked><ul class='carousel__items'><li class='carousel__item'><img src='" + filesPath[0] + "' alt=''></li></ul><div class='carousel__prev'><label for='carousel-1'></label></div><div class='carousel__next'><label for='carousel-1'></label></div><div class='carousel__nav'><label for='carousel-1'></label></div></div></div>");
@@ -230,13 +245,46 @@ function showList() {
 function wishList(){
 
 		let heartColor = $(".glyphicon-heart").css('color');
+		let wish;
 
 		if(heartColor == 'rgb(196, 196, 196)') {
-			$(".glyphicon-heart").css('color', '#ff5959');
+			wish = 'Y';
 
 		} else {
-			$(".glyphicon-heart").css('color', '#c4c4c4');
+			wish = 'N';
 		}
+
+		let no = $('.room-no').text();
+		no = no.substring(5);
+		// alert(no);
+
+		$.ajax({
+			url: "/findMyRoom/room/wish",
+			type: "get",
+			data: {
+					no : no,
+					wish : wish
+			},
+			success: function() {
+
+				if(wish === 'Y') {
+					$(".glyphicon-heart").css('color', '#ff5959');
+
+				} else {
+					$(".glyphicon-heart").css('color', '#c4c4c4');
+
+					/* 찜한 매물 목록에서 찜 취소한 경우 새로고침 효과 */
+					let hostIndex = location.href.indexOf(location.host) + location.host.length;
+					let path = location.href.substring(hostIndex);
+					if(path == "/findMyRoom/room/list/wish") {
+						location.href = location.href;
+					}
+				}
+			},
+			error: function(error) {
+				console.log(error);
+			}
+		});
 }
 
 /* 카테고리 필터 */

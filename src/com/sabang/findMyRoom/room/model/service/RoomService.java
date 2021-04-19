@@ -215,4 +215,64 @@ public class RoomService {
 		return result;
 	}
 
+	/* 매물 찜하기 */
+	public int addWish(int roomNo, int memberNo) {
+
+		Connection con = getConnection();
+
+		int result = roomDAO.addWish(con, roomNo, memberNo);
+
+		if(result > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+
+		close(con);
+
+		return result;
+	}
+
+	/* 찜 취소하기 */
+	public int removeWish(int roomNo, int memberNo) {
+
+		Connection con = getConnection();
+
+		int result = roomDAO.removeWish(con, roomNo, memberNo);
+
+		if(result > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+
+		close(con);
+
+		return result;
+	}
+
+	/* 찜 여부 조회 */
+	public String selectWishlist(int roomNo, int memberNo) {
+
+		Connection con = getConnection();
+
+		String wish = roomDAO.selectWishlist(con, roomNo, memberNo);
+
+		close(con);
+
+		return wish;
+	}
+
+	/* 찜한 매물 목록 조회 */
+	public List<RoomDTO> selectRoomWishList(int memberNo) {
+
+		Connection con = getConnection();
+
+		List<RoomDTO> roomWishList = roomDAO.selectRoomWishList(con, memberNo);
+
+		close(con);
+
+		return roomWishList;
+	}
+
 }

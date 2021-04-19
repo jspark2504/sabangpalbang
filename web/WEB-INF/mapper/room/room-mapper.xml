@@ -242,8 +242,54 @@
           FROM TBL_ROOM_FILE A
          WHERE A.ROOM_NO = ?
            AND A.FILE_NO = ?
-
 	</entry>
+	<entry key="addWish">
+         INSERT /* com.sabang.findMyRoom.room.model.dao.RoomDAO#addWish() */
+          INTO TBL_PICK_ROOM A
+        (
+          A.USER_NO
+        , A.ROOM_NO
+        )
+        VALUES
+        (
+          ?
+        , ?
+        )
+	</entry>
+	<entry key="removeWish">
+        DELETE /* com.sabang.findMyRoom.room.model.dao.RoomDAO#removeWish() */
+          FROM TBL_PICK_ROOM A
+         WHERE A.USER_NO = ?
+           AND A.ROOM_NO = ?
+	</entry>
+	<entry key="selectWishlist">
+        SELECT /* com.sabang.findMyRoom.room.model.dao.RoomDAO#selectWishlist() */
+               A.USER_NO
+             , A.ROOM_NO
+          FROM TBL_PICK_ROOM A
+         WHERE A.USER_NO = ?
+           AND ROOM_NO = ?
+	</entry>
+	<entry key="selectRoomWishList">
+        SELECT /* com.sabang.findMyRoom.room.model.dao.RoomDAO#selectRoomWishList() */
+               A.ROOM_NO
+             , A.ROOM_PRICE
+             , A.EXCLUSIVE_AREA
+             , A.ADDRESS
+             , A.ROOM_FLOOR
+             , A.ROOM_TITLE
+             , B.THUMBNAIL_PATH
+          FROM TBL_ROOM A
+          JOIN TBL_ROOM_FILE B ON (A.ROOM_NO = B.ROOM_NO)
+          JOIN TBL_PICK_ROOM C ON (A.ROOM_NO = C.ROOM_NO)
+         WHERE A.ROOM_STATUS = 'Y'
+           AND B.FILE_NO = 1
+           AND C.USER_NO = ?
+         ORDER BY A.ROOM_NO DESC
+	</entry>
+	<entry key="">
+	</entry>
+
 
 
 </properties>

@@ -67,7 +67,7 @@
 					</li>
 					<hr />
 					<li>
-						<a href="">
+						<a href="${ pageContext.servletContext.contextPath }/room/list/wish">
 							찜한 매물
 						</a>
 					</li>

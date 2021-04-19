@@ -547,5 +547,134 @@ public class RoomDAO {
 		return result;
 	}
 
+	/* 찜하기 */
+	public int addWish(Connection con, int roomNo, int memberNo) {
+
+		PreparedStatement pstmt = null;
+		int result = 0;
+
+		String query = prop.getProperty("addWish");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, roomNo);
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+
+	/* 찜 취소 */
+	public int removeWish(Connection con, int roomNo, int memberNo) {
+
+		PreparedStatement pstmt = null;
+		int result = 0;
+
+		String query = prop.getProperty("removeWish");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, roomNo);
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+
+	/* 찜 여부 조회 */
+	public String selectWishlist(Connection con, int roomNo, int memberNo) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String wish = "";
+
+		String query = prop.getProperty("selectWishlist");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, roomNo);
+
+			rset = pstmt.executeQuery();
+
+			if(rset.next()) {
+				wish = "Y";
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+
+		return wish;
+	}
+
+	/* 찜한 매물 목록 조회 */
+	public List<RoomDTO> selectRoomWishList(Connection con, int memberNo) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		List<RoomDTO> roomWishList = null;
+
+		String query = prop.getProperty("selectRoomWishList");
+
+		try {
+
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, memberNo);
+
+			rset = pstmt.executeQuery();
+
+			roomWishList = new ArrayList<>();
+
+			while(rset.next()) {
+				RoomDTO room = new RoomDTO();
+				RoomFileDTO file = new RoomFileDTO();
+
+				room.setNo(rset.getInt("ROOM_NO"));
+				room.setPrice(rset.getInt("ROOM_PRICE"));
+				room.setArea(rset.getDouble("EXCLUSIVE_AREA"));
+				room.setAddress(rset.getString("ADDRESS"));
+				room.setFloor(rset.getString("ROOM_FLOOR"));
+				room.setTitle(rset.getString("ROOM_TITLE"));
+
+				file.setNo(1);
+				file.setThumbnailPath(rset.getString("THUMBNAIL_PATH"));
+
+				List<RoomFileDTO> fileList = new ArrayList<>();
+				fileList.add(file);
+
+				room.setFileList(fileList);
+
+				roomWishList.add(room);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+
+		return roomWishList;
+	}
+
 
 }
