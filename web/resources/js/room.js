@@ -37,6 +37,13 @@ $(document).ready(function(){
 /* 상세 페이지 조회 */
 function showDetail(room) {
 	const no = $(room).find("#roomNo").val();
+
+	/* 필터 비활성화 */
+	$('.check-icon').css('pointer-events','none')
+	//$('.check-icon').css('cursor','not-allowed')
+	$('.range-slider__range').css('pointer-events','none')
+	//$('.range-slider__range').css('cursor','not-allowed')
+
 	$.ajax({
 		url: "/findMyRoom/room/detail",
 		type: "get",
@@ -159,7 +166,7 @@ function showDetail(room) {
 
 			/* 매물 상세 페이지 추가 */
 			/* 헤드 */
-			$(".room-list").prepend("<section class='fixced-nav'><article class='room-detail-heading'><div class='room-detail-title'><span class='glyphicon glyphicon-menu-left' aria-hidden='true' onclick='showList();'></span><h4>" + shortAddress + "</h4></div><span class='glyphicon glyphicon glyphicon-heart empty' aria-hidden='true' onclick='wishList();'></span></article></section>");
+			$(".room-list").prepend("<section class='fixced-nav'><article id='test' class='room-detail-heading'><div class='room-detail-title'><span class='glyphicon glyphicon-menu-left' aria-hidden='true' onclick='showList();'></span><h4>" + shortAddress + "</h4></div><span class='glyphicon glyphicon glyphicon-heart empty' aria-hidden='true' onclick='wishList();'></span></article></section>");
 			/* 찜한 매물 표시 처리 */
 			$.ajax({
 				url: "/findMyRoom/room/wishlist",
@@ -231,6 +238,10 @@ function showList() {
 	$("hr").remove();
 	$(".container").remove();
 
+	/* 필터 활성화 */
+	$('.check-icon').css('pointer-events','auto')
+	$('.range-slider__range').css('pointer-events','auto')
+
 	/* 매물 목록 다시 표시 */
 	//$(".room-list h4").css('display', 'block');
 	//$(".room-list hr").css('display', 'block');
@@ -287,9 +298,21 @@ function wishList(){
 		});
 }
 
+let hostIndex = location.href.indexOf(location.host) + location.host.length;
+let path = location.href.substring(hostIndex);
+let isAvailable = (path != "/findMyRoom/room/list/wish" && path != "/findMyRoom/room/management");
+
+$(function(){
+	if(!isAvailable) {
+		$('.check-icon').css('cursor','not-allowed')
+		$('.range-slider__range').css('pointer-events','none')
+	}
+
+})
 /* 카테고리 필터 */
 function option(img){
 
+	if(isAvailable) {
 		let option = $(img).css('opacity');
 
 		if(option == '0.2') {
@@ -298,111 +321,110 @@ function option(img){
 		} else {
 			$(img).css('opacity', '0.2');
 		}
-
 		search();
+	}
 }
 
 function search() {
-	//alert('test');
-	const param = new URLSearchParams(location.search);
-	const category = param.get('category');
-	let washingMachine;
-	let refrigerator;
-	let airConditioner;
-	let gasStove;
-	let pet;
-	let elevator;
-	let parking;
-	let roomPrice = $('#roomPrice').val();
+		//alert('test');
+		const param = new URLSearchParams(location.search);
+		const category = param.get('category');
+		let washingMachine;
+		let refrigerator;
+		let airConditioner;
+		let gasStove;
+		let pet;
+		let elevator;
+		let parking;
+		let roomPrice = $('#roomPrice').val();
 
-	/* 엘리베이터 */
-	if($('#elevator').css('opacity') == '1') {
-		elevator = 'Y';
-	}
-	/* 주차 */
-	if($('#parking').css('opacity') == '1') {
-		parking = 'Y';
-	}
-	/* 반려동물 */
-	if($('#pet').css('opacity') == '1') {
-		pet = 'Y';
-	}
-	/* 세탁기 */
-	if($('#washingMachine').css('opacity') == '1') {
-		washingMachine = 'Y';
-	}
-	/* 냉장고 */
-	if($('#refrigerator').css('opacity') == '1') {
-		refrigerator = 'Y';
-	}
-	/* 에어컨 */
-	if($('#airConditioner').css('opacity') == '1') {
-		airConditioner = 'Y';
-	}
-	/* 가스레인지 */
-	if($('#gasStove').css('opacity') == '1') {
-		gasStove = 'Y';
-	}
-
-	//console.log(washingMachine, refrigerator, airConditioner, gasStove, pet, elevator, parking, roomPrice);
-	$.ajax({
-		url: "/findMyRoom/room/search",
-		type: "get",
-		data: {
-				category : category,
-				washingMachine : washingMachine,
-				refrigerator : refrigerator,
-				airConditioner : airConditioner,
-				gasStove : gasStove,
-				pet : pet,
-				elevator : elevator,
-				parking : parking,
-				roomPrice : roomPrice
-		},
-		success: function(data) {
-
-			/* 헤더 변경 */
-			let heading = "매물 목록 " + data.length + "개";
-			$(".room-list h4").text(heading);
-
-			/* 기존 목록 지우기 */
-			$(".room-area").remove();
-			$(".empty-search-list").remove();
-
-			/* 새로 목록 뿌리기 */
-			for(let i = 0 ; i < data.length ; i++) {
-				let no = data[i].no;
-				let price = data[i].formatPrice;
-				let area = Math.floor(data[i].area);
-				let floor = data[i].floor;
-				let formatFloor = floor.substring(0, floor.indexOf('/'));
-				let address = data[i].address;
-				let formatAddress = address.substring(address.indexOf(' ') + 1, address.indexOf('동 ') + 1);
-				let title = data[i].title;
-				let hostIndex = location.href.indexOf(location.host) + location.host.length;
-				let path = location.href.substring(hostIndex, location.href.indexOf('/', hostIndex + 1));
-				let filePath = path + data[i].fileList[0].thumbnailPath;
-
-//				console.log('price : ' + price);
-//				console.log('no : ' + no);
-//				console.log('area : ' + area);
-//				console.log('floor : ' + floor);
-//				console.log('address : ' + address);
-//				console.log('title : ' + title);
-//				console.log('filePath : ' + filePath);
-				$(".room-list").append("<section class='room-area'><article class='room-info'><ul onclick='showDetail(this);'><li class='room'><figure class='img'><img src='" + filePath + "' alt='대표사진'></figure><div class='info'><input type='hidden' id='roomNo' name='roomNo' value=" + no + " /><span class='price'>" + price + "</span><span class='area floor'>" + area + "m<sup>2</sup> ∙ " + formatFloor + "</span><span class='address'>" + formatAddress + "</span><span class='title'>" + title + "</span></div></li></ul></article></section>");
-			}
-
-			if(data.length == 0){
-				$(".room-list").append("<section class='empty-search-list'><img class='search-icon' src='data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGc+PGcgaWQ9IlBhcnRuZXJzX2NvbnRyaWJ1dGlvbl8yXyI+PGc+PHBhdGggZD0ibTIxMSA1MTJ2LTEyOS41bC0xMjAtOTB2LTUyLjVoMzMwdjUyLjVsLTEyMCA5MHY4NC41eiIgZmlsbD0iI2Y5ODg0NSIvPjwvZz48Zz48cGF0aCBkPSJtMjU2IDIxMGMtNDEuMzY3IDAtNzUtMzMuNjQ3LTc1LTc1czMzLjYzMy03NSA3NS03NSA3NSAzMy42NDcgNzUgNzUtMzMuNjMzIDc1LTc1IDc1eiIgZmlsbD0iI2ZmZGY0MCIvPjwvZz48Zz48cGF0aCBkPSJtMTM2IDkwYy0yNC44MTQgMC00NS0yMC4xODYtNDUtNDVzMjAuMTg2LTQ1IDQ1LTQ1IDQ1IDIwLjE4NiA0NSA0NS0yMC4xODYgNDUtNDUgNDV6IiBmaWxsPSIjZmZkZjQwIi8+PC9nPjxnPjxwYXRoIGQ9Im0zNzYgOTBjLTI0LjgxNCAwLTQ1LTIwLjE4Ni00NS00NXMyMC4xODYtNDUgNDUtNDUgNDUgMjAuMTg2IDQ1IDQ1LTIwLjE4NiA0NS00NSA0NXoiIGZpbGw9IiNmZmJlNDAiLz48L2c+PC9nPjxwYXRoIGQ9Im0yNTYgNDg5LjUgNDUtMjIuNXYtODQuNWwxMjAtOTB2LTUyLjVoLTE2NXoiIGZpbGw9IiNmZDVlNjAiLz48cGF0aCBkPSJtMzMxIDEzNWMwLTQxLjM1My0zMy42MzMtNzUtNzUtNzV2MTUwYzQxLjM2NyAwIDc1LTMzLjY0NyA3NS03NXoiIGZpbGw9IiNmZmJlNDAiLz48L2c+PC9zdmc+' /><p class='empty-search-list-message'>검색 조건에 맞는 매물이 없습니다.<br />옵션/전세 필터값을 변경해보세요!</p></section>");
-			}
-
-		},
-		error: function(error) {
-			console.log(error);
+		/* 엘리베이터 */
+		if($('#elevator').css('opacity') == '1') {
+			elevator = 'Y';
 		}
-	});
+		/* 주차 */
+		if($('#parking').css('opacity') == '1') {
+			parking = 'Y';
+		}
+		/* 반려동물 */
+		if($('#pet').css('opacity') == '1') {
+			pet = 'Y';
+		}
+		/* 세탁기 */
+		if($('#washingMachine').css('opacity') == '1') {
+			washingMachine = 'Y';
+		}
+		/* 냉장고 */
+		if($('#refrigerator').css('opacity') == '1') {
+			refrigerator = 'Y';
+		}
+		/* 에어컨 */
+		if($('#airConditioner').css('opacity') == '1') {
+			airConditioner = 'Y';
+		}
+		/* 가스레인지 */
+		if($('#gasStove').css('opacity') == '1') {
+			gasStove = 'Y';
+		}
 
+		//console.log(washingMachine, refrigerator, airConditioner, gasStove, pet, elevator, parking, roomPrice);
+		$.ajax({
+			url: "/findMyRoom/room/search",
+			type: "get",
+			data: {
+					category : category,
+					washingMachine : washingMachine,
+					refrigerator : refrigerator,
+					airConditioner : airConditioner,
+					gasStove : gasStove,
+					pet : pet,
+					elevator : elevator,
+					parking : parking,
+					roomPrice : roomPrice
+			},
+			success: function(data) {
+
+				/* 헤더 변경 */
+				let heading = "매물 목록 " + data.length + "개";
+				$(".room-list h4").text(heading);
+
+				/* 기존 목록 지우기 */
+				$(".room-area").remove();
+				$(".empty-search-list").remove();
+
+				/* 새로 목록 뿌리기 */
+				for(let i = 0 ; i < data.length ; i++) {
+					let no = data[i].no;
+					let price = data[i].formatPrice;
+					let area = Math.floor(data[i].area);
+					let floor = data[i].floor;
+					let formatFloor = floor.substring(0, floor.indexOf('/'));
+					let address = data[i].address;
+					let formatAddress = address.substring(address.indexOf(' ') + 1, address.indexOf('동 ') + 1);
+					let title = data[i].title;
+					let hostIndex = location.href.indexOf(location.host) + location.host.length;
+					let path = location.href.substring(hostIndex, location.href.indexOf('/', hostIndex + 1));
+					let filePath = path + data[i].fileList[0].thumbnailPath;
+
+	//				console.log('price : ' + price);
+	//				console.log('no : ' + no);
+	//				console.log('area : ' + area);
+	//				console.log('floor : ' + floor);
+	//				console.log('address : ' + address);
+	//				console.log('title : ' + title);
+	//				console.log('filePath : ' + filePath);
+					$(".room-list").append("<section class='room-area'><article class='room-info'><ul onclick='showDetail(this);'><li class='room'><figure class='img'><img src='" + filePath + "' alt='대표사진'></figure><div class='info'><input type='hidden' id='roomNo' name='roomNo' value=" + no + " /><span class='price'>" + price + "</span><span class='area floor'>" + area + "m<sup>2</sup> ∙ " + formatFloor + "</span><span class='address'>" + formatAddress + "</span><span class='title'>" + title + "</span></div></li></ul></article></section>");
+				}
+
+				if(data.length == 0){
+					$(".room-list").append("<section class='empty-search-list'><img class='search-icon' src='data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGc+PGcgaWQ9IlBhcnRuZXJzX2NvbnRyaWJ1dGlvbl8yXyI+PGc+PHBhdGggZD0ibTIxMSA1MTJ2LTEyOS41bC0xMjAtOTB2LTUyLjVoMzMwdjUyLjVsLTEyMCA5MHY4NC41eiIgZmlsbD0iI2Y5ODg0NSIvPjwvZz48Zz48cGF0aCBkPSJtMjU2IDIxMGMtNDEuMzY3IDAtNzUtMzMuNjQ3LTc1LTc1czMzLjYzMy03NSA3NS03NSA3NSAzMy42NDcgNzUgNzUtMzMuNjMzIDc1LTc1IDc1eiIgZmlsbD0iI2ZmZGY0MCIvPjwvZz48Zz48cGF0aCBkPSJtMTM2IDkwYy0yNC44MTQgMC00NS0yMC4xODYtNDUtNDVzMjAuMTg2LTQ1IDQ1LTQ1IDQ1IDIwLjE4NiA0NSA0NS0yMC4xODYgNDUtNDUgNDV6IiBmaWxsPSIjZmZkZjQwIi8+PC9nPjxnPjxwYXRoIGQ9Im0zNzYgOTBjLTI0LjgxNCAwLTQ1LTIwLjE4Ni00NS00NXMyMC4xODYtNDUgNDUtNDUgNDUgMjAuMTg2IDQ1IDQ1LTIwLjE4NiA0NS00NSA0NXoiIGZpbGw9IiNmZmJlNDAiLz48L2c+PC9nPjxwYXRoIGQ9Im0yNTYgNDg5LjUgNDUtMjIuNXYtODQuNWwxMjAtOTB2LTUyLjVoLTE2NXoiIGZpbGw9IiNmZDVlNjAiLz48cGF0aCBkPSJtMzMxIDEzNWMwLTQxLjM1My0zMy42MzMtNzUtNzUtNzV2MTUwYzQxLjM2NyAwIDc1LTMzLjY0NyA3NS03NXoiIGZpbGw9IiNmZmJlNDAiLz48L2c+PC9zdmc+' /><p class='empty-search-list-message'>검색 조건에 맞는 매물이 없습니다.<br />옵션/전세 필터값을 변경해보세요!</p></section>");
+				}
+
+			},
+			error: function(error) {
+				console.log(error);
+			}
+		});
 
 }
 
