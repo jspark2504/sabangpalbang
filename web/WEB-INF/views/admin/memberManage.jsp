@@ -53,6 +53,7 @@
 					  <th style="text-align: center;">전화번호</th>
 				      <th style="text-align: center;">회원구분</th>
 					  <th style="text-align: center;">가입신청일</th>
+					  <th style="text-align: center;">가입승인</th>
 					  <th style="text-align: center;">승인여부</th>
 					  <th style="text-align: center;">회원등록일</th>
 					  <th style="text-align: center;">회원상태</th>
@@ -70,6 +71,8 @@
 	                  <td align="center"><c:out value="${ member.role }"/></td>
 	                  <td align="center"><c:out value="${ member.applyDate }"/></td>
 	                  <td align="center"><c:out value="${ member.approval }"/></td>
+	                  <td align="center"><button value="${ member.no }" name="no" class="btns" onclick="postRequest('approvalOffice')">승인</button>
+	                  <button value="${ member.no }" name="no" class="btns" onclick="postRequest('rejectOffice')">거부</button></td>
 	                  <td align="center"><c:out value="${ member.enrollDate }"/></td>
 	                  <td align="center"><c:out value="${ member.status }"/></td>
 	                  <td align="center"><button value="${ member.no }" name="no" class="btns" onclick="postRequest('pauseMember')">정지</button>
@@ -278,6 +281,8 @@
 			switch(intent){
 			case "pauseMember" : requestPath += "/manage/pause"; break;
 			case "restoreMember" : requestPath += "/manage/restore"; break;
+			case "approvalOffice" : requestPath += "/manage/approval"; break;
+			case "rejectOffice" : requestPath += "/manage/reject"; break;
 			}
 			$form.action = requestPath;
 			$form.submit();

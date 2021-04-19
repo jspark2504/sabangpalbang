@@ -142,6 +142,52 @@ public class AdminDAO {
 
 			return result;
 		}
+
+		/* 중개사 가입승인 메소드 */
+		public int approvalOffice(Connection con, int no) {
+
+			PreparedStatement pstmt = null;
+			int result = 0;
+
+			String query = prop.getProperty("approvalOffice");
+
+			try {
+				pstmt = con.prepareStatement(query);
+				pstmt.setInt(1, no);
+
+				result = pstmt.executeUpdate();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+
+			return result;
+		}
+		
+		/* 중개사 가입거절 메소드 */
+		public int rejectOffice(Connection con, int no) {
+
+			PreparedStatement pstmt = null;
+			int result = 0;
+
+			String query = prop.getProperty("rejectOffice");
+
+			try {
+				pstmt = con.prepareStatement(query);
+				pstmt.setInt(1, no);
+
+				result = pstmt.executeUpdate();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+
+			return result;
+		}
 		
 	   /* 유저 정보 : 페이징 처리를 위한 전체 게시물 수 가져오는 메소드 */
 	   public int selectTotalCount(Connection con) {

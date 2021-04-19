@@ -17,6 +17,26 @@
              , A.PAGE_NAME
           FROM TBL_PAGE_COUNT A
 	</entry>
+
+	<entry key="approvalOffice">
+		UPDATE /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#approvalOffice() */
+	           TBL_USER A
+	       SET USER_STATUS = 'Y'
+             , APPROVAL_YN = 'Y'
+             , ENROLL_DATE = SYSDATE
+	     WHERE A.USER_ROLE = 'OFFICE'
+           AND A.USER_NO = ?
+	</entry>
+	<entry key="rejectOffice">
+	    UPDATE /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#rejectOffice() */
+	           TBL_USER A
+	       SET APPROVAL_YN = 'N'
+             , USER_STATUS = NULL
+             , ENROLL_DATE = NULL
+	     WHERE A.USER_ROLE = 'OFFICE'
+           AND A.USER_NO = ?
+	</entry>
+	
 	<entry key="pauseMember">
 	    UPDATE /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#deleteMember() */
 	           TBL_USER A

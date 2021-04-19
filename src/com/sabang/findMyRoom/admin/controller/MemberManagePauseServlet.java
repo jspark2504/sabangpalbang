@@ -37,7 +37,7 @@ public class MemberManagePauseServlet extends HttpServlet {
 	         }
 	      }
 	      
-	      /* 2. 전체 게시물 갯수 조회 */
+	      /* 2. 전체 회원 갯수 조회 */
 	      /* DB를 조회하여 게시 가능한 게시물의 총 갯수를 조회한다. */
 	      AdminService adminService = new AdminService();
 	      int totalCount = adminService.selectTotalCount();
@@ -68,6 +68,7 @@ public class MemberManagePauseServlet extends HttpServlet {
 	      
 	      request.getRequestDispatcher(path).forward(request, response);
 		}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		int no = Integer.valueOf(request.getParameter("no"));
