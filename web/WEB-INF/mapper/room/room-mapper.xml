@@ -89,31 +89,31 @@
           INTO TBL_ROOM A
         (
           A.ROOM_NO
-        , AROOM_PRICE
-        , AEXCLUSIVE_AREA
-        , AADDRESS
-        , ACATEGORY_NO
-        , AOFFICE_NO
-        , AROOM_FLOOR
-        , ADIRECTION
-        , AMONTH_COST
-        , AELECTRICITY_YN
-        , AGAS_YN
-        , AWATER_YN
-        , AINTERNET_YN
-        , ATV_YN
-        , ACONSTRUCTION_DATE
-        , AAVAILABLE_DATE
-        , AROOM_TITLE
-        , AROOM_EXPLANATION
-        , ATRANSPORTATION_INFO
-        , AWASHING_MACHINE_YN
-        , AREFRIGERATOR_YN
-        , AAIR_CONDITIONER_YN
-        , AGAS_STOVE_YN
-        , APET_YN
-        , AELEVATOR_YN
-        , APARKING_YN
+        , A.ROOM_PRICE
+        , A.EXCLUSIVE_AREA
+        , A.ADDRESS
+        , A.CATEGORY_NO
+        , A.OFFICE_NO
+        , A.ROOM_FLOOR
+        , A.DIRECTION
+        , A.MONTH_COST
+        , A.ELECTRICITY_YN
+        , A.GAS_YN
+        , A.WATER_YN
+        , A.INTERNET_YN
+        , A.TV_YN
+        , A.CONSTRUCTION_DATE
+        , A.AVAILABLE_DATE
+        , A.ROOM_TITLE
+        , A.ROOM_EXPLANATION
+        , A.TRANSPORTATION_INFO
+        , A.WASHING_MACHINE_YN
+        , A.REFRIGERATOR_YN
+        , A.AIR_CONDITIONER_YN
+        , A.GAS_STOVE_YN
+        , A.PET_YN
+        , A.ELEVATOR_YN
+        , A.PARKING_YN
         )
         VALUES
         (

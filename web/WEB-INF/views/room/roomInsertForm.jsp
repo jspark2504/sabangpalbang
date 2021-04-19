@@ -43,16 +43,7 @@
           </div>
         </figure>
         <div class="file-area">
-          <input type="file" name="file1" onchange="loadImg(this)" required>
-          <input type="file" name="file2" onchange="loadImg(this)">
-          <input type="file" name="file3" onchange="loadImg(this)">
-          <input type="file" name="file4" onchange="loadImg(this)">
-          <input type="file" name="file5" onchange="loadImg(this)">
-          <input type="file" name="file6" onchange="loadImg(this)">
-          <input type="file" name="file7" onchange="loadImg(this)">
-          <input type="file" name="file8" onchange="loadImg(this)">
-          <input type="file" name="file9" onchange="loadImg(this)">
-          <input type="file" name="file10" onchange="loadImg(this)">
+
         </div>
       </section><!-- 사진 등록 영역 end -->
 
