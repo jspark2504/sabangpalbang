@@ -37,7 +37,6 @@ public class AdminDAO {
 	   public int incrementPageCount(Connection con, int no) {
 
 		      PreparedStatement pstmt = null;
-			  ResultSet rset = null;
 
 		      int result = 0;
 		      String query = prop.getProperty("incrementPageCount");
@@ -76,12 +75,13 @@ public class AdminDAO {
 				pageCountList = new ArrayList<>();
 
 				while(rset.next()) {
-					
 					PageCountDTO pageCount = new PageCountDTO();
-					
+					pageCount.setCategory(new CategoryDTO());
+
 					pageCount.setPageNo(rset.getInt("PAGE_NO"));
-					pageCount.setPageName(rset.getString("PAGE_NAME"));
 					pageCount.setPageView(rset.getInt("PAGE_VIEW"));
+					pageCount.setPageDay(rset.getString("PAGE_DAY"));
+					pageCount.getCategory().setName(rset.getString("CATEGORY_NAME"));
 
 					pageCountList.add(pageCount);
 				}

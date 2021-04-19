@@ -12,20 +12,23 @@ import javax.servlet.http.HttpServletResponse;
 import com.sabang.findMyRoom.admin.model.dto.PageCountDTO;
 import com.sabang.findMyRoom.admin.model.service.AdminService;
 
-@WebServlet("/pagecount/List")
-public class PageCountListServlet extends HttpServlet {
+@WebServlet("/pagecount/List/notice")
+public class PageNoticeCountListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		List<PageCountDTO> pageCountList = new AdminService().selectPageViewCount();
 		
-		request.setAttribute("pageCountList1", pageCountList.get(0));
-		request.setAttribute("pageCountList2", pageCountList.get(1));
-		request.setAttribute("pageCountList3", pageCountList.get(2));
-		request.setAttribute("pageCountList4", pageCountList.get(3));
-		request.setAttribute("pageCountList5", pageCountList.get(4));
-		String path =  "/WEB-INF/views/admin/pagechart.jsp";
+		
+		request.setAttribute("pageCountList8" , pageCountList.get(7));
+		request.setAttribute("pageCountList9" , pageCountList.get(8));
+		request.setAttribute("pageCountList10" , pageCountList.get(9));
+		request.setAttribute("pageCountList11" , pageCountList.get(10));
+		request.setAttribute("pageCountList12" , pageCountList.get(11));
+		request.setAttribute("pageCountList13" , pageCountList.get(12));
+		request.setAttribute("pageCountList14" , pageCountList.get(13));
+		String path =  "/WEB-INF/views/admin/pagechartNotice.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 
 	

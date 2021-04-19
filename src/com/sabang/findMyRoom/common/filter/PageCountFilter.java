@@ -26,7 +26,7 @@ public class PageCountFilter implements Filter {
 	private final int infoNo = 3;
 	private final int freeNo = 4;
 	private final int roomNo = 5;
-	
+
 
 	public void destroy() {
 	}
@@ -36,7 +36,7 @@ public class PageCountFilter implements Filter {
 		HttpServletRequest hrequest = (HttpServletRequest) request;
 		String uri = hrequest.getRequestURI();
 		String intent = uri.replace(hrequest.getContextPath(), "");
-
+		
 		/* 주소의 필요한 부분만 추출 */
 		System.out.println("intent 필터 확인중 : " + intent);
 		AdminService adminService = new AdminService();
