@@ -1,12 +1,18 @@
 /* 사진 추가 및 삭제 처리 */
 const $addBtn = document.getElementById("addImgBtn");
 
-let fileName = "file1";
-let i = 1;
+let i = 1;	// 추가할 파일의 id 번호
 
 $addBtn.onclick = function () {
-	$(".file-area").append("<input type='file' name='files' id='file" + i + "' onchange='loadImg(this," + i + ")'>")
-    $(".file-area input:last-of-type").click();
+
+	/* 사진 최대 개수 제한 */
+	if(document.getElementsByName('files').length >= 10) {
+		alert('최대 등록 개수를 초과하였습니다.');
+
+	} else {
+		$(".file-area").append("<input type='file' name='files' id='file" + i + "' onchange='loadImg(this," + i + ")'>")
+	    $(".file-area input:last-of-type").click();
+	}
 };
 
 /* 이미지 미리보기 생성 */

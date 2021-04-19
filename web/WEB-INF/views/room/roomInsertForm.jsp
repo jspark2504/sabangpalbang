@@ -56,7 +56,7 @@
             <label for="price" class="col-lg-2 control-label">가격</label>
             <div class="col-lg-10">
               <div class="col-xs-10">
-                <input type="number" class="form-control" name="price" placeholder="Ex. 1억 5천만 원 → 15000">
+                <input type="number" class="form-control" name="price" placeholder="Ex. 1억 5천만 원 → 15000" required>
               </div>
               <div class="col-xs-2 unit">
                 만 원
@@ -68,7 +68,7 @@
             <label for="area" class="col-lg-2 control-label">전용면적</label>
             <div class="col-lg-10">
               <div class="col-xs-10">
-                <input type="number" class="form-control" name="area" placeholder="Ex. 22.6" step="0.1">
+                <input type="number" class="form-control" name="area" placeholder="Ex. 22.6" step="0.01" required>
               </div>
               <div class="col-xs-2 unit">
                 m<sup>2</sup>
@@ -80,7 +80,7 @@
             <label class="col-lg-2 control-label">주소</label>
             <div class="col-lg-10">
               <div class="col-xs-10">
-                <input type="text" id="address" class="form-control" name="address">
+                <input type="text" id="address" class="form-control" name="address" required>
               </div>
               <div class="col-xs-2 unit">
                 <button type="button" class="btn searchBtn" onclick="search();">검색</button>
@@ -102,7 +102,7 @@
             <div class="col-lg-10">
               <div class="col-xs-12">
                 <select class="form-control" name="category">
-                  <option value="1">원룸</option>
+                  <option value="1" selected>원룸</option>
                   <option value="2">1.5룸</option>
                   <option value="3">투룸</option>
                   <option value="4">쓰리룸</option>
@@ -118,7 +118,7 @@
             <label for="roomFloor" class="col-lg-2 control-label">층 정보</label>
             <div class="col-lg-10">
               <span class="col-xs-4">
-                <input type="number" class="form-control" name="roomFloor" placeholder="해당층">
+                <input type="number" class="form-control" name="roomFloor" placeholder="해당층" required>
               </span>
               <span class="col-xs-1 unit">
                 층
@@ -127,7 +127,7 @@
                 /
               </span>
               <span class="col-xs-4">
-                <input type="number" class="form-control" name="buildingFloor" placeholder="전체층">
+                <input type="number" class="form-control" name="buildingFloor" placeholder="전체층" required>
               </span>
               <span class="col-xs-1 unit">
                 층
@@ -139,7 +139,7 @@
             <label for="direction" class="col-lg-2 control-label">방향</label>
             <div class="col-lg-10">
               <div class="col-xs-12">
-                <input type="text" class="form-control" name="direction" placeholder="Ex. 남향">
+                <input type="text" class="form-control" name="direction" placeholder="Ex. 남향" required>
               </div>
             </div>
           </div>
@@ -148,7 +148,7 @@
             <label for="monthCost" class="col-lg-2 control-label">관리비</label>
             <div class="col-lg-10">
               <div class="col-xs-10">
-                <input type="number" class="form-control" name="monthCost" placeholder="Ex. 5만 원 → 5">
+                <input type="number" class="form-control" name="monthCost" placeholder="Ex. 5만 원 → 5" required>
               </div>
               <div class="col-xs-2 unit">
                 만 원
@@ -188,7 +188,7 @@
             <label for="constructionDate" class="col-lg-2 control-label">준공날짜</label>
             <div class="col-lg-10">
               <div class="col-xs-12">
-                <input type="date" class="form-control" name="constructionDate">
+                <input type="date" class="form-control" name="constructionDate" required>
               </div>
             </div>
           </div>
@@ -197,7 +197,7 @@
             <label for="availableDate" class="col-lg-2 control-label">입주가능일</label>
             <div class="col-lg-10">
               <div class="col-xs-12">
-                <input type="text" class="form-control" name="availableDate" placeholder="Ex. 즉시 입주">
+                <input type="text" class="form-control" name="availableDate" placeholder="Ex. 즉시 입주" required>
               </div>
             </div>
           </div>
@@ -206,7 +206,7 @@
             <label for="transportationInfo" class="col-lg-2 control-label">교통 정보</label>
             <div class="col-lg-10">
               <div class="col-xs-12">
-                <input type="text" class="form-control" name="transportationInfo" placeholder="Ex. 2호선 신림역 도보 5분, 인근 버스정류장 도보 3분">
+                <input type="text" class="form-control" name="transportationInfo" placeholder="Ex. 2호선 신림역 도보 5분, 인근 버스정류장 도보 3분" required>
               </div>
             </div>
           </div>
@@ -255,7 +255,7 @@
           <label for="" class="col-lg-1 control-label title">한 줄 소개</label>
           <div class="col-lg-11">
             <div class="col-xs-12">
-              <input name="title" class="form-control" placeholder="간략한 설명을 적어주세요."></input>
+              <input name="title" class="form-control" placeholder="간략한 설명을 적어주세요." required>
             </div>
           </div>
         </article>
@@ -264,7 +264,7 @@
           <label for="" class="col-lg-1 control-label title">상세 설명</label>
           <div class="col-lg-11">
             <div class="col-xs-12">
-              <textarea name="explanation" class="form-control" rows="5" placeholder="소개하고 싶은 내용을 자유롭게 적어주세요."></textarea>
+              <textarea name="explanation" class="form-control" rows="5" placeholder="소개하고 싶은 내용을 자유롭게 적어주세요." required></textarea>
             </div>
           </div>
         </article>
