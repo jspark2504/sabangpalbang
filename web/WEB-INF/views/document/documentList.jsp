@@ -27,7 +27,7 @@
 	input[type=file] {
 		display:none;
 	}
-	hr,h3{
+	#hr,h3{
 		color:rgba(0,0,0,0.6);
 		position:relative;
 		left:35px;
@@ -88,9 +88,10 @@
 <jsp:include page="../common/header.jsp"/>
 <div class="container">
 	<br>
+	<br>
 	<h3>&nbsp;&nbsp;&nbsp;&nbsp;내 서류</h3>
 	<button type="button" class="btn pull-right" onclick="location.href='${pageContext.servletContext.contextPath}/document/insert'">서류 등록</button>
-	<hr>
+	<hr id="hr">
 	<br>
 	<table>
 		<tr>
