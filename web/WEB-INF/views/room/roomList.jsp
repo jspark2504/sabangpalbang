@@ -92,7 +92,7 @@
                                   <!-- 매물 정보 -->
                                   <div class="info">
                                     <!-- input-hidden -->
-                                  	<input type="hidden" name="roomNo" value="${ room.no }" />
+                                  	<input type="hidden" id="roomNo" name="roomNo" value="${ room.no }" />
                                   	<input type="hidden" name="address" value="${ room.address }" />
                                   	<input type="hidden" name="price" value="${ room.formatPrice }" />
 
