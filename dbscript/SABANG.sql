@@ -164,21 +164,21 @@ VALUES (SEQ_USER_NO.NEXTVAL, 'office1', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzF
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE, APPLY_DATE, APPROVAL_YN, ENROLL_DATE, USER_STATUS)
 VALUES (SEQ_USER_NO.NEXTVAL, 'office2', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '이숭재', 'lsj@sabang.com', '01056785678', 'OFFICE', TO_DATE('21/03/24', 'RR/MM/DD'), 'Y', TO_DATE('21/03/25', 'RR/MM/DD'), 'Y');
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE, APPLY_DATE, APPROVAL_YN)
-VALUES (SEQ_USER_NO.NEXTVAL, 'office3', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '공지철', 'kjc@sabang.com', '01012345678', 'OFFICE', TO_DATE('21/04/05', 'RR/MM/DD'), 'N');
+VALUES (SEQ_USER_NO.NEXTVAL, 'office3', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '공지철', 'kjc@sabang.com', '01012345678', 'OFFICE', TO_DATE('21/03/26', 'RR/MM/DD'), 'N');
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE, APPLY_DATE, APPROVAL_YN)
-VALUES (SEQ_USER_NO.NEXTVAL, 'office4', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '서달미', 'sdm@sabang.com', '01012121212', 'OFFICE', TO_DATE('21/04/05', 'RR/MM/DD'), 'N');
+VALUES (SEQ_USER_NO.NEXTVAL, 'office4', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '서달미', 'sdm@sabang.com', '01012121212', 'OFFICE', TO_DATE('21/03/31', 'RR/MM/DD'), 'N');
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE, APPLY_DATE, APPROVAL_YN)
 VALUES (SEQ_USER_NO.NEXTVAL, 'office5', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '천서진', 'csj@sabang.com', '01013131313', 'OFFICE', TO_DATE('21/04/05', 'RR/MM/DD'), 'N');
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE, APPLY_DATE, APPROVAL_YN)
-VALUES (SEQ_USER_NO.NEXTVAL, 'office6', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '주단태', 'jdt@sabang.com', '01014141414', 'OFFICE', TO_DATE('21/04/05', 'RR/MM/DD'), 'N');
+VALUES (SEQ_USER_NO.NEXTVAL, 'office6', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '주단태', 'jdt@sabang.com', '01014141414', 'OFFICE', TO_DATE('21/04/13', 'RR/MM/DD'), 'N');
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE, APPLY_DATE)
-VALUES (SEQ_USER_NO.NEXTVAL, 'office7', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '박하미', 'phm@sabang.com', '01015151515', 'OFFICE', TO_DATE('21/04/05', 'RR/MM/DD'));
+VALUES (SEQ_USER_NO.NEXTVAL, 'office7', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '박하미', 'phm@sabang.com', '01015151515', 'OFFICE', TO_DATE('21/04/15', 'RR/MM/DD'));
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE, APPLY_DATE)
-VALUES (SEQ_USER_NO.NEXTVAL, 'office8', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '이민용', 'lmy@sabang.com', '01016161616', 'OFFICE', TO_DATE('21/04/05', 'RR/MM/DD'));
+VALUES (SEQ_USER_NO.NEXTVAL, 'office8', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '이민용', 'lmy@sabang.com', '01016161616', 'OFFICE', TO_DATE('21/04/17', 'RR/MM/DD'));
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE, APPLY_DATE)
-VALUES (SEQ_USER_NO.NEXTVAL, 'office9', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '정중앙', 'jja@sabang.com', '01017171717', 'OFFICE', TO_DATE('21/04/05', 'RR/MM/DD'));
+VALUES (SEQ_USER_NO.NEXTVAL, 'office9', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '정중앙', 'jja@sabang.com', '01017171717', 'OFFICE', TO_DATE('21/04/18', 'RR/MM/DD'));
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE, APPLY_DATE)
-VALUES (SEQ_USER_NO.NEXTVAL, 'office10', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '강유미', 'kum@sabang.com', '01018181818', 'OFFICE', TO_DATE('21/04/05', 'RR/MM/DD'));
+VALUES (SEQ_USER_NO.NEXTVAL, 'office10', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '강유미', 'kum@sabang.com', '01018181818', 'OFFICE', TO_DATE('21/04/20', 'RR/MM/DD'));
 
 COMMIT;
 
@@ -338,7 +338,12 @@ INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE,
   , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
 VALUES (SEQ_ROOM_NO.NEXTVAL, 50000000, 22.15, '서울 관악구 신림동 1537-1', TO_DATE('21/04/11', 'RR/MM/DD'), 1, 1, '4층/4층', '북향'
   , 80000, NULL, NULL, 'Y', 'Y', 'Y', TO_DATE('94/10/15', 'RR/MM/DD'), '즉시 입주', '◼대학동 메인거리 ◼화이트톤 분리형 ◼즉시입주가능 ◼리모델링'
-  , '◼리모델링 분리형 원룸입니다. ◼양창문이라 환기가 잘되고 깔끔합니다. ◼침대까지 풀옵션들어갑니다. ◼즉시입주 가능합니다. ◼앞이 안막혀있어 채광이 좋습니다. ◼대학동 모든학원들 가깝습니다 도보 3분안'
+  , '◼리모델링 분리형 원룸입니다.
+  ◼양창문이라 환기가 잘되고 깔끔합니다.
+  ◼침대까지 풀옵션들어갑니다.
+  ◼즉시입주 가능합니다.
+  ◼앞이 안막혀있어 채광이 좋습니다.
+  ◼대학동 모든학원들 가깝습니다 도보 3분안'
   , '인근 버스정류장 도보 1분', 'Y', 'Y', 'Y', 'Y', 'Y', NULL, NULL);
 
 INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE, CATEGORY_NO, OFFICE_NO, ROOM_FLOOR, DIRECTION
