@@ -100,31 +100,85 @@ VALUES (SEQ_USER_NO.NEXTVAL, 'yoo4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzF
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
 VALUES (SEQ_USER_NO.NEXTVAL, 'min4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '민코딩', 'min@sabang.com', '01022222222', TO_DATE('21/03/08', 'RR/MM/DD'), 'Y');
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
-VALUES (SEQ_USER_NO.NEXTVAL, 'kim4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '김코딩', 'kim@sabang.com', '01033333333', TO_DATE('21/03/14', 'RR/MM/DD'), 'Y');
+VALUES (SEQ_USER_NO.NEXTVAL, 'kim4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '김코딩', 'kim@sabang.com', '01033333333', TO_DATE('21/03/10', 'RR/MM/DD'), 'Y');
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
-VALUES (SEQ_USER_NO.NEXTVAL, 'lee4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '이코딩', 'lee@sabang.com', '01044444444', TO_DATE('21/03/19', 'RR/MM/DD'), 'Y');
+VALUES (SEQ_USER_NO.NEXTVAL, 'lee4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '이코딩', 'lee@sabang.com', '01044444444', TO_DATE('21/03/14', 'RR/MM/DD'), 'Y');
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
-VALUES (SEQ_USER_NO.NEXTVAL, 'yoon4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '윤코딩', 'yoon@sabang.com', '01055555555', TO_DATE('21/03/21', 'RR/MM/DD'), 'Y');
+VALUES (SEQ_USER_NO.NEXTVAL, 'yoon4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '윤코딩', 'yoon@sabang.com', '01055555555', TO_DATE('21/03/18', 'RR/MM/DD'), 'Y');
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
-VALUES (SEQ_USER_NO.NEXTVAL, 'park4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '박코딩', 'park@sabang.com', '01066666666', TO_DATE('21/03/27', 'RR/MM/DD'), 'Y');
+VALUES (SEQ_USER_NO.NEXTVAL, 'park4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '박코딩', 'park@sabang.com', '01066666666', TO_DATE('21/03/21', 'RR/MM/DD'), 'Y');
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
-VALUES (SEQ_USER_NO.NEXTVAL, 'choi4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '최코딩', 'choi@sabang.com', '01077777777', TO_DATE('21/03/29', 'RR/MM/DD'), 'Y');
+VALUES (SEQ_USER_NO.NEXTVAL, 'choi4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '최코딩', 'choi@sabang.com', '01077777777', TO_DATE('21/03/22', 'RR/MM/DD'), 'Y');
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
-VALUES (SEQ_USER_NO.NEXTVAL, 'jin4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '진코딩', 'jin@sabang.com', '01088888888', TO_DATE('21/04/03', 'RR/MM/DD'), 'Y');
+VALUES (SEQ_USER_NO.NEXTVAL, 'jin4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '진코딩', 'jin@sabang.com', '01088888888', TO_DATE('21/03/24', 'RR/MM/DD'), 'Y');
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
-VALUES (SEQ_USER_NO.NEXTVAL, 'han4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '한코딩', 'han@sabang.com', '01099999999', TO_DATE('21/04/06', 'RR/MM/DD'), 'Y');
+VALUES (SEQ_USER_NO.NEXTVAL, 'han4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '한코딩', 'han@sabang.com', '01099999999', TO_DATE('21/03/24', 'RR/MM/DD'), 'N');
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
-VALUES (SEQ_USER_NO.NEXTVAL, 'jeong4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '정코딩', 'jeong@sabang.com', '01011112222', TO_DATE('21/04/08', 'RR/MM/DD'), 'Y');
+VALUES (SEQ_USER_NO.NEXTVAL, 'jeong4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '정코딩', 'jeong@sabang.com', '01011112222', TO_DATE('21/03/27', 'RR/MM/DD'), 'Y');
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
-VALUES (SEQ_USER_NO.NEXTVAL, '123yeo', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '윤여경', 'yygyung@naver.com', '01011113333', TO_DATE('21/04/08', 'RR/MM/DD'), 'Y');
+VALUES (SEQ_USER_NO.NEXTVAL, '123yeo', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '윤여경', 'yygyung@naver.com', '01011113333', TO_DATE('21/03/30', 'RR/MM/DD'), 'Y');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
+VALUES (SEQ_USER_NO.NEXTVAL, 'kang4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '강코딩', 'kang@sabang.com', '01011114444', TO_DATE('21/03/31', 'RR/MM/DD'), 'Y');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
+VALUES (SEQ_USER_NO.NEXTVAL, 'jo4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '조코딩', 'jo@sabang.com', '01011115555', TO_DATE('21/04/01', 'RR/MM/DD'), 'Y');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
+VALUES (SEQ_USER_NO.NEXTVAL, 'jang4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '장코딩', 'jang@sabang.com', '01011116666', TO_DATE('21/04/03', 'RR/MM/DD'), 'Y');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
+VALUES (SEQ_USER_NO.NEXTVAL, 'lim4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '임코딩', 'lim@sabang.com', '01011117777', TO_DATE('21/04/05', 'RR/MM/DD'), 'Y');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
+VALUES (SEQ_USER_NO.NEXTVAL, 'bae4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '배코딩', 'bae@sabang.com', '01011118888', TO_DATE('21/04/05', 'RR/MM/DD'), 'N');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
+VALUES (SEQ_USER_NO.NEXTVAL, 'oh4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '오코딩', 'oh@sabang.com', '01011119999', TO_DATE('21/04/07', 'RR/MM/DD'), 'N');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
+VALUES (SEQ_USER_NO.NEXTVAL, 'seo4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '서코딩', 'seo@sabang.com', '01011110000', TO_DATE('21/04/09', 'RR/MM/DD'), 'Y');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
+VALUES (SEQ_USER_NO.NEXTVAL, 'shin4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '신코딩', 'shin@sabang.com', '01022221111', TO_DATE('21/04/10', 'RR/MM/DD'), 'Y');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
+VALUES (SEQ_USER_NO.NEXTVAL, 'kwon4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '권코딩', 'kwon@sabang.com', '01022223333', TO_DATE('21/04/11', 'RR/MM/DD'), 'Y');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
+VALUES (SEQ_USER_NO.NEXTVAL, 'hwang4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '황코딩', 'hwang@sabang.com', '01022224444', TO_DATE('21/04/11', 'RR/MM/DD'), 'N');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
+VALUES (SEQ_USER_NO.NEXTVAL, 'ahn4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '안코딩', 'ahn@sabang.com', '01022225555', TO_DATE('21/04/12', 'RR/MM/DD'), 'N');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
+VALUES (SEQ_USER_NO.NEXTVAL, 'song4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '송코딩', 'song@sabang.com', '01022226666', TO_DATE('21/04/13', 'RR/MM/DD'), 'Y');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
+VALUES (SEQ_USER_NO.NEXTVAL, 'jeon4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '전코딩', 'jeon@sabang.com', '01022227777', TO_DATE('21/04/13', 'RR/MM/DD'), 'Y');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
+VALUES (SEQ_USER_NO.NEXTVAL, 'hong4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '홍코딩', 'hong@sabang.com', '01022228888', TO_DATE('21/04/15', 'RR/MM/DD'), 'Y');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
+VALUES (SEQ_USER_NO.NEXTVAL, 'ko4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '고코딩', 'ko@sabang.com', '01022229999', TO_DATE('21/04/16', 'RR/MM/DD'), 'N');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
+VALUES (SEQ_USER_NO.NEXTVAL, 'moon4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '문코딩', 'moon@sabang.com', '01022220000', TO_DATE('21/04/16', 'RR/MM/DD'), 'Y');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
+VALUES (SEQ_USER_NO.NEXTVAL, 'yang4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '양코딩', 'yang@sabang.com', '01033331111', TO_DATE('21/04/17', 'RR/MM/DD'), 'Y');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
+VALUES (SEQ_USER_NO.NEXTVAL, 'son4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '손코딩', 'son@sabang.com', '01033332222', TO_DATE('21/04/18', 'RR/MM/DD'), 'Y');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
+VALUES (SEQ_USER_NO.NEXTVAL, 'cheon4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '천코딩', 'cheon@sabang.com', '01033334444', TO_DATE('21/04/19', 'RR/MM/DD'), 'Y');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, ENROLL_DATE, USER_STATUS)
+VALUES (SEQ_USER_NO.NEXTVAL, 'no4848', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '노코딩', 'no@sabang.com', '01033335555', TO_DATE('21/04/20', 'RR/MM/DD'), 'Y');
 
 -- 중개사 회원 샘플 추가
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE, APPLY_DATE, APPROVAL_YN, ENROLL_DATE, USER_STATUS)
 VALUES (SEQ_USER_NO.NEXTVAL, 'office1', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '나문휘', 'nmh@sabang.com', '01012341234', 'OFFICE', TO_DATE('21/03/08', 'RR/MM/DD'), 'Y', TO_DATE('21/03/10', 'RR/MM/DD'), 'Y');
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE, APPLY_DATE, APPROVAL_YN, ENROLL_DATE, USER_STATUS)
 VALUES (SEQ_USER_NO.NEXTVAL, 'office2', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '이숭재', 'lsj@sabang.com', '01056785678', 'OFFICE', TO_DATE('21/03/24', 'RR/MM/DD'), 'Y', TO_DATE('21/03/25', 'RR/MM/DD'), 'Y');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE, APPLY_DATE, APPROVAL_YN)
+VALUES (SEQ_USER_NO.NEXTVAL, 'office3', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '공지철', 'kjc@sabang.com', '01012345678', 'OFFICE', TO_DATE('21/04/05', 'RR/MM/DD'), 'N');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE, APPLY_DATE, APPROVAL_YN)
+VALUES (SEQ_USER_NO.NEXTVAL, 'office4', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '서달미', 'sdm@sabang.com', '01012121212', 'OFFICE', TO_DATE('21/04/05', 'RR/MM/DD'), 'N');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE, APPLY_DATE, APPROVAL_YN)
+VALUES (SEQ_USER_NO.NEXTVAL, 'office5', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '천서진', 'csj@sabang.com', '01013131313', 'OFFICE', TO_DATE('21/04/05', 'RR/MM/DD'), 'N');
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE, APPLY_DATE, APPROVAL_YN)
+VALUES (SEQ_USER_NO.NEXTVAL, 'office6', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '주단태', 'jdt@sabang.com', '01014141414', 'OFFICE', TO_DATE('21/04/05', 'RR/MM/DD'), 'N');
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE, APPLY_DATE)
-VALUES (SEQ_USER_NO.NEXTVAL, 'office3', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '공지철', 'kjc@sabang.com', '01012345678', 'OFFICE', TO_DATE('21/04/05', 'RR/MM/DD'));
+VALUES (SEQ_USER_NO.NEXTVAL, 'office7', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '박하미', 'phm@sabang.com', '01015151515', 'OFFICE', TO_DATE('21/04/05', 'RR/MM/DD'));
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE, APPLY_DATE)
+VALUES (SEQ_USER_NO.NEXTVAL, 'office8', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '이민용', 'lmy@sabang.com', '01016161616', 'OFFICE', TO_DATE('21/04/05', 'RR/MM/DD'));
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE, APPLY_DATE)
+VALUES (SEQ_USER_NO.NEXTVAL, 'office9', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '정중앙', 'jja@sabang.com', '01017171717', 'OFFICE', TO_DATE('21/04/05', 'RR/MM/DD'));
+INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE, APPLY_DATE)
+VALUES (SEQ_USER_NO.NEXTVAL, 'office10', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '강유미', 'kum@sabang.com', '01018181818', 'OFFICE', TO_DATE('21/04/05', 'RR/MM/DD'));
 
 COMMIT;
 
@@ -170,9 +224,9 @@ COMMENT ON COLUMN TBL_OFFICE.OFFICE_RATING IS '평점';
 COMMENT ON COLUMN TBL_OFFICE.USER_NO IS '대표중개사';
 
 INSERT INTO TBL_OFFICE (OFFICE_NO, OFFICE_NAME, OFFICE_ADDR, OFFICE_PHONE, BUSINESS_NO, OFFICE_RATING, USER_NO)
-VALUES (SEQ_OFFICE_NO.NEXTVAL, '402 공인중개사', '관악구 국회단지 29-11', '02-1234-5678', 9102034212346, 4.9, 13);
+VALUES (SEQ_OFFICE_NO.NEXTVAL, '402 공인중개사', '관악구 국회단지 29-11', '02-1234-5678', 9102034212346, 4.9, 33);
 INSERT INTO TBL_OFFICE (OFFICE_NO, OFFICE_NAME, OFFICE_ADDR, OFFICE_PHONE, BUSINESS_NO, OFFICE_RATING, USER_NO)
-VALUES (SEQ_OFFICE_NO.NEXTVAL, '짱조아 공인중개사', '관악구 국회단지 29-22', '02-1234-5012', 9102034234539, 4.7, 14);
+VALUES (SEQ_OFFICE_NO.NEXTVAL, '짱조아 공인중개사', '관악구 국회단지 29-22', '02-1234-5012', 9102034234539, 4.3, 34);
 
 COMMIT;
 
@@ -277,17 +331,43 @@ CREATE TABLE TBL_ROOM(
   COMMENT ON COLUMN TBL_ROOM.PARKING_YN IS '주차가능여부';
   COMMENT ON COLUMN TBL_ROOM.VIEW_NO IS '조회수';
 
+-- 원룸
 INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE, CATEGORY_NO, OFFICE_NO, ROOM_FLOOR, DIRECTION
   , MONTH_COST, ELECTRICITY_YN, GAS_YN, WATER_YN, INTERNET_YN, TV_YN, CONSTRUCTION_DATE, AVAILABLE_DATE, ROOM_TITLE
   , ROOM_EXPLANATION
   , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
 VALUES (SEQ_ROOM_NO.NEXTVAL, 50000000, 22.15, '서울 관악구 신림동 1537-1', TO_DATE('21/04/11', 'RR/MM/DD'), 1, 1, '4층/4층', '북향'
-  , 80000, NULL, NULL, 'Y', 'Y', 'Y', TO_DATE('94/10/15', 'RR/MM/DD'), '즉시 입주', '?대학동 메인거리 ?화이트톤 분리형 ??즉시입주가능 ??리모델링?????'
-  , '? 리모델링 분리형 원룸입니다.<br>? 양창문이라 환기가 잘되고 깔끔합니다.<br>? 침대까지 풀옵션들어갑니다.<br>? 즉시입주 가능합니다.<br>? 앞이 안막혀있어 채광이 좋습니다.<br>? 대학동 모든학원들 가깝습니다 도보 3분안'
+  , 80000, NULL, NULL, 'Y', 'Y', 'Y', TO_DATE('94/10/15', 'RR/MM/DD'), '즉시 입주', '◼대학동 메인거리 ◼화이트톤 분리형 ◼즉시입주가능 ◼리모델링'
+  , '◼리모델링 분리형 원룸입니다. ◼양창문이라 환기가 잘되고 깔끔합니다. ◼침대까지 풀옵션들어갑니다. ◼즉시입주 가능합니다. ◼앞이 안막혀있어 채광이 좋습니다. ◼대학동 모든학원들 가깝습니다 도보 3분안'
   , '인근 버스정류장 도보 1분', 'Y', 'Y', 'Y', 'Y', 'Y', NULL, NULL);
-  
-  
 
+INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE, CATEGORY_NO, OFFICE_NO, ROOM_FLOOR, DIRECTION
+  , MONTH_COST, ELECTRICITY_YN, GAS_YN, WATER_YN, INTERNET_YN, TV_YN, CONSTRUCTION_DATE, AVAILABLE_DATE, ROOM_TITLE
+  , ROOM_EXPLANATION
+  , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
+VALUES (SEQ_ROOM_NO.NEXTVAL, 150000000, 23, '서울 동작구 사당동 304-1', TO_DATE('21/04/19', 'RR/MM/DD'), 1, 2, '3층/4층', '남향'
+  , 80000, NULL, NULL, 'Y', 'Y', 'Y', TO_DATE('21/01/06', 'RR/MM/DD'), '즉시 입주', '▶중소기업,버팀목,전세대출 가능◀신축첫입주/큰방/남향큰창문'
+  , '▣ 구조 및 특징 ▣
+
+= 중소기업, 버팀목, 카카오뱅크, 청년맞춤, 일반 전세자금대출 모두 가능!!
+= 보증금 조절 자유롭게 가능 (월세 진행 가능).
+= 2021 신축 첫 입주.
+= 동 가격대 가장 큰 평수.
+= 화이트톤 인테리어.
+= 가격대비 평수가 커서 짐이 많은 분들께 강추.
+= 빌트인 옵션이 깔끔하게 들어가 있어 활용공간 우수.
+= 남성역 7호선 역세권.
+
+▣ 교통 및 주변환경 ▣
+
+= 남성역 7호선 도보 8분.
+= 각종 편의시설이 가깝게 배치되어 있어 도보로 이용 가능합니다 - 영화관, 백화점, 시장, 마트, 편의점, 세탁소 등.
+= 주변 먹자골목 및 시장이 있어 식료품 구매 및 식사 용이.
+= 여성안전시스템으로 집주변 CCTV 24시간 작동중입니다!'
+  , '남성역(7호선), 낙성대역(2호선), 사당역(2호선,4호선)', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y');
+
+
+-- 1.5룸
 INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE, CATEGORY_NO, OFFICE_NO, ROOM_FLOOR, DIRECTION
   , MONTH_COST, ELECTRICITY_YN, GAS_YN, WATER_YN, INTERNET_YN, TV_YN, CONSTRUCTION_DATE, AVAILABLE_DATE, ROOM_TITLE
   , ROOM_EXPLANATION
@@ -298,12 +378,12 @@ VALUES (SEQ_ROOM_NO.NEXTVAL, 70000000, 22.15, '서울 관악구 신림동 1537-1
   , '인근 버스정류장 도보 1분', 'Y', 'Y', 'Y', 'Y', 'Y', NULL, NULL);
 
 
--- 투룸 관련 인서트!!
+-- 투룸
 INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE, CATEGORY_NO, OFFICE_NO, ROOM_FLOOR, DIRECTION
   , MONTH_COST, ELECTRICITY_YN, GAS_YN, WATER_YN, INTERNET_YN, TV_YN, CONSTRUCTION_DATE, AVAILABLE_DATE, ROOM_TITLE
   , ROOM_EXPLANATION
   , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
-VALUES (SEQ_ROOM_NO.NEXTVAL, 100000000, 10, '관악구 신림동 251-207', TO_DATE('21/04/18', 'RR/MM/DD'), 3, 1, '1층/3층'
+VALUES (SEQ_ROOM_NO.NEXTVAL, 100000000, 10, '서울 관악구 신림동 251-207', TO_DATE('21/04/18', 'RR/MM/DD'), 3, 1, '1층/3층'
 , '남서향', 50000, 'Y', 'Y', 'Y', 'Y', 'Y', TO_DATE('18/06/28', 'RR/MM/DD'), '즉시 입주'
 ,'1. 대학동 메인거리 2. 투룸 3. 즉시 입주가능 4. 반려동물 거주 가능'
 , '대학동쪽 위치한 투룸입니다. 전용주차가 가능한 주차시설이 있습니다. 주변 편의시설이 많고 주택가라 조용합니다. 즉시 입주 가능합니다. 반려동물과 함께 거주 가능합니다.'
@@ -313,7 +393,7 @@ INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE,
   , MONTH_COST, ELECTRICITY_YN, GAS_YN, WATER_YN, INTERNET_YN, TV_YN, CONSTRUCTION_DATE, AVAILABLE_DATE, ROOM_TITLE
   , ROOM_EXPLANATION
   , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
-VALUES (SEQ_ROOM_NO.NEXTVAL, 120000000, 10, '관악구 신림동 592-19', TO_DATE('21/04/14', 'RR/MM/DD'), 3, 1, '2층/3층'
+VALUES (SEQ_ROOM_NO.NEXTVAL, 120000000, 10, '서울 관악구 신림동 592-19', TO_DATE('21/04/14', 'RR/MM/DD'), 3, 1, '2층/3층'
 , '북동향', 50000, 'Y', 'Y', 'Y', 'Y', 'Y', TO_DATE('90/12/14', 'RR/MM/DD'), '2021/05/07 이후'
 ,'1. 투룸 올수리 예정! 2. 생활 환경 굿! 3. 신림동'
 , '난우초등학교 인근입니다. 생활편의 시설이 가까이에 있습니다. 버스이용 용이합니다. 입주전 올수리 예정입니다.'
@@ -323,7 +403,7 @@ INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE,
   , MONTH_COST, ELECTRICITY_YN, GAS_YN, WATER_YN, INTERNET_YN, TV_YN, CONSTRUCTION_DATE, AVAILABLE_DATE, ROOM_TITLE
   , ROOM_EXPLANATION
   , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
-VALUES (SEQ_ROOM_NO.NEXTVAL, 130000000, 9, '관악구 봉천동 670-8', TO_DATE('21/04/17', 'RR/MM/DD'), 3, 1, '반지하/3층'
+VALUES (SEQ_ROOM_NO.NEXTVAL, 130000000, 9, '서울 관악구 봉천동 670-8', TO_DATE('21/04/17', 'RR/MM/DD'), 3, 1, '반지하/3층'
 , '남서향', 70000, 'Y', 'Y', 'Y', 'Y', 'Y', TO_DATE('15/12/08', 'RR/MM/DD'), '2021/05/12 이후'
 ,'1. 대학동 메인거리 2. 깔끔하고 저렴한 투룸이에요. 3. 2호선 역세권'
 , '대학동쪽 위치한 투룸입니다. 신림역까지 도보로 13분 소요. 집도 깔끔하며, 답답한 느낌이 안들어요. 대로변이랑 인접하며 마트도 가깝습니다. 집 근처에 파출소도 있고, 가정집들이 많은 지역이라서 치안부분도 안전합니다.'
@@ -333,7 +413,7 @@ INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE,
   , MONTH_COST, ELECTRICITY_YN, GAS_YN, WATER_YN, INTERNET_YN, TV_YN, CONSTRUCTION_DATE, AVAILABLE_DATE, ROOM_TITLE
   , ROOM_EXPLANATION
   , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
-VALUES (SEQ_ROOM_NO.NEXTVAL, 120000000, 11, '관악구 신림동 412-324', TO_DATE('21/04/18', 'RR/MM/DD'), 3, 1, '1층/2층'
+VALUES (SEQ_ROOM_NO.NEXTVAL, 120000000, 11, '서울 관악구 신림동 412-324', TO_DATE('21/04/18', 'RR/MM/DD'), 3, 1, '1층/2층'
 , '남서향', 60000, 'Y', 'Y', 'Y', 'Y', 'Y', TO_DATE('91/04/06', 'RR/MM/DD'), '즉시 입주'
 ,'1. 입주전 수리 예정 2. 투룸+서비스룸 ?즉시 입주가능'
 , '주택가라 조용합니다. 마트등 편의시설은 도보 1분내에 위치합니다 신림역으로가는 버스 정류장 또한 도보1분에 있습니다. 버스타고 역으로 가실경우 약 8분정도 소요됩니다. 배차간격은 약  3~5분정도 됩니다.'
@@ -343,13 +423,14 @@ INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE,
   , MONTH_COST, ELECTRICITY_YN, GAS_YN, WATER_YN, INTERNET_YN, TV_YN, CONSTRUCTION_DATE, AVAILABLE_DATE, ROOM_TITLE
   , ROOM_EXPLANATION
   , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
-VALUES (SEQ_ROOM_NO.NEXTVAL, 150000000, 13, '관악구 남현동 1072-15', TO_DATE('21/04/18', 'RR/MM/DD'), 3, 1, '2층/2층'
+VALUES (SEQ_ROOM_NO.NEXTVAL, 150000000, 13, '서울 관악구 남현동 1072-15', TO_DATE('21/04/18', 'RR/MM/DD'), 3, 1, '2층/2층'
 , '남동향', 50000, 'Y', 'Y', 'Y', 'Y', 'Y', TO_DATE('18/06/28', 'RR/MM/DD'), '즉시 입주'
 ,'1. 풀옵션 투룸 2. 반려동물가능 3. 즉시 입주가능'
 , '풀옵션 리모델링 투룸. 반려동물가능. 입주날짜는 즉시입주 가능. 즉시 입주 가능합니다. 주변에 각종편의시설 인접, 사당역 도보이용 풀옵션(세탁기, 냉장고, 에어컨, 가스렌지 등). 사진에는 없지만 옵션 넣어드립니다.'
 , '사당역(2호선,4호선), 낙성대역(2호선), 남성역(7호선)', 'Y', 'Y', 'Y', 'Y', 'Y', NULL, 'Y');
--- 투름 끝
-  
+
+-- 쓰리룸
+
 COMMIT;
 
 --매물첨부파일--
@@ -370,6 +451,7 @@ CREATE TABLE TBL_ROOM_FILE(
   COMMENT ON COLUMN TBL_ROOM_FILE.SAVE_PATH IS '저장경로';
   COMMENT ON COLUMN TBL_ROOM_FILE.THUMBNAIL_PATH IS '썸네일저장경로';
 
+-- 원룸
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (1, 1, 'room1file1.png', 'room1file1.png', '/resources/upload/room/original/room1file1.png', '/resources/upload/room/thumbnail/room1file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
@@ -383,94 +465,102 @@ VALUES (1, 5, 'room1file5.png', 'room1file5.png', '/resources/upload/room/origin
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (1, 6, 'room1file6.png', 'room1file6.png', '/resources/upload/room/original/room1file6.png', '/resources/upload/room/thumbnail/room1file6.png');
 
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (2, 1, 'room1file1.png', 'room1file1.png', '/resources/upload/room/original/room1file1.png', '/resources/upload/room/thumbnail/room1file1.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (2, 2, 'room1file2.png', 'room1file2.png', '/resources/upload/room/original/room1file2.png', '/resources/upload/room/thumbnail/room1file2.png');
 
--- 투룸관련 인서트!!
+-- 1.5룸
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (2, 1, 'tworoom1file1.png', 'tworoom1file1.png', '/resources/upload/room/original/tworoom1file1.png', '/resources/upload/room/thumbnail/tworoom1file1.png');
+VALUES (3, 1, '1.5room_1.png', '1.5room_1.png', '/resources/upload/room/original/1.5room_1.png', '/resources/upload/room/thumbnail/1.5room_1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (2, 2, 'tworoom1file2.png', 'tworoom1file2.png', '/resources/upload/room/original/tworoom1file2.png', '/resources/upload/room/thumbnail/tworoom1file2.png');
+VALUES (3, 2, '1.5room_2.png', '1.5room_2.png', '/resources/upload/room/original/1.5room_2.png', '/resources/upload/room/thumbnail/1.5room_2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (2, 3, 'tworoom1file3.png', 'tworoom1file3.png', '/resources/upload/room/original/tworoom1file3.png', '/resources/upload/room/thumbnail/tworoom1file3.png');
+VALUES (3, 3, '1.5room_3.png', '1.5room_3.png', '/resources/upload/room/original/1.5room_3.png', '/resources/upload/room/thumbnail/1.5room_3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (2, 4, 'tworoom1file4.png', 'tworoom1file4.png', '/resources/upload/room/original/tworoom1file4.png', '/resources/upload/room/thumbnail/tworoom1file4.png');
+VALUES (3, 4, '1.5room_4.png', '1.5room_4.png', '/resources/upload/room/original/1.5room_4.png', '/resources/upload/room/thumbnail/1.5room_4.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (2, 5, 'tworoom1file5.png', 'tworoom1file5.png', '/resources/upload/room/original/tworoom1file5.png', '/resources/upload/room/thumbnail/tworoom1file5.png');
+VALUES (3, 5, '1.5room_5.png', '1.5room_5.png', '/resources/upload/room/original/1.5room_5.png', '/resources/upload/room/thumbnail/1.5room_5.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (2, 6, 'tworoom1file6.png', 'tworoom1file6.png', '/resources/upload/room/original/tworoom1file6.png', '/resources/upload/room/thumbnail/tworoom1file6.png');
-INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (2, 7, 'tworoom1file7.png', 'tworoom1file7.png', '/resources/upload/room/original/tworoom1file7.png', '/resources/upload/room/thumbnail/tworoom1file7.png');
+VALUES (3, 6, '1.5room_6.png', '1.5room_6.png', '/resources/upload/room/original/1.5room_6.png', '/resources/upload/room/thumbnail/1.5room_6.png');
 
+-- 투룸
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (3, 1, 'tworoom2file1.png', 'tworoom2file1.png', '/resources/upload/room/original/tworoom2file1.png', '/resources/upload/room/thumbnail/tworoom2file1.png');
+VALUES (4, 1, 'tworoom1file1.png', 'tworoom1file1.png', '/resources/upload/room/original/tworoom1file1.png', '/resources/upload/room/thumbnail/tworoom1file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (3, 2, 'tworoom2file2.png', 'tworoom2file2.png', '/resources/upload/room/original/tworoom2file2.png', '/resources/upload/room/thumbnail/tworoom2file2.png');
+VALUES (4, 2, 'tworoom1file2.png', 'tworoom1file2.png', '/resources/upload/room/original/tworoom1file2.png', '/resources/upload/room/thumbnail/tworoom1file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (3, 3, 'tworoom2file3.png', 'tworoom2file3.png', '/resources/upload/room/original/tworoom2file3.png', '/resources/upload/room/thumbnail/tworoom2file3.png');
+VALUES (4, 3, 'tworoom1file3.png', 'tworoom1file3.png', '/resources/upload/room/original/tworoom1file3.png', '/resources/upload/room/thumbnail/tworoom1file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (3, 4, 'tworoom2file4.png', 'tworoom2file4.png', '/resources/upload/room/original/tworoom2file4.png', '/resources/upload/room/thumbnail/tworoom2file4.png');
+VALUES (4, 4, 'tworoom1file4.png', 'tworoom1file4.png', '/resources/upload/room/original/tworoom1file4.png', '/resources/upload/room/thumbnail/tworoom1file4.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (3, 5, 'tworoom2file5.png', 'tworoom2file5.png', '/resources/upload/room/original/tworoom2file5.png', '/resources/upload/room/thumbnail/tworoom2file5.png');
+VALUES (4, 5, 'tworoom1file5.png', 'tworoom1file5.png', '/resources/upload/room/original/tworoom1file5.png', '/resources/upload/room/thumbnail/tworoom1file5.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (3, 6, 'tworoom2file6.png', 'tworoom2file6.png', '/resources/upload/room/original/tworoom2file6.png', '/resources/upload/room/thumbnail/tworoom2file6.png');
+VALUES (4, 6, 'tworoom1file6.png', 'tworoom1file6.png', '/resources/upload/room/original/tworoom1file6.png', '/resources/upload/room/thumbnail/tworoom1file6.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (3, 7, 'tworoom2file7.png', 'tworoom2file7.png', '/resources/upload/room/original/tworoom2file7.png', '/resources/upload/room/thumbnail/tworoom2file7.png');
-
-INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (4, 1, 'tworoom3file1.png', 'tworoom3file1.png', '/resources/upload/room/original/tworoom3file1.png', '/resources/upload/room/thumbnail/tworoom3file1.png');
-INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (4, 2, 'tworoom3file2.png', 'tworoom3file2.png', '/resources/upload/room/original/tworoom3file2.png', '/resources/upload/room/thumbnail/tworoom3file2.png');
-INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (4, 3, 'tworoom3file3.png', 'tworoom3file3.png', '/resources/upload/room/original/tworoom3file3.png', '/resources/upload/room/thumbnail/tworoom3file3.png');
-INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (4, 4, 'tworoom3file4.png', 'tworoom3file4.png', '/resources/upload/room/original/tworoom3file4.png', '/resources/upload/room/thumbnail/tworoom3file4.png');
-INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (4, 5, 'tworoom3file5.png', 'tworoom3file5.png', '/resources/upload/room/original/tworoom3file5.png', '/resources/upload/room/thumbnail/tworoom3file5.png');
-INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (4, 6, 'tworoom3file6.png', 'tworoom3file6.png', '/resources/upload/room/original/tworoom3file6.png', '/resources/upload/room/thumbnail/tworoom3file6.png');
-INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (4, 7, 'tworoom3file7.png', 'tworoom3file7.png', '/resources/upload/room/original/tworoom3file7.png', '/resources/upload/room/thumbnail/tworoom3file7.png');
+VALUES (4, 7, 'tworoom1file7.png', 'tworoom1file7.png', '/resources/upload/room/original/tworoom1file7.png', '/resources/upload/room/thumbnail/tworoom1file7.png');
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (5, 1, 'tworoom4file1.png', 'tworoom4file1.png', '/resources/upload/room/original/tworoom4file1.png', '/resources/upload/room/thumbnail/tworoom4file1.png');
+VALUES (5, 1, 'tworoom2file1.png', 'tworoom2file1.png', '/resources/upload/room/original/tworoom2file1.png', '/resources/upload/room/thumbnail/tworoom2file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (5, 2, 'tworoom4file2.png', 'tworoom4file2.png', '/resources/upload/room/original/tworoom4file2.png', '/resources/upload/room/thumbnail/tworoom4file2.png');
+VALUES (5, 2, 'tworoom2file2.png', 'tworoom2file2.png', '/resources/upload/room/original/tworoom2file2.png', '/resources/upload/room/thumbnail/tworoom2file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (5, 3, 'tworoom4file3.png', 'tworoom4file3.png', '/resources/upload/room/original/tworoom4file3.png', '/resources/upload/room/thumbnail/tworoom4file3.png');
+VALUES (5, 3, 'tworoom2file3.png', 'tworoom2file3.png', '/resources/upload/room/original/tworoom2file3.png', '/resources/upload/room/thumbnail/tworoom2file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (5, 4, 'tworoom4file4.png', 'tworoom4file4.png', '/resources/upload/room/original/tworoom4file4.png', '/resources/upload/room/thumbnail/tworoom4file4.png');
+VALUES (5, 4, 'tworoom2file4.png', 'tworoom2file4.png', '/resources/upload/room/original/tworoom2file4.png', '/resources/upload/room/thumbnail/tworoom2file4.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (5, 5, 'tworoom4file5.png', 'tworoom4file5.png', '/resources/upload/room/original/tworoom4file5.png', '/resources/upload/room/thumbnail/tworoom4file5.png');
+VALUES (5, 5, 'tworoom2file5.png', 'tworoom2file5.png', '/resources/upload/room/original/tworoom2file5.png', '/resources/upload/room/thumbnail/tworoom2file5.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (5, 6, 'tworoom4file6.png', 'tworoom4file6.png', '/resources/upload/room/original/tworoom4file6.png', '/resources/upload/room/thumbnail/tworoom4file6.png');
+VALUES (5, 6, 'tworoom2file6.png', 'tworoom2file6.png', '/resources/upload/room/original/tworoom2file6.png', '/resources/upload/room/thumbnail/tworoom2file6.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (5, 7, 'tworoom4file7.png', 'tworoom4file7.png', '/resources/upload/room/original/tworoom4file7.png', '/resources/upload/room/thumbnail/tworoom4file7.png');
+VALUES (5, 7, 'tworoom2file7.png', 'tworoom2file7.png', '/resources/upload/room/original/tworoom2file7.png', '/resources/upload/room/thumbnail/tworoom2file7.png');
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (6, 1, 'tworoom5file1.png', 'tworoom5file1.png', '/resources/upload/room/original/tworoom5file1.png', '/resources/upload/room/thumbnail/tworoom5file1.png');
+VALUES (6, 1, 'tworoom3file1.png', 'tworoom3file1.png', '/resources/upload/room/original/tworoom3file1.png', '/resources/upload/room/thumbnail/tworoom3file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (6, 2, 'tworoom5file2.png', 'tworoom5file2.png', '/resources/upload/room/original/tworoom5file2.png', '/resources/upload/room/thumbnail/tworoom5file2.png');
+VALUES (6, 2, 'tworoom3file2.png', 'tworoom3file2.png', '/resources/upload/room/original/tworoom3file2.png', '/resources/upload/room/thumbnail/tworoom3file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (6, 3, 'tworoom5file3.png', 'tworoom5file3.png', '/resources/upload/room/original/tworoom5file3.png', '/resources/upload/room/thumbnail/tworoom5file3.png');
+VALUES (6, 3, 'tworoom3file3.png', 'tworoom3file3.png', '/resources/upload/room/original/tworoom3file3.png', '/resources/upload/room/thumbnail/tworoom3file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (6, 4, 'tworoom5file4.png', 'tworoom5file4.png', '/resources/upload/room/original/tworoom5file4.png', '/resources/upload/room/thumbnail/tworoom5file4.png');
+VALUES (6, 4, 'tworoom3file4.png', 'tworoom3file4.png', '/resources/upload/room/original/tworoom3file4.png', '/resources/upload/room/thumbnail/tworoom3file4.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (6, 5, 'tworoom5file5.png', 'tworoom5file5.png', '/resources/upload/room/original/tworoom5file5.png', '/resources/upload/room/thumbnail/tworoom5file5.png');
+VALUES (6, 5, 'tworoom3file5.png', 'tworoom3file5.png', '/resources/upload/room/original/tworoom3file5.png', '/resources/upload/room/thumbnail/tworoom3file5.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (6, 6, 'tworoom5file6.png', 'tworoom5file6.png', '/resources/upload/room/original/tworoom5file6.png', '/resources/upload/room/thumbnail/tworoom5file6.png');
--- 투룸 끝
+VALUES (6, 6, 'tworoom3file6.png', 'tworoom3file6.png', '/resources/upload/room/original/tworoom3file6.png', '/resources/upload/room/thumbnail/tworoom3file6.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (6, 7, 'tworoom3file7.png', 'tworoom3file7.png', '/resources/upload/room/original/tworoom3file7.png', '/resources/upload/room/thumbnail/tworoom3file7.png');
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (2, 1, '1.5room_1.png', '1.5room_1.png', '/resources/upload/room/original/1.5room_1.png', '/resources/upload/room/thumbnail/1.5room_1.png');
+VALUES (7, 1, 'tworoom4file1.png', 'tworoom4file1.png', '/resources/upload/room/original/tworoom4file1.png', '/resources/upload/room/thumbnail/tworoom4file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (2, 2, '1.5room_2.png', '1.5room_2.png', '/resources/upload/room/original/1.5room_2.png', '/resources/upload/room/thumbnail/1.5room_2.png');
+VALUES (7, 2, 'tworoom4file2.png', 'tworoom4file2.png', '/resources/upload/room/original/tworoom4file2.png', '/resources/upload/room/thumbnail/tworoom4file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (2, 3, '1.5room_3.png', '1.5room_3.png', '/resources/upload/room/original/1.5room_3.png', '/resources/upload/room/thumbnail/1.5room_3.png');
+VALUES (7, 3, 'tworoom4file3.png', 'tworoom4file3.png', '/resources/upload/room/original/tworoom4file3.png', '/resources/upload/room/thumbnail/tworoom4file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (2, 4, '1.5room_4.png', '1.5room_4.png', '/resources/upload/room/original/1.5room_4.png', '/resources/upload/room/thumbnail/1.5room_4.png');
+VALUES (7, 4, 'tworoom4file4.png', 'tworoom4file4.png', '/resources/upload/room/original/tworoom4file4.png', '/resources/upload/room/thumbnail/tworoom4file4.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (2, 5, '1.5room_5.png', '1.5room_5.png', '/resources/upload/room/original/1.5room_5.png', '/resources/upload/room/thumbnail/1.5room_5.png');
+VALUES (7, 5, 'tworoom4file5.png', 'tworoom4file5.png', '/resources/upload/room/original/tworoom4file5.png', '/resources/upload/room/thumbnail/tworoom4file5.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (2, 6, '1.5room_6.png', '1.5room_6.png', '/resources/upload/room/original/1.5room_6.png', '/resources/upload/room/thumbnail/1.5room_6.png');
+VALUES (7, 6, 'tworoom4file6.png', 'tworoom4file6.png', '/resources/upload/room/original/tworoom4file6.png', '/resources/upload/room/thumbnail/tworoom4file6.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (7, 7, 'tworoom4file7.png', 'tworoom4file7.png', '/resources/upload/room/original/tworoom4file7.png', '/resources/upload/room/thumbnail/tworoom4file7.png');
+
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (8, 1, 'tworoom5file1.png', 'tworoom5file1.png', '/resources/upload/room/original/tworoom5file1.png', '/resources/upload/room/thumbnail/tworoom5file1.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (8, 2, 'tworoom5file2.png', 'tworoom5file2.png', '/resources/upload/room/original/tworoom5file2.png', '/resources/upload/room/thumbnail/tworoom5file2.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (8, 3, 'tworoom5file3.png', 'tworoom5file3.png', '/resources/upload/room/original/tworoom5file3.png', '/resources/upload/room/thumbnail/tworoom5file3.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (8, 4, 'tworoom5file4.png', 'tworoom5file4.png', '/resources/upload/room/original/tworoom5file4.png', '/resources/upload/room/thumbnail/tworoom5file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (8, 5, 'tworoom5file5.png', 'tworoom5file5.png', '/resources/upload/room/original/tworoom5file5.png', '/resources/upload/room/thumbnail/tworoom5file5.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (8, 6, 'tworoom5file6.png', 'tworoom5file6.png', '/resources/upload/room/original/tworoom5file6.png', '/resources/upload/room/thumbnail/tworoom5file6.png');
+
+-- 쓰리룸
+
+
 
 COMMIT;
 
