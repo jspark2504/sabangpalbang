@@ -167,7 +167,6 @@ a.tip:hover span {
 .room-list .room {
     display: flex;
     height: 130px;
-    max-width: 600px;
     padding: 5px 15px;
     margin: 0;
     cursor: pointer;
@@ -197,6 +196,7 @@ a.tip:hover span {
 
 .room-info {
     margin-right: 15px;
+    width: 100%;
 }
 
 .room-list .room .info {
