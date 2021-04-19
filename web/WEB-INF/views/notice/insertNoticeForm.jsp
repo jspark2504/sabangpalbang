@@ -30,13 +30,14 @@
         color: white;
         margin-bottom: 204px;
         font-weight: bold;
+        
     }
     #btn2{
         border-radius: 0px;
         background: rgb(255,210,51);
         margin-top: 23px;
         color: white;
-        margin-left: 710px;
+        margin-left: 720px;
         margin-bottom: 204px;
         font-weight: bold;
 
@@ -88,7 +89,7 @@
         <div id="rectangle"> </div>
 
         <textarea class="content" name="content"placeholder="내용을 입력하세요." id="box2"></textarea>
-	<br>
+	<br> <br>
         <button onclick="location.href='${ pageContext.servletContext.contextPath }/notice/list'" class="btn" type="button" id="btn1">취소</button>
         <button type="submit" class="btn" id="btn2">등록</button>
         

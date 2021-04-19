@@ -127,6 +127,6 @@
       <button class="btn btn-lg btn-block" type="submit" id="btn">확인</button>
     </form>
   </div>
-	
+		<jsp:include page="../common/footer.jsp" />
 </body>
 </html>
