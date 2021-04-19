@@ -424,7 +424,7 @@
                 </h4>
                 <hr class="title-end">
                 <div dir="auto"  class='room-explanation-info-value'>
-  ▣ 구조 및 특징 ▣
+▣ 구조 및 특징 ▣
 
 = 신축.
 = 지상층 최저가.
