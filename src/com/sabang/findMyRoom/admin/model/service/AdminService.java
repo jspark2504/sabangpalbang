@@ -81,6 +81,40 @@ public class AdminService {
 			return result;
 		}
 	   
+		/* 중개사 가입승인 메소드 */
+		public int approvalOffice(int no) {
+			Connection con = getConnection();
+			
+			int result = adminDAO.approvalOffice(con, no);
+			
+			if(result > 0) {
+				commit(con);
+			} else {
+				rollback(con);
+			}
+			
+			close(con);
+			
+			return result;
+		}
+		
+		/* 중개사 가입거절 메소드*/
+		public int rejectOffice(int no) {
+			Connection con = getConnection();
+			
+			int result = adminDAO.rejectOffice(con, no);
+			
+			if(result > 0) {
+				commit(con);
+			} else {
+				rollback(con);
+			}
+			
+			close(con);
+			
+			return result;
+		}
+		
 	   /* 페이징 처리를 위한 전체 게시물 수 조회용 메소드 */
 	   public int selectTotalCount() {
 	      Connection con = getConnection();

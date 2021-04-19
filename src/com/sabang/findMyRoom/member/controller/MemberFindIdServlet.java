@@ -91,7 +91,8 @@ public class MemberFindIdServlet extends HttpServlet {
 				return new PasswordAuthentication(user, password); //관리자꺼
 			}
 		});
-
+		
+		
 		// email 전송
 		try {
 			MimeMessage msg = new MimeMessage(session);// 관리자가 로그인 해야함
@@ -105,12 +106,16 @@ public class MemberFindIdServlet extends HttpServlet {
 
 			Transport.send(msg);
 			System.out.println("이메일 전송");
+			
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();// TODO: handle exception
 		}
 		HttpSession saveKey = request.getSession();
 		saveKey.setAttribute("AuthenticationKey", AuthenticationKey);// 로그인 세션에 담겨있음!!
+		System.out.println("보내기전 입력받은 이메일 : " + email);
+		request.setAttribute("email", email);
 		
 	
 		

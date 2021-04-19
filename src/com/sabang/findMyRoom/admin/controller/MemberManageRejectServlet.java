@@ -14,9 +14,10 @@ import com.sabang.findMyRoom.common.paging.Pagenation;
 import com.sabang.findMyRoom.infoboard.model.dto.PageInfoDTO;
 import com.sabang.findMyRoom.member.model.dto.MemberDTO;
 
-@WebServlet("/manage/restore")
-public class MemberManageRestoreServlet extends HttpServlet {
+@WebServlet("/manage/reject")
+public class MemberManageRejectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	      String currentPage = request.getParameter("currentPage");
 	      
@@ -69,22 +70,32 @@ public class MemberManageRestoreServlet extends HttpServlet {
 		}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		int no = Integer.valueOf(request.getParameter("no"));
 		
-//		System.out.println(no);
-		
-		int result = new AdminService().restoreMember(no);
+		int result = new AdminService().rejectOffice(no);
 		
 		String page = "";
 		if(result > 0) {
 			page = "/WEB-INF/views/common/success.jsp";
-			request.setAttribute("successCode", "restoreMember");
+			request.setAttribute("successCode", "rejectOffice");
 		} else {
 			page = "/WEB-INF/views/common/failed.jsp";
-			request.setAttribute("message", "회원 복구 실패!");
+			request.setAttribute("message", "중개사 거부 실패!");
 
 		}
-			
 		request.getRequestDispatcher(page).forward(request, response);
 	}
+
 }
+
+
+
+
+
+
+
+
+
+
+

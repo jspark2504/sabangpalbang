@@ -117,16 +117,17 @@
 	<jsp:include page="../common/header.jsp"></jsp:include>
 	    <div class="container">
   
-      <form class="form-signin">
+      <form class="form-signin" action="${pageContext.servletContext.contextPath}/member/findId2" method="post">
         <br>
+        <input type="hidden" value="${requestScope.email }" name="email">
         <div id="textbox">
         <p>이메일로 전송된<br>숫자를 입력해주세요.</p>
         <br>
         </div>
         <label for="inputEmail" class="sr-only">Email</label>
-        <input type="text" id="inputEmail" class="form-control" placeholder="" required="" autofocus="">
+        <input type="text" id="inputEmail" class="form-control" placeholder="" required="" autofocus="" name="AuthenticationUser">
         <a href="">재전송 받기</a>
-        <button class="btn btn-lg btn-block" type="submit" id="btn">다음</button>
+        <button class="btn btn-lg btn-block" type="submit" id="btn" >다음</button>
       </form>
     </div> <!-- /container -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

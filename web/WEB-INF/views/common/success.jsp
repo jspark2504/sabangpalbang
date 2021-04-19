@@ -94,6 +94,14 @@
 					successMessage = "회원 복구에 성공하셨습니다!";
 					movePath = "${ pageContext.servletContext.contextPath }/manage/list";
 					break;
+				case "approvalOffice" :
+					successMessage = "중개사 승인에 성공하셨습니다!";
+					movePath = "${ pageContext.servletContext.contextPath }/manage/approval";
+					break;
+				case "rejectOffice" :
+					successMessage = "중개사 거부에 성공하셨습니다!";
+					movePath = "${ pageContext.servletContext.contextPath }/manage/reject";
+					break;
 			}
 
 			alert(successMessage);

@@ -166,10 +166,11 @@ a.tip:hover span {
 
 .room-list .room {
     display: flex;
-    height: 120px;
+    height: 130px;
     max-width: 600px;
-    padding: 0 15px;
-    margin: 20px 0;
+    padding: 5px 15px;
+    margin: 0;
+    cursor: pointer;
 }
 
 .room-list .room .img {
@@ -189,13 +190,9 @@ a.tip:hover span {
   background-color: #f3f3f3;
 }
 
-.room {
-  cursor: pointer;
-}
-
 .room-area {
    position: relative;
-   top: 60px;
+   top: 65px;
 }
 
 .room-info {
@@ -234,9 +231,9 @@ a.tip:hover span {
 }
 
 /* 중개사인 경우 추가 정보 및 수정/삭제 버튼 */
-/* .room-area {
+.room-area {
   display: flex;
-} */
+}
 
 .more-info {
   display: flex;
