@@ -18,38 +18,22 @@
 </head>
 <body>
 <jsp:include page="../common/header.jsp"/>
-<body>
-		<h2 align="center">정보게시판 수정</h2>
-	<div align="center" class="container">
-		<div class="table-area">
-			<form id="form" action="${ pageContext.servletContext.contextPath }/infoboard/update" method="post">
-				<input type="hidden" name="no" value="${requestScope.boardList.no }">
-				<table>
-					<tr>
-						<td>제목</td>
-						<td><input type="text" size="25" name="title" value="${requestScope.boardList.title }"></td>
-					</tr>
-					<tr>
-						<td>작성자</td>
-						<td>
-							<input type="text" size="25"value="${ sessionScope.loginMember.nickname }" name="writeUser" readonly>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="5">
-							<textarea class="content" name="content"><c:out value="${requestScope.boardList.content }"/></textarea>				
-						</td>
-					</tr>
-				</table>
-				<br>
-				<div align="center">
-					<button class="btn post pull-right" type="submit">수정</button>
-				</div>
+	<div class="container">
+	<form action="${ pageContext.servletContext.contextPath }/infoboard/update" method="post" id="form">
+	<input type="hidden" name="no" value="${requestScope.boardList.no }">
+			<table class="nickname pull-right">
+			 	<tr>
+                     <td><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;<c:out value="${ sessionScope.loginMember.nickname }" /></td>
+                </tr>
+			</table>
+				<input type="text" class	="title" name="title" value="${requestScope.boardList.title }">
+				<textarea style="resize:none" class="content" name="content"><c:out value="${requestScope.boardList.content }"/></textarea>				
+
+           		<button type="button" class="btn cancel pull-left" onclick="location.href='${ pageContext.servletContext.contextPath}/infoboard/list'">목록</button>
+				<button type="submit" class="btn post pull-right">수정</button>
+				<button type="button" class="btn delete pull-right" onclick="postRequest('deleteInfoBoard')" >삭제</button>
 			</form>
-           			<button class="btn cancel pull-left" onclick="location.href='${ pageContext.servletContext.contextPath}/infoboard/list'">목록</button>
-					<button class="btn post pull-right" type="button" onclick="postRequest('deleteInfoBoard')" >삭제</button>
-		</div>
-	</div>
+			</div>
 	<script>
 		function postRequest(intent){
 			var $form = document.getElementById("form");

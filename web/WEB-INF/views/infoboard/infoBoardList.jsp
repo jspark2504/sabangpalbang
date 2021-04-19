@@ -26,30 +26,7 @@
     <link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
     <link rel="stylesheet" href="/findMyRoom/resources/css/free_board.css?">
 
-
-
     <style>
-/*     .h1{
-      background: rgb(255,210,51);
-    }
-    .table {
-      padding-top: 280px;
-      padding-bottom: 80px;
-    } */
-/*     .container {
-      max-width: 950px;
-      padding: 15px;
-      margin: 0 auto;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-    }
-    .textinput{
-      max-width: 100px;
-      background: rgb(255,210,51);
-    }
-    .pagination{
-          padding-top: 110px;
-    
-    } */
     </style>
 </head>
 <body>

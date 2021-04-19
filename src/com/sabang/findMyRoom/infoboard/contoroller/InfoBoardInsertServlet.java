@@ -18,7 +18,7 @@ public class InfoBoardInsertServlet extends HttpServlet {
 
 	   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		      String path = "/WEB-INF/views/infoboard/insertInfoBoardForm.jsp";
+		      String path = "/WEB-INF/views/infoboard/infoBoardInsertForm.jsp";
 		      
 		      request.getRequestDispatcher(path).forward(request, response);
 		   }
