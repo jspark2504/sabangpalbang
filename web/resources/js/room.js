@@ -45,7 +45,7 @@ function showDetail(room) {
 			const price = data.formatPrice;
 			const area = data.area;
 			const address = data.address;
-			const shortAddress = address.substring(address.indexOf(' ') + 1, address.indexOf('동') + 1);
+			const shortAddress = address.substring(address.indexOf(' ') + 1, address.indexOf('동 ') + 1);
 			const createDate = data.createDate;
 			const categoryName = data.category.name;
 			const officeName = data.office.name;
@@ -320,7 +320,7 @@ function search() {
 				let floor = data[i].floor;
 				let formatFloor = floor.substring(0, floor.indexOf('/'));
 				let address = data[i].address;
-				let formatAddress = address.substring(address.indexOf(' ') + 1, address.indexOf('동') + 1);
+				let formatAddress = address.substring(address.indexOf(' ') + 1, address.indexOf('동 ') + 1);
 				let title = data[i].title;
 				let hostIndex = location.href.indexOf(location.host) + location.host.length;
 				let path = location.href.substring(hostIndex, location.href.indexOf('/', hostIndex + 1));
