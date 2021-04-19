@@ -7,11 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<<<<<<< HEAD
- 	<jsp:forward page="/WEB-INF/views/member/signin.jsp"/>
-=======
  	<jsp:forward page="/WEB-INF/views/common/main.jsp"/>
->>>>>>> branch 'master' of https://github.com/jspark2504/sabangpalbang.git
+
 </body>
 </html>
