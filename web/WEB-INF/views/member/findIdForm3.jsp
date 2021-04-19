@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 
 <html>
@@ -140,12 +141,11 @@
       <form class="form-signin">
         <br>
         <div id="textbox">
-        <p>에<br>연결된 아이디입니다.</p>
+        <p>${ requestScope.email }에<br>연결된 아이디입니다.</p>
         <br>
         </div>
-   
-        <input type="text" id="inputId" class="form-control" name="userId" readonly>
-        
+   		
+   	<input type="text" id="inputId" class="form-control" name="userId" readonly value=${ requestScope.userId }>
         <button class="btn btn-lg" type="button" id="btn1" onclick="location.href='${ pageContext.servletContext.contextPath}/member/findPw'">임시 비밀번호 발급</button>
         <button class="btn btn-lg" type="button" id="btn2" onclick="location.href='${ pageContext.servletContext.contextPath}/member/singin'">로그인</button>
     </form>

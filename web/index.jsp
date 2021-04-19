@@ -8,6 +8,6 @@
 </head>
 <body>
 
- 	<jsp:forward page="/WEB-INF/views/room/roomDetail.jsp"/>
+ 	<jsp:forward page="/WEB-INF/views/member/signin.jsp"/>
 </body>
 </html>
