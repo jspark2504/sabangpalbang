@@ -80,6 +80,16 @@
               <section class="sticky-nav">
                   <h4 class="room-list-heading"><c:out value="매물 목록 ${ fn:length(requestScope.roomList) }개"/></h4>
               </section>
+                <c:if test="${ fn:length(requestScope.roomList) eq 0 }">
+                   <section class="empty-wish-list">
+                    <img class="house-icon" src="data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMV8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMjU3IiB4Mj0iMjU3IiB5MT0iNTEyIiB5Mj0iMCI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmQ1OTAwIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZkZTAwIi8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzJfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjI1NiIgeDI9IjI1NiIgeTE9IjQ1MSIgeTI9IjI0Ljk5NCI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZlNTlhIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmZmQ1Ii8+PC9saW5lYXJHcmFkaWVudD48Zz48Zz48Zz48cGF0aCBkPSJtNDQ1LjMyIDIxOS4yMDMtMTgwLTExOS42OTJjLTUuMDM5LTMuMzQtMTEuNjAyLTMuMzQtMTYuNjQxIDBsLTE4MCAxMTkuNjkyYy00LjE2IDIuNzgzLTYuNjggNy40NzEtNi42OCAxMi40OTV2MjY1LjMwMmMwIDguMjkxIDYuNzA5IDE1IDE1IDE1aDM2MGM4LjI5MSAwIDE1LTYuNzA5IDE1LTE1di0yNjUuMzAyYy4wMDEtNS4wMjQtMi41MTktOS43MTItNi42NzktMTIuNDk1em0tOC4zMi0yMTkuMjAzaC02MGMtOC4yOTEgMC0xNSA2LjcwOS0xNSAxNXYxMDQuNzk5YzAgNS4wMjQgMi41MiA5LjcxMiA2LjY4IDEyLjQ5NWw2MCAzOS45MDJjNC42MjUgMy4wMzkgMTAuNSAzLjM0OSAxNS40MS43MzIgNC44NjMtMi42MjIgNy45MS03LjcwNSA3LjkxLTEzLjIyOHYtMTQ0LjdjMC04LjI5MS02LjcwOS0xNS0xNS0xNXoiIGZpbGw9InVybCgjU1ZHSURfMV8pIi8+PC9nPjwvZz48Zz48Zz48cGF0aCBkPSJtMzA3LjkyMyAyNDFjLTI1LjIyNSAwLTQxLjY4OSAxMy41MjEtNTEuOTE0IDI3LjI3NS0xMC4yMjUtMTMuNzU0LTI2LjY5LTI3LjI3NS01MS45MTUtMjcuMjc1LTM3LjUyOSAwLTY2Ljk0MyAzMS4zNDgtNjYuOTQzIDcxLjM2NyAwIDQyLjcyOSAzNC40ODIgNzEuODIxIDgyLjIwNyAxMTIuMTA0IDguNDM4IDcuMTE5IDE3LjQwMiAxNC42OTIgMjYuODM2IDIyLjg2NiAyLjgxMyAyLjQ0NiA2LjI5OSAzLjY2MiA5LjgxNCAzLjY2MiAzLjUxNiAwIDcuMDAyLTEuMjE2IDkuODE0LTMuNjYyIDkuNDM0LTguMTc0IDE4LjM5OC0xNS43NDcgMjYuODM2LTIyLjg2NiA0Ny43MjQtNDAuMjgzIDgyLjIwNy02OS4zNzUgODIuMjA3LTExMi4xMDQuMDAxLTQwLjAxOS0yOS40MTMtNzEuMzY3LTY2Ljk0Mi03MS4zNjd6bTE5Ny4zODktNTMtMjQwLjk4My0xNjAuNTAxYy01LjAzOS0zLjM0LTExLjYwMi0zLjM0LTE2LjY0MSAwbC0yNDEgMTYwLjYwOWMtNi44ODUgNC41ODUtOC43NiAxMy44ODctNC4xODkgMjAuNzg2bDMyLjk4OCA0OS43OWM0LjYgNi44ODUgMTMuNzk5IDguNzMgMjAuNzQyIDQuMjYzbDE5OS43NzktMTMyLjkyNCAxOTguNzc5IDEzMS45MjRjMi41NDkgMS42NTUgNi4zNzQgMy4zMzggOS4yMTYgMy4zMzggNC44NjMgMCA5LjYwOS0yLjM1OCAxMi41MS02LjcwOWwzMi45ODgtNDkuNzljNC41NzEtNi44OTkgMi42OTYtMTYuMjAxLTQuMTg5LTIwLjc4NnoiIGZpbGw9InVybCgjU1ZHSURfMl8pIi8+PC9nPjwvZz48L2c+PC9zdmc+" />
+                    <p class="empty-wish-list-message">
+                      아직 찜한 방이 없으시네요?
+                      <br />
+                      마음에 드는 방을 찜해주세요!
+                    </p>
+                  </section>
+                </c:if>
                 <c:forEach var="room" items="${ requestScope.roomList }">
                   <section class="room-area">
                     <article class="room-info">
