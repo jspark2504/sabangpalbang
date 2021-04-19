@@ -142,6 +142,7 @@ a.tip:hover span {
     max-height: 800px;
     padding: 0px;
     overflow-y: scroll;
+    overflow-x: none;
 }
 
 .sticky-nav {
@@ -161,7 +162,7 @@ a.tip:hover span {
 
 .room-list-heading {
   margin: 0;
-  padding: 15px 0 15px 40px;
+  padding: 15px 0 15px 20px;
 }
 
 .room-list .room {
@@ -292,7 +293,6 @@ a.tip:hover span {
   height: 70vw;
   max-height: 700px;
   padding: 0;
-  overflow-x: hidden;
 }
 
 /* room-detail-heading */
@@ -303,11 +303,11 @@ a.tip:hover span {
   top: 85px;
   width: 35vw;
   margin: 0;
-  padding: 15px 50px 12px 15px;
+  padding: 15px 50px 15px 15px;
   justify-content: space-between;
   align-items: center;
   border: 1px solid #f3f3f3;
-  z-index: 2;
+  z-index: 5;
 }
 
 .room-detail-title {
@@ -425,6 +425,10 @@ p.info:hover {
 
 .table-title {
   color: #6e6e6e;
+}
+
+.table>tbody>tr>td {
+  padding: 8px 8px 8px 20px;
 }
 
 /* option-icon */

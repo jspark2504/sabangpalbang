@@ -32,7 +32,8 @@
             <article class="map col-md-8">
                 <figure id="map" style="width: 100%; height: 100%;">
                     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=24e099130b03e272c1eb2889137042a1&libraries=services,clusterer,drawing"></script>
-                    <script src="/findMyRoom/resources/js/map.js"></script>
+                    <!-- <script src="/findMyRoom/resources/js/map.js"></script> -->
+                    <script src="/findMyRoom/resources/js/mark.js"></script>
                 </figure>
             </article> <!-- 지도 영역 end -->
 
