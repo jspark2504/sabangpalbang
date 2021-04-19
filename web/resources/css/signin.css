@@ -6,11 +6,12 @@ body {
   }
 
   .container {
-    margin: 200px auto;
+    margin: 130px auto;
+    height:500px;
     background-color: white;
   }
 
-  .form-signin {
+  div.form-signin {
     max-width: 330px;
     padding: 15px;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -33,7 +34,6 @@ body {
 
   .form-signin .form-control {
     position: relative;
-    height: auto;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -46,16 +46,18 @@ body {
   }
 
   .form-signin input[type="text"] {
-    margin-bottom: -1px;
+    margin-top: 10px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+    height:45px;
     font-size: 0.9em;
   }
 
   .form-signin input[type="password"] {
-    margin-top: 20px;
+    margin-top: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+    height:45px;
     font-size: 0.9em;
   }
 
@@ -92,13 +94,14 @@ body {
     left: 45px;
   }
 
-  .btn {
+  #login {
     position: relative;
     background: rgb(255, 210, 51);
     font-weight: bold;
+    top:50px;
   }
 
-  .btn:hover {
+  #login:hover {
     background: rgb(81, 75, 55);
     font-weight: bold;
     color: white;

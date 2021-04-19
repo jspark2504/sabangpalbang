@@ -29,14 +29,14 @@
 
 
     <style>
-    .h1{
+/*     .h1{
       background: rgb(255,210,51);
     }
     .table {
       padding-top: 280px;
       padding-bottom: 80px;
-    }
-    .container {
+    } */
+/*     .container {
       max-width: 950px;
       padding: 15px;
       margin: 0 auto;
@@ -49,7 +49,7 @@
     .pagination{
           padding-top: 110px;
     
-    }
+    } */
     </style>
 </head>
 <body>
@@ -63,12 +63,12 @@
       <table class="table table-striped table-hover">
 			<thead>
 		 		   <tr>
-		 		   	  <th style="width: 45px;">번호</th>
-		              <th style="width: 120px; text-align: center;">카테고리</th>
-					  <th style="width: 500px;">제목</th>
+		 		   	  <th style="width: 73px; text-align: center;">번호</th>
+		              <th style="width: 100px; text-align: center;">카테고리</th>
+					  <th style="width: 630px;">제목</th>
 					  <th style="width: 60px;">작성자</th>
-				      <th style="text-align: center;">조회수</th>
 					  <th style="text-align: center;">작성일자</th>
+				      <th style="text-align: center;">조회수</th>
 		           </tr>
 		    </thead>
 			<tbody>
@@ -78,16 +78,16 @@
 	                  <td align="center"><c:out value="${ board.category.name }"/></td>
 	                  <td><c:out value="${ board.title }"/></td>
 	                  <td><c:out value="${ board.writeUser.nickname }"/></td>
-	                  <td align="center"><c:out value="${ board.viewNo }"/></td>
 	                  <td align="center"><c:out value="${ board.createDate }"/></td>
+	                  <td align="center"><c:out value="${ board.viewNo }"/></td>
 	               </tr>
             </c:forEach>
             </tbody>
        </table>
 	</div>
 	<!-- table-area end -->
-	
-		<%-- 페이지 처리 --%>
+	<br><br><br>
+	<%-- 페이지 처리 --%>
 		<div class="text-center">
 			<ul class="pagination">
 				<c:choose>
@@ -165,7 +165,7 @@
 					<option value="title" <c:if test="${requestScope.searchCondition eq 'title' }">selected</c:if>>제목</option>
 					<option value="content" <c:if test="${requestScope.searchCondition eq 'content' }">selected</c:if>>내용</option>
 				</select>
-				<input type="search" id="searchValue" name="searchValue" value="${requestScope.searchValue}">
+				<input type="search" id="searchValue" name="searchValue" value="${requestScope.searchValue}"/>
 				</c:when>
 				<c:otherwise>
 				<select id="searchCondition" name="searchCondition">
@@ -173,7 +173,7 @@
 					<option value="title">제목</option>
 					<option value="content">내용</option>
 				</select>
-				<input type="search" id="searchValue" name="searchValue">
+				<input type="search" id="searchValue" name="searchValue" placeholder="검색어를 입력해주세요."/>
 				</c:otherwise>
 				</c:choose>
 				<span class="icon"><i class="fa fa-search"></i></span> 

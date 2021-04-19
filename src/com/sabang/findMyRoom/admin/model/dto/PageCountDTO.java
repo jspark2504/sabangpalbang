@@ -2,62 +2,88 @@ package com.sabang.findMyRoom.admin.model.dto;
 
 import java.io.Serializable;
 
+import com.sabang.findMyRoom.infoboard.model.dto.CategoryDTO;
+
 public class PageCountDTO implements Serializable {
 	
 	private static final long serialVersionUID = 7685950115646360041L;
 	
 	private int pageNo;
-	private String pageURI;
 	private int pageView;
-	private String pageName;
-	
+	private int categoryNo;
+	private String pageDay;
+	private CategoryDTO category;
+	private String pageURI;
+
 	public PageCountDTO() {
 	}
-	
-	public PageCountDTO(int pageNo, String pageURI, int pageView, String pageName) {
+
+	public PageCountDTO(int pageNo, int pageView, int categoryNo, String pageDay, CategoryDTO category,
+			String pageURI) {
+		super();
 		this.pageNo = pageNo;
-		this.pageURI = pageURI;
 		this.pageView = pageView;
-		this.pageName = pageName;
+		this.categoryNo = categoryNo;
+		this.pageDay = pageDay;
+		this.category = category;
+		this.pageURI = pageURI;
 	}
-	
+
 	public int getPageNo() {
 		return pageNo;
 	}
-	
+
 	public void setPageNo(int pageNo) {
 		this.pageNo = pageNo;
 	}
-	
-	public String getPageURI() {
-		return pageURI;
-	}
-	
-	public void setPageURI(String pageURI) {
-		this.pageURI = pageURI;
-	}
-	
+
 	public int getPageView() {
 		return pageView;
 	}
-	
+
 	public void setPageView(int pageView) {
 		this.pageView = pageView;
 	}
-	
-	public String getPageName() {
-		return pageName;
+
+	public int getCategoryNo() {
+		return categoryNo;
 	}
-	
-	public void setPageName(String pageName) {
-		this.pageName = pageName;
+
+	public void setCategoryNo(int categoryNo) {
+		this.categoryNo = categoryNo;
 	}
-	
+
+	public String getPageDay() {
+		return pageDay;
+	}
+
+	public void setPageDay(String pageDay) {
+		this.pageDay = pageDay;
+	}
+
+	public CategoryDTO getCategory() {
+		return category;
+	}
+
+	public void setCategory(CategoryDTO category) {
+		this.category = category;
+	}
+
+	public String getPageURI() {
+		return pageURI;
+	}
+
+	public void setPageURI(String pageURI) {
+		this.pageURI = pageURI;
+	}
+
 	@Override
 	public String toString() {
-		return "PageCountDTO [pageNo=" + pageNo + ", pageURI=" + pageURI + ", pageView=" + pageView + ", pageName="
-				+ pageName + "]";
+		return "PageCountDTO [pageNo=" + pageNo + ", pageView=" + pageView + ", categoryNo=" + categoryNo + ", pageDay="
+				+ pageDay + ", category=" + category + ", pageURI=" + pageURI + "]";
 	}
+	
+
 
 	
 }

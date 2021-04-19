@@ -34,7 +34,9 @@
 	<jsp:include page="../common/header.jsp"/>
 	<div class="container">
 	<c:if test="${empty sessionScope.loginMember }">
-		<form class="form-signin" id="loginForm" action="${pageContext.servletContext.contextPath}/member/login" method="post">
+	<div class="form-signin" style="height:450px;">
+		<form id="loginForm" action="${pageContext.servletContext.contextPath}/member/login" method="post">
+			<br>
 			<img src="/findMyRoom/resources/image/logIn.PNG" class="logo">
 			<br>
 			<!-- <h2 class="form-signin-heading">Please sign in</h2> -->
@@ -49,6 +51,7 @@
 			<br><br>
 			<button class="btn btn-lg btn-block" type="submit" id="login">시작하기</button>
 		</form>
+		</div>
 		</c:if>
 	</div>
   <jsp:include page="../common/footer.jsp" />

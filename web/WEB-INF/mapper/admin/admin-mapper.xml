@@ -6,16 +6,20 @@
                TBL_PAGE_COUNT A
            SET A.PAGE_VIEW = (SELECT B.PAGE_VIEW
                                 FROM TBL_PAGE_COUNT B
-                               WHERE B.PAGE_NO = ?
+                               WHERE B.CATEGORY_NO = ?
+                                 AND B.PAGE_DAY = TO_CHAR(SYSDATE, 'DAY')
                               ) + 1
-         WHERE A.PAGE_NO = ?
+         WHERE A.CATEGORY_NO = ?
+           AND A.PAGE_DAY = TO_CHAR(SYSDATE, 'DAY')
 	</entry>
 	<entry key="selectPageViewCount">
         SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#selectPageViewCount() */
                A.PAGE_NO
              , A.PAGE_VIEW
-             , A.PAGE_NAME
+             , A.PAGE_DAY
+             , B.CATEGORY_NAME
           FROM TBL_PAGE_COUNT A
+          JOIN TBL_PAGE_CATEGORY B ON(A.CATEGORY_NO = B.CATEGORY_NO)
 	</entry>
 
 	<entry key="approvalOffice">

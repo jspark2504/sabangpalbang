@@ -22,7 +22,8 @@ DROP TABLE TBL_ROOM_STATISTIC CASCADE CONSTRAINTS;
 DROP TABLE TBL_INFO_BOARD CASCADE CONSTRAINTS;
 DROP TABLE TBL_INFO_BOARD_FILE CASCADE CONSTRAINTS;
 DROP TABLE TBL_INFO_CATEGORY CASCADE CONSTRAINTS;
-DROP TABLE TBL_PAGE_COUNT;
+DROP TABLE TBL_PAGE_COUNT CASCADE CONSTRAINTS;
+DROP TABLE TBL_PAGE_CATEGORY CASCADE CONSTRAINTS;
 
 -- 기존 시퀀스 삭제
 DROP SEQUENCE SEQ_USER_NO;
@@ -350,7 +351,7 @@ INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE,
   , MONTH_COST, ELECTRICITY_YN, GAS_YN, WATER_YN, INTERNET_YN, TV_YN, CONSTRUCTION_DATE, AVAILABLE_DATE, ROOM_TITLE
   , ROOM_EXPLANATION
   , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
-VALUES (SEQ_ROOM_NO.NEXTVAL, 150000000, 26.45, '서울 관악구 남현동 304-1', TO_DATE('21/04/19', 'RR/MM/DD'), 1, 1, '4층/4층', '남향'
+VALUES (SEQ_ROOM_NO.NEXTVAL, 150000000, 26.45, '서울 관악구 남현동 496-2', TO_DATE('21/04/19', 'RR/MM/DD'), 1, 1, '4층/4층', '남향'
   , 80000, NULL, NULL, 'Y', 'Y', 'Y', TO_DATE('19/05/09', 'RR/MM/DD'), '즉시 입주', '▶테라스로망,서울대입구역,신축꿀방◀'
   , '▶ 테라스 + 복층 = 자취인의 로망
 ▶ 서울대입구역 도보7분 초초역세권
@@ -363,7 +364,7 @@ INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE,
   , MONTH_COST, ELECTRICITY_YN, GAS_YN, WATER_YN, INTERNET_YN, TV_YN, CONSTRUCTION_DATE, AVAILABLE_DATE, ROOM_TITLE
   , ROOM_EXPLANATION
   , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
-VALUES (SEQ_ROOM_NO.NEXTVAL, 90000000, 17, '서울 관악구 신림동 446-11', TO_DATE('21/04/18', 'RR/MM/DD'), 1, 1, '1층/4층', '남향'
+VALUES (SEQ_ROOM_NO.NEXTVAL, 90000000, 17, '서울 관악구 신림동 440-25', TO_DATE('21/04/18', 'RR/MM/DD'), 1, 1, '1층/4층', '남향'
   , 80000, 'Y', 'Y', 'Y', 'Y', 'Y', TO_DATE('19/01/08', 'RR/MM/DD'), '즉시 입주', '▶중소기업,버팀목,전세대출 가능◀신축첫입주/큰방/남향큰창문'
   , '▣ 구조 및 특징 ▣
 
@@ -992,211 +993,249 @@ VALUES (1, 6, 'room1file6.png', 'room1file6.png', '/resources/upload/room/origin
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (2, 1, 'room2file1.png', 'room2file1.png', '/resources/upload/room/original/room2file1.png', '/resources/upload/room/thumbnail/room2file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (2, 2, 'room2file2.png', 'room2file2.png', '/resources/upload/room/original/room2file2.png', '/resources/upload/room/thumbnail/room2file2.png');
+VALUES (2, 2, 'room2file1.png', 'room2file1.png', '/resources/upload/room/original/room2file1.png', '/resources/upload/room/thumbnail/room2file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (2, 3, 'room2file3.png', 'room2file3.png', '/resources/upload/room/original/room2file3.png', '/resources/upload/room/thumbnail/room2file3.png');
+VALUES (2, 3, 'room2file2.png', 'room2file2.png', '/resources/upload/room/original/room2file2.png', '/resources/upload/room/thumbnail/room2file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (2, 4, 'room2file4.png', 'room2file4.png', '/resources/upload/room/original/room2file4.png', '/resources/upload/room/thumbnail/room2file4.png');
+VALUES (2, 4, 'room2file3.png', 'room2file3.png', '/resources/upload/room/original/room2file3.png', '/resources/upload/room/thumbnail/room2file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (2, 5, 'room2file5.png', 'room2file5.png', '/resources/upload/room/original/room2file5.png', '/resources/upload/room/thumbnail/room2file5.png');
+VALUES (2, 5, 'room2file4.png', 'room2file4.png', '/resources/upload/room/original/room2file4.png', '/resources/upload/room/thumbnail/room2file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (2, 6, 'room2file5.png', 'room2file5.png', '/resources/upload/room/original/room2file5.png', '/resources/upload/room/thumbnail/room2file5.png');
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (3, 1, 'room3file1.png', 'room3file1.png', '/resources/upload/room/original/room3file1.png', '/resources/upload/room/thumbnail/room3file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (3, 2, 'room3file2.png', 'room3file2.png', '/resources/upload/room/original/room3file2.png', '/resources/upload/room/thumbnail/room3file2.png');
+VALUES (3, 2, 'room3file1.png', 'room3file1.png', '/resources/upload/room/original/room3file1.png', '/resources/upload/room/thumbnail/room3file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (3, 3, 'room3file3.png', 'room3file3.png', '/resources/upload/room/original/room3file3.png', '/resources/upload/room/thumbnail/room3file3.png');
+VALUES (3, 3, 'room3file2.png', 'room3file2.png', '/resources/upload/room/original/room3file2.png', '/resources/upload/room/thumbnail/room3file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (3, 4, 'room3file4.png', 'room3file4.png', '/resources/upload/room/original/room3file4.png', '/resources/upload/room/thumbnail/room3file4.png');
+VALUES (3, 4, 'room3file3.png', 'room3file3.png', '/resources/upload/room/original/room3file3.png', '/resources/upload/room/thumbnail/room3file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (3, 5, 'room3file5.png', 'room2file5.png', '/resources/upload/room/original/room3file5.png', '/resources/upload/room/thumbnail/room3file5.png');
+VALUES (3, 5, 'room3file4.png', 'room3file4.png', '/resources/upload/room/original/room3file4.png', '/resources/upload/room/thumbnail/room3file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (3, 6, 'room3file5.png', 'room2file5.png', '/resources/upload/room/original/room3file5.png', '/resources/upload/room/thumbnail/room3file5.png');
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (4, 1, 'room4file1.png', 'room4file1.png', '/resources/upload/room/original/room4file1.png', '/resources/upload/room/thumbnail/room4file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (4, 2, 'room4file2.png', 'room4file2.png', '/resources/upload/room/original/room4file2.png', '/resources/upload/room/thumbnail/room4file2.png');
+VALUES (4, 2, 'room4file1.png', 'room4file1.png', '/resources/upload/room/original/room4file1.png', '/resources/upload/room/thumbnail/room4file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (4, 3, 'room4file3.png', 'room3file3.png', '/resources/upload/room/original/room4file3.png', '/resources/upload/room/thumbnail/room4file3.png');
+VALUES (4, 3, 'room4file2.png', 'room4file2.png', '/resources/upload/room/original/room4file2.png', '/resources/upload/room/thumbnail/room4file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (4, 4, 'room4file4.png', 'room3file4.png', '/resources/upload/room/original/room4file4.png', '/resources/upload/room/thumbnail/room4file4.png');
+VALUES (4, 4, 'room4file3.png', 'room3file3.png', '/resources/upload/room/original/room4file3.png', '/resources/upload/room/thumbnail/room4file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (4, 5, 'room4file5.png', 'room2file5.png', '/resources/upload/room/original/room3file5.png', '/resources/upload/room/thumbnail/room4file5.png');
+VALUES (4, 5, 'room4file4.png', 'room3file4.png', '/resources/upload/room/original/room4file4.png', '/resources/upload/room/thumbnail/room4file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (4, 6, 'room4file5.png', 'room2file5.png', '/resources/upload/room/original/room3file5.png', '/resources/upload/room/thumbnail/room4file5.png');
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (5, 1, 'room5file1.png', 'room5file1.png', '/resources/upload/room/original/room5file1.png', '/resources/upload/room/thumbnail/room5file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (5, 2, 'room5file2.png', 'room5file2.png', '/resources/upload/room/original/room5file2.png', '/resources/upload/room/thumbnail/room5file2.png');
+VALUES (5, 2, 'room5file1.png', 'room5file1.png', '/resources/upload/room/original/room5file1.png', '/resources/upload/room/thumbnail/room5file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (5, 3, 'room5file3.png', 'room5file3.png', '/resources/upload/room/original/room5file3.png', '/resources/upload/room/thumbnail/room5file3.png');
+VALUES (5, 3, 'room5file2.png', 'room5file2.png', '/resources/upload/room/original/room5file2.png', '/resources/upload/room/thumbnail/room5file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (5, 4, 'room5file4.png', 'room5file4.png', '/resources/upload/room/original/room5file4.png', '/resources/upload/room/thumbnail/room5file4.png');
+VALUES (5, 4, 'room5file3.png', 'room5file3.png', '/resources/upload/room/original/room5file3.png', '/resources/upload/room/thumbnail/room5file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (5, 5, 'room5file5.png', 'room5file5.png', '/resources/upload/room/original/room5file5.png', '/resources/upload/room/thumbnail/room5file5.png');
+VALUES (5, 5, 'room5file4.png', 'room5file4.png', '/resources/upload/room/original/room5file4.png', '/resources/upload/room/thumbnail/room5file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (5, 6, 'room5file5.png', 'room5file5.png', '/resources/upload/room/original/room5file5.png', '/resources/upload/room/thumbnail/room5file5.png');
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (6, 1, 'room6file1.png', 'room6file1.png', '/resources/upload/room/original/room6file1.png', '/resources/upload/room/thumbnail/room6file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (6, 2, 'room6file2.png', 'room6file2.png', '/resources/upload/room/original/room6file2.png', '/resources/upload/room/thumbnail/room6file2.png');
+VALUES (6, 2, 'room6file1.png', 'room6file1.png', '/resources/upload/room/original/room6file1.png', '/resources/upload/room/thumbnail/room6file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (6, 3, 'room6file3.png', 'room6file3.png', '/resources/upload/room/original/room6file3.png', '/resources/upload/room/thumbnail/room6file3.png');
+VALUES (6, 3, 'room6file2.png', 'room6file2.png', '/resources/upload/room/original/room6file2.png', '/resources/upload/room/thumbnail/room6file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (6, 4, 'room6file4.png', 'room6file4.png', '/resources/upload/room/original/room6file4.png', '/resources/upload/room/thumbnail/room6file4.png');
+VALUES (6, 4, 'room6file3.png', 'room6file3.png', '/resources/upload/room/original/room6file3.png', '/resources/upload/room/thumbnail/room6file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (6, 5, 'room6file5.png', 'room6file5.png', '/resources/upload/room/original/room6file5.png', '/resources/upload/room/thumbnail/room6file5.png');
+VALUES (6, 5, 'room6file4.png', 'room6file4.png', '/resources/upload/room/original/room6file4.png', '/resources/upload/room/thumbnail/room6file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (6, 6, 'room6file5.png', 'room6file5.png', '/resources/upload/room/original/room6file5.png', '/resources/upload/room/thumbnail/room6file5.png');
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (7, 1, 'room7file1.png', 'room7file1.png', '/resources/upload/room/original/room7file1.png', '/resources/upload/room/thumbnail/room7file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (7, 2, 'room7file2.png', 'room7file2.png', '/resources/upload/room/original/room7file2.png', '/resources/upload/room/thumbnail/room7file2.png');
+VALUES (7, 2, 'room7file1.png', 'room7file1.png', '/resources/upload/room/original/room7file1.png', '/resources/upload/room/thumbnail/room7file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (7, 3, 'room7file3.png', 'room7file3.png', '/resources/upload/room/original/room7file3.png', '/resources/upload/room/thumbnail/room7file3.png');
+VALUES (7, 3, 'room7file2.png', 'room7file2.png', '/resources/upload/room/original/room7file2.png', '/resources/upload/room/thumbnail/room7file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (7, 4, 'room7file4.png', 'room7file4.png', '/resources/upload/room/original/room7file4.png', '/resources/upload/room/thumbnail/room7file4.png');
+VALUES (7, 4, 'room7file3.png', 'room7file3.png', '/resources/upload/room/original/room7file3.png', '/resources/upload/room/thumbnail/room7file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (7, 5, 'room7file5.png', 'room7file5.png', '/resources/upload/room/original/room7file5.png', '/resources/upload/room/thumbnail/room7file5.png');
+VALUES (7, 5, 'room7file4.png', 'room7file4.png', '/resources/upload/room/original/room7file4.png', '/resources/upload/room/thumbnail/room7file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (7, 6, 'room7file5.png', 'room7file5.png', '/resources/upload/room/original/room7file5.png', '/resources/upload/room/thumbnail/room7file5.png');
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (8, 1, 'room8file1.png', 'room8file1.png', '/resources/upload/room/original/room8file1.png', '/resources/upload/room/thumbnail/room8file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (8, 2, 'room8file2.png', 'room8file2.png', '/resources/upload/room/original/room8file2.png', '/resources/upload/room/thumbnail/room8file2.png');
+VALUES (8, 2, 'room8file1.png', 'room8file1.png', '/resources/upload/room/original/room8file1.png', '/resources/upload/room/thumbnail/room8file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (8, 3, 'room8file3.png', 'room8file3.png', '/resources/upload/room/original/room8file3.png', '/resources/upload/room/thumbnail/room8file3.png');
+VALUES (8, 3, 'room8file2.png', 'room8file2.png', '/resources/upload/room/original/room8file2.png', '/resources/upload/room/thumbnail/room8file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (8, 4, 'room8file4.png', 'room8file4.png', '/resources/upload/room/original/room8file4.png', '/resources/upload/room/thumbnail/room8file4.png');
+VALUES (8, 4, 'room8file3.png', 'room8file3.png', '/resources/upload/room/original/room8file3.png', '/resources/upload/room/thumbnail/room8file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (8, 5, 'room8file5.png', 'room8file5.png', '/resources/upload/room/original/room8file5.png', '/resources/upload/room/thumbnail/room8file5.png');
+VALUES (8, 5, 'room8file4.png', 'room8file4.png', '/resources/upload/room/original/room8file4.png', '/resources/upload/room/thumbnail/room8file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (8, 6, 'room8file5.png', 'room8file5.png', '/resources/upload/room/original/room8file5.png', '/resources/upload/room/thumbnail/room8file5.png');
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (9, 1, 'room9file1.png', 'room9file1.png', '/resources/upload/room/original/room9file1.png', '/resources/upload/room/thumbnail/room9file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (9, 2, 'room9file2.png', 'room9file2.png', '/resources/upload/room/original/room9file2.png', '/resources/upload/room/thumbnail/room9file2.png');
+VALUES (9, 2, 'room9file1.png', 'room9file1.png', '/resources/upload/room/original/room9file1.png', '/resources/upload/room/thumbnail/room9file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (9, 3, 'room9file3.png', 'room9file3.png', '/resources/upload/room/original/room9file3.png', '/resources/upload/room/thumbnail/room9file3.png');
+VALUES (9, 3, 'room9file2.png', 'room9file2.png', '/resources/upload/room/original/room9file2.png', '/resources/upload/room/thumbnail/room9file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (9, 4, 'room9file4.png', 'room9file4.png', '/resources/upload/room/original/room9file4.png', '/resources/upload/room/thumbnail/room9file4.png');
+VALUES (9, 4, 'room9file3.png', 'room9file3.png', '/resources/upload/room/original/room9file3.png', '/resources/upload/room/thumbnail/room9file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (9, 5, 'room9file5.png', 'room9file5.png', '/resources/upload/room/original/room9file5.png', '/resources/upload/room/thumbnail/room9file5.png');
+VALUES (9, 5, 'room9file4.png', 'room9file4.png', '/resources/upload/room/original/room9file4.png', '/resources/upload/room/thumbnail/room9file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (9, 6, 'room9file5.png', 'room9file5.png', '/resources/upload/room/original/room9file5.png', '/resources/upload/room/thumbnail/room9file5.png');
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (10, 1, 'room10file1.png', 'room10file1.png', '/resources/upload/room/original/room10file1.png', '/resources/upload/room/thumbnail/room10file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (10, 2, 'room10file2.png', 'room10file2.png', '/resources/upload/room/original/room10file2.png', '/resources/upload/room/thumbnail/room10file2.png');
+VALUES (10, 2, 'room10file1.png', 'room10file1.png', '/resources/upload/room/original/room10file1.png', '/resources/upload/room/thumbnail/room10file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (10, 3, 'room10file3.png', 'room10file3.png', '/resources/upload/room/original/room10file3.png', '/resources/upload/room/thumbnail/room10file3.png');
+VALUES (10, 3, 'room10file2.png', 'room10file2.png', '/resources/upload/room/original/room10file2.png', '/resources/upload/room/thumbnail/room10file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (10, 4, 'room10file4.png', 'room10file4.png', '/resources/upload/room/original/room10file4.png', '/resources/upload/room/thumbnail/room10file4.png');
+VALUES (10, 4, 'room10file3.png', 'room10file3.png', '/resources/upload/room/original/room10file3.png', '/resources/upload/room/thumbnail/room10file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (10, 5, 'room10file5.png', 'room10file5.png', '/resources/upload/room/original/room10file5.png', '/resources/upload/room/thumbnail/room10file5.png');
+VALUES (10, 5, 'room10file4.png', 'room10file4.png', '/resources/upload/room/original/room10file4.png', '/resources/upload/room/thumbnail/room10file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (10, 6, 'room10file5.png', 'room10file5.png', '/resources/upload/room/original/room10file5.png', '/resources/upload/room/thumbnail/room10file5.png');
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (11, 1, 'room11file1.png', 'room11file1.png', '/resources/upload/room/original/room11file1.png', '/resources/upload/room/thumbnail/room11file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (11, 2, 'room11file2.png', 'room11file2.png', '/resources/upload/room/original/room11file2.png', '/resources/upload/room/thumbnail/room11file2.png');
+VALUES (11, 2, 'room11file1.png', 'room11file1.png', '/resources/upload/room/original/room11file1.png', '/resources/upload/room/thumbnail/room11file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (11, 3, 'room11file3.png', 'room11file3.png', '/resources/upload/room/original/room11file3.png', '/resources/upload/room/thumbnail/room11file3.png');
+VALUES (11, 3, 'room11file2.png', 'room11file2.png', '/resources/upload/room/original/room11file2.png', '/resources/upload/room/thumbnail/room11file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (11, 4, 'room11file4.png', 'room11file4.png', '/resources/upload/room/original/room11file4.png', '/resources/upload/room/thumbnail/room11file4.png');
+VALUES (11, 4, 'room11file3.png', 'room11file3.png', '/resources/upload/room/original/room11file3.png', '/resources/upload/room/thumbnail/room11file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (11, 5, 'room11file5.png', 'room11file5.png', '/resources/upload/room/original/room11file5.png', '/resources/upload/room/thumbnail/room11file5.png');
+VALUES (11, 5, 'room11file4.png', 'room11file4.png', '/resources/upload/room/original/room11file4.png', '/resources/upload/room/thumbnail/room11file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (11, 6, 'room11file5.png', 'room11file5.png', '/resources/upload/room/original/room11file5.png', '/resources/upload/room/thumbnail/room11file5.png');
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (12, 1, 'room12file1.png', 'room12file1.png', '/resources/upload/room/original/room12file1.png', '/resources/upload/room/thumbnail/room12file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (12, 2, 'room12file2.png', 'room12file2.png', '/resources/upload/room/original/room12file2.png', '/resources/upload/room/thumbnail/room12file2.png');
+VALUES (12, 2, 'room12file1.png', 'room12file1.png', '/resources/upload/room/original/room12file1.png', '/resources/upload/room/thumbnail/room12file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (12, 3, 'room12file3.png', 'room12file3.png', '/resources/upload/room/original/room12file3.png', '/resources/upload/room/thumbnail/room12file3.png');
+VALUES (12, 3, 'room12file2.png', 'room12file2.png', '/resources/upload/room/original/room12file2.png', '/resources/upload/room/thumbnail/room12file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (12, 4, 'room12file4.png', 'room12file4.png', '/resources/upload/room/original/room12file4.png', '/resources/upload/room/thumbnail/room12file4.png');
+VALUES (12, 4, 'room12file3.png', 'room12file3.png', '/resources/upload/room/original/room12file3.png', '/resources/upload/room/thumbnail/room12file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (12, 5, 'room12file5.png', 'room12file5.png', '/resources/upload/room/original/room12file5.png', '/resources/upload/room/thumbnail/room12file5.png');
+VALUES (12, 5, 'room12file4.png', 'room12file4.png', '/resources/upload/room/original/room12file4.png', '/resources/upload/room/thumbnail/room12file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (12, 6, 'room12file5.png', 'room12file5.png', '/resources/upload/room/original/room12file5.png', '/resources/upload/room/thumbnail/room12file5.png');
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (13, 1, 'room13file1.png', 'room13file1.png', '/resources/upload/room/original/room13file1.png', '/resources/upload/room/thumbnail/room13file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (13, 2, 'room13file2.png', 'room13file2.png', '/resources/upload/room/original/room13file2.png', '/resources/upload/room/thumbnail/room13file2.png');
+VALUES (13, 2, 'room13file1.png', 'room13file1.png', '/resources/upload/room/original/room13file1.png', '/resources/upload/room/thumbnail/room13file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (13, 3, 'room13file3.png', 'room13file3.png', '/resources/upload/room/original/room13file3.png', '/resources/upload/room/thumbnail/room13file3.png');
+VALUES (13, 3, 'room13file2.png', 'room13file2.png', '/resources/upload/room/original/room13file2.png', '/resources/upload/room/thumbnail/room13file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (13, 4, 'room13file4.png', 'room13file4.png', '/resources/upload/room/original/room13file4.png', '/resources/upload/room/thumbnail/room13file4.png');
+VALUES (13, 4, 'room13file3.png', 'room13file3.png', '/resources/upload/room/original/room13file3.png', '/resources/upload/room/thumbnail/room13file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (13, 5, 'room13file5.png', 'room13file5.png', '/resources/upload/room/original/room13file5.png', '/resources/upload/room/thumbnail/room13file5.png');
+VALUES (13, 5, 'room13file4.png', 'room13file4.png', '/resources/upload/room/original/room13file4.png', '/resources/upload/room/thumbnail/room13file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (13, 6, 'room13file5.png', 'room13file5.png', '/resources/upload/room/original/room13file5.png', '/resources/upload/room/thumbnail/room13file5.png');
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (14, 1, 'room14file1.png', 'room14file1.png', '/resources/upload/room/original/room14file1.png', '/resources/upload/room/thumbnail/room14file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (14, 2, 'room14file2.png', 'room14file2.png', '/resources/upload/room/original/room14file2.png', '/resources/upload/room/thumbnail/room14file2.png');
+VALUES (14, 2, 'room14file1.png', 'room14file1.png', '/resources/upload/room/original/room14file1.png', '/resources/upload/room/thumbnail/room14file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (14, 3, 'room14file3.png', 'room14file3.png', '/resources/upload/room/original/room14file3.png', '/resources/upload/room/thumbnail/room14file3.png');
+VALUES (14, 3, 'room14file2.png', 'room14file2.png', '/resources/upload/room/original/room14file2.png', '/resources/upload/room/thumbnail/room14file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (14, 4, 'room14file4.png', 'room14file4.png', '/resources/upload/room/original/room14file4.png', '/resources/upload/room/thumbnail/room14file4.png');
+VALUES (14, 4, 'room14file3.png', 'room14file3.png', '/resources/upload/room/original/room14file3.png', '/resources/upload/room/thumbnail/room14file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (14, 5, 'room14file5.png', 'room14file5.png', '/resources/upload/room/original/room14file5.png', '/resources/upload/room/thumbnail/room14file5.png');
+VALUES (14, 5, 'room14file4.png', 'room14file4.png', '/resources/upload/room/original/room14file4.png', '/resources/upload/room/thumbnail/room14file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (14, 6, 'room14file5.png', 'room14file5.png', '/resources/upload/room/original/room14file5.png', '/resources/upload/room/thumbnail/room14file5.png');
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (15, 1, 'room15file1.png', 'room15file1.png', '/resources/upload/room/original/room15file1.png', '/resources/upload/room/thumbnail/room15file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (15, 2, 'room15file2.png', 'room15file2.png', '/resources/upload/room/original/room15file2.png', '/resources/upload/room/thumbnail/room15file2.png');
+VALUES (15, 2, 'room15file1.png', 'room15file1.png', '/resources/upload/room/original/room15file1.png', '/resources/upload/room/thumbnail/room15file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (15, 3, 'room15file3.png', 'room15file3.png', '/resources/upload/room/original/room15file3.png', '/resources/upload/room/thumbnail/room15file3.png');
+VALUES (15, 3, 'room15file2.png', 'room15file2.png', '/resources/upload/room/original/room15file2.png', '/resources/upload/room/thumbnail/room15file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (15, 4, 'room15file4.png', 'room15file4.png', '/resources/upload/room/original/room15file4.png', '/resources/upload/room/thumbnail/room15file4.png');
+VALUES (15, 4, 'room15file3.png', 'room15file3.png', '/resources/upload/room/original/room15file3.png', '/resources/upload/room/thumbnail/room15file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (15, 5, 'room15file5.png', 'room15file5.png', '/resources/upload/room/original/room15file5.png', '/resources/upload/room/thumbnail/room15file5.png');
+VALUES (15, 5, 'room15file4.png', 'room15file4.png', '/resources/upload/room/original/room15file4.png', '/resources/upload/room/thumbnail/room15file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (15, 6, 'room15file5.png', 'room15file5.png', '/resources/upload/room/original/room15file5.png', '/resources/upload/room/thumbnail/room15file5.png');
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (16, 1, 'room16file1.png', 'room16file1.png', '/resources/upload/room/original/room16file1.png', '/resources/upload/room/thumbnail/room16file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (16, 2, 'room16file2.png', 'room16file2.png', '/resources/upload/room/original/room16file2.png', '/resources/upload/room/thumbnail/room16file2.png');
+VALUES (16, 2, 'room16file1.png', 'room16file1.png', '/resources/upload/room/original/room16file1.png', '/resources/upload/room/thumbnail/room16file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (16, 3, 'room16file3.png', 'room16file3.png', '/resources/upload/room/original/room16file3.png', '/resources/upload/room/thumbnail/room16file3.png');
+VALUES (16, 3, 'room16file2.png', 'room16file2.png', '/resources/upload/room/original/room16file2.png', '/resources/upload/room/thumbnail/room16file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (16, 4, 'room16file4.png', 'room16file4.png', '/resources/upload/room/original/room16file4.png', '/resources/upload/room/thumbnail/room16file4.png');
+VALUES (16, 4, 'room16file3.png', 'room16file3.png', '/resources/upload/room/original/room16file3.png', '/resources/upload/room/thumbnail/room16file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (16, 5, 'room16file5.png', 'room16file5.png', '/resources/upload/room/original/room16file5.png', '/resources/upload/room/thumbnail/room16file5.png');
+VALUES (16, 5, 'room16file4.png', 'room16file4.png', '/resources/upload/room/original/room16file4.png', '/resources/upload/room/thumbnail/room16file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (16, 6, 'room16file5.png', 'room16file5.png', '/resources/upload/room/original/room16file5.png', '/resources/upload/room/thumbnail/room16file5.png');
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (17, 1, 'room17file1.png', 'room17file1.png', '/resources/upload/room/original/room17file1.png', '/resources/upload/room/thumbnail/room17file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (17, 2, 'room17file2.png', 'room17file2.png', '/resources/upload/room/original/room17file2.png', '/resources/upload/room/thumbnail/room17file2.png');
+VALUES (17, 2, 'room17file1.png', 'room17file1.png', '/resources/upload/room/original/room17file1.png', '/resources/upload/room/thumbnail/room17file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (17, 3, 'room17file3.png', 'room17file3.png', '/resources/upload/room/original/room17file3.png', '/resources/upload/room/thumbnail/room17file3.png');
+VALUES (17, 3, 'room17file2.png', 'room17file2.png', '/resources/upload/room/original/room17file2.png', '/resources/upload/room/thumbnail/room17file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (17, 4, 'room17file4.png', 'room17file4.png', '/resources/upload/room/original/room17file4.png', '/resources/upload/room/thumbnail/room17file4.png');
+VALUES (17, 4, 'room17file3.png', 'room17file3.png', '/resources/upload/room/original/room17file3.png', '/resources/upload/room/thumbnail/room17file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (17, 5, 'room17file5.png', 'room17file5.png', '/resources/upload/room/original/room17file5.png', '/resources/upload/room/thumbnail/room17file5.png');
+VALUES (17, 5, 'room17file4.png', 'room17file4.png', '/resources/upload/room/original/room17file4.png', '/resources/upload/room/thumbnail/room17file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (17, 6, 'room17file5.png', 'room17file5.png', '/resources/upload/room/original/room17file5.png', '/resources/upload/room/thumbnail/room17file5.png');
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (18, 1, 'room18file1.png', 'room18file1.png', '/resources/upload/room/original/room18file1.png', '/resources/upload/room/thumbnail/room18file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (18, 2, 'room18file2.png', 'room18file2.png', '/resources/upload/room/original/room18file2.png', '/resources/upload/room/thumbnail/room18file2.png');
+VALUES (18, 2, 'room18file1.png', 'room18file1.png', '/resources/upload/room/original/room18file1.png', '/resources/upload/room/thumbnail/room18file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (18, 3, 'room18file3.png', 'room18file3.png', '/resources/upload/room/original/room18file3.png', '/resources/upload/room/thumbnail/room18file3.png');
+VALUES (18, 3, 'room18file2.png', 'room18file2.png', '/resources/upload/room/original/room18file2.png', '/resources/upload/room/thumbnail/room18file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (18, 4, 'room18file4.png', 'room18file4.png', '/resources/upload/room/original/room18file4.png', '/resources/upload/room/thumbnail/room18file4.png');
+VALUES (18, 4, 'room18file3.png', 'room18file3.png', '/resources/upload/room/original/room18file3.png', '/resources/upload/room/thumbnail/room18file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (18, 5, 'room18file5.png', 'room18file5.png', '/resources/upload/room/original/room18file5.png', '/resources/upload/room/thumbnail/room18file5.png');
+VALUES (18, 5, 'room18file4.png', 'room18file4.png', '/resources/upload/room/original/room18file4.png', '/resources/upload/room/thumbnail/room18file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (18, 6, 'room18file5.png', 'room18file5.png', '/resources/upload/room/original/room18file5.png', '/resources/upload/room/thumbnail/room18file5.png');
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (19, 1, 'room19file1.png', 'room19file1.png', '/resources/upload/room/original/room19file1.png', '/resources/upload/room/thumbnail/room19file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (19, 2, 'room19file2.png', 'room19file2.png', '/resources/upload/room/original/room19file2.png', '/resources/upload/room/thumbnail/room19file2.png');
+VALUES (19, 2, 'room19file1.png', 'room19file1.png', '/resources/upload/room/original/room19file1.png', '/resources/upload/room/thumbnail/room19file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (19, 3, 'room19file3.png', 'room19file3.png', '/resources/upload/room/original/room19file3.png', '/resources/upload/room/thumbnail/room19file3.png');
+VALUES (19, 3, 'room19file2.png', 'room19file2.png', '/resources/upload/room/original/room19file2.png', '/resources/upload/room/thumbnail/room19file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (19, 4, 'room19file4.png', 'room19file4.png', '/resources/upload/room/original/room19file4.png', '/resources/upload/room/thumbnail/room19file4.png');
+VALUES (19, 4, 'room19file3.png', 'room19file3.png', '/resources/upload/room/original/room19file3.png', '/resources/upload/room/thumbnail/room19file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (19, 5, 'room19file5.png', 'room19file5.png', '/resources/upload/room/original/room19file5.png', '/resources/upload/room/thumbnail/room19file5.png');
+VALUES (19, 5, 'room19file4.png', 'room19file4.png', '/resources/upload/room/original/room19file4.png', '/resources/upload/room/thumbnail/room19file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (19, 6, 'room19file5.png', 'room19file5.png', '/resources/upload/room/original/room19file5.png', '/resources/upload/room/thumbnail/room19file5.png');
 
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
 VALUES (20, 1, 'room20file1.png', 'room20file1.png', '/resources/upload/room/original/room20file1.png', '/resources/upload/room/thumbnail/room20file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (20, 2, 'room20file2.png', 'room20file2.png', '/resources/upload/room/original/room20file2.png', '/resources/upload/room/thumbnail/room20file2.png');
+VALUES (20, 2, 'room20file1.png', 'room20file1.png', '/resources/upload/room/original/room20file1.png', '/resources/upload/room/thumbnail/room20file1.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (20, 3, 'room20file3.png', 'room20file3.png', '/resources/upload/room/original/room20file3.png', '/resources/upload/room/thumbnail/room20file3.png');
+VALUES (20, 3, 'room20file2.png', 'room20file2.png', '/resources/upload/room/original/room20file2.png', '/resources/upload/room/thumbnail/room20file2.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (20, 4, 'room20file4.png', 'room20file4.png', '/resources/upload/room/original/room20file4.png', '/resources/upload/room/thumbnail/room20file4.png');
+VALUES (20, 4, 'room20file3.png', 'room20file3.png', '/resources/upload/room/original/room20file3.png', '/resources/upload/room/thumbnail/room20file3.png');
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
-VALUES (20, 5, 'room20file5.png', 'room20file5.png', '/resources/upload/room/original/room20file5.png', '/resources/upload/room/thumbnail/room20file5.png');
+VALUES (20, 5, 'room20file4.png', 'room20file4.png', '/resources/upload/room/original/room20file4.png', '/resources/upload/room/thumbnail/room20file4.png');
+INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
+VALUES (20, 6, 'room20file5.png', 'room20file5.png', '/resources/upload/room/original/room20file5.png', '/resources/upload/room/thumbnail/room20file5.png');
 
 -- 1.5룸
 INSERT INTO TBL_ROOM_FILE (ROOM_NO, FILE_NO, ORIGIN_NAME, SAVE_NAME, SAVE_PATH, THUMBNAIL_PATH)
@@ -1748,24 +1787,78 @@ CREATE TABLE TBL_ROOM_STATISTIC(
 COMMENT ON COLUMN TBL_ROOM_STATISTIC.ROOM_REGISTER_DATE IS '등록일자';
 COMMENT ON COLUMN TBL_ROOM_STATISTIC.ROOM_COUNT IS '매물등록수';
 
+-- 홈페이지 통계 카테고리
+CREATE TABLE TBL_PAGE_CATEGORY(
+  CATEGORY_NO NUMBER CONSTRAINT PK_PC_CATEGORY_NO PRIMARY KEY,
+  CATEGORY_NAME VARCHAR2(50) CONSTRAINT NN_PC_CATEGORY_NAME NOT NULL
+);
+
+COMMENT ON COLUMN TBL_PAGE_CATEGORY.CATEGORY_NO IS '카테고리번호';
+COMMENT ON COLUMN TBL_PAGE_CATEGORY.CATEGORY_NAME IS '페이지이름';
+
+INSERT INTO TBL_PAGE_CATEGORY (CATEGORY_NO, CATEGORY_NAME) VALUES (1, '메인페이지');
+INSERT INTO TBL_PAGE_CATEGORY (CATEGORY_NO, CATEGORY_NAME) VALUES (2, '공지사항');
+INSERT INTO TBL_PAGE_CATEGORY (CATEGORY_NO, CATEGORY_NAME) VALUES (3, '정보게시판');
+INSERT INTO TBL_PAGE_CATEGORY (CATEGORY_NO, CATEGORY_NAME) VALUES (4, '자유게시판');
+INSERT INTO TBL_PAGE_CATEGORY (CATEGORY_NO, CATEGORY_NAME) VALUES (5, '매물페이지');
+
+-- 홈페이지 통계
 CREATE TABLE TBL_PAGE_COUNT (
   PAGE_NO NUMBER CONSTRAINT PK_PC_PAGE_NO PRIMARY KEY,
-  PAGE_URI VARCHAR2(255),
   PAGE_VIEW NUMBER DEFAULT 0,
-  PAGE_NAME VARCHAR2(255) CONSTRAINT NN_PC_PAGE_NAME NOT NULL
+  CATEGORY_NO NUMBER CONSTRAINT NN_PC_CATEGORY_NO NOT NULL,
+  PAGE_DAY VARCHAR(20) CONSTRAINT NN_PC_PAGE_DAY NOT NULL,
+  PAGE_URI VARCHAR2(255),
+  CONSTRAINT FK_PC_CATEGORY_NO FOREIGN KEY (CATEGORY_NO) REFERENCES TBL_PAGE_CATEGORY (CATEGORY_NO)
 );
 
 COMMENT ON COLUMN TBL_PAGE_COUNT.PAGE_NO IS '페이지번호';
-COMMENT ON COLUMN TBL_PAGE_COUNT.PAGE_URI IS '페이지주소';
 COMMENT ON COLUMN TBL_PAGE_COUNT.PAGE_VIEW IS '페이지조회수';
-COMMENT ON COLUMN TBL_PAGE_COUNT.PAGE_NAME IS '페이지이름';
+COMMENT ON COLUMN TBL_PAGE_COUNT.CATEGORY_NO IS '카테고리번호';
+COMMENT ON COLUMN TBL_PAGE_COUNT.PAGE_DAY IS '페이지요일';
+COMMENT ON COLUMN TBL_PAGE_COUNT.PAGE_URI IS '페이지주소';
 
-INSERT INTO TBL_PAGE_COUNT (PAGE_NO, PAGE_URI, PAGE_VIEW, PAGE_NAME) VALUES (1, NULL, 60, '메인페이지');
-INSERT INTO TBL_PAGE_COUNT (PAGE_NO, PAGE_URI, PAGE_VIEW, PAGE_NAME) VALUES (2, NULL, 40, '공지사항');
-INSERT INTO TBL_PAGE_COUNT (PAGE_NO, PAGE_URI, PAGE_VIEW, PAGE_NAME) VALUES (3, NULL, 60, '정보게시판');
-INSERT INTO TBL_PAGE_COUNT (PAGE_NO, PAGE_URI, PAGE_VIEW, PAGE_NAME) VALUES (4, NULL, 40, '자유게시판');
-INSERT INTO TBL_PAGE_COUNT (PAGE_NO, PAGE_URI, PAGE_VIEW, PAGE_NAME) VALUES (5, NULL, 60, '매물페이지');
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (1, 1, 550, '월요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (2, 1, 360, '화요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (3, 1, 280, '수요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (4, 1, 240, '목요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (5, 1, 420, '금요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (6, 1, 530, '토요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (7, 1, 510, '일요일' , NULL);
 
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (8, 2, 70, '월요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (9, 2, 60, '화요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (10, 2, 50, '수요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (11, 2, 40, '목요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (12, 2, 30, '금요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (13, 2, 80, '토요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (14, 2, 100, '일요일' , NULL);
+
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (15, 3, 50, '월요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (16, 3, 40, '화요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (17, 3, 60, '수요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (18, 3, 70, '목요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (19, 3, 80, '금요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (20, 3, 90, '토요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (21, 3, 100, '일요일' , NULL);
+
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (22, 4, 20, '월요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (23, 4, 30, '화요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (24, 4, 40, '수요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (25, 4, 50, '목요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (26, 4, 60, '금요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (27, 4, 70, '토요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (28, 4, 100, '일요일' , NULL);
+
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (29, 5, 90, '월요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (30, 5, 80, '화요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (31, 5, 70, '수요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (32, 5, 60, '목요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (33, 5, 50, '금요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (34, 5, 150, '토요일' , NULL);
+INSERT INTO TBL_PAGE_COUNT (PAGE_NO, CATEGORY_NO, PAGE_VIEW, PAGE_DAY, PAGE_URI) VALUES (35, 5, 160, '일요일' , NULL);
+
+-- 정보게시판 카테고리
 CREATE TABLE TBL_INFO_CATEGORY(
   CATEGORY_NO NUMBER CONSTRAINT PK_IC_CATEGORY_NO PRIMARY KEY,
   CATEGORY_NAME   VARCHAR2(50) CONSTRAINT NN_IC_CATEGORY_NAME NOT NULL
@@ -1774,10 +1867,12 @@ CREATE TABLE TBL_INFO_CATEGORY(
 COMMENT ON COLUMN TBL_INFO_CATEGORY.CATEGORY_NO IS '카테고리번호';
 COMMENT ON COLUMN TBL_INFO_CATEGORY.CATEGORY_NAME IS '카테고리이름';
 
+
 INSERT INTO TBL_INFO_CATEGORY(CATEGORY_NO, CATEGORY_NAME) VALUES(1, '계약시주의사항');
 INSERT INTO TBL_INFO_CATEGORY(CATEGORY_NO, CATEGORY_NAME) VALUES (2, '청년전세대출');
 INSERT INTO TBL_INFO_CATEGORY(CATEGORY_NO, CATEGORY_NAME) VALUES(3, '기타');
 
+-- 정보게시판
 CREATE TABLE TBL_INFO_BOARD(
   POST_NO NUMBER CONSTRAINT PK_IB_POST_NO PRIMARY KEY,
   POST_TITLE VARCHAR2(50) CONSTRAINT NN_IB_POST_TITLE NOT NULL,
@@ -1800,6 +1895,7 @@ COMMENT ON COLUMN TBL_INFO_BOARD.CATEGORY_NO IS '카테고리번호';
 COMMENT ON COLUMN TBL_FREE_BOARD.VIEW_YN IS '노출여부';
 COMMENT ON COLUMN TBL_INFO_BOARD.USER_NO IS '회원번호';
 
+-- 정보게시판 파일
 CREATE TABLE TBL_INFO_BOARD_FILE(
   FILE_NO NUMBER,
   POST_NO NUMBER,
@@ -1822,7 +1918,7 @@ COMMENT ON COLUMN TBL_INFO_BOARD_FILE.SAVE_PATH IS '저장경로';
 COMMENT ON COLUMN TBL_INFO_BOARD_FILE.FILE_NO IS '파일번호';
 
 
-
+-- 정보게시판 샘플 추가
 INSERT INTO TBL_INFO_BOARD A (A.POST_NO, A.POST_TITLE, A.POST_CONTENT, A.VIEW_NO, A.CREATION_DATE, A.CATEGORY_NO, A.USER_NO)
 VALUES (SEQ_INFO_POST_NO.NEXTVAL, '이사 전 잊지 말자! 준비 체크리스트'
 , '"이사를 앞두고 있다면 짐을 꾸리는 것부터 시작해 이삿짐센터 선택까지 신경 써야 할 일이 한두 가지가 아니다. 차질 없는 이사의 진행을 위해서는 이사 준비 체크리스트를 작성해서 빠짐없이 꼼꼼히 챙겨야 한다.

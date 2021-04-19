@@ -42,6 +42,8 @@
    <jsp:include page="../common/header.jsp"/>
     <div class="container">
         <h1 class="text">회원관리</h1>
+        	<button onclick="location.href='${ pageContext.servletContext.contextPath}/manage/list'" class="btn pull-right">새로고침</button>
+        
       <form id="form" action="${ pageContext.servletContext.contextPath }/manage/list" method="post">
       <table class="table table-striped table-hover">
 			<thead>
@@ -84,8 +86,8 @@
        </form>
 	</div>
 	<!-- table-area end -->
-	
-		<%-- 페이지 처리 --%>
+	<br><br><br>
+	<%-- 페이지 처리 --%>
 		<div class="text-center">
 			<ul class="pagination">
 				<c:choose>
@@ -169,7 +171,7 @@
 					<option value="enrollDate" <c:if test="${requestScope.searchCondition eq 'enrollDate' }">selected</c:if>>회원등록일</option>
 					<option value="userStatus" <c:if test="${requestScope.searchCondition eq 'status' }">selected</c:if>>회원상태</option>
 				</select>
-				<input type="search" id="searchValue" name="searchValue" value="${requestScope.searchValue}">
+				<input type="search" id="searchValue" name="searchValue" value="${requestScope.searchValue}"/>
 				</c:when>
 				<c:otherwise>
 				<select id="searchCondition" name="searchCondition">
@@ -183,7 +185,7 @@
 					<option value="enrollDate">회원등록일</option>
 					<option value="userStatus">회원상태</option>
 				</select>
-				<input type="search" id="searchValue" name="searchValue">
+				<input type="search" id="searchValue" name="searchValue" placeholder="검색어를 입력해주세요."/>
 				</c:otherwise>
 				</c:choose>
 				<span class="icon"><i class="fa fa-search"></i></span> 
