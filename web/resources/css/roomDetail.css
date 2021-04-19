@@ -137,7 +137,9 @@ p.info:hover {
 
 .room-explanation-info-value {
   color: #6e6e6e;
+  text-align: left;
   font-size: 17px;
+  white-space: pre-wrap;
   padding: 0 20px 20px;
   margin: 0;
 }
