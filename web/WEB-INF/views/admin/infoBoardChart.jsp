@@ -27,7 +27,7 @@
    <jsp:include page="../common/header.jsp"/>
 		<h3 align="center">관리자 통계</h3>
 		<div align="center">
-			<canvas id="myChart" style="width: 900px; height: 500px;"></canvas>
+			<canvas id="myChart" style="width: 600px; height: 500px;"></canvas>
 		</div>
 		<form id="form" action="${ pageContext.servletContext.contextPath }/chart/infoboard" method="get">
 			<input id="chartName1" type="hidden" name="categoryChart1" value="${ requestScope.categoryList1.name }">
@@ -55,15 +55,15 @@ var  myChart = new Chart(cht, {
     type: 'bar',
     data: {
         datasets: [{
-            label: '# of 정보게시판 카테고리 차트',
+            label: '# of 정보게시판 카테고리별 조회수 차트',
             data: data 
             ,parsing: { xAxisKey: 'name', yAxisKey: 'viewNo'
             },
-            backgroundColor: [ 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)'
+            backgroundColor: [ 'rgba(255, 99, 132, 0.6)', 'rgba(255, 206, 86, 0.6)', 'rgba(54, 162, 235, 0.6)'
             ],
-            borderColor: [ 'rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'
+            borderColor: [ 'rgba(255, 99, 132, 0.6)', 'rgba(255, 206, 86, 0.6)', 'rgba(54, 162, 235, 0.6)'
             ],
-            borderWidth: 1
+            borderWidth: 0
        }]
     },
     options: {
