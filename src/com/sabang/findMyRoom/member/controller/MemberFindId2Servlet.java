@@ -31,8 +31,6 @@ public class MemberFindId2Servlet extends HttpServlet implements Servlet {
         if(AuthenticationKey.equals(AuthenticationUser))
         {
             System.out.println("인증번호 일치");
-//            request.setAttribute("mssage", "인증번호가 일치하지 않습니다");
-//            request.setAttribute("loc", "/member/findId2");
  
             request.setAttribute("email", email);
             request.setAttribute("userId", userId);

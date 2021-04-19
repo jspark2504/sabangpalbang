@@ -113,7 +113,7 @@
 	<jsp:include page="../common/header.jsp"/>
 	 <div class="container">
 
-    <form class="form-signin"  action="${pageContext.servletContext.contextPath}/member/findPw" >
+    <form class="form-signin"  action="${pageContext.servletContext.contextPath}/member/findPw" method="post" >
       <br>
       <div id="textbox">
       <p>가입하신 이메일 주소를 입력해주세요.<br>임시 비밀번호를 보내드립니다.</p>
@@ -122,6 +122,7 @@
   
       <label for="inputEmail" class="sr-only">Email</label>
       <input type="text" id="inputEmail" class="form-control" placeholder="이메일 주소" name="email" >
+      
       
       <button class="btn btn-lg btn-block" type="submit" id="btn">확인</button>
     </form>
