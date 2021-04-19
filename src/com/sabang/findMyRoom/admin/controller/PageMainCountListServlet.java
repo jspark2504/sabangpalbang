@@ -19,6 +19,7 @@ public class PageMainCountListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		List<PageCountDTO> pageCountList = new AdminService().selectPageViewCount();
+		System.out.println("잘나왔나요 : " + pageCountList);
 		
 		
 		request.setAttribute("pageCountList1" , pageCountList.get(0));

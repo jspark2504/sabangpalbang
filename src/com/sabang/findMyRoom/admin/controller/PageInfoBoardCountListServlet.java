@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sabang.findMyRoom.admin.model.dto.PageCountDTO;
 import com.sabang.findMyRoom.admin.model.service.AdminService;
 
-@WebServlet("/pagecount/List/infoboard")
+@WebServlet("/pagecount/infoboard")
 public class PageInfoBoardCountListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

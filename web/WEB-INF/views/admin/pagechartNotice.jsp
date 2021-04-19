@@ -36,9 +36,9 @@
 		</div>
 		<div align="center">
 		<button onclick="location.href='${ pageContext.servletContext.contextPath}/pagecount/List'" class="btn">메인페이지통계</button>
-		<button onclick="location.href='${ pageContext.servletContext.contextPath}/pagecount/List/infoboard'" class="btn">정보게시판통계</button>
-		<button onclick="location.href='${ pageContext.servletContext.contextPath}/pagecount/List/freeboard'" class="btn">자유게시판통계</button>
-		<button onclick="location.href='${ pageContext.servletContext.contextPath}/pagecount/List/room'" class="btn">매물페이지통계</button>		
+		<button onclick="location.href='${ pageContext.servletContext.contextPath}/pagecount/infoboard'" class="btn">정보게시판통계</button>
+		<button onclick="location.href='${ pageContext.servletContext.contextPath}/pagecount/freeboard'" class="btn">자유게시판통계</button>
+		<button onclick="location.href='${ pageContext.servletContext.contextPath}/pagecount/room'" class="btn">매물페이지통계</button>		
 		</div>
 		<form id="form" action="${ pageContext.servletContext.contextPath }/pagecount/List" method="get">
 			<input id="chartName1" type="hidden" name="pageCountList1" value="${ requestScope.pageCountList8.category.name }">
