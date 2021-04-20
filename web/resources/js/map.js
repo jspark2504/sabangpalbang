@@ -9,6 +9,9 @@ var geocoder = new daum.maps.services.Geocoder();		// 주소-좌표 변환 객�
 var addressArray = [];
 var priceArray = [];
 var roomNoArray = [];
+
+
+
 var count = $('#count').val();
 
 
@@ -23,7 +26,7 @@ for (var i = 0 ; i < count ; i++) {
 		'groupPrice' : $("input[name='map-price']").eq(i).val()
 	});
 	roomNoArray.push({
-		'groupRoomNo' : $("input[name='map-room-no']").eq(i).val()
+		'groupRoomNo' : $("input[name='map-roomNo']").eq(i).val()
 	});
 }
 
@@ -35,7 +38,6 @@ for (var i = 0 ; i < count ; i++) {
 	let roomNo = roomNoArray[i].groupRoomNo;
 	let price = priceArray[i].groupPrice;
 	let address = addressArray[i].groupAddress;
-	let mapRoomNo = roomNoArray[i].groupRoomNo;
 
 	geocoder.addressSearch(address, function(result, status, data) {
 
@@ -54,13 +56,13 @@ for (var i = 0 ; i < count ; i++) {
 					map : map,
 					position : coords,
 					image : markerImage,
-					title : mapRoomNo
+					title : roomNo
 				});
 
 				/* 지도에 마커 표시 */
 				marker.setMap(map);
 
-				var iwContent = '<div style="padding:5px; width:110px; margin-left:20px;">' + price + '<br><a href="https://map.kakao.com/link/to/' + address + ',' + coords.y + ',' + coords.x + ' style="color:#ffd233" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+				var iwContent = '<div style="padding:5px; width:110px; margin-left:20px;">등록번호' + roomNo + '<br>' + price + '</div>' // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
     				iwPosition = coords; //인포윈도우 표시 위치입니다
 
 				// 인포윈도우를 생성합니다
