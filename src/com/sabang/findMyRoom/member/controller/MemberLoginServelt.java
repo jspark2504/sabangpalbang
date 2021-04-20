@@ -43,8 +43,8 @@ public class MemberLoginServelt extends HttpServlet {
 			session.setAttribute("loginMember", loginMember);
 			response.sendRedirect(request.getContextPath()); // = /jsp 로 이동과 같은 의미
 		}else {
-			request.setAttribute("message", "로그인 실패!");
-			request.getRequestDispatcher("/WEB-INF/views/common/failed.jsp").forward(request, response);
+			request.setAttribute("successCode", "loginFailed");
+			request.getRequestDispatcher("/WEB-INF/views/common/success.jsp").forward(request, response);
 		}
 	}
 	

@@ -15,6 +15,23 @@
   
     <link rel="stylesheet" href="/findMyRoom/resources/css/freeBoardDetail.css">
 	<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
+	<style>
+	#title{
+		border:none;
+		width:400px;
+	}
+	#content{
+		resize:none;
+	}
+	#listbtn{
+		
+		left:10px;
+	}
+	#updatebtn{
+		
+		right:8px;
+	}
+	</style>
 </head>
 <body>
 <jsp:include page="../common/header.jsp"/>
@@ -27,26 +44,26 @@
 				<table>
 					<tr>
 						<td>제목</td>
-						<td><input type="text" size="25" name="title" value="${requestScope.notice.title }"></td>
+						<td><input type="text" size="25" id="title" name="title" value="${requestScope.notice.title }"></td>
 					</tr>
-					<tr>
+					<%-- <tr>
 						<td>작성자</td>
 						<td>
-							<input type="text" size="25"value="${ sessionScope.loginMember.nickname }" name="writer" readonly>
+							<input type="text" size="25" id="" value="${ sessionScope.loginMember.nickname }" name="writer" readonly>
 						</td>
-					</tr>
+					</tr> --%>
 					<tr>
 						<td colspan="5">
-							<textarea class="content" name="content"><c:out value="${requestScope.notice.content }"/></textarea>				
+							<textarea class="content" id="content" name="content"><c:out value="${requestScope.notice.content }"/></textarea>				
 						</td>
 					</tr>
 				</table>
 				<br>
 				<div align="center">
-					<button class="btn post pull-right" type="submit">수정</button>
+					<button class="btn post pull-right" id="updatebtn" type="submit">수정</button>
 				</div>
 			</form>
-           			<button class="btn cancel pull-left" onclick="location.href='${ pageContext.servletContext.contextPath}/notice/list'">목록</button>
+           			<button class="btn cancel pull-left" id="listbtn" onclick="location.href='${ pageContext.servletContext.contextPath}/notice/list'">목록</button>
 					<button class="btn post pull-right" type="button" onclick="postRequest('deleteNotice')" >삭제</button>
 		</div>
 	</div>

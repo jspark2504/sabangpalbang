@@ -24,8 +24,8 @@
 
 	<style>
   .container {
-    padding-top: 270px;
-    padding-bottom: 40px;
+	margin-top: 85px;
+    margin-bottom:85px;
     background-color:white;
     /* display: table-cell; */
     /* vertical-align: middle;  */
@@ -128,5 +128,6 @@
     </form>
   </div>
 		<jsp:include page="../common/footer.jsp" />
+		<script src="/findMyRoom/resources/js/sticky.js"></script>
 </body>
 </html>

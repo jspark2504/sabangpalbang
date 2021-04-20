@@ -32,6 +32,7 @@ $(document).ready(function(){
 		$('.menu4').css('color','#ffd233');
 		break;
 	}
+	$('footer').css('position','static')
 });
 
 /* 상세 페이지 조회 */
