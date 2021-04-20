@@ -32,6 +32,8 @@
           <c:forEach var="room" items="${ requestScope.roomList }">
             <input type="hidden" class="map-room-list" name="map-address" value="${ room.address }"/>
             <input type="hidden" class="map-room-list" name="map-price" value="${ room.formatPrice }" />
+            <input type="hidden" class="map-room-list" name="map-roomNo" value="${ room.no }" />
+
           </c:forEach>
             <!-- 지도 영역 -->
             <article class="map col-md-8">

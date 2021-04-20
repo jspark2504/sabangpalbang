@@ -8,6 +8,7 @@ var map = new kakao.maps.Map(mapContainer, mapOption); 	// 지도 생성
 var geocoder = new daum.maps.services.Geocoder();		// 주소-좌표 변환 객체 생성
 var addressArray = [];
 var priceArray = [];
+var roomNoArray = [];
 var count = $('#count').val();
 
 
@@ -21,6 +22,9 @@ for (var i = 0 ; i < count ; i++) {
 	priceArray.push({
 		'groupPrice' : $("input[name='map-price']").eq(i).val()
 	});
+	roomNoArray.push({
+		'groupRoomNo' : $("input[name='map-room-no']").eq(i).val()
+	});
 }
 
 // 마커 이미지의 이미지 주소
@@ -28,8 +32,10 @@ var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerS
 
 for (var i = 0 ; i < count ; i++) {
 
+	let roomNo = roomNoArray[i].groupRoomNo;
 	let price = priceArray[i].groupPrice;
 	let address = addressArray[i].groupAddress;
+	let mapRoomNo = roomNoArray[i].groupRoomNo;
 
 	geocoder.addressSearch(address, function(result, status, data) {
 
@@ -48,13 +54,13 @@ for (var i = 0 ; i < count ; i++) {
 					map : map,
 					position : coords,
 					image : markerImage,
-					title : price
+					title : mapRoomNo
 				});
 
 				/* 지도에 마커 표시 */
 				marker.setMap(map);
 
-				var iwContent = '<div style="padding:5px; width:110px; margin-left:20px;">' + price + '<br><a href="https://map.kakao.com/link/to/' + address + ',' + result[0].y + ',' + result[0].x + ' style="color:#ffd233" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+				var iwContent = '<div style="padding:5px; width:110px; margin-left:20px;">' + price + '<br><a href="https://map.kakao.com/link/to/' + address + ',' + coords.y + ',' + coords.x + ' style="color:#ffd233" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
     				iwPosition = coords; //인포윈도우 표시 위치입니다
 
 				// 인포윈도우를 생성합니다
@@ -63,8 +69,24 @@ for (var i = 0 ; i < count ; i++) {
 				    content : iwContent
 				});
 
-				// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
-				infowindow.open(map, marker);
+				kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+    			kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+				// 마커 위에 인포윈도우를 표시
+				//infowindow.open(map, marker);
 			}
 	});
+}
+
+// 인포윈도우를 표시하는 클로저를 만드는 함수입니다
+function makeOverListener(map, marker, infowindow) {
+    return function() {
+        infowindow.open(map, marker);
+    };
+}
+
+// 인포윈도우를 닫는 클로저를 만드는 함수입니다
+function makeOutListener(infowindow) {
+    return function() {
+        infowindow.close();
+    };
 }
