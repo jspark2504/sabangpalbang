@@ -168,7 +168,8 @@ public class AuthenticationFilter implements Filter {
 			officePermitList.add("/room/update/file");
 			officePermitList.add("/room/update");
 
-			/* 결재 : 결재 리스트 */
+			/* 결재 : 이용권 목록과 결재내역 */
+			officePermitList.add("/payment");
 			officePermitList.add("/payment/list");
 		
 		
