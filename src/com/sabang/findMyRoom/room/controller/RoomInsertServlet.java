@@ -118,10 +118,9 @@ public class RoomInsertServlet extends HttpServlet {
 
 							/* 첫 번째 사진인 경우 미리보기 사진으로 설정 */
 							if(fileList.isEmpty()) {
-								width = 172;
-								height = 120;
-
-								i--;
+								fileMap.put("fileType", "TITLE");
+							} else {
+								fileMap.put("fileType", "BODY");
 							}
 
 							/* 썸네일로 변환 후 저장 */
@@ -190,6 +189,7 @@ public class RoomInsertServlet extends HttpServlet {
 					roomFile.setSaveName(file.get("savedFileName"));
 					roomFile.setSavePath(file.get("savePath"));
 					roomFile.setThumbnailPath(file.get("thumbnailPath"));
+					roomFile.setFileType(file.get("fileType"));
 
 					files.add(roomFile);
 				}
@@ -203,7 +203,7 @@ public class RoomInsertServlet extends HttpServlet {
 					request.setAttribute("successCode", "insertRoom");
 				} else {
 					path = "/WEB-INF/views/common/failed.jsp";
-					request.setAttribute("message", "매물 등록 실패!");
+					request.setAttribute("message", "매물 등록에 실패하였습니다. 잠시 후 다시 시도해 주세요.");
 				}
 
 				request.getRequestDispatcher(path).forward(request, response);

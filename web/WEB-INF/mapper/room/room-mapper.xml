@@ -13,7 +13,7 @@
 		  FROM TBL_ROOM A
           JOIN TBL_ROOM_FILE B ON (A.ROOM_NO = B.ROOM_NO)
 		 WHERE A.ROOM_STATUS = 'Y'
-           AND B.FILE_NO = 1
+           AND B.FILE_TYPE = 'TITLE'
 		 ORDER BY A.ROOM_NO DESC
 	</entry>
     <entry key="incrementRoomCount">
@@ -68,6 +68,7 @@
              , E.SAVE_NAME
              , E.SAVE_PATH
              , E.THUMBNAIL_PATH
+             , E.FILE_TYPE
           FROM TBL_ROOM A
           JOIN TBL_ROOM_CATEGORY B ON (A.CATEGORY_NO = B.CATEGORY_NO)
           JOIN TBL_OFFICE C ON (A.OFFICE_NO = C.OFFICE_NO)
@@ -75,7 +76,7 @@
           JOIN TBL_ROOM_FILE E ON (A.ROOM_NO = E.ROOM_NO)
          WHERE A.ROOM_NO = ?
            AND D.USER_STATUS = 'Y'
-           AND E.FILE_NO != 1
+           AND E.FILE_STATUS = 'Y'
     </entry>
     <entry key="selectOfficeNo">
         SELECT /* com.sabang.findMyRoom.room.model.dao.RoomDAO#selectOfficeNo() */
@@ -160,10 +161,12 @@
         , A.SAVE_NAME
         , A.SAVE_PATH
         , A.THUMBNAIL_PATH
+        , A.FILE_TYPE
         )
         VALUES
         (
           ?
+        , ?
         , ?
         , ?
         , ?
@@ -187,7 +190,7 @@
           JOIN TBL_ROOM_FILE C ON (A.ROOM_NO = C.ROOM_NO)
           JOIN TBL_OFFICE D ON (A.OFFICE_NO = D.OFFICE_NO)
           JOIN TBL_USER E ON (D.USER_NO = E.USER_NO)
-         WHERE C.FILE_NO = 1
+         WHERE C.FILE_TYPE = 'TITLE'
            AND E.USER_NO = ?
          ORDER BY A.ROOM_STATUS DESC, A.ROOM_NO DESC
     </entry>
@@ -226,16 +229,6 @@
              , A.ELEVATOR_YN = ?
              , A.PARKING_YN = ?
          WHERE A.ROOM_NO = ?
-	</entry>
-	<entry key="updateFile">
-        UPDATE /* com.sabang.findMyRoom.room.model.dao.RoomDAO#updateFile() */
-               TBL_ROOM_FILE A
-           SET A.ORIGIN_NAME = ?
-             , A.SAVE_NAME = ?
-             , A.SAVE_PATH = ?
-             , A.THUMBNAIL_PATH = ?
-         WHERE A.ROOM_NO = ?
-           AND A.FILE_NO = ?
 	</entry>
 	<entry key="deleteFile">
         DELETE /* com.sabang.findMyRoom.room.model.dao.RoomDAO#updateFile() */
@@ -283,9 +276,42 @@
           JOIN TBL_ROOM_FILE B ON (A.ROOM_NO = B.ROOM_NO)
           JOIN TBL_PICK_ROOM C ON (A.ROOM_NO = C.ROOM_NO)
          WHERE A.ROOM_STATUS = 'Y'
-           AND B.FILE_NO = 1
+           AND B.FILE_TYPE = 'TITLE'
            AND C.USER_NO = ?
          ORDER BY A.ROOM_NO DESC
+	</entry>
+	<entry key="selectFileType">
+        SELECT
+               A.FILE_TYPE
+          FROM TBL_ROOM_FILE A
+         WHERE A.ROOM_NO = ?
+           AND A.FILE_NO = ?
+	</entry>
+	<entry key="updateFileStatus">
+        UPDATE /* com.sabang.findMyRoom.room.model.dao.RoomDAO#updateFileStatus() */
+               TBL_ROOM_FILE A
+           SET A.FILE_TYPE = NULL
+             , A.FILE_STATUS = 'N'
+         WHERE A.ROOM_NO = ?
+           AND A.FILE_NO = ?
+	</entry>
+	<entry key="updateTitle">
+        UPDATE
+               TBL_ROOM_FILE A
+           SET A.FILE_TYPE = 'TITLE'
+         WHERE ROOM_NO = ?
+           AND FILE_NO = (SELECT MIN(B.FILE_NO)
+                            FROM TBL_ROOM_FILE B
+                           WHERE B.ROOM_NO = ?
+                             AND B.FILE_TYPE = 'BODY'
+                             AND B.FILE_STATUS = 'Y'
+                         )
+	</entry>
+	<entry key="selectFileNum">
+        SELECT
+               COUNT(A.FILE_NO)
+          FROM TBL_ROOM_FILE A
+         WHERE ROOM_NO = ?
 	</entry>
 	<entry key="">
 	</entry>
