@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>결제 내역</title>
+   <title>구해줘! 내 방</title>
 <style>
 	#paymentListBox{
 		border:1px solid rgba(0,0,0,0.2);
@@ -64,6 +64,11 @@
 		left:608px;
 		bottom:169px;
 	}
+
+  .container {
+    margin-top: 50px;
+    margin-bottom: 150px;
+  }
 </style>
 </head>
 <link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
@@ -93,5 +98,6 @@
 </c:forEach>
 </div>
 <jsp:include page="../common/footer.jsp" />
+<script src="/findMyRoom/resources/js/sticky.js"></script>
 </body>
 </html>

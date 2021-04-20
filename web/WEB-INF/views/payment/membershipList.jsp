@@ -5,8 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>이용권 목록</title>
+
+   <title>구해줘! 내 방</title>
 <style>
+    .container {
+      margin-top: 50px;
+      margin-bottom: 90px;
+    }
+
 	#membershipBox{
 		border:1px solid rgba(0,0,0,0.2);
 		border-radius:10px;
@@ -48,7 +54,7 @@
 	#paymentBtn:hover{
 		background: rgb(81, 75, 55);
 		color: white;
-		transition-duration: 0.3s;		
+		transition-duration: 0.3s;
 	}
 </style>
 </head>
