@@ -37,7 +37,7 @@
             top:10px;
         }
         div.container.noticealign{
-        	margin:210px 0 210px 370px;
+        	margin:210px 0 210px 0px auto;
         }
 
     </style>

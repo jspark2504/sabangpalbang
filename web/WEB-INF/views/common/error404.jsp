@@ -15,26 +15,24 @@
    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
    <link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
-   <link rel="stylesheet" href="/findMyRoom/resources/css/free_board.css?">      
+   <link rel="stylesheet" href="/findMyRoom/resources/css/error404.css">      
 </head>
 <body>
    <jsp:include page="../common/header.jsp"/>
 	
-	<br><br><br><br><br><br><br><br>
-	<h1 align="center">페이지를 찾을 수 없습니다(404)</h1>
-	<h3 align="center">페이지 경로를 확인 해주세요</h3>
-	<br><br><br><br>
-	<div align="center">
-	<button onclick="location.href='${ pageContext.servletContext.contextPath}'" class="btn">홈으로</button>
-	<button type="button" onclick="refresh();" class="btn">새로고침</button>
-	</div>
+	<section class="error404page">
+		<h3 class="error404Text">페이지를 찾을 수 없습니다(404)</h3>
+		<h3>페이지 경로를 확인 해주세요</h3>
+	</section>
 	
  	<script>
 	function refresh(){
 		location.href = location.href;
 	}
 	</script>
+	
 	<jsp:include page="../common/footer.jsp" />
+	<script src="/findMyRoom/resources/js/sticky.js"></script>
 </body>
 </html>
 
