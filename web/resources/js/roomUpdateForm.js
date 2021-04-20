@@ -37,7 +37,7 @@ let i = 1;
 $addBtn.onclick = function () {
 
 	/* 사진 최대 개수 제한 */
-	if(document.getElementsByName('files').length >= 10) {
+	if(document.getElementsByName('imgs').length >= 10) {
 		alert('최대 등록 개수를 초과하였습니다.');
 
 	} else {

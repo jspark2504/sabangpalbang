@@ -6,29 +6,28 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 
 var map = new kakao.maps.Map(mapContainer, mapOption); 	// 지도 생성
 var geocoder = new daum.maps.services.Geocoder();		// 주소-좌표 변환 객체 생성
-//let positions = [];		// 마커를 표시할 위치와 title 객체 배열
 
-//$(function(){
-//	let count = document.getElementsByName("roomNo").length;	// 매물 목록의 수
-//	console.log('count : ' + count);
+let positions = [];		// 마커를 표시할 위치와 title 객체 배열
+$(function(){
+	let count = document.getElementsByName("roomNo").length;	// 매물 목록의 수
+	console.log('count : ' + count);
 
-//	for(let i = 0 ; i < count ; i++) {
-//		let price = document.getElementsByName("price")[i].value;
-//		let address = document.getElementsByName("address")[i].value;
+	for(let i = 0 ; i < count ; i++) {
+		let price = document.getElementsByName("price")[i].value;
+		let address = document.getElementsByName("address")[i].value;
 
 		/* 주소를 좌표로 변환 */
-//		geocoder.addressSearch(address, function(result, status) {
+			geocoder.addressSearch(address, function(result, status) {
 			/* 검색 성공 시 */
-//		    if (status === kakao.maps.services.Status.OK) {
-//	            var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-//		    }
+		    if (status === kakao.maps.services.Status.OK) {
+	            var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+		    }
+			positions.push({ title: price, latlng: coords });
 
-//			positions.push({ title: price, latlng: coords });
+		});
+	}
 
-//		});
-//	}
-
-//});
+});
 
 
 var positions = [
