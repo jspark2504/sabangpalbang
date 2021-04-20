@@ -147,7 +147,7 @@ a.tip:hover span {
 
 .sticky-nav {
   position: fixed;
-  top: 85px;
+  top: 84px;
   width: 100%;
   background: white;
   border: 1px solid #f3f3f3;
@@ -338,7 +338,7 @@ a.tip:hover span {
   display: flex;
   position: fixed;
   background: white;
-  top: 85px;
+  top: 84px;
   width: 35vw;
   margin: 0;
   padding: 15px 50px 15px 15px;

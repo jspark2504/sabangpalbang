@@ -248,7 +248,7 @@ function showList() {
 	//$(".room-list ul").css('display', 'block');
 	//$(".room-area").css('display', 'block');
 	$(".sticky-nav").css('display', 'block');
-	$(".room-area").css('display', 'block');
+	$(".room-area").css('display', 'flex');
 
 }
 

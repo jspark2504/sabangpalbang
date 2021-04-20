@@ -8,10 +8,10 @@
 <link rel="stylesheet" href="/findMyRoom/resources/css/footer.css">
 </head>
 <body>
-	<hr class="hr-fshadow">
 	<footer>
+	<!-- <hr class="hr-fshadow"> -->
 		<small>
-			<p>
+			<p class="footertext">
 				상호 : (주)구해줘내방 &nbsp;&nbsp;&nbsp; 대표 : 사방팔방 &nbsp;&nbsp;&nbsp; 사업자
 				등록번호 : 120-12-48484 <br> 주소 : 서울특별시 서초구 서초대로 488, 4층(서초동,
 				사방타워)(우:484848) <br> 팩스 : 02-123-4567 <br> 통신판매업 신고번호 :
@@ -49,7 +49,7 @@
 		</ul>
 
 		<p>
-			<small>
+			<small class="capyright">
 				Copyrightⓒ4BANG.ALL Rights Reserved.
 			</small>
 		</p>

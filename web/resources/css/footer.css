@@ -4,12 +4,23 @@ footer {
     flex-direction: column;
     align-items: center;
     color: #6a6a6a;
+    position:sticky;
+    bottom:0px;
+    width:100%;
+    z-index:1000;
+    background:white;
+    border-top:1px solid rgba(0,0,0,0.1);
 }
 
 footer p {
     text-align: center;
 }
-
+.footertext{
+	margin-top:20px;
+}
+.copyright{
+	margin:0px;
+}
 footer div {
     justify-content: center;
 }
@@ -28,8 +39,8 @@ footer div {
     flex-direction: row;
 }
 
-.hr-fshadow {
-    margin-top: 50px;
+hr.hr-fshadow {
+    margin-top: 0px;
     height: 5px;
 }
 

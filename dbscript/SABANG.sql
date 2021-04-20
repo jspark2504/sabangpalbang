@@ -210,6 +210,7 @@ CREATE TABLE TBL_OFFICE (
   BUSINESS_NO NUMBER  CONSTRAINT NN_BUSINESS_NO NOT NULL,
   OFFICE_RATING NUMBER,
   USER_NO NUMBER CONSTRAINT NN_OF_USER_NO NOT NULL,
+  THUMBNAIL_PATH VARCHAR2(255), 
   CONSTRAINT UK_OFFICE_PHONE UNIQUE (OFFICE_PHONE),
   CONSTRAINT UK_BUSINESS_NO UNIQUE (BUSINESS_NO),
   CONSTRAINT FK_OF_USER_NO FOREIGN KEY (USER_NO) REFERENCES TBL_USER (USER_NO),
@@ -224,10 +225,10 @@ COMMENT ON COLUMN TBL_OFFICE.BUSINESS_NO IS '사업자등록번호';
 COMMENT ON COLUMN TBL_OFFICE.OFFICE_RATING IS '평점';
 COMMENT ON COLUMN TBL_OFFICE.USER_NO IS '대표중개사';
 
-INSERT INTO TBL_OFFICE (OFFICE_NO, OFFICE_NAME, OFFICE_ADDR, OFFICE_PHONE, BUSINESS_NO, OFFICE_RATING, USER_NO)
-VALUES (SEQ_OFFICE_NO.NEXTVAL, '402 공인중개사', '관악구 국회단지 29-11', '02-1234-5678', 9102034212346, 4.9, 33);
-INSERT INTO TBL_OFFICE (OFFICE_NO, OFFICE_NAME, OFFICE_ADDR, OFFICE_PHONE, BUSINESS_NO, OFFICE_RATING, USER_NO)
-VALUES (SEQ_OFFICE_NO.NEXTVAL, '짱조아 공인중개사', '관악구 국회단지 29-22', '02-1234-5012', 9102034234539, 4.3, 34);
+INSERT INTO TBL_OFFICE (OFFICE_NO, OFFICE_NAME, OFFICE_ADDR, OFFICE_PHONE, BUSINESS_NO, OFFICE_RATING, USER_NO, THUMBNAIL_PATH)
+VALUES (SEQ_OFFICE_NO.NEXTVAL, '402 공인중개사', '관악구 국회단지 29-11', '02-1234-5678', 9102034212346, 4.9, 33, '/resources/upload/room/thumbnail/mhn.png');
+INSERT INTO TBL_OFFICE (OFFICE_NO, OFFICE_NAME, OFFICE_ADDR, OFFICE_PHONE, BUSINESS_NO, OFFICE_RATING, USER_NO, THUMBNAIL_PATH)
+VALUES (SEQ_OFFICE_NO.NEXTVAL, '짱조아 공인중개사', '관악구 국회단지 29-22', '02-1234-5012', 9102034234539, 4.3, 34, '/resources/upload/room/thumbnail/sjl.png');
 
 COMMIT;
 
@@ -917,7 +918,12 @@ INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE,
   , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
 VALUES (SEQ_ROOM_NO.NEXTVAL, 100000000, 30, '서울 관악구 봉천동 635-192', TO_DATE('21/04/11', 'RR/MM/DD'), 4, 1, '반지하/3층', '남향'
   , 50000, NULL, NULL, NULL, NULL, NULL, TO_DATE('92/01/15', 'RR/MM/DD'), '즉시 입주', '▣모든 대출가능! ▣화이트톤 쓰리룸! ▣즉시입주가능 ▣리모델링'
-  , '▣ 리모델링 쓰리룸입니다. ▣ 양창문이라 환기가 잘되고 깔끔합니다. ▣ 침대 및 건조기 들어갑니다. ▣ 즉시입주 가능합니다. ▣ 앞이 안막혀있어 채광이 좋습니다. ▣ 서울대입구역 도보 7분안'
+  , '▣ 리모델링 쓰리룸입니다. 
+▣ 양창문이라 환기가 잘되고 깔끔합니다. 
+▣ 침대 및 건조기 들어갑니다. 
+▣ 즉시입주 가능합니다. 
+▣ 앞이 안막혀있어 채광이 좋습니다. 
+▣ 서울대입구역 도보 7분안'
   , '인근 버스정류장 도보 3분', 'Y', 'Y', 'Y', 'Y', 'Y', NULL, NULL);
 
 INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE, CATEGORY_NO, OFFICE_NO, ROOM_FLOOR, DIRECTION
@@ -926,7 +932,12 @@ INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE,
   , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
 VALUES (SEQ_ROOM_NO.NEXTVAL, 300000000, 53, '서울 관악구 봉천동 952-14', TO_DATE('21/04/12', 'RR/MM/DD'), 4, 1, '6층/6층', '남향'
   , 50000, NULL, NULL, NULL, NULL, NULL, TO_DATE('16/11/25', 'RR/MM/DD'), '5월10일이후', '▣현관 도어문! ▣화이트톤 빌트인! ▣보안 철저 매물! ▣넓은 매물'
-  , '▣ 깔끔한 쓰리룸입니다. ▣ 양창문이라 환기가 잘되고 깔끔합니다. ▣ 대로변 인근입니다 ▣ 주변 대학교 교통편 좋습니다. ▣ 주변 인프라가 좋습니다. ▣ 봉천역 도보 5분안'
+  , '▣ 깔끔한 쓰리룸입니다. 
+▣ 양창문이라 환기가 잘되고 깔끔합니다. 
+▣ 대로변 인근입니다 
+▣ 주변 대학교 교통편 좋습니다. 
+▣ 주변 인프라가 좋습니다. 
+▣ 봉천역 도보 5분안'
   , '인근 버스정류장 도보 2분', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y');
 
 INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE, CATEGORY_NO, OFFICE_NO, ROOM_FLOOR, DIRECTION
@@ -935,7 +946,12 @@ INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE,
   , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
 VALUES (SEQ_ROOM_NO.NEXTVAL, 320000000, 54, '서울 관악구 봉천동 713-5', TO_DATE('21/04/13', 'RR/MM/DD'), 4, 2, '3층/6층', '남향'
   , 40000, NULL, NULL, NULL, NULL, NULL, TO_DATE('19/03/20', 'RR/MM/DD'), '7월03일이후', '▣현관 도어문! ▣다세대/허그안심 ▣신축2년/주차 ▣넓은 매물'
-  , '▣ 19년 신축 2년차! ▣ 반려동물 가능합니다.▣ 대로변 인근입니다 ▣ 프리랜서 대출 가능. ▣ 주변 인프라가 좋습니다. ▣ 2호선 접근성 좋습니다.'
+  , '▣ 19년 신축 2년차! 
+▣ 반려동물 가능합니다.
+▣ 대로변 인근입니다 
+▣ 프리랜서 대출 가능. 
+▣ 주변 인프라가 좋습니다. 
+▣ 2호선 접근성 좋습니다.'
   , '7호선 및 2호선 더블역세권', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y');
 
 INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE, CATEGORY_NO, OFFICE_NO, ROOM_FLOOR, DIRECTION
@@ -944,7 +960,12 @@ INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE,
   , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
 VALUES (SEQ_ROOM_NO.NEXTVAL, 140000000, 42, '서울 관악구 봉천동 649-98', TO_DATE('21/04/14', 'RR/MM/DD'), 4, 2, '1층/4층', '남향'
   , 10000, NULL, NULL, NULL, NULL, NULL, TO_DATE('93/05/17', 'RR/MM/DD'), '5월22일이후', '▣전세대출 가능! ▣내부 리모델링! ▣버스 노선 옆! ▣넓은 매물'
-  , '▣ 깔끔한 쓰리룸입니다.▣ 베란다 있습니다.▣ 대로변 인근입니다 ▣ 골목이 없어 여성안전. ▣ 주변 인프라가 좋습니다. ▣ 봉천역 도보 10분안'
+  , '▣ 깔끔한 쓰리룸입니다.
+▣ 베란다 있습니다.
+▣ 대로변 인근입니다 
+▣ 골목이 없어 여성안전. 
+▣ 주변 인프라가 좋습니다. 
+▣ 봉천역 도보 10분안'
   , '인근 버스정류장 도보 3분', 'Y', 'Y', 'Y', 'Y', 'Y', NULL, NULL);
 
 INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE, CATEGORY_NO, OFFICE_NO, ROOM_FLOOR, DIRECTION
@@ -953,7 +974,12 @@ INSERT INTO TBL_ROOM (ROOM_NO, ROOM_PRICE, EXCLUSIVE_AREA, ADDRESS, CREATE_DATE,
   , TRANSPORTATION_INFO, WASHING_MACHINE_YN, REFRIGERATOR_YN, AIR_CONDITIONER_YN, GAS_STOVE_YN, PET_YN, ELEVATOR_YN, PARKING_YN)
 VALUES (SEQ_ROOM_NO.NEXTVAL, 300000000, 56, '서울 관악구 봉천동 1559-19', TO_DATE('21/04/14', 'RR/MM/DD'), 4, 2, '4층/4층', '남향'
   , 80000, NULL, NULL, NULL, NULL, NULL, TO_DATE('18/09/11', 'RR/MM/DD'), '즉시 입주', '▣단독층! ▣정남향! ▣구조 좋은 매물! ▣넓은 매물'
-  , '▣ 허위매물 아닌 실매물. ▣ 방 컨디션 좋고 깔끔합니다.▣ 주차비 없습니다. ▣ 4층 단독사용입니다 ▣ 주변 인프라가 좋습니다. ▣ 서울대입구역 도보 5분안'
+  , '▣ 허위매물 아닌 실매물. 
+▣ 방 컨디션 좋고 깔끔합니다.
+▣ 주차비 없습니다. 
+▣ 4층 단독사용입니다 
+▣ 주변 인프라가 좋습니다. 
+▣ 서울대입구역 도보 5분안'
   , '인근 버스정류장 도보 1분', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y');
 
 COMMIT;
