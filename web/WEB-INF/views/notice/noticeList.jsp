@@ -5,7 +5,8 @@
 <html>
 <head>
    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>공지리스트</title>
+<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
+    <title>구해줘! 내 방</title>
 
     <style>
         
@@ -14,8 +15,7 @@
             border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             margin: 0 auto;
-            padding-top: 127px;
-            padding-bottom: 40px;
+
       /* display: table-cell; */
       /* vertical-align: middle; */
         }
@@ -37,7 +37,7 @@
             top:10px;
         }
         div.container.noticealign{
-        	margin:300px;
+        	margin:210px 0 210px 370px;
         }
 
     </style>
@@ -108,6 +108,7 @@
       </script>
 
 	<jsp:include page="../common/footer.jsp" />
+	<script src="/findMyRoom/resources/js/sticky.js"></script>
 </body>
 </html>
     

@@ -12,7 +12,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
   
-<title>아이디 뿌리기</title>
+<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
+    <title>구해줘! 내 방</title>
    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   
@@ -31,8 +32,8 @@
 	
   <style>
    .container {
-      padding-top: 270px;
-      padding-bottom: 40px;
+	margin-top: 85px;
+    margin-bottom:85px;
       background-color:white;
       /* display: table-cell; */
       /* vertical-align: middle;  */

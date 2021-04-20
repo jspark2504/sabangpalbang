@@ -12,7 +12,7 @@
 <meta name="author" content="">
 <link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
 
-<title>구해줘! 내 방 로그인</title>
+<title>구해줘! 내 방 </title>
 
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet"

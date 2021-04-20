@@ -13,7 +13,8 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-   <title>공지 상세</title>
+<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
+    <title>구해줘! 내 방</title>
    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
    
    <link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">

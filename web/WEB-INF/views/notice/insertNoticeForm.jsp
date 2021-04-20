@@ -7,7 +7,8 @@
     <meta charset="UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>공지사항 작성</title>
+<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
+    <title>구해줘! 내 방</title>
     
     <style>
     *{

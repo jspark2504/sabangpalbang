@@ -10,7 +10,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-<title>비밀번호 찾기</title>
+<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
+    <title>구해줘! 내 방</title>
 </head>
     <!-- 합쳐지고 최소화된 최신 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
