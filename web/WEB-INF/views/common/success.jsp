@@ -17,7 +17,7 @@
 			switch(successCode){
 				case "insertMember" :
 					successMessage = "환영합니다! 로그인 후 다양한 서비스를 이용해 보세요.";
-					movePath = "${ pageContext.servletContext.contextPath }/member/login.jsp";
+					movePath = "${ pageContext.servletContext.contextPath }/member/login";
 					break;
 				case "updateMember" :
 					successMessage = "회원 정보 변경에 성공하셨습니다!";
@@ -74,6 +74,11 @@
 
 				case "insertRoom" :
 					successMessage = "매물이 등록되었습니다."
+					movePath = "${ pageContext.servletContext.contextPath }/room/management";
+					break;
+
+				case "updateRoom" :
+					successMessage = "매물 정보가 수정되었습니다."
 					movePath = "${ pageContext.servletContext.contextPath }/room/management";
 					break;
 

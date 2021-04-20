@@ -55,7 +55,7 @@ public class RoomDAO {
 		query.append(" FROM TBL_ROOM A");
 		query.append(" JOIN TBL_ROOM_FILE B ON (A.ROOM_NO = B.ROOM_NO)");
 		query.append(" WHERE A.ROOM_STATUS = 'Y'");
-		query.append(" AND B.FILE_NO = 1");
+		query.append(" AND B.FILE_TYPE = 'TITLE'");
 		query.append(" AND (A.CATEGORY_NO = ");
 		query.append(searchOption.getCategoryNo());
 		query.append(" AND (A.ROOM_PRICE <= ");
@@ -96,7 +96,6 @@ public class RoomDAO {
 				room.setFloor(rset.getString("ROOM_FLOOR"));
 				room.setTitle(rset.getString("ROOM_TITLE"));
 
-				file.setNo(1);
 				file.setThumbnailPath(rset.getString("THUMBNAIL_PATH"));
 
 				List<RoomFileDTO> fileList = new ArrayList<>();
@@ -151,7 +150,7 @@ public class RoomDAO {
 
 		String query = prop.getProperty("selectRoomDetail");
 		System.out.println("query : " + query);
-		System.out.println("no : " + no);
+		System.out.println("select detail DAO no : " + no);
 
 		try {
 			pstmt = con.prepareStatement(query);
@@ -169,6 +168,7 @@ public class RoomDAO {
 
 				RoomFileDTO file = new RoomFileDTO();
 
+				System.out.println("rset.getInt(ROOM_NO) : " + rset.getInt("ROOM_NO"));
 				roomDetail.setNo(rset.getInt("ROOM_NO"));
 				roomDetail.setPrice(rset.getInt("ROOM_PRICE"));
 				roomDetail.setArea(rset.getDouble("EXCLUSIVE_AREA"));
@@ -176,13 +176,13 @@ public class RoomDAO {
 				roomDetail.setCreateDate(rset.getString("CREATE_DATE"));
 				category.setNo(rset.getInt("CATEGORY_NO"));
 				category.setName(rset.getString("CATEGORY_NAME"));
-				roomDetail.setNo(rset.getInt("OFFICE_NO"));
+				office.setNo(rset.getInt("OFFICE_NO"));
 				office.setName(rset.getString("OFFICE_NAME"));
 				office.setAddr(rset.getString("OFFICE_ADDR"));
 				office.setPhone(rset.getString("OFFICE_PHONE"));
 				office.setBusinessNo(rset.getString("BUSINESS_NO"));
 				office.setRating(rset.getDouble("OFFICE_RATING"));
-				office.setNo(rset.getInt("USER_NO"));
+				agent.setNo(rset.getInt("USER_NO"));
 				agent.setNickname(rset.getString("NICKNAME"));
 				roomDetail.setFloor(rset.getString("ROOM_FLOOR"));
 				roomDetail.setDirection(rset.getString("DIRECTION"));
@@ -205,19 +205,21 @@ public class RoomDAO {
 				roomDetail.setElevator(rset.getString("ELEVATOR_YN"));
 				roomDetail.setParking(rset.getString("PARKING_YN"));
 				roomDetail.setViewNo(rset.getInt("VIEW_NO"));
-				file.setNo(rset.getInt("FILE_NO"));
+				file.setFileNo(rset.getInt("FILE_NO"));
 				file.setOriginName(rset.getString("ORIGIN_NAME"));
 				file.setSaveName(rset.getString("SAVE_NAME"));
 				file.setSavePath(rset.getString("SAVE_PATH"));
 				file.setThumbnailPath(rset.getString("THUMBNAIL_PATH"));
+				file.setFileType(rset.getString("FILE_TYPE"));
 
 				fileList.add(file);
-				System.out.println("createDate ; " + roomDetail.getCreateDate());
 			}
 			roomDetail.setCategory(category);
 			roomDetail.setOffice(office);
 			office.setAgent(agent);
 			roomDetail.setFileList(fileList);
+
+			System.out.println("roomDetail at DAO roomNo : " + roomDetail.getNo());
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -352,6 +354,7 @@ public class RoomDAO {
 			pstmt.setString(4, file.getSaveName());
 			pstmt.setString(5, file.getSavePath());
 			pstmt.setString(6, file.getThumbnailPath());
+			pstmt.setString(7, file.getFileType());
 
 			result = pstmt.executeUpdate();
 
@@ -395,7 +398,6 @@ public class RoomDAO {
 				category.setName(rset.getString("CATEGORY_NAME"));
 				room.setFloor(rset.getString("ROOM_FLOOR"));
 				room.setTitle(rset.getString("ROOM_TITLE"));
-				file.setNo(1);
 				file.setThumbnailPath(rset.getString("THUMBNAIL_PATH"));
 
 				room.setCategory(category);
@@ -492,36 +494,61 @@ public class RoomDAO {
 
 	/* 기존 첨부파일 개수 조회 */
 	public int selectFileNum(Connection con, int roomNo) {
-		return 0;
-	}
-
-	/* 파일 update 작업 */
-	public int updateFile(Connection con, int fileNo, RoomFileDTO file) {
 
 		PreparedStatement pstmt = null;
-		int result = 0;
+		ResultSet rset = null;
 
-		String query = prop.getProperty("updateFile");
+		int fileNum = 0;
+
+		String query = prop.getProperty("selectFileNum");
 
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, file.getOriginName());
-			pstmt.setString(2, file.getSaveName());
-			pstmt.setString(3, file.getSavePath());
-			pstmt.setString(4, file.getThumbnailPath());
-			pstmt.setInt(5, file.getRoomNo());
-			pstmt.setInt(6, fileNo);
+			pstmt.setInt(1, roomNo);
 
-			result = pstmt.executeUpdate();
+			rset = pstmt.executeQuery();
+
+			if(rset.next()) {
+				fileNum = rset.getInt(1);
+			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
+			close(rset);
 			close(pstmt);
 		}
 
-		return result;
+		return fileNum;
 	}
+
+//	/* 파일 update 작업 */
+//	public int updateFile(Connection con, int fileNo, RoomFileDTO file) {
+//
+//		PreparedStatement pstmt = null;
+//		int result = 0;
+//
+//		String query = prop.getProperty("updateFile");
+//
+//		try {
+//			pstmt = con.prepareStatement(query);
+//			pstmt.setString(1, file.getOriginName());
+//			pstmt.setString(2, file.getSaveName());
+//			pstmt.setString(3, file.getSavePath());
+//			pstmt.setString(4, file.getThumbnailPath());
+//			pstmt.setInt(5, file.getRoomNo());
+//			pstmt.setInt(6, fileNo);
+//
+//			result = pstmt.executeUpdate();
+//
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			close(pstmt);
+//		}
+//
+//		return result;
+//	}
 
 	/* 파일 delete 작업 */
 	public int deleteFile(Connection con, int fileNo, int roomNo) {
@@ -655,7 +682,6 @@ public class RoomDAO {
 				room.setFloor(rset.getString("ROOM_FLOOR"));
 				room.setTitle(rset.getString("ROOM_TITLE"));
 
-				file.setNo(1);
 				file.setThumbnailPath(rset.getString("THUMBNAIL_PATH"));
 
 				List<RoomFileDTO> fileList = new ArrayList<>();
@@ -675,6 +701,90 @@ public class RoomDAO {
 
 		return roomWishList;
 	}
+
+	/* 대표사진인지 확인 */
+	public boolean selectFileType(Connection con, int roomNo, int fileNo) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		boolean isTitle = false;
+
+		String query = prop.getProperty("selectFileType");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, roomNo);
+			pstmt.setInt(2, fileNo);
+
+			rset = pstmt.executeQuery();
+
+			if(rset.next()) {
+				System.out.println("FILE_TYPE 나오나?");
+				if("TITLE".equals(rset.getString("FILE_TYPE"))) {
+					System.out.println("조건 만족?");
+					isTitle = true;
+				}
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return isTitle;
+	}
+
+	/* 파일 상태 변경 */
+	public int updateFileStatus(Connection con, int roomNo, int fileNo) {
+
+		PreparedStatement pstmt = null;
+		int result = 0;
+
+		String query = prop.getProperty("updateFileStatus");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, roomNo);
+			pstmt.setInt(2, fileNo);
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+
+	/* TITLE 교체 작업 */
+	public int updateTitle(Connection con, int roomNo) {
+
+		PreparedStatement pstmt = null;
+		int result = 0;
+
+		String query = prop.getProperty("updateTitle");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, roomNo);
+			pstmt.setInt(2, roomNo);
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+
+
 
 
 }

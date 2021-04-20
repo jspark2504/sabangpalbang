@@ -3,6 +3,7 @@ const $addBtn = document.getElementById("addImgBtn");
 
 let i = 1;	// 추가할 파일의 id 번호
 
+/* 사진 파일 추가 */
 $addBtn.onclick = function () {
 
 	/* 사진 최대 개수 제한 */

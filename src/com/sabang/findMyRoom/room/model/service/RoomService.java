@@ -152,58 +152,28 @@ public class RoomService {
 		/* 매물 테이블 update 작업 */
 		int roomResult = roomDAO.updateRoom(con, room);
 
-//		/* 파일 리스트에 매물 번호 추가 */
-//		List<RoomFileDTO> fileList = room.getFileList();
-//		int roomNo = room.getNo();
-//		for(int i = 0 ; i < fileList.size() ; i++) {
-//			fileList.get(i).setRoomNo(roomNo);
-//		}
-//
-//		/* 기존 첨부파일 개수 조회 */
-//		int fileOld = roomDAO.selectFileNum(con, roomNo);
-//		/* 새로운 첨부파일 개수 */
-//		int fileNew = fileList.size();
-//
-//		System.out.println("여기까진 했니..?");
-//
-//		/* 파일 DML 작업 결과 담을 변수 */
-//		int fileResult1 = 0;
-//		int fileResult2 = 0;
-//
-//		/* 파일 개수가 동일하거나 늘어난 경우 */
-//		if(fileNew >= fileOld) {
-//			int fileNo = 1;			// 파일 번호
-//			/* 매물 첨부파일 테이블에 기존 파일 개수만큼 update 작업 */
-//			for( ; fileNo <= fileOld ; fileNo++) {
-//				fileResult1 += roomDAO.updateFile(con, fileNo, fileList.get(fileNo - 1));
-//			}
-//			/* 파일 개수가 늘어난 경우 추가 insert 작업 */
-//			if(fileNew > fileOld) {
-//				for( ; fileNo <= fileNew ; fileNo++) {
-//					fileResult1 += roomDAO.insertFile(con, fileNo, fileList.get(fileNo - 1));
-//				}
-//			}
-//
-//		/* 파일 개수가 줄어든 경우 */
-//		} else if(fileNew < fileOld) {
-//			int fileNo = 1;		// 파일 번호
-//			/* 새로운 파일 개수만큼 update 작업 */
-//			for( ; fileNo <= fileNew ; fileNo++) {
-//				fileResult2 += roomDAO.updateFile(con, fileNo, fileList.get(fileNo - 1));
-//			}
-//			/* 줄어든 파일 개수만큼 delete 작업 */
-//			for( ; fileNo <= fileOld ; fileNo++) {
-//				fileResult2 += roomDAO.deleteFile(con, fileNo, roomNo);
-//			}
-//
-//		}
+		/* 파일 리스트에 매물 번호 추가 */
+		List<RoomFileDTO> fileList = room.getFileList();
+		if(!fileList.isEmpty()) {
+			int roomNo = room.getNo();
+			for(int i = 0 ; i < fileList.size() ; i++) {
+				fileList.get(i).setRoomNo(roomNo);
+			}
+		}
 
-//		System.out.println("fileResult1 : " + fileResult1);
-//		System.out.println("fileResult2 : " + fileResult2);
-//		System.out.println("fileOld : " + fileOld);
-//		System.out.println("fileNew : " + fileNew);
+		/* 넣어야 할 파일 번호 구하기 */
+		int fileNum = roomDAO.selectFileNum(con, roomResult);
+
+		/* 매물 첨부파일 테이블에 파일 개수(fileList.size())만큼 insert 작업 */
+		int fileResult = 0;
+		int fileNo = fileNum + 1;		// 파일 번호
+		for(int i = 0 ; i < fileList.size() ; i++) {
+			fileResult += roomDAO.insertFile(con, fileNo, fileList.get(i));
+			fileNo++;
+		}
+
 		/* update 작업 모두 성공 시 commit */
-		if(roomResult > 0 /*&& (fileResult1 == fileNew || fileResult2 == fileOld)*/) {
+		if(roomResult > 0 && fileResult == fileList.size()/*&& (fileResult1 == fileNew || fileResult2 == fileOld)*/) {
 			commit(con);
 			result = 1;
 		} else {
@@ -273,6 +243,39 @@ public class RoomService {
 		close(con);
 
 		return roomWishList;
+	}
+
+	/* 파일 상태 변경 */
+	public int updateFileStatus(int roomNo, int fileNo) {
+
+		Connection con = getConnection();
+
+		/* 대표사진(TITLE)인지 확인 */
+		boolean isTitle = roomDAO.selectFileType(con, roomNo, fileNo);
+		System.out.println("isTitle : " + isTitle);
+
+		/* 파일 상태 변경 */
+		int statusResult = roomDAO.updateFileStatus(con, roomNo, fileNo);
+		System.out.println("statusResult : " + statusResult);
+
+		/* TITLE 교체 작업 */
+		int titleResult = 0;
+		if(isTitle) {
+			titleResult = roomDAO.updateTitle(con, roomNo);
+			System.out.println("titleResult : " + titleResult);
+		}
+
+		int result = 0;
+		if(statusResult > 0 && (!isTitle || titleResult > 0)) {
+			commit(con);
+			result = 1;
+		} else {
+			rollback(con);
+		}
+
+		close(con);
+
+		return result;
 	}
 
 }
