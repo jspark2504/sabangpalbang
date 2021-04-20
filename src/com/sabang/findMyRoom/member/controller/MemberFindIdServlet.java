@@ -96,11 +96,11 @@ public class MemberFindIdServlet extends HttpServlet {
 		// email 전송
 		try {
 			MimeMessage msg = new MimeMessage(session);// 관리자가 로그인 해야함
-			msg.setFrom(new InternetAddress(user, "KH"));
+			msg.setFrom(new InternetAddress(user, "관리자"));
 			msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to_email));
 
 			// 메일 제목
-			msg.setSubject("안녕하세요  인증 메일입니다.");
+			msg.setSubject("안녕하세요 사방팔방 아이디 인증 메일입니다.");
 			// 메일 내용
 			msg.setText("인증 번호는 :" + temp);
 
