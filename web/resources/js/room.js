@@ -83,12 +83,14 @@ function showDetail(room) {
 			let elevator = data.elevator;
 			let parking = data.parking;
 			let filesPath = new Array();
-			let hostIndex = location.href.indexOf(location.host) + location.host.length;
+			//let hostIndex = location.href.indexOf(location.host) + location.host.length;
 			let path = location.href.substring(hostIndex, location.href.indexOf('/', hostIndex + 1));
 			for(let i = 0 ; i < data.fileList.length ; i++) {
 				filesPath[i] = path + data.fileList[i].thumbnailPath;
 				console.log(filesPath[i]);
 			}
+
+			console.log("data.fileList.length : " + data.fileList.length);
 
 			/* 옵션 정보 표시 처리 */
 			if(elevator == 'Y') {
@@ -185,13 +187,15 @@ function showDetail(room) {
 
 			/* 이미지 */
 			//$(".room-list").append("<div class='container'><div class='carousel'><input type='radio' id='carousel-1' name='carousel[]' ><input type='radio' id='carousel-2' name='carousel[]'><input type='radio' id='carousel-3' name='carousel[]'><input type='radio' id='carousel-4' name='carousel[]'><input type='radio' id='carousel-5' name='carousel[]'><ul class='carousel__items'><li class='carousel__item'><img src='/findMyRoom/resources/image/room1.png' alt=''></li><li class='carousel__item'><img src='/findMyRoom/resources/image/room2.png' alt=''></li><li class='carousel__item'><img src='/findMyRoom/resources/image/room3.png' alt=''></li><li class='carousel__item'><img src='/findMyRoom/resources/image/room4.png' alt=''></li><li class='carousel__item'><img src='/findMyRoom/resources/image/room3.png' alt=''></li></ul><div class='carousel__prev'><label for='carousel-1'></label><label for='carousel-2'></label><label for='carousel-3'></label><label for='carousel-4'></label><label for='carousel-5'></label></div><div class='carousel__next'><label for='carousel-1'></label><label for='carousel-2'></label><label for='carousel-3'></label><label for='carousel-4'></label><label for='carousel-5'></label></div><div class='carousel__nav'><label for='carousel-1'></label><label for='carousel-2'></label><label for='carousel-3'></label><label for='carousel-4'></label><label for='carousel-5'></label></div></div></div>");
-			$(".room-list").append("<div class='container'><div class='carousel'><input type='radio' id='carousel-1' name='carousel[]' checked><ul class='carousel__items'><li class='carousel__item'><img src='" + filesPath[0] + "' alt=''></li></ul><div class='carousel__prev'><label for='carousel-1'></label></div><div class='carousel__next'><label for='carousel-1'></label></div><div class='carousel__nav'><label for='carousel-1'></label></div></div></div>");
+			$(".room-list").append("<div class='container'><div class='carousel'><input type='radio' id='carousel-1' name='carousel[]'><ul class='carousel__items'><li class='carousel__item'><img src='" + filesPath[0] + "' alt=''></li></ul><div class='carousel__prev'><label for='carousel-1'></label></div><div class='carousel__next'><label for='carousel-1'></label></div><div class='carousel__nav'><label for='carousel-1'></label></div></div></div>");
 			for(let i = 1 ; i < data.fileList.length ; i++) {
 				$(".carousel input:last-of-type").after("<input type='radio' id='carousel-" + (i+1) + "' name='carousel[]'>");
 				$(".carousel__items").append("<li class='carousel__item'><img src='" + filesPath[i] + "' alt=''></li>");
 				$(".carousel__prev").append("<label for='carousel-" + (i+1) + "'></label>");
 				$(".carousel__next").append("<label for='carousel-" + (i+1) + "'></label>");
 				$(".carousel__nav").append("<label for='carousel-" + (i+1) + "'></label>");
+				console.log("i는? " + i);
+				console.log("filesPath[i] : " + filesPath[i]);
 			}
 			/* 기본 정보(가격, 면적, 제목) */
 			$(".room-list").append("<div class='room-basic-info-1'><span class='label label-info room-status'>거래 가능</span><span class='room-create-date'>" + createDate + "</span></div><div class='room-basic-info-2'><h3 class='room-price'><b>" + price + "</b></h3><p class='room-no'>등록번호 " + no + "</p></div><hr><ul class='room-basic-info-3'><li class='room-exclusive-area'>면적(전용)<p class='info'>" + area + "m<sup>2</sup></p></li><li class='room-cost'>관리비<p class='info'>" + monthCost + "만원</p></li><li class='room-category'>구조<p class='info'>" + categoryName + "</p></li></ul><hr><p class='room-value title'>" + title + "</p><div class='divider-line'></div></article>")
