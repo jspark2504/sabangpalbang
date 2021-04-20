@@ -19,22 +19,25 @@ public class RoomSelectWishlist extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		int roomNo = Integer.valueOf(request.getParameter("no"));
-		int memberNo = ((MemberDTO)request.getSession().getAttribute("loginMember")).getNo();
+		if((MemberDTO)request.getSession().getAttribute("loginMember") != null) {
 
-		String wish = new RoomService().selectWishlist(roomNo, memberNo);
+			int roomNo = Integer.valueOf(request.getParameter("no"));
+			int memberNo = ((MemberDTO)request.getSession().getAttribute("loginMember")).getNo();
 
-		Gson gson = new Gson();
-		String jsonString = gson.toJson(wish);
-		System.out.println(jsonString);
+			String wish = new RoomService().selectWishlist(roomNo, memberNo);
 
-		response.setContentType("application/json; charset=UTF-8");
-		PrintWriter out = response.getWriter();
+			Gson gson = new Gson();
+			String jsonString = gson.toJson(wish);
+			System.out.println(jsonString);
 
-		out.print(jsonString);
+			response.setContentType("application/json; charset=UTF-8");
+			PrintWriter out = response.getWriter();
 
-		out.flush();
-		out.close();
+			out.print(jsonString);
+
+			out.flush();
+			out.close();
+		}
 	}
 
 }
