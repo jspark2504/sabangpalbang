@@ -28,12 +28,17 @@
 	<jsp:include page="../common/header.jsp"/>
     <main class="container-fluid room-list-main" style="margin-bottom:0px;">
         <section class="row">
+          <input type="hidden" id="count" value="${ fn:length(requestScope.roomList) }" />
+          <c:forEach var="room" items="${ requestScope.roomList }">
+            <input type="hidden" class="map-room-list" name="map-address" value="${ room.address }"/>
+            <input type="hidden" class="map-room-list" name="map-price" value="${ room.formatPrice }" />
+          </c:forEach>
             <!-- 지도 영역 -->
             <article class="map col-md-8">
                 <figure id="map" style="width: 100%; height: 100%;">
                     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=24e099130b03e272c1eb2889137042a1&libraries=services,clusterer,drawing"></script>
-                    <!-- <script src="/findMyRoom/resources/js/map.js"></script> -->
-                    <script src="/findMyRoom/resources/js/mark.js"></script>
+                    <script src="/findMyRoom/resources/js/map.js"></script>
+                    <!-- <script src="/findMyRoom/resources/js/mark.js"></script> -->
                 </figure>
             </article> <!-- 지도 영역 end -->
 
@@ -170,7 +175,7 @@
     <section class="row">
     <!-- footer -->
     <jsp:include page="../common/footer.jsp"/>
-    
+
     </section>
 
     <!-- 이벤트 처리 -->
