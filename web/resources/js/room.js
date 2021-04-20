@@ -91,7 +91,7 @@ function showDetail(room) {
 				console.log(filesPath[i]);
 			}
 
-			console.log("data.fileList.length : " + data.fileList.length);
+			//console.log("data.fileList.length : " + data.fileList.length);
 
 			/* 옵션 정보 표시 처리 */
 			if(elevator == 'Y') {
@@ -407,6 +407,7 @@ function search() {
 				/* 기존 목록 지우기 */
 				$(".room-area").remove();
 				$(".empty-search-list").remove();
+				$("input[type=hidden]").remove();
 
 				/* 새로 목록 뿌리기 */
 				for(let i = 0 ; i < data.length ; i++) {
@@ -435,6 +436,10 @@ function search() {
 				if(data.length == 0){
 					$(".room-list").append("<section class='empty-search-list'><img class='search-icon' src='data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGc+PGcgaWQ9IlBhcnRuZXJzX2NvbnRyaWJ1dGlvbl8yXyI+PGc+PHBhdGggZD0ibTIxMSA1MTJ2LTEyOS41bC0xMjAtOTB2LTUyLjVoMzMwdjUyLjVsLTEyMCA5MHY4NC41eiIgZmlsbD0iI2Y5ODg0NSIvPjwvZz48Zz48cGF0aCBkPSJtMjU2IDIxMGMtNDEuMzY3IDAtNzUtMzMuNjQ3LTc1LTc1czMzLjYzMy03NSA3NS03NSA3NSAzMy42NDcgNzUgNzUtMzMuNjMzIDc1LTc1IDc1eiIgZmlsbD0iI2ZmZGY0MCIvPjwvZz48Zz48cGF0aCBkPSJtMTM2IDkwYy0yNC44MTQgMC00NS0yMC4xODYtNDUtNDVzMjAuMTg2LTQ1IDQ1LTQ1IDQ1IDIwLjE4NiA0NSA0NS0yMC4xODYgNDUtNDUgNDV6IiBmaWxsPSIjZmZkZjQwIi8+PC9nPjxnPjxwYXRoIGQ9Im0zNzYgOTBjLTI0LjgxNCAwLTQ1LTIwLjE4Ni00NS00NXMyMC4xODYtNDUgNDUtNDUgNDUgMjAuMTg2IDQ1IDQ1LTIwLjE4NiA0NS00NSA0NXoiIGZpbGw9IiNmZmJlNDAiLz48L2c+PC9nPjxwYXRoIGQ9Im0yNTYgNDg5LjUgNDUtMjIuNXYtODQuNWwxMjAtOTB2LTUyLjVoLTE2NXoiIGZpbGw9IiNmZDVlNjAiLz48cGF0aCBkPSJtMzMxIDEzNWMwLTQxLjM1My0zMy42MzMtNzUtNzUtNzV2MTUwYzQxLjM2NyAwIDc1LTMzLjY0NyA3NS03NXoiIGZpbGw9IiNmZmJlNDAiLz48L2c+PC9zdmc+' /><p class='empty-search-list-message'>검색 조건에 맞는 매물이 없습니다.<br />옵션/전세 필터값을 변경해보세요!</p></section>");
 				}
+
+
+				/* 마커 표시 */
+				showMarker(data.length, data.address, data.formatPrice, data.no);
 
 			},
 			error: function(error) {
