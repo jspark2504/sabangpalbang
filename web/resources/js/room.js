@@ -45,6 +45,7 @@ function showDetail(room) {
 	$('.range-slider__range').css('pointer-events','none')
 	//$('.range-slider__range').css('cursor','not-allowed')
 
+	/* 서버에서 상세 페이지 정보 조회해오기 */
 	$.ajax({
 		url: "/findMyRoom/room/detail",
 		type: "get",
@@ -161,8 +162,6 @@ function showDetail(room) {
 				tv = "<i class='fas fa-times'></i>";
 			}
 
-
-
 			/* 매물 목록 안 보이게 설정 */
 			$(".sticky-nav").css('display', 'none');
 			$(".room-area").css('display', 'none');
@@ -210,7 +209,6 @@ function showDetail(room) {
 			//	$('.carousel > input[type=radio]:nth-child(' + i + '):checked ~ .carousel__nav > label:nth-child(' + i + ')').css('background','#ccc').css('cursor','default').css('pointer-events', 'none');
 			//}
 
-
 			/* 기본 정보(가격, 면적, 제목) */
 			$(".room-list").append("<div class='room-basic-info-1'><span class='label label-info room-status'>거래 가능</span><span class='room-create-date'>" + createDate + "</span></div><div class='room-basic-info-2'><h3 class='room-price'><b>" + price + "</b></h3><p class='room-no'>등록번호 " + no + "</p></div><hr><ul class='room-basic-info-3'><li class='room-exclusive-area'>면적(전용)<p class='info'>" + area + "m<sup>2</sup></p></li><li class='room-cost'>관리비<p class='info'>" + monthCost + "만원</p></li><li class='room-category'>구조<p class='info'>" + categoryName + "</p></li></ul><hr><p class='room-value title'>" + title + "</p><div class='divider-line'></div></article>")
 			/* 매물 정보(엘리베이터, 주차, 반려동물) */
@@ -227,7 +225,6 @@ function showDetail(room) {
 			/* 공인중개소 정보 */
 			$(".room-list").append("<article class='office-info'><div class='office-info-title'><img src='/findMyRoom/resources/image/mhn.png' alt='...' class='img-circle office-img'><span class='office-name'>" + officeName + "</span><div class='office-review'><div class='office-star'><span class='star-score'>" + officeRating + "</span><span class='glyphicon glyphicon-star' aria-hidden='true'></span><span class='glyphicon glyphicon-star' aria-hidden='true'></span><span class='glyphicon glyphicon-star' aria-hidden='true'></span><span class='glyphicon glyphicon-star' aria-hidden='true'></span><span class='glyphicon glyphicon-star' aria-hidden='true'></span></div><div class='show-review'><a onclick='goReview();'>리뷰 보기 ></a></div></div></div>")
 			$(".room-list").append("<div class='room-building-info-table'><table class='table office-table'><tr><td class='table-title'>대표</td><td colspan='2'>" + agentName + " (" + businessNo + ")</td></tr><tr><td class='table-title'>대표번호</td><td colspan='2'><a class='tel' href='tel:" + officePhone + "'>" + officePhone + "</a></td></tr><tr><td class='table-title'>소재지</td><td colspan='2'>" + officeAddr + "</td></tr><tr><td class='table-title'>중개 전문 분야</td><td colspan='2'>원룸</td></tr></table></div><div class='divider-line'></div></article></section></section></main>")
-
 		},
 		error: function(error) {
 			console.log(error);

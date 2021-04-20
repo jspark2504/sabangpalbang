@@ -27,10 +27,11 @@ for (var i = 0 ; i < count ; i++) {
 var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
 
 for (var i = 0 ; i < count ; i++) {
-	let price = priceArray[i].groupPrice
-	geocoder.addressSearch(
-		addressArray[i].groupAddress,
-		function(result, status, data) {
+
+	let price = priceArray[i].groupPrice;
+	let address = addressArray[i].groupAddress;
+
+	geocoder.addressSearch(address, function(result, status, data) {
 
 			// 검색 성공 시
 			if(status === kakao.maps.services.Status.OK) {
@@ -53,7 +54,7 @@ for (var i = 0 ; i < count ; i++) {
 				/* 지도에 마커 표시 */
 				marker.setMap(map);
 
-				var iwContent = '<div style="padding:5px;">' + formatPrice +'<br><a href="https://map.kakao.com/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+				var iwContent = '<div style="padding:5px; width:110px; margin-left:20px;">' + price + '<br><a href="https://map.kakao.com/link/to/' + address + ',' + result[0].y + ',' + result[0].x + ' style="color:#ffd233" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
     				iwPosition = coords; //인포윈도우 표시 위치입니다
 
 				// 인포윈도우를 생성합니다
