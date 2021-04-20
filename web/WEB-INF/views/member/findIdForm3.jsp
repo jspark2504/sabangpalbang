@@ -147,7 +147,7 @@
    		
    	<input type="text" id="inputId" class="form-control" name="userId" readonly value=${ requestScope.userId }>
         <button class="btn btn-lg" type="button" id="btn1" onclick="location.href='${ pageContext.servletContext.contextPath}/member/findPw'">임시 비밀번호 발급</button>
-        <button class="btn btn-lg" type="button" id="btn2" onclick="location.href='${ pageContext.servletContext.contextPath}/member/singin'">로그인</button>
+        <button class="btn btn-lg" type="button" id="btn2" onclick="location.href='${ pageContext.servletContext.contextPath}/member/login'">로그인</button>
     </form>
     </div> 
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>

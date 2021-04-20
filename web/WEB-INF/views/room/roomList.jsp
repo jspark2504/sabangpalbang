@@ -26,7 +26,7 @@
 
 <body>
 	<jsp:include page="../common/header.jsp"/>
-    <main class="container-fluid room-list-main">
+    <main class="container-fluid room-list-main" style="margin-bottom:0px;">
         <section class="row">
             <!-- 지도 영역 -->
             <article class="map col-md-8">
@@ -167,8 +167,11 @@
             </section> <!-- 매물 목록 영역 end -->
         </section>
     </main>
+    <section class="row">
     <!-- footer -->
     <jsp:include page="../common/footer.jsp"/>
+    
+    </section>
 
     <!-- 이벤트 처리 -->
     <script src="/findMyRoom/resources/js/room.js"></script>

@@ -107,6 +107,10 @@
 					successMessage = "중개사 거부에 성공하셨습니다!";
 					movePath = "${ pageContext.servletContext.contextPath }/manage/reject";
 					break;
+				case "loginFailed" :
+					successMessage = "아이디 또는 비밀번호를 확인해주세요!";
+					movePath = "${ pageContext.servletContext.contextPath }/member/login";
+					break;
 			}
 
 			alert(successMessage);

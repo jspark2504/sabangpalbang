@@ -3,9 +3,9 @@ body {
     /* display: table-cell; */
     /* vertical-align: middle;  */
   }
-
   .container {
-    margin: 130px auto;
+    margin-top: 95px;
+    margin-bottom:65px;
     height:500px;
     background-color: white;
   }
@@ -17,7 +17,7 @@ body {
     border-radius: 8px;
     height: 370px;
     margin: 0 auto;
-    top: 50%;
+    top:50px;
     /* display: table-cell; */
     /* vertical-align: middle; */
   }
@@ -113,4 +113,7 @@ body {
     font-weight: bold;
     color: white;
     transition-duration: 0.3s;
+  }
+  #signinNoscroll{
+	top:50px;
   }

@@ -22,11 +22,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 
+
   <style>
   .container {
-    padding-top: 270px;
-    padding-bottom: 40px;
     background-color:white;
+    margin-top: 85px;
+    margin-bottom:85px;
     /* display: table-cell; */
     /* vertical-align: middle;  */
   }
@@ -125,6 +126,6 @@
   </div> 
 
 	<jsp:include page="../common/footer.jsp" />
-
+<script src="/findMyRoom/resources/js/sticky.js"></script>
 </body>
 </html>

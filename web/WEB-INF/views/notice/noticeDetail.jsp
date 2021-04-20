@@ -37,7 +37,17 @@
          
    
    }
-
+	.noticetitle{
+		margin-bottom:50px;
+	}
+	#listbtn{
+		
+		left:10px;
+	}
+	#updatebtn{
+		
+		right:8px;
+	}
     
    </style>
 
@@ -45,7 +55,7 @@
 <body>
    <jsp:include page="../common/header.jsp"/>
    	<div align="center" class="container">
-       		<h3><c:out value="${ requestScope.noticeList.title }"/></h3> 
+       		<h4 class="noticetitle"><c:out value="${ requestScope.noticeList.title }"/></h4> 
       		<table class="writer pull-left">
       			<tr>
                		<th>작성자 : <c:out value="${ requestScope.noticeList.writer.nickname }"/></th> 
@@ -59,9 +69,9 @@
 			</div>
 
          <div align="center">
-            <button class="btn cancel pull-left" onclick="location.href='${ pageContext.servletContext.contextPath}/notice/list'">목록</button>
+            <button class="btn cancel pull-left" id="listbtn" onclick="location.href='${ pageContext.servletContext.contextPath}/notice/list'">목록</button>
             <c:if test="${ sessionScope.loginMember.role eq 'ADMIN' }">
-               <button class="btn post pull-right" onclick="location.href='${pageContext.servletContext.contextPath}/notice/update?no=${ requestScope.noticeList.noticeNo }'">
+               <button class="btn post pull-right" id="updatebtn" onclick="location.href='${pageContext.servletContext.contextPath}/notice/update?no=${ requestScope.noticeList.noticeNo }'">
                수정
                </button>
             </c:if>

@@ -33,6 +33,11 @@
         .btn{
             background: gray;
             color: white;
+            position:relative;
+            top:10px;
+        }
+        div.container.noticealign{
+        	margin:300px;
         }
 
     </style>
@@ -45,12 +50,13 @@
   <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="js/bootstrap.js"></script>
+     <link rel="stylesheet" href="/findMyRoom/resources/css/free_board.css?">
 </head>
 <body>
 	<jsp:include page="../common/header.jsp"/>
 	
-<div class="container">
-    <table class="table table-hover">
+<div class="container noticealign">
+    <table class="table table-striped table-hover">
         <thead>
             <tr>
                 <th colspan="3">공지사항</th>

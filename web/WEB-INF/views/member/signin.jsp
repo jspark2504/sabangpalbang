@@ -32,7 +32,7 @@
 
 <body>
 	<jsp:include page="../common/header.jsp"/>
-	<div class="container">
+	<div class="container" id="signinNoscroll">
 	<c:if test="${empty sessionScope.loginMember }">
 	<div class="form-signin" style="height:450px;">
 		<form id="loginForm" action="${pageContext.servletContext.contextPath}/member/login" method="post">
@@ -55,6 +55,7 @@
 		</c:if>
 	</div>
   <jsp:include page="../common/footer.jsp" />
+  <script src="/findMyRoom/resources/js/sticky.js"></script>
 </body>
 
 </html>
