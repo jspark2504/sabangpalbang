@@ -53,6 +53,7 @@ CREATE SEQUENCE SEQ_NOTICE_NO;
 CREATE SEQUENCE SEQ_UD_FILE_NO;
 CREATE SEQUENCE SEQ_PAYMENT_NO;
 
+SET DEFINE OFF;
 
 -- 테이블 생성
 ----------------------------------------------------------------- 회원관련
