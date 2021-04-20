@@ -32,12 +32,13 @@
 		position:relative;
 		left:35px;
 	}
-	button.btn{
+	#submitBtn{
 		background:rgb(255, 210, 51);
 		position:relative;
-		right:65px;
+		right:70px;
+		bottom:20px;
 	}
-	button.btn:hover{
+	#submitBtn:hover{
 		background: rgb(81, 75, 55);
 		color: white;
 		transition-duration: 0.3s;

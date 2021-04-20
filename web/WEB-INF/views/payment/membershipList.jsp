@@ -12,9 +12,8 @@
 		border-radius:10px;
 		width:750px;
 		height:160px;
-		margin:120px auto;
+		margin:110px auto;
 		position:relative;
-		top:20px;
 	}
 	#membershipIcon{
 		position:relative;
