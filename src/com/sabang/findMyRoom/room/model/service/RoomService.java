@@ -57,6 +57,7 @@ public class RoomService {
 		}
 
 		close(con);
+		System.out.println("SERVICE ROOMDETAIL : " + roomDetail);
 
 		return roomDetail;
 	}
