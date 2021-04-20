@@ -98,102 +98,102 @@ public class AuthenticationFilter implements Filter {
 		List<String> allPermitList = new ArrayList<>();
 		
 		/* 관리자 */
-		adminPermitList.add("/manage/approval");
-		adminPermitList.add("/manage/pause");
-		adminPermitList.add("/manage/reject");
-		adminPermitList.add("/manage/restore");
-		adminPermitList.add("/manage/search");
-		adminPermitList.add("/manage/list");
-
-		adminPermitList.add("/pagecount/freeboard");
-		adminPermitList.add("/pagecount/infoboard");
-		adminPermitList.add("/pagecount/List");
-		adminPermitList.add("/pagecount/notice");
-		adminPermitList.add("/pagecount/room");
-
-		adminPermitList.add("/chart/infoboard");
-		adminPermitList.add("/infoboard/delete");
-		adminPermitList.add("/infoboard/insert");
-		adminPermitList.add("/infoboard/update");
-
-		adminPermitList.add("/notice/insert");
-		adminPermitList.add("/notice/update");
-		adminPermitList.add("/notice/delete");
+			/* 회원관리 : 중개사 승인 맟 거부, 회원 정지 및 복구, 회원관리 검색 및 리스트 */
+			adminPermitList.add("/manage/approval");
+			adminPermitList.add("/manage/reject");
+			adminPermitList.add("/manage/pause");
+			adminPermitList.add("/manage/restore");
+			adminPermitList.add("/manage/search");
+			adminPermitList.add("/manage/list");
 		
+			/* 페이지 통계 : 자유, 정보, 메인, 공지, 매물 조회수 */
+			adminPermitList.add("/pagecount/freeboard");
+			adminPermitList.add("/pagecount/infoboard");
+			adminPermitList.add("/pagecount/List");
+			adminPermitList.add("/pagecount/notice");
+			adminPermitList.add("/pagecount/room");
+	
+			/* 정보게시판 : 차트, 등록, 수정, 삭제 */
+			adminPermitList.add("/chart/infoboard");
+			adminPermitList.add("/infoboard/insert");
+			adminPermitList.add("/infoboard/update");
+			adminPermitList.add("/infoboard/delete");
+	
+			/* 공지 : 등록, 수정, 삭제 */
+			adminPermitList.add("/notice/insert");
+			adminPermitList.add("/notice/update");
+			adminPermitList.add("/notice/delete");
 		
 		/* 회원 */
-		memberPermitList.add("/freeBoard/delete");
-		memberPermitList.add("/freeBoard/insert");
-		memberPermitList.add("/freeBoard/search");
-		memberPermitList.add("/freeBoard/detail");
-		memberPermitList.add("/freeBoard/update");
-		memberPermitList.add("/infoboard/detail");
-		memberPermitList.add("/infoboard/search");
-		memberPermitList.add("/notice/detail");
-		
-		memberPermitList.add("/reply/delete");
-		memberPermitList.add("/reply/insert");
-		memberPermitList.add("/reply/list");
-		
-		memberPermitList.add("/document/delete");
-		memberPermitList.add("/document/insert");
-		memberPermitList.add("/document/list");
+			/* 회원 : 로그인 및 로그아웃, 수정, 탈퇴, 비번찾기 이메일 보내기 관련 */
+			memberPermitList.add("/member/login");
+			memberPermitList.add("/member/logout");
+			memberPermitList.add("/member/update");
+			memberPermitList.add("/member/delete");
+			memberPermitList.add("/member/MemberFindPw2Servlet");
 
-		memberPermitList.add("/member/delete");
-		memberPermitList.add("/member/login");
-		memberPermitList.add("/member/logout");
-		memberPermitList.add("/member/update");
-		memberPermitList.add("/member/MemberFindPw2Servlet");
-		
-		
-		memberPermitList.add("/room/wish");
-		
-		memberPermitList.add("/room/search");
-		memberPermitList.add("/room/detail");
-		memberPermitList.add("/room/detail");
-		memberPermitList.add("/room/list");
-		memberPermitList.add("/room/list");
-		memberPermitList.add("/room/list/wish");
-		memberPermitList.add("/room/wishlist");
-		
+			/* 전체 게시판 : (자유) 등록,삭제,검색,내용 (정보) 검색,내용 (공지) 내용 */
+			memberPermitList.add("/freeBoard/insert");
+			memberPermitList.add("/freeBoard/delete");
+			memberPermitList.add("/freeBoard/search");
+			memberPermitList.add("/freeBoard/detail");
+			memberPermitList.add("/freeBoard/update");
+			memberPermitList.add("/infoboard/search");
+			memberPermitList.add("/infoboard/detail");
+			memberPermitList.add("/notice/detail");
+			
+			/* 자유 게시판 댓글 : 등록, 리스트, 삭제 */
+			memberPermitList.add("/reply/insert");
+			memberPermitList.add("/reply/list");
+			memberPermitList.add("/reply/delete");
+			
+			/* 내 문서 : 등록, 리스트, 삭제 */
+			memberPermitList.add("/document/insert");
+			memberPermitList.add("/document/list");
+			memberPermitList.add("/document/delete");
+	
+			/* 매물 : 리스트, 찾기, 내용, 찜, 찜관련리스트 */
+			memberPermitList.add("/room/list");
+			memberPermitList.add("/room/search");
+			memberPermitList.add("/room/detail");
+			memberPermitList.add("/room/wish");
+			memberPermitList.add("/room/wishlist");
+			memberPermitList.add("/room/list/wish");
 		
 		/* 중개사 */
-		officePermitList.add("/room/change");
-		officePermitList.add("/room/insert");
-		officePermitList.add("/room/management");
-		officePermitList.add("/room/update/file");
-		officePermitList.add("/room/update");
-		
-		officePermitList.add("/payment/list");
+			/* 매물 관련 : 등록, 수정, 관리, 파일업로드, 수정 */
+			officePermitList.add("/room/insert");
+			officePermitList.add("/room/change");
+			officePermitList.add("/room/management");
+			officePermitList.add("/room/update/file");
+			officePermitList.add("/room/update");
+
+			/* 결재 : 결재 리스트 */
+			officePermitList.add("/payment/list");
 		
 		
 		/* 비회원(all) */
-		
-		allPermitList.add("/freeboard/list");
-		allPermitList.add("/infoboard/list");
-		allPermitList.add("/infoboard/search");
-		allPermitList.add("/notice/list");
-		
-		allPermitList.add("/introduce/detail1");
-		allPermitList.add("/introduce/detail2");
-		allPermitList.add("/introduce/list");
-		
-		
-		
-		allPermitList.add("/member/findId");
-		allPermitList.add("/member/findId2");
-		allPermitList.add("/member/findPw");
-		allPermitList.add("/member/login");
-		allPermitList.add("/member/insert");
-		allPermitList.add("/member/regist");
-		allPermitList.add("/member/regist/checkEmail");
-		allPermitList.add("/member/regist/checkId");
-		allPermitList.add("/member/regist/checkNickname");
-		allPermitList.add("/member/regist/checkPhone");
-		
-		
-		
-		
+			/* 게시판 : 리스트 */
+			allPermitList.add("/freeboard/list");
+			allPermitList.add("/infoboard/list");
+			allPermitList.add("/notice/list");
+			
+			/* 소개할게요 : 리스트, 정보 */
+			allPermitList.add("/introduce/list");
+			allPermitList.add("/introduce/detail1");
+			allPermitList.add("/introduce/detail2");
+			
+			/* 회원 : 등록, 아이디 비번 찾기 관련, 회원가입 관련 */
+			allPermitList.add("/member/insert");
+			allPermitList.add("/member/findId");
+			allPermitList.add("/member/findId2");
+			allPermitList.add("/member/findPw");
+			allPermitList.add("/member/login");
+			allPermitList.add("/member/regist");
+			allPermitList.add("/member/regist/checkEmail");
+			allPermitList.add("/member/regist/checkId");
+			allPermitList.add("/member/regist/checkNickname");
+			allPermitList.add("/member/regist/checkPhone");
 		
 		permitURIList.put("adminPermitList", adminPermitList);
 		permitURIList.put("memberPermitList", memberPermitList);
