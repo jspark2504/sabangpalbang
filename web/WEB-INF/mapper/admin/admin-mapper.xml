@@ -59,7 +59,7 @@
 	<entry key="selectTotalCount">
     	SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#selectTotalCount() */
                COUNT(*)
-          FROM TBL_INFO_BOARD A
+          FROM TBL_USER A
 	</entry>
 	<entry key="selectAllMemberList">
         SELECT /* com.sabang.findMyRoom.admin.model.dao.AdminDAO#selectAllMemberList() */
