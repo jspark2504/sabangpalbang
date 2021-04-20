@@ -101,7 +101,7 @@
 				</article>
 				<article>
 					<label for="inputPassword">비밀번호</label>
-					<input class="form-control" type="password" maxlength="13" name="userPwd" required>
+					<input class="form-control" type="password" maxlength="13" name="userPwd" placeholder="변경할 비밀번호를 입력해주세요" required>
 				</article>
 				<article>
            			<label for="inputNickname">닉네임</label>
