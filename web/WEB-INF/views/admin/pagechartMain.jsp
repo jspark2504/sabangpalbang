@@ -40,6 +40,7 @@
 		<button onclick="location.href='${ pageContext.servletContext.contextPath}/pagecount/freeboard'" class="btn">자유게시판통계</button>
 		<button onclick="location.href='${ pageContext.servletContext.contextPath}/pagecount/room'" class="btn">매물페이지통계</button>
 		</div>
+		<br><br><br><br><br>
 		<form id="form" action="${ pageContext.servletContext.contextPath }/pagecount/List" method="get">
 			<input id="chartName1" type="hidden" name="pageCountList1" value="${ requestScope.pageCountList1.category.name }">
 			<input id="chartViewNo1" type="hidden" name="pageCountList1" value="${ requestScope.pageCountList1.pageView }">

@@ -21,7 +21,8 @@
    <jsp:include page="../common/header.jsp"/>
 
 	<br><br><br><br><br><br><br><br>
-	<h1 align="center">요청 권한이 없는 페이지 입니다~</h1>
+	<h1 align="center">요청 권한이 없는 페이지 입니다</h1>
+	<h3 align="center">다른 페이지로 이동해주세요</h3>
 	<br><br><br><br>
 	<div align="center">
 	<button onclick="location.href='${ pageContext.servletContext.contextPath}'" class="btn">홈으로</button>
