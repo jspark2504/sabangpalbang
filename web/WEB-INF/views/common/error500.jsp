@@ -15,7 +15,7 @@
    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
    <link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
-   <link rel="stylesheet" href="/findMyRoom/resources/css/error500.css">   
+   <link rel="stylesheet" href="/findMyRoom/resources/css/error500.css">
 </head>
 <body>
    <jsp:include page="../common/header.jsp"/>
@@ -26,13 +26,14 @@
 		<h3>백엔드 개발자의 잘못입니다.</h3>
 		<h3>야근하세요!</h3>
 	</section>
-	
+
  	<script>
 	function refresh(){
 		location.href = location.href;
 	}
 	</script>
 	<jsp:include page="../common/footer.jsp" />
+  <script src="/findMyRoom/resources/js/sticky.js"></script>
 </body>
 </html>
 
