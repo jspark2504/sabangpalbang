@@ -1,8 +1,9 @@
 /* introduce detail */
 .introduce-detail {
   margin-top: 20px;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
   max-width: 1050px;
+  
 }
 
 .introduce-detail h3{
@@ -24,6 +25,8 @@
 .office-info-all {
   display: flex;
   flex-direction: column;
+  justify-content : center;
+  
 }
 
 .office-info-title {
@@ -44,13 +47,14 @@
 
 .office-info {
   display: flex;
-  padding-top: 20px;
+  padding-top: 30px;
 }
 
 .office-info-list {
   display: flex;
   flex-direction: column;
   color: #5e5e5e;
+  width : 160px;
 }
 
 .office-info li {
@@ -60,12 +64,15 @@
 .office-info-content {
   display: flex;
   flex-direction: column;
+  width : 200px;
+  padding-left : 10px;
 }
 
 /* mhn review */
 .review-list-all {
   flex-direction: column;
   margin-top: 30px;
+  margin-left : 50px;
 }
 
 .review-list-all hr {
