@@ -38,17 +38,16 @@ public class NoticeInsertServlet extends HttpServlet {
 		NoticeService noticeService = new NoticeService();
 		int result = noticeService.insertNotice(newNotice);
 		
-		String path = "";
+		String page = "";
 		if(result > 0) {
-			path = "/WEB-INF/views/common/success.jsp";
+			page = "/WEB-INF/views/common/success.jsp";
 			request.setAttribute("successCode", "insertNotice");	
 		} else {
-			path = "/WEB-INF/views/common/failed.jsp";
+			page = "/WEB-INF/views/common/failed.jsp";
 			request.setAttribute("message", "공지사항 등록이안됨!!");
 			
-			request.getRequestDispatcher(path).forward(request, response);
-			
 		}
+		request.getRequestDispatcher(page).forward(request, response);
 		
 	}
 

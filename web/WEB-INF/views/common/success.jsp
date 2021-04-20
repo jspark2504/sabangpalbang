@@ -71,6 +71,11 @@
 					successMessage = "공지사항 삭제 성공!";
 					movePath = "${ pageContext.servletContext.contextPath }/notice/list";
 					break;
+					
+				case "insertNotice" :
+					successMessage = "공지사항 등록 성공!";
+					movePath = "${ pageContext.servletContext.contextPath }/notice/list";
+					break;
 
 				case "insertRoom" :
 					successMessage = "매물이 등록되었습니다."
