@@ -8,17 +8,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
 	<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
     <title>구해줘! 내 방</title>
 
-    <!-- 합쳐지고 최소화된 최신 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <!-- 부가적인 테마 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
     <script type="text/javascript">
@@ -29,8 +25,8 @@
 
     <style>
 		  .form-signup {
-               max-width: 380px;
-               padding: 20px;
+               max-width: 350px;
+               padding: 15px;
                margin: 40px auto;
                border: 1px solid #e1e1e1;
                border-radius: 5px;
@@ -94,36 +90,35 @@
 	<jsp:include page="../common/header.jsp"/>
 
 	<section class="container">
-		<h2 align="center">회원 정보 수정</h2>
 
 		<!-- 회원 정보 수정 폼 -->
 			<form id="form"class="form-signup" action="${pageContext.servletContext.contextPath}" method="post">
 				<div class="input-group">
 				<article>
+				<h3 align="center" class="form-signup-heading">회원정보 수정</h3>
 					<label for="inputId">아이디</label>
 					<input class="form-control" maxlength="13" type="text" name="userId" readonly value="${ sessionScope.loginMember.id }">
 				</article>
 				<article>
 					<label for="inputPassword">비밀번호</label>
 					<input class="form-control" type="password" maxlength="13" name="userPwd" required>
-           		</article>
-           		<div>
+				</article>
+				<article>
            			<label for="inputNickname">닉네임</label>
 					<input class="form-control" type="text" maxlength="6" name="nickname" required  value="${ sessionScope.loginMember.nickname }">
-            	</div>
-            	<div>
+				</article>
+				<article>
             		<label for="inputEmail">이메일</label>
 					<input class="form-control" type="email" name="email" value="${ sessionScope.loginMember.email }">
-          		</div>
-          		<div>
+				</article>
+				<article>
           		    <label for="inputPhone">전화번호</label>
 					<input class="form-control" type="tel" name="phone" value="${ sessionScope.loginMember.phone }">
-				</div>
-
-				</div>
-				<div class="btns" align="center">
+				</article>
+				<article>
 					<button class="btn btn-lg btn-block okbtn" type="submit" onclick="postRequest('updateMember')">수정하기</button>
 					<button class="btn btn-lg btn-block okbtn" type="submit" onclick="postRequest('deleteMember')">탈퇴하기</button>
+				</article>
 				</div>
 			</form>
 

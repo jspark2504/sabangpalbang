@@ -26,7 +26,7 @@
                      <td><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;<c:out value="${ sessionScope.loginMember.nickname }" /></td>
                 </tr>
 			</table>
-				<input type="text" class	="title" name="title" value="${requestScope.boardList.title }">
+				<input type="text" class="title" name="title" value="${requestScope.boardList.title }">
 				<textarea style="resize:none" class="content" name="content"><c:out value="${requestScope.boardList.content }"/></textarea>				
 
            		<button type="button" class="btn cancel pull-left" onclick="location.href='${ pageContext.servletContext.contextPath}/infoboard/list'">목록</button>
