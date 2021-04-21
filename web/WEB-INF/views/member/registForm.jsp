@@ -70,6 +70,8 @@
 
            .form-signup .form-control:focus {
                z-index: 2;
+               border: 1px solid #ffd233;
+               box-shadow: 0px 0px 5px #bda343;
            }
 
            .form-signup .input-group {
