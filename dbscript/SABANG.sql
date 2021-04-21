@@ -93,7 +93,7 @@ COMMENT ON COLUMN TBL_USER.USER_STATUS IS '회원상태';
 
 -- 관리자 계정 추가
 INSERT INTO TBL_USER (USER_NO, USER_ID, USER_PWD, NICKNAME, EMAIL, PHONE, USER_ROLE, USER_STATUS)
-VALUES (SEQ_USER_NO.NEXTVAL, 'admin', '$2a$10$7NqnZ0pUQh2RDLDkcEmubOSWB2DSewpDNs7q7xwxgZHHvMgZGJ.rW', '관리자', 'admin@sabangpalbang.com', '01048884888', 'ADMIN', 'Y');
+VALUES (SEQ_USER_NO.NEXTVAL, 'admin', '$2a$10$ItbinizDJMVoscBotu8hj.IW.4O4HzzFqF21jysqwlyPVA7ZOfVOm', '관리자', 'admin@sabangpalbang.com', '01048884888', 'ADMIN', 'Y');
 
 
 -- 회원 샘플 추가
