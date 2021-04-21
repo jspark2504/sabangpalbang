@@ -266,6 +266,7 @@
 	<entry key="selectRoomWishList">
         SELECT /* com.sabang.findMyRoom.room.model.dao.RoomDAO#selectRoomWishList() */
                A.ROOM_NO
+             , D.CATEGORY_NAME
              , A.ROOM_PRICE
              , A.EXCLUSIVE_AREA
              , A.ADDRESS
@@ -275,6 +276,7 @@
           FROM TBL_ROOM A
           JOIN TBL_ROOM_FILE B ON (A.ROOM_NO = B.ROOM_NO)
           JOIN TBL_PICK_ROOM C ON (A.ROOM_NO = C.ROOM_NO)
+          JOIN TBL_ROOM_CATEGORY D ON (A.CATEGORY_NO = D.CATEGORY_NO)
          WHERE A.ROOM_STATUS = 'Y'
            AND B.FILE_TYPE = 'TITLE'
            AND C.USER_NO = ?

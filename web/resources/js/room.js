@@ -439,7 +439,7 @@ function search() {
 
 
 				/* 마커 표시 */
-				showMarker(data.length, data.address, data.formatPrice, data.no);
+				//showMarker(data.length, data.address, data.formatPrice, data.no);
 
 			},
 			error: function(error) {

@@ -114,11 +114,11 @@
                                   	<input type="hidden" name="address" value="${ room.address }" />
                                   	<input type="hidden" name="price" value="${ room.formatPrice }" />
 
-                                    <!-- 중개사 매물 관리 -->
-                                    <c:if test="${ sessionScope.loginMember.role eq 'OFFICE' && requestScope.path eq 'management' }">
                                       <div class="more-info">
                                         <span class="no"><c:out value="#등록번호 ${ room.no }"/></span>
                                         <span class="category"><c:out value="#${ room.category.name }"/></span>
+                                    <!-- 중개사 매물 관리 -->
+                                    <c:if test="${ sessionScope.loginMember.role eq 'OFFICE' && requestScope.path eq 'management' }">
                                         <c:if test="${ room.status eq 'Y' }">
                                           <div class="status" style="border: 1px solid #ffd233; color: #ffd233; width: 50px;">
                                             중개 중
@@ -129,8 +129,8 @@
                                             중개 종료
                                           </div>
                                         </c:if>
-                                      </div>
                                     </c:if>
+                                      </div>
 
                                     <!-- 매물 가격 -->
       	                            <span class="price"><c:out value="${ room.formatPrice }"/></span>

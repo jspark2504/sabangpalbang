@@ -46,16 +46,18 @@ public class RoomDAO {
 		StringBuffer query = new StringBuffer();
 		query.append("SELECT");
 		query.append("  A.ROOM_NO");
+		query.append(", B.CATEGORY_NAME");
 		query.append(", A.ROOM_PRICE");
 		query.append(", A.EXCLUSIVE_AREA");
 		query.append(", A.ADDRESS");
 		query.append(", A.ROOM_FLOOR");
 		query.append(", A.ROOM_TITLE");
-		query.append(", B.THUMBNAIL_PATH");
+		query.append(", C.THUMBNAIL_PATH");
 		query.append(" FROM TBL_ROOM A");
-		query.append(" JOIN TBL_ROOM_FILE B ON (A.ROOM_NO = B.ROOM_NO)");
+		query.append(" JOIN TBL_ROOM_CATEGORY B ON (A.CATEGORY_NO = B.CATEGORY_NO)");
+		query.append(" JOIN TBL_ROOM_FILE C ON (A.ROOM_NO = C.ROOM_NO)");
 		query.append(" WHERE A.ROOM_STATUS = 'Y'");
-		query.append(" AND B.FILE_TYPE = 'TITLE'");
+		query.append(" AND C.FILE_TYPE = 'TITLE'");
 		query.append(" AND (A.CATEGORY_NO = ");
 		query.append(searchOption.getCategoryNo());
 		query.append(" AND (A.ROOM_PRICE <= ");
@@ -87,6 +89,7 @@ public class RoomDAO {
 
 			while(rset.next()) {
 				RoomDTO room = new RoomDTO();
+				RoomCategoryDTO category = new RoomCategoryDTO();
 				RoomFileDTO file = new RoomFileDTO();
 
 				room.setNo(rset.getInt("ROOM_NO"));
@@ -95,6 +98,7 @@ public class RoomDAO {
 				room.setAddress(rset.getString("ADDRESS"));
 				room.setFloor(rset.getString("ROOM_FLOOR"));
 				room.setTitle(rset.getString("ROOM_TITLE"));
+				category.setName(rset.getString("CATEGORY_NAME"));
 
 				file.setThumbnailPath(rset.getString("THUMBNAIL_PATH"));
 
@@ -102,7 +106,7 @@ public class RoomDAO {
 				fileList.add(file);
 
 				room.setFileList(fileList);
-
+				room.setCategory(category);
 				roomList.add(room);
 			}
 
@@ -674,8 +678,10 @@ public class RoomDAO {
 			while(rset.next()) {
 				RoomDTO room = new RoomDTO();
 				RoomFileDTO file = new RoomFileDTO();
+				RoomCategoryDTO category = new RoomCategoryDTO();
 
 				room.setNo(rset.getInt("ROOM_NO"));
+				category.setName(rset.getString("CATEGORY_NAME"));
 				room.setPrice(rset.getInt("ROOM_PRICE"));
 				room.setArea(rset.getDouble("EXCLUSIVE_AREA"));
 				room.setAddress(rset.getString("ADDRESS"));
@@ -688,6 +694,7 @@ public class RoomDAO {
 				fileList.add(file);
 
 				room.setFileList(fileList);
+				room.setCategory(category);
 
 				roomWishList.add(room);
 			}
