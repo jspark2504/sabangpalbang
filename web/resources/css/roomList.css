@@ -41,7 +41,7 @@ a {
   max-width: 380px;
   max-height: 48.5px;
   background: white;
-  z-index: 1000;
+  z-index: 1;
   align-items: center;
   justify-content: space-around;
 }
@@ -111,7 +111,7 @@ a.tip:hover span {
   max-width: 380px;
   max-height: 48.5px;
   background: white;
-  z-index: 1000;
+  z-index: 1;
   align-items: center;
   justify-content: space-around;
 }
