@@ -41,7 +41,7 @@ public class MemberManageSelectListServlet extends HttpServlet {
 	      /* DB를 조회하여 게시 가능한 게시물의 총 갯수를 조회한다. */
 	      AdminService adminService = new AdminService();
 	      int totalCount = adminService.selectTotalCount();
-//	      System.out.println("회원의 총 인원  : " + totalCount);
+	      System.out.println("회원의 총 인원  : " + totalCount);
 	      
 	      /* 3. 한 페이지에 보여 줄 회원 수 */
 	      int limit = 10;
@@ -53,13 +53,13 @@ public class MemberManageSelectListServlet extends HttpServlet {
 	       */
 	      PageInfoDTO pageInfo = Pagenation.getPageInfo(pageNo, totalCount, limit, buttonAmount);
 	      
-//	      System.out.println("페이징 처리와 관련된 정보들 : " + pageInfo);
+	      System.out.println("페이징 처리와 관련된 정보들 : " + pageInfo);
 	      
 	      /* 조회해 온다. */
 	      List<MemberDTO> manageList = adminService.selectMemberList(pageInfo);
-//	      for(MemberDTO bDto : manageList) {
-//	         System.out.println("한페이지에 보여질 회원 : " + bDto);
-//	      }
+	      for(MemberDTO bDto : manageList) {
+	         System.out.println("한페이지에 보여질 회원 : " + bDto);
+	      }
 	      
 	      String path = "";
 	         path = "/WEB-INF/views/admin/memberManage.jsp";

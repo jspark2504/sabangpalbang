@@ -16,7 +16,6 @@ import java.util.Properties;
 import com.sabang.findMyRoom.admin.model.dto.PageCountDTO;
 import com.sabang.findMyRoom.common.config.ConfigLocation;
 import com.sabang.findMyRoom.infoboard.model.dto.CategoryDTO;
-import com.sabang.findMyRoom.infoboard.model.dto.InfoBoardDTO;
 import com.sabang.findMyRoom.infoboard.model.dto.PageInfoDTO;
 import com.sabang.findMyRoom.member.model.dto.MemberDTO;
 

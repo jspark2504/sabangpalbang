@@ -34,12 +34,14 @@
 		<div align="center">
 			<canvas id="myChart" style="width: 900px; height: 500px;"></canvas>
 		</div>
+		<br><br>
 		<div align="center">
 		<button onclick="location.href='${ pageContext.servletContext.contextPath}/pagecount/List'" class="btn">메인페이지통계</button>
 		<button onclick="location.href='${ pageContext.servletContext.contextPath}/pagecount/notice'" class="btn">공지사항통계</button>
 		<button onclick="location.href='${ pageContext.servletContext.contextPath}/pagecount/freeboard'" class="btn">자유게시판통계</button>
 		<button onclick="location.href='${ pageContext.servletContext.contextPath}/pagecount/room'" class="btn">매물페이지통계</button>
 		</div>
+		<br><br><br>
 		<form id="form" action="${ pageContext.servletContext.contextPath }/pagecount/List" method="get">
 			<input id="chartName1" type="hidden" name="pageCountList1" value="${ requestScope.pageCountList15.category.name }">
 			<input id="chartViewNo1" type="hidden" name="pageCountList1" value="${ requestScope.pageCountList15.pageView }">

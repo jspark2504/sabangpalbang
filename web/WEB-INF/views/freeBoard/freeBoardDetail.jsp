@@ -7,25 +7,26 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게시글</title>
+
+   <title>구해줘! 내 방</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> 
-  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="/findMyRoom/resources/css/freeBoardDetail.css">
 	<link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
-    
+
  <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<style>
 		#replytext{
 			border:1px solid rgba(0, 0, 0, 0.1);
-			border-radius:5px; 
-			padding:10px; 
-			width:750px; 
-			height:100px; 
-			position:relative; 
-			top:55px; 
+			border-radius:5px;
+			padding:10px;
+			width:750px;
+			height:100px;
+			position:relative;
+			top:55px;
 			resize:none;
 		}
 		#replytext:focus{
@@ -33,8 +34,8 @@
 			box-shadow: 0px 0px 7px rgb(255, 210, 51);
 		}
 		#btnReply{
-			position:relative;  
-			right:35px; 
+			position:relative;
+			right:35px;
 			background-color:rgba(0, 0, 0, 0.1);
 		}
 		#btnReply:hover{
@@ -72,13 +73,13 @@
 			<div id="counter">(0 / 50)</div>
 		</c:if>
 	</div>
-	
+
 	<%@ include file="reply.jsp" %>
-	
+
 <script>
 
 	listReply();
-	
+
 	$("#btnReply").click(function() {
 		var boardNo = "${requestScope.board.no}"; //게시물 번호
 		var replytext = $("#replytext").val(); //댓글 내용
@@ -95,11 +96,11 @@
 			}
 		});
 	});
-	
+
 	$(document).ready(function() {
 	    $('#replytext').on('keyup', function() {
 	        $('#counter').html("("+$(this).val().length+" / 50)");
-	 
+
 	        if($(this).val().length > 50) {
 	            $(this).val($(this).val().substring(0, 50));
 	            $('#counter').html("(50 / 50)");

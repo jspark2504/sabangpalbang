@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>서류 등록</title>
+
+   <title>구해줘! 내 방</title>
 </head>
 <link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -15,11 +16,11 @@
 	[id*=area]{
 		background:white;
 		max-width:190px;
-		height:250px; 
-		margin:45px; 
+		height:250px;
+		margin:45px;
 		padding:0px auto;
-		border:rgba(0,0,0,0.3); 
-		border-radius:5px; 
+		border:rgba(0,0,0,0.3);
+		border-radius:5px;
 		border-style:dashed;
 		text-align:center;
 		vertical-align:middle;
@@ -32,12 +33,13 @@
 		position:relative;
 		left:35px;
 	}
-	button.btn{
+	#submitBtn{
 		background:rgb(255, 210, 51);
 		position:relative;
-		right:65px;
+		right:70px;
+		bottom:20px;
 	}
-	button.btn:hover{
+	#submitBtn:hover{
 		background: rgb(81, 75, 55);
 		color: white;
 		transition-duration: 0.3s;
@@ -92,7 +94,7 @@
 					<img id="document7" width="183" height="244">
 				</div>
 			</td>
-			<td>	
+			<td>
 				<div id="area8">
 					<img id="document8" width="183" height="244">
 				</div>
@@ -123,7 +125,7 @@
 			const $area6 = document.getElementById("area6");
 			const $area7 = document.getElementById("area7");
 			const $area8 = document.getElementById("area8");
-			
+
 			$area1.onclick = function() {
 				document.getElementById("documentImg1").click();
 			}
@@ -148,12 +150,12 @@
 			$area8.onclick = function() {
 				document.getElementById("documentImg8").click();
 			}
-			
+
 			/* 이미지 파일 미리보기 */
 			function loadImg(value, num) {
 				if(value.files && value.files[0]) {
 					const reader = new FileReader();
-					
+
 					reader.onload = function(e) {
 						switch(num) {
 							case 1: document.getElementById("document1").src = e.target.result;
@@ -183,7 +185,7 @@
 			if(document.getElementsByTagName("img")) {
 				const $tds = document.getElementsByTagName("img");
 				for(var i = 0 ; i < $tds.length ; i++) {
-					
+
 					$tds[i].onmouseenter = function() {
 						this.parentNode.style.cursor = "pointer";
 					}
@@ -195,13 +197,13 @@
 			    $('input:file').change(
 			        function(){
 			            if ($(this).val()){
-			                $('#submitBtn').removeAttr('disabled'); 
+			                $('#submitBtn').removeAttr('disabled');
 			            }
 			            else {
 			                $('#submitBtn').attr('disabled',true);
 			            }
 			        });
-			});   
+			});
 		</script>
 </body>
 </html>

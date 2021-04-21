@@ -1,0 +1,14 @@
+.needLoginPage {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 140px 0 195px 0;
+}
+
+.needLoginImg {
+	width: 250px;
+}
+
+.needLoginText {
+	padding-top: 20px;
+}

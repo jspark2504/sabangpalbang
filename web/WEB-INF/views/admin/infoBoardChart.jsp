@@ -16,15 +16,20 @@
    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-	<!-- 차트에 대한 cdn 자바스크립트 -->   
+	<!-- 차트에 대한 cdn 자바스크립트 -->
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.1.0/dist/chart.min.js" defer></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.0/chart.min.js"></script>
 
 	<style>
+
+    .adminTotal {
+      margin: 60px;
+    }
 	</style>
 </head>
 <body>
    <jsp:include page="../common/header.jsp"/>
+    <div class="adminTotal">
 		<h3 align="center">관리자 통계</h3>
 		<div align="center">
 			<canvas id="myChart" style="width: 600px; height: 500px;"></canvas>
@@ -37,8 +42,8 @@
 			<input id="chartName3" type="hidden" name="categoryChart3" value="${ requestScope.categoryList3.name }">
 			<input id="chartViewNo3" type="hidden" name="categoryChart3" value="${ requestScope.categoryList3.viewNo }">
 		</form>
+    </div>
    <jsp:include page="../common/footer.jsp" />
-
 <script>
     var chartName1 = $( "#chartName1" ).val();
     var chartName2 = $( "#chartName2" ).val();
@@ -56,7 +61,7 @@ var  myChart = new Chart(cht, {
     data: {
         datasets: [{
             label: '# of 정보게시판 카테고리별 조회수 차트',
-            data: data 
+            data: data
             ,parsing: { xAxisKey: 'name', yAxisKey: 'viewNo'
             },
             backgroundColor: [ 'rgba(255, 99, 132, 0.6)', 'rgba(255, 206, 86, 0.6)', 'rgba(54, 162, 235, 0.6)'
@@ -70,7 +75,7 @@ var  myChart = new Chart(cht, {
     responsive: false,
     legend: {
     	display:true,
-    },	
+    },
    },
 });
 

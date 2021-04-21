@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>내 서류</title>
+
+   <title>구해줘! 내 방</title>
 </head>
 <link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -15,11 +16,11 @@
 	[id*=area]{
 		background:white;
 		max-width:190px;
-		height:250px; 
-		margin:45px; 
+		height:250px;
+		margin:45px;
 		padding:10px auto;
-		border:rgba(0,0,0,0.3); 
-		border-radius:5px; 
+		border:rgba(0,0,0,0.3);
+		border-radius:5px;
 		border-style:dashed;
 		text-align:center;
 		vertical-align:middle;
@@ -65,8 +66,8 @@
 	.container img {
     -webkit-transform:scale(1);
     -moz-transform:scale(1);
-    -ms-transform:scale(1); 
-    -o-transform:scale(1);  
+    -ms-transform:scale(1);
+    -o-transform:scale(1);
     transform:scale(1);
     -webkit-transition:.4s;
     -moz-transition:.4s;
@@ -77,7 +78,7 @@
 	.container img:hover {
     -webkit-transform:scale(2.7);
     -moz-transform:scale(2.7);
-    -ms-transform:scale(2.7);   
+    -ms-transform:scale(2.7);
     -o-transform:scale(2.7);
     transform:scale(2.7);
     position:relative;

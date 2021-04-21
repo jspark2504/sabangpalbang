@@ -1,0 +1,14 @@
+.error403Page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 140px 0 140px 0;
+}
+
+.error403Image {
+	width: 250px;
+}
+
+.error403Text {
+	padding-top: 20px;
+}

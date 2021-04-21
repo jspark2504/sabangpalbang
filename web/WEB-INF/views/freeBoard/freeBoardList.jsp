@@ -10,7 +10,8 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
-<title>자유게시판</title>
+
+   <title>구해줘! 내 방</title>
 <link rel="shortcut icon" href="/findMyRoom/resources/image/favicon.ico">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
@@ -62,7 +63,7 @@
 
 				<li><c:if test="${ requestScope.pageInfo.pageNo == 1 }">
 						<button disabled><</button>
-					</c:if> 
+					</c:if>
 					<c:if test="${ requestScope.pageInfo.pageNo > 1 }">
 						<button id="searchPrevPage"><</button>
 					</c:if>
@@ -79,20 +80,20 @@
 				<li>
 					<c:if test="${ requestScope.pageInfo.pageNo == requestScope.pageInfo.maxPage }">
 						<button disabled>></button>
-					</c:if> 
+					</c:if>
 					<c:if test="${ requestScope.pageInfo.pageNo < requestScope.pageInfo.maxPage }">
 						<button id="searchNextPage">></button>
 					</c:if>
 				</li>
 				<li><button id="searchMaxPage">>></button></li>
 			</c:when>
-			
+
 			<c:otherwise>
 				<li><button id="startPage"><<</button></li>
 
 				<li><c:if test="${ requestScope.pageInfo.pageNo == 1 }">
 						<button disabled><</button>
-					</c:if> 
+					</c:if>
 					<c:if test="${ requestScope.pageInfo.pageNo > 1 }">
 						<button id="prevPage"><</button>
 					</c:if>
@@ -112,7 +113,7 @@
 				</li>
 				<li><c:if test="${ requestScope.pageInfo.pageNo == requestScope.pageInfo.maxPage }">
 						<button disabled>></button>
-					</c:if> 
+					</c:if>
 					<c:if test="${ requestScope.pageInfo.pageNo < requestScope.pageInfo.maxPage }">
 						<button id="nextPage">></button>
 					</c:if>
@@ -135,20 +136,20 @@
 				<option value="title" <c:if test="${requestScope.searchCondition eq 'title' }">selected</c:if>>제목</option>
 				<option value="content" <c:if test="${requestScope.searchCondition eq 'content' }">selected</c:if>>내용</option>
 				<option value="writer" <c:if test="${requestScope.searchCondition eq 'writer' }">selected</c:if>>작성자</option>
-			</select> 
+			</select>
 			<input type="text" id="searchValue" name="searchValue" value="${requestScope.searchValue}" />
 			</c:when>
-			
+
 			<c:otherwise>
 			<select id="searchCondition" name="searchCondition">
 				<option value="title">제목</option>
 				<option value="content">내용</option>
 				<option value="writer">작성자</option>
-			</select>  
+			</select>
 			<input type="text" id="searchValue" name="searchValue" placeholder="검색어를 입력해주세요."/>
 			</c:otherwise>
 			</c:choose>
-			<span class="icon"><i class="fa fa-search"></i></span> 
+			<span class="icon"><i class="fa fa-search"></i></span>
 			<button type="submit" id="submitBtn"><i class="fa fa-search"></i></button>
 		</div>
 	</form>
@@ -157,90 +158,90 @@
 	<script>
 		const link = "${ pageContext.servletContext.contextPath }/freeboard/list";
 		const searchLink = "${ pageContext.servletContext.contextPath }/freeBoard/search";
-		
+
 		/* 원하는 페이지 클릭시 실행되는 콜백 함수 */
 		function pageButtonAction(text) {
 			location.href = link + "?currentPage=" + text;
 		}
-		
+
 		function searchPageButtonAction(text) {
 			location.href = searchLink + "?currentPage=" + text + "&searchCondition=${requestScope.searchCondition}&searchValue=${requestScope.searchValue}";
 		}
-		
+
 		if(document.getElementById("searchStartPage")){
 			const $searchStartPage = document.getElementById("searchStartPage");
 			$searchStartPage.onclick = function(){
 				location.href = searchLink + "?currentPage=1&searchCondition=${requestScope.searchCondition}&searchValue=${requestScope.searchValue}";
 			}
 		}
-		
+
 		if(document.getElementById("searchMaxPage")){
 			const $searchMaxPage = document.getElementById("searchMaxPage");
 			$searchMaxPage.onclick = function(){
 				location.href = searchLink + "?currentPage=${ requestScope.pageInfo.maxPage }&searchCondition=${requestScope.searchCondition}&searchValue=${requestScope.searchValue}";
 			}
 		}
-		
+
 		if(document.getElementById("searchPrevPage")){
 			const $searchPrevPage = document.getElementById("searchPrevPage");
 			$searchPrevPage.onclick = function(){
 				location.href = searchLink + "?currentPage=${ requestScope.pageInfo.pageNo - 1 }&searchCondition=${requestScope.searchCondition}&searchValue=${requestScope.searchValue}";
 			}
 		}
-		
+
 		if(document.getElementById("searchNextPage")){
 			const $searchNextPage = document.getElementById("searchNextPage");
 			$searchNextPage.onclick = function(){
 				location.href = searchLink + "?currentPage=${ requestScope.pageInfo.pageNo + 1 }&searchCondition=${requestScope.searchCondition}&searchValue=${requestScope.searchValue}";
 			}
 		}
-		
+
 		if(document.getElementById("startPage")){
 			const $startPage = document.getElementById("startPage");
 			$startPage.onclick = function(){
 				location.href = link + "?currentPage=1";
 			}
 		}
-		
+
 		if(document.getElementById("maxPage")){
 			const $maxPage = document.getElementById("maxPage");
 			$maxPage.onclick = function(){
 				location.href = link + "?currentPage=${ requestScope.pageInfo.maxPage }";
 			}
 		}
-		
+
 		if(document.getElementById("prevPage")){
 			const $prevPage = document.getElementById("prevPage");
 			$prevPage.onclick = function(){
 				location.href = link + "?currentPage=${ requestScope.pageInfo.pageNo - 1 }";
 			}
 		}
-		
+
 		if(document.getElementById("nextPage")){
 			const $nextPage = document.getElementById("nextPage");
 			$nextPage.onclick = function(){
 				location.href = link + "?currentPage=${ requestScope.pageInfo.pageNo + 1 }";
 			}
 		}
-		
+
 		/* 게시글 관련 css 및 이벤트 처리(마우스 호버 및 클릭) */
 		if(document.getElementsByTagName("td")) {
 			const $tds = document.getElementsByTagName("td");
 			for(var i = 0 ; i < $tds.length ; i++) {
-				
+
 				$tds[i].onmouseenter = function() {
 					this.parentNode.style.cursor = "pointer";
 				}
-				
+
 				$tds[i].onclick = function() {
 					const no = this.parentNode.children[0].innerText;
 					location.href = "${pageContext.servletContext.contextPath}/freeBoard/detail?no=" + no;
-					/* 게시물 번호까지 알아 냈으니 게시물 상세보기는 공지사항 상세보기를 참조하여 작성 */ 
+					/* 게시물 번호까지 알아 냈으니 게시물 상세보기는 공지사항 상세보기를 참조하여 작성 */
 				}
 			}
-		} 
-		
-		
+		}
+
+
 	</script>
 <jsp:include page="../common/footer.jsp" />
 </body>

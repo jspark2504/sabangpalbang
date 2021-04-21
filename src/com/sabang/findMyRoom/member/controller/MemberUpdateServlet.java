@@ -16,14 +16,13 @@ public class MemberUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String path = "/WEB-INF/views/member/updateMemberForm.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
-	
+		
 	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		/* 세션에서 정보 가져오기 (입력하지 않은 값도 가져옴) object라서 dto로 다운케스팅 -> get으로 로그인한 사용자 정보 가져오기 */
 		int memberNo = ((MemberDTO)request.getSession().getAttribute("loginMember")).getNo();
 		
 		String userId = request.getParameter("userId");

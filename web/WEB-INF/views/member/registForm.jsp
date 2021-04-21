@@ -93,7 +93,8 @@
            }
 
            .container {
-               margin-top: 20px;
+               margin-top: 25px;
+               margin-bottom: 30px;
            }
        </style>
 </head>
@@ -151,10 +152,12 @@
 
     </section> <!-- /container -->
 
+    <jsp:include page="../common/footer.jsp"/>
+
 	<!-- 자바스크립트 -->
 	<script src="/findMyRoom/resources/js/signup.js"></script>
+	<script src="/findMyRoom/resources/js/sticky.js"></script>
 
-    <jsp:include page="../common/footer.jsp"/>
 </body>
 
 </html>
